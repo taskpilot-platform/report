@@ -71,17 +71,15 @@ tự xây dựng một giải pháp cache riêng cho Github Actions,
 `KevinNitroG/nx-cache-action` @nx_cache_action. Script hoạt động theo cơ chế
 cache từng project thay vì toàn bộ cache lớn của cả workspace.
 
-Script được lấy cảm hứng từ `raegen/nx` #footnote[https://github.com/raegen/nx,
-  không hỗ trợ chính thức bởi Nx, đã bị deprecated], cache tại project level.
-Nhưng cơ chế hoạt động khác biệt:
+Script được lấy cảm hứng từ `raegen/nx` @raegen_nx #footnote[`raegen/nx` không
+  được hỗ trợ chính thức bởi Nx, đã deprecated], cache tại project level. Nhưng
+cơ chế hoạt động khác biệt:
 + Script sẽ khởi động một NodeJS ExpressJS server implement OpenAPI Spec
-  #footnote[https://nx.dev/docs/guides/tasks--caching/self-hosted-caching#open-api-specification]
-  chính thức từ Nx.
+  @nx_remote_cache_openapi_spec chính thức từ Nx.
 + Forward lệnh Nx cho 1 child process, kèm theo thiết lập để Nx gửi request
   cache đến server.
 + Server nhận request cache, xử lý giao tiếp với Github Actions cache API thông
-  qua `actions/toolkit/cache`
-  #footnote[https://github.com/actions/toolkit/tree/main/packages/cache].
+  qua `actions/toolkit/cache` @actions_toolkit_cache.
 
 Vì Nx sẽ lưu cache từng task ước chừng khoảng một tháng kể từ lần cuối sử dụng
 mới được xoá. Đối với dự án khi không sử dụng `KevinNitroG/nx-cache-action`,
@@ -279,14 +277,13 @@ hỏi sự nỗ lực và kiên trì từ nhóm phát triển để vượt qua 
 - Quá trình thiết lập monorepo, đặc biệt đối với TypeScript/JavaScript rất phức
   tạp, tốn nhiều thời gian để cấu hình cho đúng.
 - RustFS là một công nghệ mới, chưa stable, còn gặp nhiều vấn đề. Trong đó, có
-  vấn đề `rustfs/rustfs/issues/2587`
-  #footnote[https://github.com/rustfs/rustfs/issues/2587 do thành viên nhóm phát
-    hiện].
+  vấn đề `rustfs/rustfs/issues/2587` - set server domains make RustFS cannot
+  start @rustfs_server_domains_issue #footnote[`rustfs/rustfs/issues/2587` do
+    thành viên nhóm phát hiện].
 - Việc xây dựng cây thư mục lúc đầu khá khó khăn do một số vấn đề về việc không
   tương thích với các components có sẵn của Shadcn, nhưng sau đó đã tìm ra được
-  giải pháp từ `shadcn-ui/ui/issues/355`
-  #footnote[https://github.com/shadcn-ui/ui/issues/355], nhưng vẫn phải dành
-  thời gian để chỉnh sửa lại vì vẫn xảy ra một số lỗi.
+  giải pháp từ `shadcn-ui/ui/issues/355` @shadcnui_file_tree_component, nhưng
+  vẫn phải dành thời gian để chỉnh sửa lại vì vẫn xảy ra một số lỗi.
 
 === Ưu điểm
 

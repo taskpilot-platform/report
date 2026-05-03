@@ -23,18 +23,12 @@ return {
   },
   {
     "KevinNitroG/vi-spell.vim",
-    event = {
-      "VeryLazy",
-      "BufReadPre",
-    },
-    opts = {
-      toggle = {
-        filetypes = {
-          "markdown",
-          "text",
-          "typst",
-        },
-      },
-    },
+    lazy = false,
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "typst",
+        command = "setlocal spell spelllang=vi,en spellfile+=./src/assets/spell/vi.utf-8.add",
+      })
+    end,
   },
 }

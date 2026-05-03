@@ -34,8 +34,8 @@ Bên cạnh các ưu điểm, Go có một số hạn chế:
 - Error handling dài dòng, pattern `if err != nil` xuất hiện lặp đi lặp lại làm
   code phồng phức
 - Thiếu Generics trước Go 1.18, giới hạn khả năng tái sử dụng code, không
-  support generic method. #footnote[Generic proposal đã được phê duyệt theo
-    https://www.reddit.com/r/golang/comments/1rfmjbq/the_proposal_for_generic_methods_for_go_from/]
+  support generic method. #footnote[Generic proposal đã được phê duyệt, theo
+    @reddit_proposal_generic_methods_go]
 - Không có inheritance, chỉ hỗ trợ composition mà không hỗ trợ OOP truyền thống
 - Learning curve với các khái niệm như interfaces và goroutines cần thời gian để
   hiểu rõ

@@ -2,10 +2,10 @@
 
 === Giới thiệu
 
-RustFS là một hệ thống lưu trữ object storage được viết hoàn toàn bằng Rust,
-tương thích với API của Amazon S3. RustFS được phát triển như một giải pháp thay
-thế hiệu suất cao hơn cho MinIO _(đã ngừng phát triển)_, đặc biệt là trong các
-trường hợp cần throughput lớn và latency thấp.
+RustFS @rustfs là một hệ thống lưu trữ object storage được viết hoàn toàn bằng
+Rust, tương thích với API của Amazon S3. RustFS được phát triển như một giải
+pháp thay thế hiệu suất cao hơn cho MinIO _(đã ngừng phát triển)_, đặc biệt là
+trong các trường hợp cần throughput lớn và latency thấp.
 
 Rust được chọn vì hiệu suất và an toàn bộ nhớ, giúp RustFS cung cấp một cơ sở hạ
 tầng lưu trữ đáng tin cậy với resource overhead tối thiểu.

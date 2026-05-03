@@ -4,9 +4,8 @@ BlockNote bao gồm nhiều schema nhiều schema, có thể xem tại
 @general-for-blocknote. Tuy nhiên, để có thể liên kết các ghi chú với nhau, cũng
 như hỗ trợ liên kết thông qua tag, hệ thống cần tuỳ chỉnh thêm hai config schema
 cho BlockNote, là `reference` và `tag`. Tham khảo từ tài liệu schema tuỳ chỉnh
-của BlockNote
-#footnote[https://www.blocknotejs.org/docs/features/custom-schemas], hai config
-này sẽ được định nghĩa như sau.
+của BlockNote @blocknote_custom_schemas_docs, hai config này sẽ được định nghĩa
+như sau.
 
 === Mô hình BlockNote Reference tuỳ chỉnh
 

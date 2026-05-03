@@ -27,8 +27,7 @@ Watermill được sử dụng trong dự án:
 === OpenTelemetry Integration
 
 Watermill hỗ trợ OpenTelemetry _(@general-for-observability)_ integration thông
-qua `nkonev/watermill-opentelemetry`
-#footnote[https://github.com/nkonev/watermill-opentelemetry], cho phép trace
+qua `nkonev/watermill-opentelemetry` @watermill_opentelemetry, cho phép trace
 event processing workflow. Điều này cung cấp observability cho event-driven
 systems.
 

@@ -26,7 +26,6 @@ TypeScript mang lại nhiều lợi ích khi phát triển ứng dụng JavaScri
 - Documentation, types tự động document code giúp developer khác hiểu code dễ
   dàng hơn
 - JavaScript Compatibility, có thể sử dụng mọi thư viện JavaScript hiện có
-- Modern Features, hỗ trợ ES6+ features trước khi JavaScript chính thức hỗ trợ
 
 === Nhược điểm
 
@@ -45,6 +44,7 @@ implementation của TypeScript được viết hoàn toàn bằng Go, thay vì 
 hiện tại được viết bằng TypeScript. Dự án này hướng tới việc cải thiện hiệu
 suất.
 
-Dự án được thiết lập với monorepo, các package được chia build riêng biệt `(SWC,
-Rspack, tsgo, vite)` để tăng tốc thời gian build, CI, ngoại trừ web vì sử dụng
-NextJS.
+Dự án được thiết lập với monorepo, các package được chia build riêng biệt
+(`SWC`, `Rspack`, `tsgo`, `vite`) để tăng tốc thời gian build, Oxlint thay cho
+ESLint, Oxfmt thay cho Prettier để tăng tốc độ linting và formatting, CI, ngoại
+trừ web vì sử dụng NextJS.

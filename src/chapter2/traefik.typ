@@ -17,10 +17,9 @@ non-containerized.
   caption: [Traefik Logo],
 )
 
-Dự án sử dụng `traefik-plugins/traefik-jwt-plugin`
-#footnote[https://github.com/traefik-plugins/traefik-jwt-plugin] để xác minh
-request đến các API endpoint, thông tin được chuyển đổi sang request headers
-giúp cho các service không cần phải thực hiện quá trình xác minh riêng.
+Dự án sử dụng `traefik-plugins/traefik-jwt-plugin` @traefik_jwt_plugin để xác
+minh request đến các API endpoint, thông tin được chuyển đổi sang request
+headers giúp cho các service không cần phải thực hiện quá trình xác minh riêng.
 
 === Ưu điểm
 

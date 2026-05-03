@@ -34,9 +34,6 @@ Bên cạnh các ưu điểm, Redpanda có một số hạn chế:
 - Learning Curve, cần hiểu event-driven architecture và Kafka concepts
 - Operational Knowledge, cần kiến thức vận hành hệ thống distributed messaging
 - Community Size, cộng đồng nhỏ hơn Kafka, ít tài liệu nâng cao có sẵn
-- `postgres_cdc`
-  #footnote[https://docs.redpanda.com/redpanda-connect/components/inputs/postgres_cdc/]
-  của Redpanda Connect yêu cầu phiên bản trả phí, có thể sử dụng Debezium, hoặc
-  sử dụng `sql_select`
-  #footnote[https://docs.redpanda.com/redpanda-connect/components/inputs/sql_select/]
-  của Redpanda Connect
+- `postgres_cdc` @redpanda_connect_postgres_cdc của Redpanda Connect yêu cầu
+  phiên bản trả phí, có thể sử dụng Debezium, hoặc sử dụng `sql_select`
+  @redpanda_connect_sql_select của Redpanda Connect
