@@ -13,6 +13,11 @@ cách xử lý nội dung dạng HTML tự do của các editor thông thường
 lại khả năng kiểm soát chính xác nội dung và hỗ trợ các tính năng nâng cao như
 collaborative editing, schema validation và transform recording.
 
+#figure(
+  image("../assets/images/prosemirror-logo.svg", height: 80pt),
+  caption: [ProseMirror Logo],
+)
+
 === Kiến trúc
 
 ProseMirror được tổ chức thành bốn thư viện cốt lõi, mỗi thư viện đảm nhận một
@@ -89,8 +94,10 @@ thông qua gói `y-prosemirror`. Cụ thể:
 
 - Yjs quản lý trạng thái cộng tác thông qua shared types _(@general-for-yjs)_,
   đảm bảo dữ liệu hội tụ giữa các client mà không cần authority tập trung
+
 - ProseMirror cung cấp document model có cấu trúc và cơ chế transform, phù hợp
   để ánh xạ từ Y.XmlFragment hoặc Y.Text thành tài liệu editor
+
 - `y-prosemirror` kết nối hai hệ thống này, biến ProseMirror editor thành một
   collaborative editor hoàn chỉnh
 

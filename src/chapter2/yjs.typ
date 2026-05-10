@@ -8,6 +8,11 @@ CRDT cho phép các thay đổi từ nhiều người dùng được tự độn
 cần xung đột, làm cho Yjs trở thành lựa chọn lý tưởng cho các ứng dụng
 collaborative.
 
+#figure(
+  image("../assets/images/yjs-logo.svg", height: 80pt),
+  caption: [Yjs Logo],
+)
+
 Yjs được sử dụng trong BlockNote _(@general-for-blocknote)_ và nhiều editor khác
 để cung cấp khả năng collaborative editing.
 

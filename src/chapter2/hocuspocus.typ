@@ -58,45 +58,20 @@ của server thông qua các hook vòng đời:
 - *Lifecycle Hooks*: các sự kiện cho phép can thiệp vào vòng đời kết nối:
   `onConnect`, `onLoadDocument`, `onChange`, `onStoreDocument`, `onDisconnect`
 
-#figure(
-  table(
-    columns: (auto, auto, auto),
-    align: (left, left, left),
-    table.header([*Hook*], [*Thời điểm*], [*Mục đích*]),
-    [`onConnect`], [Khi client kết nối], [Xác thực, kiểm tra quyền],
-    [`onLoadDocument`],
-    [Khi tải tài liệu từ persistence],
-    [Khởi tạo dữ liệu ban đầu],
-
-    [`onChange`], [Khi tài liệu thay đổi], [Ghi log, kiểm duyệt nội dung],
-    [`onStoreDocument`],
-    [Khi lưu tài liệu xuống persistence],
-    [Đồng bộ dữ liệu với các hệ thống khác],
-
-    [`onDisconnect`], [Khi client ngắt kết nối], [Dọn dẹp, ghi log],
-  ),
-  caption: [Các lifecycle hooks của Hocuspocus],
-)
-
 === Tính năng nổi bật
 
 Hocuspocus cung cấp nhiều tính năng quan trọng cho một collaboration server:
 
 - *Real-time đồng bộ*: sử dụng WebSocket để truyền tải Yjs updates giữa các
   client với độ trễ thấp
-
 - *Persistence tự động*: lưu trữ tài liệu tự động, khôi phục khi server khởi
   động lại hoặc có client mới kết nối
-
 - *Horizontal scaling*: sử dụng Redis extension để đồng bộ tài liệu giữa nhiều
   instance server, cho phép mở rộng theo số lượng người dùng
-
 - *Awareness*: quản lý trạng thái trực tuyến của người dùng, thông qua cơ chế
   awareness CRDT của Yjs
-
 - *Direct Connection API*: cho phép thao tác trực tiếp với Y.Doc thông qua REST
   API, hỗ trợ các tình huống như ghi nội dung từ server hoặc chạy batch jobs
-
 - *Stateless Messages*: gửi các thông điệp tùy chỉnh giữa các client qua server,
   không lưu trữ trong Y.Doc
 
@@ -106,11 +81,8 @@ Trong dự án này, Hocuspocus được sử dụng làm provider chính cho Yj
 _(@general-for-yjs)_, với các lý do sau:
 
 - Tích hợp sâu với Tiptap và BlockNote, vì cả ba đều thuộc cùng hệ sinh thái
-
 - Hệ thống extension cho phép tùy chỉnh persistence, authentication và các hook
   xử lý theo nhu cầu dự án
-
 - Khả năng mở rộng ngang thông qua Redis, phù hợp khi số lượng người dùng đồng
   thời tăng cao
-
 - Mã nguồn mở, có thể tự triển khai hoặc sử dụng phiên bản đám mây

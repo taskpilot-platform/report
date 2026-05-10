@@ -11,6 +11,11 @@ ProseMirror là một toolkit cấp thấp cung cấp các công cụ nền tả
 một framework hoàn chỉnh với API thân thiện, kiến trúc extension linh hoạt và
 khả năng tích hợp sẵn với nhiều UI framework.
 
+#figure(
+  image("../assets/images/tiptap-logo.svg", height: 60pt),
+  caption: [Tiptap Logo],
+)
+
 === Kiến trúc
 
 Tiptap được thiết kế theo ba trụ cột chính:
@@ -30,9 +35,9 @@ Tiptap được thiết kế theo ba trụ cột chính:
 
 #figure(
   table(
-    columns: (auto, auto, auto),
+    columns: (auto, 2fr, 3.5fr),
     align: (left, left, left),
-    table.header([*Trụ cột*], [*Mô tả*], [*Ví dụ*]),
+    table.header([*Kiến trúc*], [*Mô tả*], [*Ví dụ*]),
     [Extensions],
     [Đơn vị chức năng, định nghĩa node, mark, tính năng],
     [`StarterKit`, `Collaboration`, `Placeholder`],
