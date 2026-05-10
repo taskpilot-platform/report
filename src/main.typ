@@ -30,6 +30,7 @@
   },
 )
 #show table.cell.where(y: 0): set text(white)
+#show table: set par(justify: false)
 
 #set par(justify: true)
 
