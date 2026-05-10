@@ -24,6 +24,15 @@
 #include "yjs.typ"
 #pagebreak()
 
+#include "prosemirror.typ"
+#pagebreak()
+
+#include "tiptap.typ"
+#pagebreak()
+
+#include "hocuspocus.typ"
+#pagebreak()
+
 #include "blocknote.typ"
 #pagebreak()
 
