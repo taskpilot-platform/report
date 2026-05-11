@@ -202,6 +202,11 @@ kế cấu trúc dữ liệu phù hợp và quản lý bộ nhớ hiệu quả t
   caption: [So sánh giữa Operational Transformation và CRDT],
 )
 
+Có thể tham khảo thêm video "CRDTs: The Hard Parts" của Martin Kleppmann
+@crdts_the_hard_parts và "How Collaborative Text Editors Don't Break" của
+PawelCodeStuff @pawel_code_stuff_how_collaborative_text_editors_dont_break để có
+cái nhìn sâu hơn về các khía cạnh kỹ thuật và thực tiễn của hai phương pháp này.
+
 === Ứng dụng trong thực tế
 
 Trong thực tế, các sản phẩm lớn đưa ra những lựa chọn khác nhau dựa trên yêu cầu
