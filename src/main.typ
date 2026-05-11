@@ -90,17 +90,21 @@
 )
 #counter(page).update(1)
 
+#show link: set text(fill: blue.darken(30%))
+
 #show raw: set text(size: 9pt)
 
-#show raw.where(block: true): it => block(
-  stroke: 0.5pt + black,
-  inset: 10pt,
-  radius: 4pt,
-  width: 100%,
-  align(left, it),
-)
+#import "@preview/codly:1.3.0": *
+#show: codly-init.with()
+#codly(zebra-fill: none)
 
-#show link: set text(fill: blue.darken(30%))
+// #show raw.where(block: true): it => block(
+//   stroke: 0.5pt + black,
+//   inset: 10pt,
+//   radius: 4pt,
+//   width: 100%,
+//   align(left, it),
+// )
 
 #include "summary.typ"
 #pagebreak()

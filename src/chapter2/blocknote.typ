@@ -1,3 +1,6 @@
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+
 == Tổng quan về BlockNote <general-for-blocknote>
 
 === Giới thiệu
@@ -34,6 +37,8 @@ Dưới đây là ví dụ về cấu trúc dữ liệu của một block trong 
 
 #figure(
   [
+    #codly(languages: codly-languages)
+    #show raw: set text(size: 7.5pt)
     ```json
     [
       {
