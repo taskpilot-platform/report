@@ -63,7 +63,7 @@ thực, và cân bằng tải để đảm bảo hiệu suất và bảo mật c
 
 Hệ thống sử dụng Traefik _(@general-for-traefik)_ làm API Gateway, với đặc điểm
 gọn nhẹ và dễ cấu hình, tương thích tốt với docker compose. Sử dụng
-`traefik-plugins/traefik-jwt-plugin` @traefik_jwt_plugin để xử lý xác thực JWT,
+`agilezebra/jwt-middleware` @agilezebra_jwt_middleware để xử lý xác thực JWT,
 chuyển hoá OIDC claim thành header HTTP, giúp các service phía sau có thể dễ
 dàng xác định người dùng, không cần phải tích hợp trực tiếp với Identity
 Provider.
