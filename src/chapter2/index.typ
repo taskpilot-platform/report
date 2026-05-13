@@ -21,6 +21,9 @@
 #include "database.typ"
 #pagebreak()
 
+#include "collorative-solution.typ"
+#pagebreak()
+
 #include "yjs.typ"
 #pagebreak()
 
