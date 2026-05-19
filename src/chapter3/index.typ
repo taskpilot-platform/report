@@ -26,3 +26,5 @@
 #include "blocknote.typ"
 
 #include "casbin.typ"
+
+#include "health.typ"
