@@ -2,7 +2,7 @@
   image-src,
   caption,
 ) = figure(
-  image(image-src, height: 40%),
+  image(image-src),
   caption: caption,
 )
 
@@ -30,7 +30,7 @@
   let columns = cols.pos()
 
   table(
-    columns: (3em, 1fr, 1fr, 4fr),
+    columns: (auto, auto, auto, auto),
     align: (center, left, left, left),
     stroke: 0.5pt,
 
