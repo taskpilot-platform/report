@@ -195,7 +195,7 @@
       [Menu hành động không gian làm việc],
       [Dropdown Menu],
       [`DropdownMenu` ba chấm với các tùy chọn "Edit Details" và (không phải chủ
-        sở hữu ) "Leave Workspace".],
+        sở hữu) "Leave Workspace".],
     ),
     column(
       [Form chỉnh sửa nội tuyến],
@@ -252,7 +252,7 @@
     column(
       [Nút kích hoạt Sidebar],
       [Icon Button],
-      [Nút menu hamburger (`SidebarTrigger` ) để chuyển đổi thu gọn sidebar.],
+      [Nút menu hamburger (`SidebarTrigger`) để chuyển đổi thu gọn sidebar.],
     ),
     column(
       [Chuyển đổi giao diện],
@@ -467,7 +467,7 @@
     column(
       [Thành phần đồ thị],
       [Visualization],
-      [Đồ thị dạng lực (force-directed ) dựa trên D3 hiển thị các nút và liên
+      [Đồ thị dạng lực (force-directed) dựa trên D3 hiển thị các nút và liên
         kết không gian làm việc. Toàn màn hình (`h-screen w-full`).],
     ),
     column(
@@ -496,18 +496,18 @@
     column(
       [Tiêu đề cài đặt],
       [Text + Buttons],
-      [Tiêu đề "Graph Settings (Global )" với các nút thu gọn và đóng.],
+      [Tiêu đề "Graph Settings (Global)" với các nút thu gọn và đóng.],
     ),
     column(
       [Phần cấu hình lực],
       [Section],
-      [Thanh trượt cho Repel Force (0-1 ), Center Force (0-1), Link Distance
+      [Thanh trượt cho Repel Force (0-1), Center Force (0-1), Link Distance
         (10-100).],
     ),
     column(
       [Phần cấu hình hiển thị],
       [Section],
-      [Thanh trượt cho Scale (0.5-2 ), Font Size (0.3-1), Opacity Scale (0-2).],
+      [Thanh trượt cho Scale (0.5-2), Font Size (0.3-1), Opacity Scale (0-2).],
     ),
     column(
       [Phần tương tác],
@@ -537,7 +537,7 @@
     column(
       [Dialog cài đặt đồ thị],
       [Overlay Panel],
-      [Bảng cài đặt góc trên bên phải với tiêu đề "Graph Settings (Local )". Bao
+      [Bảng cài đặt góc trên bên phải với tiêu đề "Graph Settings (Local)". Bao
         gồm thanh trượt Depth.],
     ),
     column(
@@ -669,7 +669,7 @@
     column(
       [Ô tên mục],
       [Cell],
-      [Hiển thị biểu tượng mục (Folder/FileText ) + tên văn bản.],
+      [Hiển thị biểu tượng mục (Folder/FileText) + tên văn bản.],
     ),
     column(
       [Ô loại],
@@ -954,14 +954,13 @@
     column(
       [Sidebar danh sách phiên bản],
       [Scrollable List],
-      [Sidebar bên trái (w-72 ) liệt kê tất cả phiên bản với thời gian tương đối
+      [Sidebar bên trái (w-72) liệt kê tất cả phiên bản với thời gian tương đối
         và tên.],
     ),
     column(
       [Mục phiên bản],
       [Button],
-      [Mục phiên bản có thể nhấp với khoảng cách thời gian (ví dụ: "2 days ago"
-        ) và tên. Mục đang hoạt động có đánh dấu viền trái.],
+      [Mục phiên bản có thể nhấp với khoảng cách thời gian (ví dụ: "2 days ago") và tên. Mục đang hoạt động có đánh dấu viền trái.],
     ),
     column(
       [Bảng xem trước phiên bản],
@@ -1084,7 +1083,7 @@
     column(
       [Tiêu đề bảng],
       [Header],
-      [Tiêu đề "Graph Settings (Local )" hoặc "(Global)" với các nút biểu tượng
+      [Tiêu đề "Graph Settings (Local)" hoặc "(Global)" với các nút biểu tượng
         thu gọn/đóng.],
     ),
     column(
@@ -1095,7 +1094,7 @@
     column(
       [Phần cấu hình hiển thị],
       [Section],
-      [Điều khiển thanh trượt cho Depth (chỉ local ), Scale, Font Size, Opacity
+      [Điều khiển thanh trượt cho Depth (chỉ local), Scale, Font Size, Opacity
         Scale.],
     ),
     column(
