@@ -141,7 +141,7 @@
 == Màn hình chọn không gian làm việc `/workspace`
 
 #ui-figure(
-  "../assets/ui/workspace-page.png",
+  "../assets/ui/workspace-switcher-page.png",
   [Giao diện màn hình chọn không gian làm việc],
 )
 
@@ -184,7 +184,7 @@
       [Tên không gian làm việc],
       [Text (span)],
       [Tên hiển thị của không gian làm việc với `Badge` vai trò
-        (Owner/Editor/Viewer ).],
+        (Owner/Editor/Viewer).],
     ),
     column(
       [Slug không gian làm việc],
@@ -229,10 +229,10 @@
   caption: [Bảng mô tả thành phần giao diện màn hình chọn không gian làm việc],
 )
 
-== Bố cục không gian làm việc `/workspace/[workspaceId]/layout`
+== Màn hình tổng quan không gian làm việc `/workspace/[workspaceId]`
 
 #ui-figure(
-  "../assets/ui/workspace-switcher-page.png",
+  "../assets/ui/workspace-page.png",
   [Giao diện bố cục không gian làm việc],
 )
 
@@ -293,7 +293,7 @@
       [Nhóm dự án],
       [Sidebar Group],
       [Nhóm điều hướng với liên kết "Settings" và "Graph", mỗi liên kết có menu
-        hành động ngữ cảnh (View/Share/Delete ).],
+        hành động ngữ cảnh (View/Share/Delete).],
     ),
     column(
       [Nút thành viên],
@@ -319,13 +319,6 @@
     ),
   ),
   caption: [Bảng mô tả thành phần con của Sidebar không gian làm việc],
-)
-
-== Màn hình tổng quan không gian làm việc `/workspace/[workspaceId]`
-
-#ui-figure(
-  "../assets/ui/workspace-switcher-page.png",
-  [Giao diện màn hình tổng quan không gian làm việc],
 )
 
 #ui-table-figure(
@@ -686,7 +679,7 @@
     column(
       [Ô ngày xóa],
       [Cell],
-      [Ngày xóa đã định dạng (ví dụ: "Jan 15, 2024, 3:45 PM" ).],
+      [Ngày xóa đã định dạng (ví dụ: "Jan 15, 2024, 3:45 PM").],
     ),
     column(
       [Menu hành động hàng],
@@ -698,7 +691,7 @@
       [Trạng thái rỗng],
       [State],
       [Hiển thị khi không có mục nào trong thùng rác (thông báo được xử lý bởi
-        số hàng của bảng ).],
+        số hàng của bảng).],
     ),
     column(
       [Trạng thái tải],
