@@ -19,73 +19,93 @@
     column(
       [Thanh điều hướng],
       [Header/Nav],
-      [Thanh điều hướng phía trên cố định trên toàn bộ layout marketing. Chứa
-        logo, menu và các nút hành động.],
+      [Thanh điều hướng phía trên trong toàn bộ layout marketing. Chứa logo,
+        menu và nút GitHub.],
     ),
     column(
-      [Logo thanh điều hướng],
-      [Link/Logo],
-      [Thương hiệu "Notopia" với SVG `Icons.Logo`, liên kết đến `/`. Ẩn trên
-        thiết bị di động.],
+      [Logo ứng dụng],
+      [Link/Text],
+      [Chữ "Notopia" liên kết đến `/`, với nút `Icons.Github` ở bên phải.],
     ),
     column(
-      [Menu thanh điều hướng],
+      [Menu điều hướng],
       [Navigation Menu],
-      [`NavigationMenu` từ Shadcn với các mục kích hoạt: Features, Pricing,
-        Resources.],
+      [`NavigationMenu` từ Shadcn với các mục: Features, Pricing, Resources.
+        Mỗi mục là `NavigationMenuTrigger`.],
     ),
     column(
-      [Nhóm nút điều hướng],
-      [Button Group],
-      [Vùng chứa các liên kết biểu tượng GitHub và Facebook `Button` (kiểu
-        outline).],
+      [Nút Icon GitHub],
+      [Icon Button],
+      [`Button` kiểu outline với SVG `Icons.Github`, đặt ở bên phải thanh điều
+        hướng.],
     ),
     column(
       [Phần Hero],
       [Section],
-      [Vùng nội dung Hero chính với tiêu đề, phụ đề và các nút CTA.],
+      [Bố cục Hero hai cột: cột trái chứa văn bản/CTA và cột phải chứa đồ thị
+        tri thức trực quan.],
     ),
     column(
       [Tiêu đề Hero],
       [Text (h1)],
-      [Tiêu đề lớn "An example app built using Next.js 13 server components.".],
+      ["Connect every idea" — tiêu đề lớn in đậm.],
     ),
     column(
       [Mô tả Hero],
       [Text (p)],
-      [Phụ đề mô tả ứng dụng web mã nguồn mở được xây dựng bằng Next.js.],
+      ["Turn scattered notes into a shared universe..." — giải thích giá trị
+        của Notopia.],
+    ),
+    column(
+      [Ô nhập liên hệ],
+      [Input],
+      [Ô nhập dạng pill bo tròn với biểu tượng `CircleDashed` và `Inbox`,
+        placeholder "Contact us".],
     ),
     column(
       [Nút Bắt đầu],
-      [Link/Button],
-      [CTA chính — được tạo kiểu như nút bấm liên kết đến `/workspace`.],
+      [Button/Link],
+      [CTA chính "Get Started" liên kết đến `/workspace`.],
     ),
     column(
-      [Nút GitHub],
-      [Link/Button],
-      [CTA phụ — nút kiểu outline liên kết đến kho GitHub.],
+      [Nút Tìm hiểu thêm],
+      [Button/Link],
+      [CTA phụ "Learn More" liên kết đến `#features`.],
+    ),
+    column(
+      [Thẻ trực quan hóa tri thức],
+      [Card],
+      [Thẻ gradient bên phải với tiêu đề "Visualize Your Knowledge" và các ô
+        tính năng.],
+    ),
+    column(
+      [Lưới ô tính năng],
+      [2×2 Card Grid],
+      [Lưới 4 thẻ tính năng: Real-time / Instant Sync, Collaborative / Team
+        Workflow, Intelligent / Knowledge Graph, Secure / Privacy First.],
     ),
     column(
       [Chân trang],
       [Footer],
-      [Chân trang phía dưới hiển thị thông tin thương hiệu, liên kết và nút
-        chuyển đổi giao diện.],
+      [Chân trang dưới cùng với thương hiệu, mô tả, liên kết và chuyển đổi giao
+        diện.],
     ),
     column(
       [Thông tin thương hiệu],
       [Text],
-      [Tên "Note Land" với mô tả "An open-source Note for user.".],
+      [Tên "Notopia" với mô tả "An open-source collaborative knowledge
+        graph.".],
     ),
     column(
       [Liên kết chân trang],
       [Text Group],
-      [Các liên kết nội tuyến được phân cách bằng `Separator`: Blog, Docs,
-        Source.],
+      [Các liên kết nội tuyến được phân cách bởi `Separator`: Blog, Docs,
+        Source. Mỗi `span` có hiệu ứng chuyển đổi khi hover.],
     ),
     column(
       [Chuyển đổi giao diện],
       [Dropdown Button],
-      [Công cụ chuyển đổi chủ đề (Sáng/Tối/Hệ thống) sử dụng thành phần
+      [Bộ chuyển đổi chủ đề (Sáng/Tối/Hệ thống) sử dụng thành phần
         `ModeToggle`.],
     ),
   ),
