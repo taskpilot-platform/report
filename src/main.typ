@@ -32,16 +32,20 @@
 #show table.cell.where(y: 0): set text(white)
 #show table: set par(justify: false)
 
-#set par(justify: true)
+
+#set par(
+  justify: true,
+)
 
 #set heading(numbering: "1.1.1.")
 
 #show heading.where(level: 1): set heading(supplement: [Chương])
 
 #show heading.where(level: 1): it => context {
+  pagebreak()
   if it.numbering != none {
     let nums = counter(heading).get()
-    align(center, upper([#it.supplement #nums.at(0). #it.body]))
+    align(center, [#it.supplement #nums.at(0). #upper(it.body)])
   } else {
     align(center, upper(it.body))
   }
@@ -55,28 +59,28 @@
   }
 }
 
+#set figure(
+  numbering: (..num) => {
+    numbering("1.1", counter(heading).get().first(), num.pos().first())
+  },
+)
 #show figure.caption: emph
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
+#show figure.where(kind: table): set figure.caption(position: top)
 
 #set par(first-line-indent: (amount: 1em, all: false))
 
 #include "./coverpage.typ"
-#pagebreak()
 
 #include "./thanks.typ"
-#pagebreak()
 
 #outline(title: "Mục lục", depth: 3)
-#pagebreak()
 
 #outline(title: "Danh mục hình ảnh", target: figure.where(kind: image))
-#pagebreak()
 
 #outline(title: "Danh mục bảng biểu", target: figure.where(kind: table))
-#pagebreak()
 
 #outline(title: "Danh mục bảng chương trình", target: figure.where(kind: raw))
-#pagebreak()
 
 #set page(
   numbering: "1",
@@ -106,26 +110,19 @@
 //   align(left, it),
 // )
 
+#include "./glossaries.typ"
+
 #include "summary.typ"
-#pagebreak()
 
 #include "./chapter1/index.typ"
-#pagebreak()
 
 #include "./chapter2/index.typ"
-#pagebreak()
 
 #include "./chapter3/index.typ"
-#pagebreak()
 
 #include "./chapter4/index.typ"
-#pagebreak()
 
 #include "./chapter5/index.typ"
-#pagebreak()
 
-#include "./glossaries.typ"
-#pagebreak()
-
-#show bibliography: set heading(numbering: "1.")
+// #show bibliography: set heading(numbering: none)
 #bibliography("./ref.bib", title: "Tài liệu tham khảo", style: "ieee")
