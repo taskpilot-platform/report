@@ -36,7 +36,8 @@
 
 #set par(
   justify: true,
-  leading: 0.45em,
+  leading: 0.4em,
+  spacing: 0.7em,
 )
 
 #set heading(numbering: "1.1.1.")
@@ -99,6 +100,10 @@
 #show link: set text(fill: blue.darken(30%))
 
 #show raw: set text(size: 9pt)
+// This take no effect because of codly
+#show raw.where(block: true): set par(
+  leading: 0.3em,
+)
 
 #import "@preview/codly:1.3.0": *
 #show: codly-init.with()
