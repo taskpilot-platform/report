@@ -204,7 +204,6 @@
 #show: codly-init.with()
 #codly(
   zebra-fill: none,
-  inset: (top: 0.1em, bottom: 0.1em), // Is it... the right way
 )
 
 #include "./glossaries.typ"
