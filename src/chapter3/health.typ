@@ -81,45 +81,48 @@ Dưới đây là ví dụ minh hoạ health check endpoint của `note` service
 
 ==== Readiness
 
-#figure(
-  [
-    ```json
-    {
-      "status": "down",
-      "details": {
-        "authentik": {
-          "status": "down",
-          "timestamp": "2026-05-19T08:05:14.841142259Z",
-          "error": "making the request for the health check failed: Get \"http://authentik.notopia.localhost/-/health/live\": dial tcp [::1]:80: connect: connection refused"
-        },
-        "authorizationService": {
-          "status": "down",
-          "timestamp": "2026-05-19T08:05:14.840856216Z",
-          "error": "making the request for the health check failed: Get \"http://localhost:28089/authorization/health/live\": dial tcp [::1]:28089: connect: connection refused"
-        },
-        "grpc": {
-          "status": "up",
-          "timestamp": "2026-05-19T08:05:14.840692045Z"
-        },
-        "http": {
-          "status": "up",
-          "timestamp": "2026-05-19T08:05:14.840871465Z"
-        },
-        "kafka": {
-          "status": "up",
-          "timestamp": "2026-05-19T08:05:14.84080603Z"
-        },
-        "persistenceConnection": {
-          "status": "up",
-          "timestamp": "2026-05-19T08:05:14.840665763Z"
-        },
-        "workspaceEventHubRedisConnection": {
-          "status": "up",
-          "timestamp": "2026-05-19T08:05:14.841261038Z"
+#{
+  show figure: set block(breakable: true)
+  figure(
+    [
+      ```json
+      {
+        "status": "down",
+        "details": {
+          "authentik": {
+            "status": "down",
+            "timestamp": "2026-05-19T08:05:14.841142259Z",
+            "error": "making the request for the health check failed: Get \"http://authentik.notopia.localhost/-/health/live\": dial tcp [::1]:80: connect: connection refused"
+          },
+          "authorizationService": {
+            "status": "down",
+            "timestamp": "2026-05-19T08:05:14.840856216Z",
+            "error": "making the request for the health check failed: Get \"http://localhost:28089/authorization/health/live\": dial tcp [::1]:28089: connect: connection refused"
+          },
+          "grpc": {
+            "status": "up",
+            "timestamp": "2026-05-19T08:05:14.840692045Z"
+          },
+          "http": {
+            "status": "up",
+            "timestamp": "2026-05-19T08:05:14.840871465Z"
+          },
+          "kafka": {
+            "status": "up",
+            "timestamp": "2026-05-19T08:05:14.84080603Z"
+          },
+          "persistenceConnection": {
+            "status": "up",
+            "timestamp": "2026-05-19T08:05:14.840665763Z"
+          },
+          "workspaceEventHubRedisConnection": {
+            "status": "up",
+            "timestamp": "2026-05-19T08:05:14.841261038Z"
+          }
         }
       }
-    }
-    ```
-  ],
-  caption: [Ví dụ response của ready check ở `note` service],
-)
+      ```
+    ],
+    caption: [Ví dụ response của ready check ở `note` service],
+  )
+}

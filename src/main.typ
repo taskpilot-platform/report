@@ -15,6 +15,8 @@
   font: "SVN-Times New Roman 2",
   size: 13pt,
   lang: "vi",
+  top-edge: "ascender",
+  bottom-edge: "descender",
 )
 
 #set table(
@@ -32,9 +34,9 @@
 #show table.cell.where(y: 0): set text(white)
 #show table: set par(justify: false)
 
-
 #set par(
   justify: true,
+  leading: 0.45em,
 )
 
 #set heading(numbering: "1.1.1.")

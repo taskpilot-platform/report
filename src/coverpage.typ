@@ -23,15 +23,15 @@
     inset: 2.5em,
     [
       #text(weight: "bold", size: 14pt, project_info.university)
-      #v(0.2em)
+      \
       #text(weight: "bold", size: 14pt, project_info.uniName)
-      #v(0.2em)
+      \
       #text(weight: "bold", size: 12pt, project_info.falculty)
 
-      #v(5em)
+      #v(4em)
       #image("assets/images/uit-logo.jpg", width: 30%)
 
-      #v(5em)
+      #v(4em)
       #text(weight: "bold", size: 16pt, "ĐỒ ÁN 1")
       #v(1em)
       #upper(
