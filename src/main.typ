@@ -51,47 +51,10 @@
 
 #show raw: set text(size: 9pt)
 
-#set heading(numbering: (..nums) => {
-  let levels = nums.pos()
-  if levels.len() == 1 {
-    [Chương #levels.first(). ]
-  } else {
-    numbering("1.1.", ..nums)
-  }
-})
-
-#show heading.where(level: 1): set heading(supplement: none)
-
-#show heading.where(level: 1): it => context {
+#show heading.where(level: 1): set align(center)
+#show heading.where(level: 1): it => {
   pagebreak()
-  if it.numbering != none {
-    let nums = counter(heading).get()
-    align(center, [
-      #counter(heading).display(it.numbering) #upper(it.body)
-    ])
-  } else {
-    align(center, upper(it.body))
-  }
-}
-
-#show heading: it => context {
-  if it.level <= 3 {
-    it
-  } else {
-    it.body
-  }
-}
-
-#show ref: it => {
-  let el = it.element
-  if el != none and el.func() == heading and el.level == 1 {
-    strong(link(el.location(), [#el.supplement #numbering(
-        el.numbering,
-        ..counter(heading).at(el.location()),
-      ) #el.body]))
-  } else {
-    it
-  }
+  upper(it)
 }
 
 #set figure(
@@ -106,17 +69,6 @@
 #include "./coverpage.typ"
 
 #set page(
-  numbering: "1",
-  footer: context {
-    align(center)[
-      #box(width: 100%, stroke: (top: 0.5pt), inset: (top: 1em))[
-        #counter(page).display()
-      ]
-    ]
-  },
-)
-
-#set page(
   margin: (
     top: 3cm,
     bottom: 3.5cm,
@@ -129,8 +81,24 @@
 
 #[
   #show outline.entry.where(level: 1): set text(weight: "bold")
+  #show outline.entry.where(level: 1): it => {
+    v(12pt, weak: true)
+    let elem = it.element
+
+    let new-prefix = if elem.numbering != none {
+      [#elem.supplement #it.prefix()]
+    } else {
+      none
+    }
+
+    show link: set text(fill: luma(0%))
+    link(
+      elem.location(),
+      it.indented(new-prefix, it.inner()),
+    )
+  }
   #context {
-    let loc = query(<appendix-metadata>)
+    let loc = query(<end-content>)
     let target = if loc.len() > 0 {
       selector(heading).before(loc.first().location())
     } else {
@@ -145,13 +113,92 @@
   }
 ]
 
-#outline(title: "Danh mục hình ảnh", target: figure.where(kind: image))
+#context {
+  let loc = query(<end-content>)
 
-#outline(title: "Danh mục bảng biểu", target: figure.where(kind: table))
+  let target = if loc.len() > 0 {
+    selector(heading).before(loc.first().location())
+  } else {
+    heading
+  }
 
-#outline(title: "Danh mục bảng chương trình", target: figure.where(kind: raw))
+  let target-appendix = if loc.len() > 0 {
+    selector(heading).after(loc.first().location())
+  } else {
+    heading
+  }
 
-#outline(title: "Phụ lục", target: figure.where(kind: raw))
+  {
+    show outline.entry.where(level: 1): set text(weight: "bold")
+    show outline.entry.where(level: 1): it => {
+      v(12pt, weak: true)
+      let elem = it.element
+
+      let new-prefix = if elem.numbering != none {
+        [#elem.supplement #it.prefix()]
+      } else {
+        none
+      }
+
+      show link: set text(fill: luma(0%))
+      link(
+        elem.location(),
+        it.indented(new-prefix, it.inner()),
+      )
+    }
+    outline(
+      depth: 3,
+      indent: 1em,
+      target: target,
+    )
+  }
+  outline(
+    title: "Danh mục hình ảnh",
+    target: figure
+      .where(
+        kind: image,
+      )
+      .before(
+        loc.first().location(),
+        inclusive: false,
+      ),
+  )
+
+  outline(
+    title: "Danh mục bảng biểu",
+    target: figure
+      .where(
+        kind: table,
+      )
+      .before(
+        loc.first().location(),
+        inclusive: false,
+      ),
+  )
+
+  outline(
+    title: "Danh mục bảng chương trình",
+    target: figure
+      .where(
+        kind: raw,
+      )
+      .before(
+        loc.first().location(),
+        inclusive: false,
+      ),
+  )
+
+  outline(
+    title: "Phụ lục",
+    target: heading
+      .where(
+        supplement: [Phụ lục],
+      )
+      .and(
+        target-appendix,
+      ),
+  )
+}
 
 #import "@preview/codly:1.3.0": *
 #show: codly-init.with()
@@ -160,13 +207,45 @@
   inset: (top: 0.1em, bottom: 0.1em), // Is it... the right way
 )
 
-#counter(page).update(1)
-
 #include "./glossaries.typ"
 
 #include "summary.typ"
 
+#set page(
+  numbering: "1",
+  footer: context {
+    align(center)[
+      #box(width: 100%, stroke: (top: 0.5pt), inset: (top: 1em))[
+        #counter(page).display()
+      ]
+    ]
+  },
+)
+
+#counter(page).update(1)
+
 #{
+  set heading(numbering: "1.")
+
+  set heading(supplement: [Chương])
+
+  show heading.where(level: 1): it => context {
+    pagebreak()
+    align(center, [
+      #if it.numbering != none [
+        #it.supplement #counter(heading).display(it.numbering)
+      ]
+      #upper(it.body)
+    ])
+  }
+
+  show heading: it => context {
+    if it.level <= 3 {
+      it
+    } else {
+      it.body
+    }
+  }
   include "./chapter1/index.typ"
 
   include "./chapter2/index.typ"
@@ -176,6 +255,8 @@
   include "./chapter4/index.typ"
 
   include "./chapter5/index.typ"
+
+  [#metadata(none)<end-content>]
 }
 
 #bibliography(
