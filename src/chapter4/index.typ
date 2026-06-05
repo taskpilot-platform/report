@@ -756,7 +756,7 @@
 
 == Các thành phần Modal / Dialog
 
-=== Modal quản lý thành viên (Workspace Members Modal)
+=== Modal quản lý thành viên
 
 #ui-figure(
   "../assets/ui/member-managment-modal.png",
@@ -828,7 +828,7 @@
   caption: [Bảng mô tả thành phần Modal quản lý thành viên],
 )
 
-=== Modal liên kết ghi chú (Note Links Modal)
+=== Modal liên kết ghi chú
 
 #ui-figure(
   "../assets/ui/note-link-modal.png",
@@ -892,7 +892,7 @@
   caption: [Bảng mô tả thành phần Modal liên kết ghi chú],
 )
 
-=== Modal tìm kiếm ghi chú (Note Search Modal)
+=== Modal tìm kiếm ghi chú
 
 #ui-figure(
   "../assets/ui/note-search.png",
@@ -946,7 +946,7 @@
   caption: [Bảng mô tả thành phần Modal tìm kiếm ghi chú],
 )
 
-=== Modal lịch sử phiên bản (Revision History Modal)
+=== Modal lịch sử phiên bản
 
 #ui-figure(
   "../assets/ui/revision-modal.png",
@@ -1030,7 +1030,7 @@
   caption: [Bảng mô tả thành phần Modal lịch sử phiên bản],
 )
 
-=== Dialog tạo không gian làm việc (Create Workspace Dialog)
+=== Dialog tạo không gian làm việc
 
 #ui-figure(
   "../assets/ui/create-workspace-modal.png",
@@ -1085,7 +1085,7 @@
   caption: [Bảng mô tả thành phần Dialog tạo không gian làm việc],
 )
 
-=== Dialog cài đặt đồ thị (Graph Settings Dialog)
+=== Dialog cài đặt đồ thị
 
 #ui-figure(
   "../assets/ui/graph-settings-modal.png",

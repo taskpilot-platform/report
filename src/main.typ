@@ -41,17 +41,34 @@
   justify: true,
   leading: 1em,
   spacing: 1em,
+  first-line-indent: (
+    amount: 1em,
+    all: false,
+  ),
 )
 
-#set heading(numbering: "1.1.1.")
+#show link: set text(fill: blue.darken(30%))
 
-#show heading.where(level: 1): set heading(supplement: [Chương])
+#show raw: set text(size: 9pt)
+
+#set heading(numbering: (..nums) => {
+  let levels = nums.pos()
+  if levels.len() == 1 {
+    [Chương #levels.first(). ]
+  } else {
+    numbering("1.1.", ..nums)
+  }
+})
+
+#show heading.where(level: 1): set heading(supplement: none)
 
 #show heading.where(level: 1): it => context {
   pagebreak()
   if it.numbering != none {
     let nums = counter(heading).get()
-    align(center, [#it.supplement #nums.at(0). #upper(it.body)])
+    align(center, [
+      #counter(heading).display(it.numbering) #upper(it.body)
+    ])
   } else {
     align(center, upper(it.body))
   }
@@ -65,6 +82,18 @@
   }
 }
 
+#show ref: it => {
+  let el = it.element
+  if el != none and el.func() == heading and el.level == 1 {
+    strong(link(el.location(), [#el.supplement #numbering(
+        el.numbering,
+        ..counter(heading).at(el.location()),
+      ) #el.body]))
+  } else {
+    it
+  }
+}
+
 #set figure(
   numbering: (..num) => {
     numbering("1.1", counter(heading).get().first(), num.pos().first())
@@ -74,9 +103,18 @@
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
 
-#set par(first-line-indent: (amount: 1em, all: false))
-
 #include "./coverpage.typ"
+
+#set page(
+  numbering: "1",
+  footer: context {
+    align(center)[
+      #box(width: 100%, stroke: (top: 0.5pt), inset: (top: 1em))[
+        #counter(page).display()
+      ]
+    ]
+  },
+)
 
 #set page(
   margin: (
@@ -91,7 +129,20 @@
 
 #[
   #show outline.entry.where(level: 1): set text(weight: "bold")
-  #outline(title: "Mục lục", depth: 3)
+  #context {
+    let loc = query(<appendix-metadata>)
+    let target = if loc.len() > 0 {
+      selector(heading).before(loc.first().location())
+    } else {
+      heading
+    }
+
+    outline(
+      depth: 3,
+      indent: 1em,
+      target: target,
+    )
+  }
 ]
 
 #outline(title: "Danh mục hình ảnh", target: figure.where(kind: image))
@@ -100,21 +151,7 @@
 
 #outline(title: "Danh mục bảng chương trình", target: figure.where(kind: raw))
 
-#set page(
-  numbering: "1",
-  footer: context {
-    align(center)[
-      #box(width: 100%, stroke: (top: 0.5pt), inset: (top: 1em))[
-        #counter(page).display()
-      ]
-    ]
-  },
-)
-#counter(page).update(1)
-
-#show link: set text(fill: blue.darken(30%))
-
-#show raw: set text(size: 9pt)
+#outline(title: "Phụ lục", target: figure.where(kind: raw))
 
 #import "@preview/codly:1.3.0": *
 #show: codly-init.with()
@@ -123,27 +160,23 @@
   inset: (top: 0.1em, bottom: 0.1em), // Is it... the right way
 )
 
-// #show raw.where(block: true): it => block(
-//   stroke: 0.5pt + black,
-//   inset: 10pt,
-//   radius: 4pt,
-//   width: 100%,
-//   align(left, it),
-// )
+#counter(page).update(1)
 
 #include "./glossaries.typ"
 
 #include "summary.typ"
 
-#include "./chapter1/index.typ"
+#{
+  include "./chapter1/index.typ"
 
-#include "./chapter2/index.typ"
+  include "./chapter2/index.typ"
 
-#include "./chapter3/index.typ"
+  include "./chapter3/index.typ"
 
-#include "./chapter4/index.typ"
+  include "./chapter4/index.typ"
 
-#include "./chapter5/index.typ"
+  include "./chapter5/index.typ"
+}
 
 #bibliography(
   "./ref.bib",
@@ -151,4 +184,4 @@
   style: "ieee",
 )
 
-// #include "./appendix/index.typ"
+#include "./appendix/index.typ"

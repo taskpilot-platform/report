@@ -4,6 +4,8 @@
   set heading(numbering: "A.1.", supplement: [Phụ lục])
   counter(heading).update(0)
 
+  [#metadata(none)<appendix-metadata>]
+
   let numbering-eq = (..n) => {
     let h1 = counter(heading).get().first()
     numbering("(A.1a)", h1, ..n)
