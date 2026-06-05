@@ -19,20 +19,22 @@ build-pdf: mkdir
 build-html: mkdir
     typst compile --features html {{ src }} ./build/index.html
 
-[unix]
-dev-zathura: build-pdf
-    #!/usr/bin/env bash
-
-    zathura ./build/{{ out_name }}.pdf &
-    Z_PID=$!
-    trap "kill $Z_PID" EXIT
+build-watch:
     typst watch {{ src }} ./build/{{ out_name }}.pdf
 
 dev: mkdir
     tinymist preview {{ src }}
 
+[unix]
 preview-zathura: build-pdf
     zathura ./build/{{ out_name }}.pdf
+
+[parallel]
+[unix]
+watch-preview-zathura: build-watch preview-zathura
+
+[unix]
+dev-zathura: build-pdf watch-preview-zathura
 
 format:
     typstyle -i --line-width=80 --indent-width=2 --wrap-text ./src/
