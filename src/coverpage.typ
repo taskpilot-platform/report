@@ -24,9 +24,9 @@
     [
       #text(weight: "bold", size: 14pt, project_info.university)
       \
-      #text(weight: "bold", size: 14pt, project_info.uniName)
+      #text(weight: "bold", size: 16pt, project_info.uniName)
       \
-      #text(weight: "bold", size: 12pt, project_info.falculty)
+      #text(weight: "bold", size: 16pt, project_info.falculty)
 
       #v(4em)
       #image("assets/images/uit-logo.jpg", width: 30%)

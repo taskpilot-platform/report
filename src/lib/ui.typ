@@ -1,8 +1,12 @@
 #let ui-figure(
   image-src,
   caption,
+  height: auto,
 ) = figure(
-  image(image-src),
+  image(
+    image-src,
+    height: height,
+  ),
   caption: caption,
 )
 

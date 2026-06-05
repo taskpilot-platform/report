@@ -8,15 +8,18 @@
 
 #set page(
   paper: "a4",
-  margin: (left: 3.5cm, right: 2cm, top: 2cm, bottom: 2cm),
+  margin: (
+    left: 2cm,
+    right: 2cm,
+    top: 2cm,
+    bottom: 2cm,
+  ),
 )
 
 #set text(
   font: "SVN-Times New Roman 2",
   size: 13pt,
   lang: "vi",
-  top-edge: "ascender",
-  bottom-edge: "descender",
 )
 
 #set table(
@@ -36,8 +39,8 @@
 
 #set par(
   justify: true,
-  leading: 0.4em,
-  spacing: 0.7em,
+  leading: 1em,
+  spacing: 1em,
 )
 
 #set heading(numbering: "1.1.1.")
@@ -75,9 +78,21 @@
 
 #include "./coverpage.typ"
 
+#set page(
+  margin: (
+    top: 3cm,
+    bottom: 3.5cm,
+    left: 3.5cm,
+    right: 2cm,
+  ),
+)
+
 #include "./thanks.typ"
 
-#outline(title: "Mục lục", depth: 3)
+#[
+  #show outline.entry.where(level: 1): set text(weight: "bold")
+  #outline(title: "Mục lục", depth: 3)
+]
 
 #outline(title: "Danh mục hình ảnh", target: figure.where(kind: image))
 
@@ -100,14 +115,13 @@
 #show link: set text(fill: blue.darken(30%))
 
 #show raw: set text(size: 9pt)
-// This take no effect because of codly
-#show raw.where(block: true): set par(
-  leading: 0.3em,
-)
 
 #import "@preview/codly:1.3.0": *
 #show: codly-init.with()
-#codly(zebra-fill: none)
+#codly(
+  zebra-fill: none,
+  inset: (top: 0.1em, bottom: 0.1em), // Is it... the right way
+)
 
 // #show raw.where(block: true): it => block(
 //   stroke: 0.5pt + black,
@@ -131,5 +145,10 @@
 
 #include "./chapter5/index.typ"
 
-// #show bibliography: set heading(numbering: none)
-#bibliography("./ref.bib", title: "Tài liệu tham khảo", style: "ieee")
+#bibliography(
+  "./ref.bib",
+  title: "Tài liệu tham khảo",
+  style: "ieee",
+)
+
+// #include "./appendix/index.typ"

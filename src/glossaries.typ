@@ -1,5 +1,6 @@
 #heading(
   numbering: none,
+  outlined: false,
   [Danh sách từ viết tắt],
 )
 
