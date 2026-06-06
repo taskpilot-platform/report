@@ -15,20 +15,35 @@ Quy ước:
 
 | Dòng | Nội dung Placeholder | Đã có / Chưa có | Vị trí trong repo |
 | --- | --- | --- | --- |
-| 73 | [Hình x: Minh họa mô hình Agile/Scrum] | Chưa có | |
-| 74 | [Hình x: Minh họa bảng Kanban] | Chưa có | |
-| 134 | [Hình x: Quy trình Function Calling trong AI Agent] | Chưa có | |
-| 186 | [Hình x: Minh họa ma trận so sánh cặp trong AHP] | Chưa có | |
-| 228 | [Hình x: Minh họa Modular Monolith và ranh giới module] | Chưa có | |
-| 265 | [Hình x: Logo Java] | Có | `_incoming/asset/assets/images/logos/java-logo.svg` |
-| 266 | [Hình x: Logo Spring Boot] | Có | `_incoming/asset/assets/images/logos/springboot-logo.svg` |
-| 305 | [Hình x: Logo React và TypeScript] | Có | `_incoming/asset/assets/images/logos/react-logo.svg`; `_incoming/asset/assets/images/logos/typescript-logo.svg` |
-| 306 | [Hình x: Logo Tailwind CSS và Radix UI] | Có | `_incoming/asset/assets/images/logos/tailwindcss-logo.svg`; `_incoming/asset/assets/images/logos/radixui-logo.svg` |
-| 336 | [Hình x: Logo PostgreSQL] | Có | `_incoming/asset/assets/images/logos/postgresql-logo.svg` |
-| 337 | [Hình x: Logo Redis] | Có | `_incoming/asset/assets/images/logos/redis-logo.svg` |
-| 371 | [Hình x: Minh họa LangChain4j kết nối Spring Boot với LLM] | Chưa có | |
-| 397 | [Hình x: Minh họa Server-Sent Events] | Chưa có | |
-| 432 | [Hình x: Minh họa quy trình CI/CD và triển khai] | Chưa có | |
+| 15 | [Hình 2.1: Minh họa quy trình Agile/Scrum - file: asset/chapter2/ch2_01_agile_scrum.svg] | Chưa có | Diagram chưa tạo |
+| 32 | [Hình 2.2: Minh họa quy trình Scrum và Sprint - file: asset/chapter2/ch2_02_scrum_sprint.svg] | Chưa có | Diagram chưa tạo |
+| 54 | [Hình 2.3: Minh họa bảng Kanban - file: asset/chapter2/ch2_03_kanban.svg] | Chưa có | Diagram chưa tạo |
+| 122 | [Hình 2.4: Quy trình Function Calling trong AI Agent - file: asset/chapter2/ch2_04_function_calling.svg] | Chưa có | Diagram chưa tạo |
+| 137 | [Hình 2.5: Cơ chế Human-in-the-loop cho thao tác ghi dữ liệu - file: asset/chapter2/ch2_05_human_in_the_loop.svg] | Chưa có | Diagram chưa tạo |
+| 161 | [Hình 2.6: Minh họa mô hình chấm điểm có trọng số và AHP - file: asset/chapter2/ch2_06_weighted_scoring_ahp.svg] | Chưa có | Diagram chưa tạo |
+| 213 | [Hình 2.7: Kiến trúc Modular Monolith và ranh giới module - file: asset/chapter2/ch2_07_modular_monolith.svg] | Chưa có | Diagram chưa tạo |
+| 263 | [Hình 2.8: Java 21 - file: asset/assets/images/logos/java-logo.svg] | Có | `_incoming/asset/assets/images/logos/java-logo.svg` |
+| 271 | [Hình 2.9: Spring Boot - file: asset/assets/images/logos/springboot-logo.svg] | Có | `_incoming/asset/assets/images/logos/springboot-logo.svg` |
+| 287 | [Hình 2.10: Spring Data JPA và Flyway - file: asset/assets/images/logos/flyway-logo.svg] | Có | `_incoming/asset/assets/images/logos/flyway-logo.svg` |
+| 301 | [Hình 2.11: React - file: asset/assets/images/logos/react-logo.svg] | Có | `_incoming/asset/assets/images/logos/react-logo.svg` |
+| 313 | [Hình 2.12: TypeScript - file: asset/assets/images/logos/typescript-logo.svg] | Có | `_incoming/asset/assets/images/logos/typescript-logo.svg` |
+| 323 | [Hình 2.13: Vite - file: asset/assets/images/logos/vite-logo.svg] | Có | `_incoming/asset/assets/images/logos/vite-logo.svg` |
+| 333 | [Hình 2.14: Logo Tailwind CSS, Radix UI, Lucide và Zustand - file: asset/chapter2/ch2_14_frontend_supporting_libs.svg] | Có | `_incoming/asset/chapter2/ch2_14_frontend_supporting_libs.svg` |
+| 350 | [Hình 2.15: PostgreSQL - file: asset/assets/images/logos/postgresql-logo.svg] | Có | `_incoming/asset/assets/images/logos/postgresql-logo.svg` |
+| 360 | [Hình 2.16: Redis - file: asset/assets/images/logos/redis-logo.svg] | Có | `_incoming/asset/assets/images/logos/redis-logo.svg` |
+| 389 | [Hình 2.17: LangChain4j - file: asset/assets/images/logos/langchain-logo.svg] | Có | `_incoming/asset/assets/images/logos/langchain-logo.svg` |
+| 397 | [Hình 2.18: Gemini - file: asset/assets/images/logos/gemini-logo.svg] | Có | `_incoming/asset/assets/images/logos/gemini-logo.svg` |
+| 420 | [Hình 2.19: Server-Sent Events - file: asset/chapter2/ch2_19_sse.svg] | Chưa có | Diagram chưa tạo |
+| 432 | [Hình 2.20: OneSignal - file: asset/assets/images/logos/onesignal-logo.svg] | Có | `_incoming/asset/assets/images/logos/onesignal-logo.svg` |
+| 445 | [Hình 2.21: Brevo - file: asset/assets/images/logos/brevo-logo.svg] | Có | `_incoming/asset/assets/images/logos/brevo-logo.svg` |
+| 457 | [Hình 2.22: Quy trình CI/CD và triển khai TaskPilot - file: asset/chapter2/ch2_22_cicd_deployment.svg] | Chưa có | Diagram chưa tạo |
+| 467 | [Hình 2.23: Docker - file: asset/assets/images/logos/docker-logo.svg] | Có | `_incoming/asset/assets/images/logos/docker-logo.svg` |
+| 478 | [Hình 2.24: GitHub Actions - file: asset/assets/images/logos/github-actions-logo.svg] | Có | `_incoming/asset/assets/images/logos/github-actions-logo.svg` |
+| 492 | [Hình 2.25: Vercel - file: asset/assets/images/logos/vercel-logo.svg] | Có | `_incoming/asset/assets/images/logos/vercel-logo.svg` |
+| 507 | [Hình 2.26: Netlify - file: asset/assets/images/logos/netlify-logo.svg] | Có | `_incoming/asset/assets/images/logos/netlify-logo.svg` |
+| 519 | [Hình 2.27: Hugging Face Space - file: asset/assets/images/logos/huggingface-logo.svg] | Có | `_incoming/asset/assets/images/logos/huggingface-logo.svg` |
+
+Ghi chú: `Bảng 2.1` trong Chương 2 là bảng văn bản, không cần asset hình ảnh.
 
 ## CHAPTER_3_1_FINAL.md
 
