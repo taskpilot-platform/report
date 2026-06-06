@@ -47,14 +47,7 @@
   ),
 )
 
-#show link: it => {
-  if type(it.dest) == str {
-    set text(fill: blue.darken(30%))
-    it
-  } else {
-    it
-  }
-}
+#show link: set text(fill: blue.darken(30%))
 
 #show raw: set text(size: 9pt)
 
@@ -73,35 +66,6 @@
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
 
-// Appendix heading cross-references: strip trailing dot from numbering so
-// sentences ending with a period don't produce a double period (e.g. "D.1..").
-// Detects appendix headings by checking if they appear after <end-content>.
-#show ref: it => context {
-  let elem = it.element
-  if elem == none or elem.func() != heading { return it }
-
-  let markers = query(<end-content>)
-  if markers.len() == 0 { return it }
-
-  let m = markers.first().location()
-  let e = elem.location()
-  let is-appendix = (
-    e.page() > m.page()
-      or (
-        e.page() == m.page() and e.position().y > m.position().y
-      )
-  )
-  if not is-appendix { return it }
-
-  let counts = counter(heading).at(e)
-  let num = if counts.len() == 2 {
-    numbering("A", counts.at(1))
-  } else if counts.len() >= 3 {
-    numbering("A.1", counts.at(1), counts.at(2))
-  } else { none }
-
-  link(e, if num != none { [#elem.supplement #num] } else { elem.supplement })
-}
 
 #include "./coverpage.typ"
 
