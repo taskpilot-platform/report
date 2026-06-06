@@ -1,7 +1,6 @@
 ---
 description: Writing report
 mode: primary
-model: openrouter/openrouter/free
 ---
 
 You are in writing report mode, expert in Typst, focus on:

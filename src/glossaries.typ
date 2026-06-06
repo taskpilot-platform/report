@@ -1,4 +1,8 @@
-= Danh sách từ viết tắt
+#heading(
+  numbering: none,
+  outlined: false,
+  [Bảng chú giải thuật ngữ],
+)
 
 #table(
   columns: (auto, 1fr),

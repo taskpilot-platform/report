@@ -27,4 +27,11 @@ có thể phát triển ứng dụng ngày một hoàn thiện hơn.
     TP. Hồ Chí Minh,
     #datetime.today().display("ngày [day] tháng [month] năm [year]")
   ] \
+  #v(0.5em)
+  #box(align(left)[
+    *Nhóm sinh viên thực hiện:*\
+    #for student in project-metadata.students [
+      #student.name -- #student.id\
+    ]
+  ])
 ]

@@ -23,20 +23,22 @@
     inset: 2.5em,
     [
       #text(weight: "bold", size: 14pt, project_info.university)
-      #v(0.2cm)
-      #text(weight: "bold", size: 14pt, project_info.uniName)
-      #v(0.2cm)
-      #text(weight: "bold", size: 12pt, project_info.falculty)
+      \
+      #text(weight: "bold", size: 16pt, project_info.uniName)
+      \
+      #text(weight: "bold", size: 16pt, project_info.falculty)
 
-      #v(2cm)
+      #v(4em)
       #image("assets/images/uit-logo.jpg", width: 30%)
 
-      #v(2cm)
+      #v(4em)
       #text(weight: "bold", size: 16pt, "ĐỒ ÁN 1")
-      #v(1cm)
-      #text(weight: "bold", size: 18pt, project_info.title)
+      #v(1em)
+      #upper(
+        text(weight: "bold", size: 16pt, project_info.title),
+      )
 
-      #v(3cm)
+      #v(5em)
       #grid(
         columns: (auto, 1fr),
         row-gutter: 1em,
@@ -47,7 +49,7 @@
         [SINH VIÊN THỰC HIỆN:],
         [
           #for student in project_info.students [
-            #student.name - #student.id \
+            #student.name -- #student.id \
           ]
         ],
       )

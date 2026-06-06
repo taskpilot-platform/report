@@ -15,7 +15,9 @@
   body
 }
 
-#heading(numbering: none, outlined: false)[TÓM TẮT ĐỀ TÀI]
+#heading(numbering: none, outlined: false)[
+  TÓM TẮT ĐỀ TÀI
+]
 
 Đề tài tập trung nghiên cứu và xây dựng "#project-metadata.title", với mục đích
 giúp người dùng quản lý tri thức cá nhân trên một nền tảng web trực quan, cộng

@@ -9,7 +9,7 @@ ecosystem.
 
 #figure(
   image("../assets/images/redpanda-logo.svg", height: 80pt),
-  caption: [redpanda Logo],
+  caption: [Redpanda Logo],
 )
 
 Redpanda được sử dụng như một message broker trong dự án, hỗ trợ pub/sub
