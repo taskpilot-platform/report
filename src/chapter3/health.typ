@@ -37,7 +37,10 @@ các service còn lại sẽ được bổ sung sau.
     [#sym.checkmark],
 
     [`document` (NestJS)], [#sym.dash.en], [#sym.dash.en], [#sym.dash.en],
+
     [`search-worker` (NestJS)], [#sym.dash.en], [#sym.dash.en], [#sym.dash.en],
+
+    [`web` (NextJS)], [#sym.dash.en], [#sym.dash.en], [#sym.dash.en],
   ),
   caption: [Trạng thái triển khai health check theo service],
 )
