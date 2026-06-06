@@ -16,10 +16,8 @@
 
 #include "./blocknote.typ"
 
-// move the example, explanation of casbin rules in our system down, into
-// casbin.typ, heading level 3: "Example of Casbin rules in our system" or
-// something it fit. Please think the title suitable
+#include "./casbin.typ"
 
-// move the health check example payload down here, into healthcheck.typ
+#include "./healthcheck.typ"
 
-// move sqlc specific code block from ../chapter5/index.typ to sqlc.typ
+#include "./sqlc.typ"
