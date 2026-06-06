@@ -1,0 +1,39 @@
+flowchart TD
+    A([Người dùng truy cập TaskPilot]) --> B{Đã đăng nhập?}
+
+    B -->|Chưa đăng nhập| AUTH[Nhóm xác thực]
+    AUTH --> AUTH1[Đăng nhập]
+    AUTH --> AUTH2[Đăng ký]
+    AUTH --> AUTH3[Quên / đặt lại mật khẩu]
+    AUTH1 -->|Đăng nhập thành công| DASH[Dashboard]
+
+    B -->|Đã đăng nhập| DASH
+
+    DASH --> PROJLIST[Danh sách project]
+    DASH --> NOTI[Thông báo]
+    DASH --> PROFILE[Hồ sơ / kỹ năng cá nhân]
+    DASH --> AI[AI Copilot]
+    DASH -.->|Tài khoản ADMIN| ADMIN[Quản trị hệ thống]
+
+    PROJLIST --> WORKSPACE[Không gian làm việc project]
+
+    WORKSPACE --> OVERVIEW[Tổng quan project]
+    WORKSPACE --> SETTINGS[Cấu hình project]
+    WORKSPACE --> WORK[Quản lý sprint và task]
+
+    SETTINGS --> SET1[Thông tin chung]
+    SETTINGS --> SET2[Thành viên / nhãn / lưu trữ hoặc xóa project]
+
+    WORK --> BACKLOG[Backlog / Sprint]
+    WORK --> BOARD[Kanban board]
+    WORK --> TIMELINE[Timeline]
+    WORK --> TASK[Chi tiết task]
+    TASK --> COMMENT[Bình luận]
+
+    AI --> AI1[Chat]
+    AI --> AI2[Gợi ý phân công task]
+    AI --> AI3[Xác nhận thao tác AI]
+
+    ADMIN --> ADM1[Người dùng]
+    ADMIN --> ADM2[Kỹ năng]
+    ADMIN --> ADM3[Cấu hình AI / hệ thống]
