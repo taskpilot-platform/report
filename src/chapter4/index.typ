@@ -93,7 +93,7 @@
     column(
       [Thông tin thương hiệu],
       [Text],
-      [Tên "Notopia" với mô tả "An open-source collaborative knowledge graph."],
+      [Tên "Notopia" với mô tả "An open-source collaborative knowledge graph"],
     ),
     column(
       [Liên kết chân trang],
@@ -351,7 +351,7 @@
     column(
       [Phụ đề chào mừng],
       [Text (p)],
-      ["You're all set! Let's make the most of your workspace."],
+      ["You're all set! Let's make the most of your workspace"],
     ),
     column(
       [Lưới thẻ hành động nhanh],
@@ -590,7 +590,7 @@
     column(
       [Mô tả trang],
       [Text (p)],
-      ["Manage your workspace details, members, and preferences."],
+      ["Manage your workspace details, members, and preferences"],
     ),
     column(
       [Đường phân cách],
@@ -612,7 +612,7 @@
       [Mô tả trường nhập],
       [Text],
       ["This is the name that will be displayed on your workspace dashboard and
-        invitations."],
+        invitations"],
     ),
     column(
       [Nút cập nhật không gian làm việc],
@@ -743,7 +743,7 @@
     column(
       [Mô tả lỗi],
       [Text (p)],
-      ["Oops! Something went wrong on our end."],
+      ["Oops! Something went wrong on our end"],
     ),
     column(
       [Nút quay về trang chủ],
@@ -778,7 +778,7 @@
     column(
       [Mô tả Dialog],
       [Text (DialogDescription)],
-      ["Manage member roles and permissions for this workspace."],
+      ["Manage member roles and permissions for this workspace"],
     ),
     column(
       [Trường tìm kiếm người dùng],
@@ -1053,7 +1053,7 @@
     column(
       [Mô tả Dialog],
       [Text (DialogDescription)],
-      ["Set up a new workspace to organize your notes and graphs."],
+      ["Set up a new workspace to organize your notes and graphs"],
     ),
     column(
       [Trường nhập tên không gian làm việc],
