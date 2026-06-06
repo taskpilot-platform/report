@@ -47,7 +47,14 @@
   ),
 )
 
-#show link: set text(fill: blue.darken(30%))
+#show link: it => {
+  if type(it.dest) == str {
+    set text(fill: blue.darken(30%))
+    it
+  } else {
+    it
+  }
+}
 
 #show raw: set text(size: 9pt)
 
@@ -66,6 +73,36 @@
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
 
+// Appendix heading cross-references: strip trailing dot from numbering so
+// sentences ending with a period don't produce a double period (e.g. "D.1..").
+// Detects appendix headings by checking if they appear after <end-content>.
+#show ref: it => context {
+  let elem = it.element
+  if elem == none or elem.func() != heading { return it }
+
+  let markers = query(<end-content>)
+  if markers.len() == 0 { return it }
+
+  let m = markers.first().location()
+  let e = elem.location()
+  let is-appendix = (
+    e.page() > m.page()
+      or (
+        e.page() == m.page() and e.position().y > m.position().y
+      )
+  )
+  if not is-appendix { return it }
+
+  let counts = counter(heading).at(e)
+  let num = if counts.len() == 2 {
+    numbering("A", counts.at(1))
+  } else if counts.len() >= 3 {
+    numbering("A.1", counts.at(1), counts.at(2))
+  } else { none }
+
+  link(e, if num != none { [#elem.supplement #num] } else { elem.supplement })
+}
+
 #include "./coverpage.typ"
 
 #set page(
@@ -78,40 +115,6 @@
 )
 
 #include "./thanks.typ"
-
-#[
-  #show outline.entry.where(level: 1): set text(weight: "bold")
-  #show outline.entry.where(level: 1): it => {
-    v(12pt, weak: true)
-    let elem = it.element
-
-    let new-prefix = if elem.numbering != none {
-      [#elem.supplement #it.prefix()]
-    } else {
-      none
-    }
-
-    show link: set text(fill: luma(0%))
-    link(
-      elem.location(),
-      it.indented(new-prefix, it.inner()),
-    )
-  }
-  #context {
-    let loc = query(<end-content>)
-    let target = if loc.len() > 0 {
-      selector(heading).before(loc.first().location())
-    } else {
-      heading
-    }
-
-    outline(
-      depth: 3,
-      indent: 1em,
-      target: target,
-    )
-  }
-]
 
 #context {
   let loc = query(<end-content>)
@@ -190,13 +193,11 @@
 
   outline(
     title: "Phụ lục",
+    depth: 2,
     target: heading
-      .where(
-        supplement: [Phụ lục],
-      )
-      .and(
-        target-appendix,
-      ),
+      .where(supplement: [Phụ lục], level: 2)
+      .or(heading.where(supplement: [Phụ lục], level: 3))
+      .and(target-appendix),
   )
 }
 
