@@ -10,13 +10,13 @@ config:
     secondaryColor: '#e8eef8'
     tertiaryColor: '#ffffff'
 ---
-flowchart 
+flowchart LR
     Task(Task to Assign) --> Members(Load Project Members)
     Members --> Filter(Filter DEACTIVATED / OOO)
     Filter --> Data(Collect Skill, Workload, Performance)
     Data --> Normalize(Compute and Normalize F, L, P)
     Normalize --> Mode(Select BALANCED / URGENT / TRAINING Mode)
-    Mode --> Score("Score = w<sub>fit</sub> · F − w<sub>load</sub> · L + w<sub>perf</sub> · P")
+    Mode --> Score(Score = w_fit*F - w_load*L + w_perf*P)
     Score --> Rank(Rank Candidates)
     Rank --> Explain(Return Component Scores and Explanation)
     Explain --> Confirm{AI Flow Writes Data?}
