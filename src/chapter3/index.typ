@@ -1,30 +1,21 @@
-= Phân tích và thiết kế hệ thống <architecture>
+= PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG <architecture>
 
-#emph[
-  Chương 3 trình bày quá trình phân tích và thiết kế hệ thống nhằm xác định rõ
-  cấu trúc và cách thức hoạt động của hệ thống. Nội dung chương bao gồm khảo sát
-  hiện trạng, xác định yêu cầu chức năng và phi chức năng, từ đó xây dựng kiến
-  trúc hệ thống và mô tả các thành phần chính. Bên cạnh đó, chương sử dụng các
-  sơ đồ UML để mô hình hóa hành vi, luồng xử lý và mối quan hệ giữa các đối
-  tượng trong hệ thống, thiết kế dữ liệu thông qua các bảng cơ sở dữ liệu. Hệ
-  thống cũng phân tích BlockNote schema tuỳ chỉnh, và mô hình thư viện Casbin
-  của hệ thống.
-]
+#include "sections/3_1_overview.typ"
 
-#include "survey.typ"
+#include "sections/3_2_requirements.typ"
 
-#include "dev-process.typ"
+#include "sections/3_3_usecase.typ"
 
-#include "architecture.typ"
+#include "sections/3_4_3_5_modeling.typ"
 
-#include "usecase.typ"
+#include "sections/3_6_3_7_architecture.typ"
 
-#include "class.typ"
+#include "sections/3_8_database.typ"
 
-#include "database.typ"
+#include "sections/3_9_3_10_realtime_notification.typ"
 
-#include "blocknote.typ"
+#include "sections/3_11_ai_copilot.typ"
 
-#include "casbin.typ"
+#include "sections/3_12_assignment_algorithm.typ"
 
-#include "health.typ"
+#include "sections/3_13_deployment.typ"

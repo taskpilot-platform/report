@@ -39,6 +39,9 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [x] Convert/insert Chapter 1 from `_incoming/CHAPTER_1_FINAL.md`.
 - [x] Convert/insert Chapter 2 from `_incoming/CHAPTER_2_FINAL.md`.
 - [ ] Convert/insert Chapter 3 from `_incoming/CHAPTER_3_*_FINAL.md` files.
+  - [x] Prepare split structure under `src/chapter3/sections/`.
+  - [x] Convert/insert sections 3.1, 3.2, and 3.3.
+  - [ ] Convert/insert sections 3.4 through 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -105,6 +108,20 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Redrew the six user-flagged sequence diagrams and `activity-project-access-permission-check.svg` with Mermaid source files beside the SVG files.
 - Re-rendered all seven SVG assets in place with English labels and checked them for `foreignObject`; all seven returned `False`.
 - `activity-project-access-permission-check.svg` is rendered from Mermaid sequence syntax in the activity asset path because Mermaid flowchart/state output still generated `foreignObject`.
+
+## Chapter 3 partial conversion notes
+
+- Replaced the old Chapter 3 wrapper with `src/chapter3/index.typ` including the requested `src/chapter3/sections/` files in order.
+- Converted only:
+  - `src/chapter3/sections/3_1_overview.typ` from `_incoming/CHAPTER_3_1_FINAL.md`.
+  - `src/chapter3/sections/3_2_requirements.typ` from `_incoming/CHAPTER_3_2_FINAL.md`.
+  - `src/chapter3/sections/3_3_usecase.typ` from `_incoming/CHAPTER_3_3_FINAL.md`.
+- Left sections 3.4 through 3.13 as minimal heading/TODO placeholders.
+- Copied assets used by sections 3.1 through 3.3 into `src/assets/taskpilot/chapter3/`.
+- No missing assets were identified for sections 3.1 through 3.3.
+- Compile succeeded after this partial conversion with two Chapter 3 SVG `foreignObject` warnings:
+  - `src/chapter3/sections/3_1_overview.typ`: `ch3_01_jira_workflow.svg`.
+  - `src/chapter3/sections/3_1_overview.typ`: `ch3_01_trello_kanban.svg`.
 
 ## Notes for next assembly run
 
