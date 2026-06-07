@@ -105,9 +105,41 @@
   - `use-case-pm.svg`
   - `use-case-member.svg`
   - `sequence-auth-login.svg`
+  - `sequence-auth-register.svg`
+  - `sequence-auth-forgot-password.svg`
+  - `sequence-auth-reset-password.svg`
+  - `sequence-project-management-create-new-project.svg`
+  - `sequence-project-management-join-project.svg`
+  - `sequence-project-members-add-member-to-project.svg`
+  - `sequence-project-members-update-member-role.svg`
+  - `sequence-sprint-management-create-new-sprint.svg`
+  - `sequence-task-management-view-kanban-board.svg`
+  - `sequence-task-management-create-new-task.svg`
+  - `sequence-task-management-update-task-status.svg`
+  - `sequence-task-management-assign-assignee-reporter.svg`
+  - `sequence-interaction-communication-write-comment.svg`
+  - `sequence-notification-management-receive-notification.svg`
+  - `sequence-notification-management-mark-notification-as-read.svg`
+  - `sequence-ai-assistant-create-new-ai-chat-session.svg`
+  - `sequence-ai-assistant-chat-with-ai.svg`
+  - `sequence-ai-assistant-view-ai-activity-logs.svg`
+  - `sequence-ai-assistant-request-ai-auto-assignment.svg`
+  - `sequence-ai-pending-action-confirmation.svg`
+  - `sequence-ai-pending-action-confirmation.puml`
+  - `sequence-admin-configure-system-parameters.svg`
+  - `sequence-admin-view-system-skill-directory.svg`
+  - `sequence-admin-add-system-skill.svg`
+  - `sequence-admin-edit-system-skill.svg`
+  - `sequence-admin-delete-system-skill.svg`
+  - `sequence-admin-view-global-user-list.svg`
+  - `sequence-admin-add-system-user.svg`
+  - `sequence-admin-edit-system-user.svg`
+  - `sequence-admin-delete-system-user.svg`
 - Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
 - The real UI `.jpg` files were converted to valid JPEG encoding before inclusion because the incoming `.jpg` files contained PNG bytes.
 - `sequence-auth-login.svg` was checked for `foreignObject`; none was found.
+- Section 3.5 was converted through the final notes and no missing assets were identified.
+- `sequence-ai-pending-action-confirmation.svg` is now rendered from PlantUML source with explicit activation bars to match the surrounding sequence diagram style.
 
 ## Later chapters
 

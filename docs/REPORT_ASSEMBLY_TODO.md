@@ -14,6 +14,7 @@
 - [x] Ran compile check after Chapter 2 conversion: success.
 - [x] Ran compile check after converting Chapter 3 sections 3.4.1 through 3.4.3: success.
 - [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
+- [x] Ran compile check after converting the rest of Chapter 3 section 3.5: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -45,7 +46,8 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - [x] Convert/insert sections 3.1, 3.2, and 3.3.
   - [x] Convert/insert sections 3.4.1 through 3.4.3.
   - [x] Convert/insert sections 3.4.4 through the first detailed use case UC01.
-  - [ ] Continue converting Chapter 3 from UC02 onward through section 3.13.
+  - [x] Convert/insert the rest of section 3.5 from UC02 through the final use case notes.
+  - [ ] Continue converting Chapter 3 sections 3.6 through 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -143,7 +145,15 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows `Mô tả use case Đăng nhập hệ thống` as `kind: table`; no helper patch is needed for the converted use case specification table.
 - Removed the draft-only sample use case specification from the report; it was only a conversion guide.
 - The direct breakable table `Bảng 3.4: Bảng tổng hợp danh sách 59 use case của hệ thống TaskPilot` may not appear automatically in the List of Tables and should be reconciled during final cleanup.
-- Continue converting `_incoming/CHAPTER_3_4_3_5_FINAL.md` from `UC02 - Đăng ký tài khoản`.
+- Converted the rest of section 3.5 from `UC02 - Đăng ký tài khoản` through `3.5.8. Ghi chú về đặc tả Use Case đầy đủ`.
+- Copied and used all sequence diagrams referenced by the remaining section 3.5 placeholders under `src/assets/taskpilot/chapter3/`.
+- Kept sequence diagrams before each corresponding use case specification table.
+- Added local `uc-sequence(...)` helper in `src/chapter3/sections/3_4_3_5_modeling.typ` so each use case title stays with its first sequence diagram.
+- Used `usecase(...)` and `usecase-figure(...)` for all section 3.5 specification tables without patching `src/lib/usecase.typ`.
+- `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows the converted section 3.5 use case specification tables as `kind: table`; no helper patch is needed.
+- Replaced `sequence-ai-pending-action-confirmation.svg` with a PlantUML-rendered SVG from `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.puml`.
+- Updated the PlantUML source for `sequence-ai-pending-action-confirmation.svg` to use explicit activation/deactivation bars matching the `taskpilot-platform.github.io` sequence diagram style.
+- Removed the draft note under the AI pending action confirmation figure.
 
 ## Notes for next assembly run
 
