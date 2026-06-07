@@ -43,6 +43,8 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [ ] Fix figure/table captions using existing Typst figure conventions.
 - [ ] Compile PDF after each major chapter insertion.
 - [ ] Review TODOs and missing assets from `_incoming/PLACEHOLDER_ASSET_STATUS.md`.
+- [x] Audit Chapter 3 placeholders and assets before conversion.
+- [x] Redraw the six user-flagged Chapter 3 sequence diagrams and the project access permission diagram as Mermaid-rendered SVG assets.
 - [ ] Review final page layout for wide tables, oversized diagrams, and screenshot scaling.
 - [ ] Review bibliography/reference citations after content insertion.
 
@@ -87,6 +89,18 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - The Markdown `Tài liệu tham khảo` block was not inserted as a Chapter 2 section; citations such as `[1]`, `[2]` remain plain text for later bibliography cleanup.
 - Added temporary compatibility labels in `src/chapter2/index.typ` so old Chapter 3/appendix references still compile until those chapters are converted.
 - Compile succeeded with three SVG `foreignObject` warnings for Chapter 2 diagrams.
+
+## Chapter 3 asset audit
+
+- Created `docs/CHAPTER3_ASSET_AUDIT.md`.
+- Found 70 Chapter 3 image placeholders and 70 matching tracker rows.
+- Checked 79 real asset references from the tracker; no missing files were identified.
+- The six user-flagged sequence diagrams are currently mapped to explicit Chapter 3 placeholders and should not be deleted before conversion.
+- Use the flagged sequence diagrams only for exact sequence/flow placeholders; prefer higher-level diagrams for overview placeholders.
+- `sequence-ai-pending-action-confirmation.svg` is mapped twice and should be reviewed for duplicate visual clutter during Chapter 3 assembly.
+- Redrew the six user-flagged sequence diagrams and `activity-project-access-permission-check.svg` with Mermaid source files beside the SVG files.
+- Re-rendered all seven SVG assets in place with English labels and checked them for `foreignObject`; all seven returned `False`.
+- `activity-project-access-permission-check.svg` is rendered from Mermaid sequence syntax in the activity asset path because Mermaid flowchart/state output still generated `foreignObject`.
 
 ## Notes for next assembly run
 

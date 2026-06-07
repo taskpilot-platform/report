@@ -57,6 +57,33 @@
   - `ch4_18_ai_pending_confirmation.png`
   - `ch4_22_admin_sys_config.png`
 
+## Chapter 3
+
+- Chapter 3 asset audit completed in `docs/CHAPTER3_ASSET_AUDIT.md`.
+- No missing real asset files identified from the current Chapter 3 tracker.
+- Current tracker coverage:
+  - 70 Chapter 3 placeholders found in drafts.
+  - 70 Chapter 3 tracker rows found in `_incoming/PLACEHOLDER_ASSET_STATUS.md`.
+  - 79 real asset references checked.
+- The user-flagged diagrams are not orphan files; they are mapped to explicit placeholders and should not be deleted before Chapter 3 conversion:
+  - `sequence-realtime-notification-sse.svg`
+  - `sequence-auth-refresh-token.svg`
+  - `sequence-auth-logout-token-blocklist.svg`
+  - `sequence-ai-module-query-project-user-contract.svg`
+  - `sequence-ai-pending-action-confirmation.svg`
+  - `sequence-ai-streaming-response-sse.svg`
+- Added Mermaid source and re-rendered these user-flagged diagrams:
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-realtime-notification-sse.mmd`
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-auth-refresh-token.mmd`
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-auth-logout-token-blocklist.mmd`
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-module-query-project-user-contract.mmd`
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.mmd`
+  - `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-streaming-response-sse.mmd`
+  - `_incoming/asset/assets/sync-diagrams/activity/activity-project-access-permission-check.mmd`
+- The seven re-rendered SVG files use English labels and were checked for `foreignObject`; all returned `False`.
+- During Chapter 3 assembly, use these diagrams only for exact sequence/flow placeholders. Prefer higher-level diagrams for overview placeholders.
+- `sequence-ai-pending-action-confirmation.svg` is mapped to two placeholders, so it has a duplicate-figure risk.
+
 ## Later chapters
 
-- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` for the full incoming asset tracker before converting Chapters 2-3.
+- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` and `docs/CHAPTER3_ASSET_AUDIT.md` before converting Chapter 3.
