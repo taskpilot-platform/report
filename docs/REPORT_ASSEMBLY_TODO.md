@@ -12,6 +12,7 @@
 - [x] Ran compile check after re-rendering the Chapter 4 UI navigation flow with English labels: success.
 - [x] Ran compile check after switching the Chapter 4 UI navigation flow back to SVG rendered from Graphviz: success.
 - [x] Ran compile check after Chapter 2 conversion: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.4.1 through 3.4.3: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -41,7 +42,8 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [ ] Convert/insert Chapter 3 from `_incoming/CHAPTER_3_*_FINAL.md` files.
   - [x] Prepare split structure under `src/chapter3/sections/`.
   - [x] Convert/insert sections 3.1, 3.2, and 3.3.
-  - [ ] Convert/insert sections 3.4 through 3.13.
+  - [x] Convert/insert sections 3.4.1 through 3.4.3.
+  - [ ] Convert/insert sections 3.4.4 through 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -127,6 +129,13 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Added real UI JPEG figures for Jira, Trello, and Asana in section 3.1.
 - Removed local font-size overrides from Chapter 3 tables in sections 3.1 and 3.3.
 - Converted long Chapter 3 tables in sections 3.1 and 3.3 from `figure(table(...))` to breakable direct `table(...)` blocks with one manual caption each.
+- Converted only sections 3.4.1 through 3.4.3 in `src/chapter3/sections/3_4_3_5_modeling.typ`.
+- Copied and used these use case diagrams under `src/assets/taskpilot/chapter3/`:
+  - `use-case-system.svg`
+  - `use-case-admin.svg`
+  - `use-case-pm.svg`
+  - `use-case-member.svg`
+- Sections 3.4.4 through 3.5 remain pending in the same section file.
 
 ## Notes for next assembly run
 

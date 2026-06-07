@@ -86,6 +86,7 @@
 - During Chapter 3 assembly, use these diagrams only for exact sequence/flow placeholders. Prefer higher-level diagrams for overview placeholders.
 - `sequence-ai-pending-action-confirmation.svg` is mapped to two placeholders, so it has a duplicate-figure risk.
 - Sections 3.1, 3.2, and 3.3 were converted and no missing assets were identified for those sections.
+- Sections 3.4.1, 3.4.2, and 3.4.3 were converted and no missing assets were identified for those sections.
 - Copied and used these Chapter 3 assets under `src/assets/taskpilot/chapter3/`:
   - `ch3_01_jira_workflow.svg`
   - `ch3_01_jira_workflow.jpg`
@@ -99,6 +100,10 @@
   - `ch3_03_interaction_overview.svg`
   - `ch3_03_frontend_spa_architecture.svg`
   - `ch3_03_frontend_rest_sse_flow.svg`
+  - `use-case-system.svg`
+  - `use-case-admin.svg`
+  - `use-case-pm.svg`
+  - `use-case-member.svg`
 - Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
 - The real UI `.jpg` files were converted to valid JPEG encoding before inclusion because the incoming `.jpg` files contained PNG bytes.
 
