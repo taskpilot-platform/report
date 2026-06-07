@@ -12,9 +12,9 @@ config:
 ---
 flowchart LR
     Criteria(Criteria: Fit, Load, Performance) --> AHP(AHP Derives Initial Weights)
-    AHP --> Weights(w_fit, w_load, w_perf)
+    AHP --> Weights("w<sub>fit</sub>, w<sub>load</sub>, w<sub>perf</sub>")
     Candidate(Candidate + Task Data) --> Normalize(Normalize F, L, P Scores)
-    Weights --> Score(Score = w_fit*F - w_load*L + w_perf*P)
+    Weights --> Score("Score = w<sub>fit</sub> · F − w<sub>load</sub> · L + w<sub>perf</sub> · P")
     Normalize --> Score
     Score --> Rank(Rank Candidates)
     Rank --> Explain(Explain Recommendation)
