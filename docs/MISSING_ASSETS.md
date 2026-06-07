@@ -153,6 +153,19 @@
   - `sequence-ai-assistant-chat-with-ai.svg`
   - `sequence-ai-assistant-request-ai-auto-assignment.svg`
   - `sequence-ai-pending-action-confirmation.svg`
+- Sections 3.9 and 3.10 were converted and no missing assets were identified.
+- The rendered sections 3.9 and 3.10 assets are:
+  - `src/assets/diagrams/ch3_09_auth_authorization_overview.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-login.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-refresh-token.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-logout-token-blocklist.svg`
+  - `src/assets/sync-diagrams/activity/activity-project-access-permission-check.svg`
+  - `src/assets/diagrams/ch3_10_realtime_notification_overview.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-realtime-notification-sse.svg`
+  - `src/assets/diagrams/ch3_10_comment_realtime_flow.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-streaming-response-sse.svg`
+  - `src/assets/diagrams/ch3_10_onesignal_push_flow.svg`
+- Three section 3.9/3.10 overview/push-flow SVGs compile with Typst `foreignObject` warnings; they are not missing assets and can be re-rendered later if PDF rendering is visually incorrect.
 
 ## Later chapters
 

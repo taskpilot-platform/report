@@ -16,6 +16,7 @@
 - [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
 - [x] Ran compile check after converting the rest of Chapter 3 section 3.5: success.
 - [x] Ran compile check after refactoring Chapter 3 section 3.5 to representative use cases only: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.9 and 3.10: success with three SVG `foreignObject` warnings.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -36,6 +37,15 @@ src/chapter2/sections/2_2_ai_agent.typ:59: ch2_05_human_in_the_loop.svg
 src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_ahp.svg
 ```
 
+- [ ] Review Chapter 3 section 3.9/3.10 SVG `foreignObject` warnings if the final PDF renders those overview/push-flow diagrams incorrectly:
+
+```text
+warning: image contains foreign object
+src/chapter3/sections/3_9_3_10_realtime_notification.typ:10: ch3_09_auth_authorization_overview.svg
+src/chapter3/sections/3_9_3_10_realtime_notification.typ:116: ch3_10_realtime_notification_overview.svg
+src/chapter3/sections/3_9_3_10_realtime_notification.typ:176: ch3_10_onesignal_push_flow.svg
+```
+
 ## Assembly checklist
 
 - [x] Compile existing template.
@@ -49,6 +59,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - [x] Convert/insert sections 3.4.4 through the first detailed use case UC01.
   - [x] Convert/insert the rest of section 3.5 from UC02 through the final use case notes.
   - [x] Refactor section 3.5 to render only representative use cases; repetitive CRUD/list/update flows remain covered by the 3.4 use case summary and external/full documentation note.
+  - [x] Convert/insert sections 3.9 and 3.10 from `_incoming/CHAPTER_3_9_3_10_FINAL.md`.
   - [ ] Continue converting Chapter 3 sections 3.6 through 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
@@ -163,6 +174,9 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - After refactor, `typst query main.typ "figure.where(kind: image)" --field caption --format json` and `typst query main.typ "figure.where(kind: table)" --field caption --format json` show only the representative section 3.5 sequence/table captions in the generated figure/table lists.
 - Approximate compiled page range for section 3.5 after refactor: pages 82-101; the next section starts on page 102.
 - Added captions for currently converted Chapter 3 tables that previously had `caption: none` in sections 3.6 and 3.8.
+- Converted sections 3.9 and 3.10 in `src/chapter3/sections/3_9_3_10_realtime_notification.typ`.
+- Used available auth, permission, realtime, notification, AI streaming, and OneSignal diagrams from `src/assets/diagrams/` and `src/assets/sync-diagrams/`.
+- No missing assets were identified for sections 3.9 and 3.10.
 
 ## Notes for next assembly run
 
