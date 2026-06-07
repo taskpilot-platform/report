@@ -87,5 +87,5 @@ Trong đó, các chính sách được định nghĩa như sau:
 - Các đối tượng `note` và `folder` được xác định là các mục trong không gian làm
   việc thông qua mối quan hệ g2
 
-Ví dụ minh hoạ cụ thể về yêu cầu truy cập và quá trình so khớp chính sách có
-thể xem tại @appendix-casbin-example.
+Ví dụ minh hoạ cụ thể về yêu cầu truy cập và quá trình so khớp chính sách có thể
+xem tại @appendix-casbin-example.

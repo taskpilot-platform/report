@@ -1,0 +1,25 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant NC as NotificationController
+participant NS as NotificationService
+participant DB as NotificationStore
+participant SSE as SseEmitterRegistry
+
+U->>FE: Open TaskPilot
+FE->>NC: GET /notifications/stream
+NC->>SSE: Register emitter by user
+SSE-->>FE: SSE connection and heartbeat
+Note over NS,DB: A task, comment, or project event occurs
+NS->>DB: Save notification
+DB-->>NS: notificationId
+NS->>SSE: Publish notification event
+alt User is online
+  SSE-->>FE: event notification.created
+  FE-->>U: Update inbox and unread counter
+else User is offline
+  SSE-->>NS: No active emitter
+  NS-->>DB: Notification remains unread
+end

@@ -1,0 +1,39 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant AIC as AIController
+participant AIS as AIService
+participant W as PendingActionWorkflow
+participant DS as DomainService
+participant DB as Domain data
+participant LOG as AI Log
+
+U->>FE: Ask AI to perform a write action
+FE->>AIC: Send chat/tool request
+AIC->>AIS: Analyze request and tool call
+AIS->>W: Create pending action with preview and params
+W->>LOG: Record pending action
+W-->>AIS: actionId and summary
+AIS-->>FE: Confirmation required
+FE-->>U: Show Confirm / Cancel
+
+alt User confirms
+  U->>FE: Confirm action
+  FE->>AIC: POST /ai/actions/confirm
+  AIC->>W: Check ownership, session, expiry
+  W->>DS: Execute write action
+  DS->>DB: Update domain data
+  DB-->>DS: Updated
+  DS-->>W: Execution result
+  W->>LOG: Record confirmed result
+  W-->>FE: Success
+  FE-->>U: Show updated state
+else User cancels
+  U->>FE: Cancel action
+  FE->>AIC: POST /ai/actions/cancel
+  AIC->>W: Mark action canceled
+  W->>LOG: Record cancellation
+  W-->>FE: Canceled
+end

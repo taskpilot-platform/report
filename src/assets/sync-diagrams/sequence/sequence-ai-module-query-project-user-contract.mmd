@@ -1,0 +1,29 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant AIM as taskpilot-ai
+participant C as taskpilot-contracts
+participant PA as ProjectModuleAdapter
+participant UA as UserModuleAdapter
+participant PS as Projects module
+participant US as Users module
+
+U->>FE: Ask AI about project/user context
+FE->>AIM: Send AI request
+AIM->>C: Call Project/User ports
+par Load project context
+  C->>PA: ProjectInsightsPort or MemberAnalyticsPort
+  PA->>PS: Check membership and load project data
+  PS-->>PA: DTO project, task, sprint, workload
+  PA-->>C: Project context DTO
+and Load user context
+  C->>UA: UserProfilePort or UserSkillPort
+  UA->>US: Load user profile and skills
+  US-->>UA: User and skill DTO
+  UA-->>C: User context DTO
+end
+C-->>AIM: Controlled context
+AIM-->>FE: AI response or pending action proposal
+FE-->>U: Display result

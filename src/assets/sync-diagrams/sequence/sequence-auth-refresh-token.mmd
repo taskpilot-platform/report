@@ -1,0 +1,27 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant AC as AuthController
+participant AS as AuthService
+participant DB as RefreshToken and User
+participant JWT as JwtService
+
+U->>FE: Session requires renewal
+FE->>AC: POST /auth/refresh
+AC->>AS: refresh(refreshToken)
+AS->>DB: Find refresh token
+alt Token is invalid or expired
+  DB-->>AS: No valid token found
+  AS-->>AC: Reject refresh
+  AC-->>FE: 401 Unauthorized
+  FE-->>U: Ask user to sign in again
+else Token is valid
+  DB-->>AS: Token and user data
+  AS->>JWT: Generate new access token
+  JWT-->>AS: Access token
+  AS-->>AC: Refresh response
+  AC-->>FE: 200 OK + accessToken
+  FE-->>U: Continue current session
+end
