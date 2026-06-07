@@ -1,10 +1,30 @@
+#let bordered-image(
+  image-src,
+  width: 100%,
+  height: auto,
+) = block(
+  width: width,
+  fill: white,
+  stroke: 0.5pt + rgb("#dddddd"),
+  radius: 4pt,
+  inset: 3pt,
+)[
+  #image(
+    image-src,
+    width: 100%,
+    height: height,
+  )
+]
+
 #let ui-figure(
   image-src,
   caption,
+  width: 100%,
   height: auto,
 ) = figure(
-  image(
+  bordered-image(
     image-src,
+    width: width,
     height: height,
   ),
   caption: caption,
