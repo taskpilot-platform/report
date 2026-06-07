@@ -12,7 +12,7 @@ Hệ thống phân định các đối tượng người dùng (actor) tham gia 
 
 ### 3.4.2. Sơ đồ Use Case tổng quát
 
-[Hình x: Sơ đồ Use Case tổng quát của hệ thống TaskPilot]
+[Hình x: Sơ đồ Use Case tổng quát của hệ thống TaskPilot - file: asset/assets/sync-diagrams/use-case/use-case-system.svg]
 
 Sơ đồ Use Case tổng quát cung cấp cái nhìn toàn cảnh về các tác nhân và các nhóm chức năng chính mà họ có thể tương tác trong hệ thống TaskPilot. Thông qua sơ đồ này, hệ thống thể hiện sự phân quyền rõ rệt từ người dùng chưa xác thực (Guest) cho đến các thành viên dự án (Project Member, Project Manager) và quản trị viên hệ thống (Admin), cùng với sự hỗ trợ từ trợ lý AI Copilot đối với các tác vụ nghiệp vụ quản lý.
 
