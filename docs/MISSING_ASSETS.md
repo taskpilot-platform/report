@@ -88,17 +88,19 @@
 - Sections 3.1, 3.2, and 3.3 were converted and no missing assets were identified for those sections.
 - Copied and used these Chapter 3 assets under `src/assets/taskpilot/chapter3/`:
   - `ch3_01_jira_workflow.svg`
+  - `ch3_01_jira_workflow.jpg`
   - `ch3_01_trello_kanban.svg`
+  - `ch3_01_trello_kanban.jpg`
   - `ch3_01_asana_views.svg`
+  - `ch3_01_asana_views.jpg`
   - `ch3_02_analysis_design_process.svg`
   - `ch3_02_testing_deployment_process.svg`
   - `ch3_03_system_context.svg`
   - `ch3_03_interaction_overview.svg`
   - `ch3_03_frontend_spa_architecture.svg`
   - `ch3_03_frontend_rest_sse_flow.svg`
-- Current warning notes for converted Chapter 3 sections:
-  - `ch3_01_jira_workflow.svg` contains `foreignObject`.
-  - `ch3_01_trello_kanban.svg` contains `foreignObject`.
+- Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
+- The real UI `.jpg` files were converted to valid JPEG encoding before inclusion because the incoming `.jpg` files contained PNG bytes.
 
 ## Later chapters
 

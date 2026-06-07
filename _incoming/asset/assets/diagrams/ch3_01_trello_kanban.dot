@@ -1,0 +1,44 @@
+digraph TrelloKanban {
+  graph [
+    rankdir=LR,
+    bgcolor="white",
+    pad="0.25",
+    nodesep="0.45",
+    ranksep="0.55",
+    splines=polyline
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    color="#65758b",
+    fillcolor="#f8fafc",
+    fontname="Arial",
+    fontsize=12,
+    margin="0.12,0.08"
+  ];
+
+  edge [
+    color="#475569",
+    fontname="Arial",
+    fontsize=10,
+    arrowsize=0.7
+  ];
+
+  subgraph cluster_board {
+    label="Trello board";
+    color="#cbd5e1";
+    fontname="Arial";
+    fontsize=14;
+    style="rounded";
+
+    Backlog [label="Backlog\n\nCard: login\nCard: profile", fillcolor="#eef6ff", color="#2563eb"];
+    Doing [label="Doing\n\nCard: kanban UI", fillcolor="#eef2ff", color="#4f46e5"];
+    Review [label="Review\n\nCard: notification", fillcolor="#fff7ed", color="#f97316"];
+    Done [label="Done\n\nCard: deploy", fillcolor="#f0fdf4", color="#16a34a"];
+  }
+
+  Backlog -> Doing;
+  Doing -> Review;
+  Review -> Done;
+}

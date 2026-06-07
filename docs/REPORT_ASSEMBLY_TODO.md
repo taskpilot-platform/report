@@ -52,6 +52,9 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [x] Redraw the six user-flagged Chapter 3 sequence diagrams and the project access permission diagram as Mermaid-rendered SVG assets.
 - [ ] Review final page layout for wide tables, oversized diagrams, and screenshot scaling.
 - [ ] Review bibliography/reference citations after content insertion.
+- [ ] Consolidate temporary/plain-text references into the final end-of-report bibliography; do not leave per-section reference blocks inside chapters.
+- [ ] Add italic chapter introduction summaries for Chapters 3, 4, and 5 to match the Chapter 1/2 style.
+- [ ] Reconcile List of Tables after final layout: long Chapter 3 tables are currently breakable direct tables with manual captions, so they may not appear automatically in the generated table list.
 
 ## Chapter 1 notes
 
@@ -119,9 +122,11 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Left sections 3.4 through 3.13 as minimal heading/TODO placeholders.
 - Copied assets used by sections 3.1 through 3.3 into `src/assets/taskpilot/chapter3/`.
 - No missing assets were identified for sections 3.1 through 3.3.
-- Compile succeeded after this partial conversion with two Chapter 3 SVG `foreignObject` warnings:
-  - `src/chapter3/sections/3_1_overview.typ`: `ch3_01_jira_workflow.svg`.
-  - `src/chapter3/sections/3_1_overview.typ`: `ch3_01_trello_kanban.svg`.
+- Removed the temporary reference block from section 3.1 so references remain a final-report cleanup task.
+- Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
+- Added real UI JPEG figures for Jira, Trello, and Asana in section 3.1.
+- Removed local font-size overrides from Chapter 3 tables in sections 3.1 and 3.3.
+- Converted long Chapter 3 tables in sections 3.1 and 3.3 from `figure(table(...))` to breakable direct `table(...)` blocks with one manual caption each.
 
 ## Notes for next assembly run
 

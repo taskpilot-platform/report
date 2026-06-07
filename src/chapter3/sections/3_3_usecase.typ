@@ -19,27 +19,24 @@ Trong sơ đồ, người dùng truy cập frontend thông qua trình duyệt we
 
 === Các thành phần chính của hệ thống
 
-#figure(
-  {
-    set text(size: 9pt)
-    table(
-      columns: (1.2fr, 2.2fr, 2.1fr),
-      align: (left, left, left),
-      inset: 3pt,
-      table.header([*Thành phần*], [*Vai trò chính*], [*Ghi chú*]),
-      [Người dùng / trình duyệt], [Truy cập hệ thống, thao tác với giao diện web và nhận phản hồi từ ứng dụng.], [Bao gồm Guest, Admin, Project Manager và Project Member.],
-      [Frontend React SPA], [Hiển thị giao diện, quản lý trạng thái phía client, định tuyến và gọi API backend.], [Xây dựng bằng React, TypeScript và Vite; không phải Next.js.],
-      [Backend Spring Boot Modular Monolith], [Xử lý nghiệp vụ, xác thực/phân quyền, persistence, realtime và tích hợp AI.], [Được triển khai như một ứng dụng/runtime duy nhất, không phải microservices.],
-      [PostgreSQL trên Supabase], [Lưu trữ dữ liệu nghiệp vụ chính của hệ thống.], [Schema được quản lý bằng migration; không mô tả chi tiết bảng ở mục này.],
-      [Redis], [Hỗ trợ các dữ liệu ngắn hạn và cơ chế hạ tầng phụ trợ.], [Được dùng cho các dữ liệu ngắn hạn như JWT blocklist hoặc cơ chế giới hạn tần suất tùy theo cấu hình hệ thống [11].],
-      [Supabase S3-compatible Object Storage], [Lưu trữ tệp đối tượng như avatar hoặc file upload.], [Backend truy cập thông qua giao tiếp tương thích S3.],
-      [Brevo Email Service], [Gửi email giao dịch cho các luồng như quên/đặt lại mật khẩu.], [Được tích hợp qua cấu hình mail/SMTP [18].],
-      [OneSignal Push Notification], [Gửi thông báo đẩy đến thiết bị/người dùng.], [Kết hợp với notification nội bộ và frontend web push [17].],
-      [AI Providers: Gemini, GitHub Models/OpenAI-compatible API, Groq], [Cung cấp năng lực sinh phản hồi ngôn ngữ tự nhiên và hỗ trợ các luồng AI Copilot.], [Backend là lớp tích hợp và kiểm soát ngữ cảnh/hành động [13][14][15].],
-      [CI/CD và nền tảng triển khai: GitHub Actions, Netlify/Vercel, Hugging Face Space], [Tự động kiểm thử/triển khai và vận hành frontend/backend.], [Frontend triển khai trên Netlify/Vercel tùy cấu hình; backend triển khai trên Hugging Face Space [20][21][22][23].],
-    )
-  },
-  caption: [Các thành phần chính của hệ thống TaskPilot],
+#align(center)[#emph[Bảng 3.2: Các thành phần chính của hệ thống TaskPilot]]
+
+#table(
+  columns: (1.2fr, 2.2fr, 2.1fr),
+  align: (left + top, left + top, left + top),
+  inset: 0.5em,
+  stroke: 0.5pt,
+  table.header([*Thành phần*], [*Vai trò chính*], [*Ghi chú*]),
+  [Người dùng / trình duyệt], [Truy cập hệ thống, thao tác với giao diện web và nhận phản hồi từ ứng dụng.], [Bao gồm Guest, Admin, Project Manager và Project Member.],
+  [Frontend React SPA], [Hiển thị giao diện, quản lý trạng thái phía client, định tuyến và gọi API backend.], [Xây dựng bằng React, TypeScript và Vite; không phải Next.js.],
+  [Backend Spring Boot Modular Monolith], [Xử lý nghiệp vụ, xác thực/phân quyền, persistence, realtime và tích hợp AI.], [Được triển khai như một ứng dụng/runtime duy nhất, không phải microservices.],
+  [PostgreSQL trên Supabase], [Lưu trữ dữ liệu nghiệp vụ chính của hệ thống.], [Schema được quản lý bằng migration; không mô tả chi tiết bảng ở mục này.],
+  [Redis], [Hỗ trợ các dữ liệu ngắn hạn và cơ chế hạ tầng phụ trợ.], [Được dùng cho các dữ liệu ngắn hạn như JWT blocklist hoặc cơ chế giới hạn tần suất tùy theo cấu hình hệ thống [11].],
+  [Supabase S3-compatible Object Storage], [Lưu trữ tệp đối tượng như avatar hoặc file upload.], [Backend truy cập thông qua giao tiếp tương thích S3.],
+  [Brevo Email Service], [Gửi email giao dịch cho các luồng như quên/đặt lại mật khẩu.], [Được tích hợp qua cấu hình mail/SMTP [18].],
+  [OneSignal Push Notification], [Gửi thông báo đẩy đến thiết bị/người dùng.], [Kết hợp với notification nội bộ và frontend web push [17].],
+  [AI Providers: Gemini, GitHub Models/OpenAI-compatible API, Groq], [Cung cấp năng lực sinh phản hồi ngôn ngữ tự nhiên và hỗ trợ các luồng AI Copilot.], [Backend là lớp tích hợp và kiểm soát ngữ cảnh/hành động [13][14][15].],
+  [CI/CD và nền tảng triển khai: GitHub Actions, Netlify/Vercel, Hugging Face Space], [Tự động kiểm thử/triển khai và vận hành frontend/backend.], [Frontend triển khai trên Netlify/Vercel tùy cấu hình; backend triển khai trên Hugging Face Space [20][21][22][23].],
 )
 
 Frontend và backend được tách biệt nhưng tích hợp với nhau thông qua các API contract. Cách tổ chức này giúp giao diện người dùng có thể phát triển độc lập với phần xử lý nghiệp vụ, đồng thời backend vẫn giữ vai trò là nguồn kiểm soát dữ liệu và quy tắc hệ thống.
@@ -77,24 +74,21 @@ Lớp UI components và styling cung cấp các thành phần giao diện tái s
 
 Frontend giao tiếp với backend thông qua REST API cho phần lớn thao tác nghiệp vụ và thông qua SSE cho các dữ liệu dạng sự kiện hoặc streaming. Khi triển khai, ứng dụng frontend được build thành các tài nguyên tĩnh và có thể được lưu trữ trên Netlify hoặc Vercel tùy cấu hình dự án. Backend vẫn là điểm đến chính cho các yêu cầu nghiệp vụ và là lớp kiểm soát an toàn khi frontend tương tác với dữ liệu hoặc AI provider.
 
-#figure(
-  {
-    set text(size: 9pt)
-    table(
-      columns: (1.6fr, 3.4fr),
-      align: (left, left),
-      inset: 4pt,
-      table.header([*Lớp frontend*], [*Vai trò*]),
-      [Pages/Screens], [Tổ chức các màn hình nghiệp vụ chính của ứng dụng.],
-      [Routing & Protected Route], [Quản lý điều hướng phía client và bảo vệ các route yêu cầu đăng nhập.],
-      [State Management], [Lưu trạng thái dùng chung như phiên đăng nhập, token và dữ liệu client cần thiết.],
-      [API Services / HTTP Client], [Đóng gói lời gọi REST API, cấu hình base URL, token và xử lý lỗi phổ biến.],
-      [Realtime/SSE Client], [Nhận sự kiện realtime từ backend cho notification, comment và AI streaming.],
-      [UI Components & Styling], [Cung cấp thành phần giao diện tái sử dụng và phong cách hiển thị nhất quán.],
-      [Push Notification Integration], [Khởi tạo và đồng bộ người dùng với OneSignal Web SDK khi được cấu hình.],
-    )
-  },
-  caption: [Các lớp chức năng chính của frontend TaskPilot],
+#align(center)[#emph[Bảng 3.3: Các lớp chức năng chính của frontend TaskPilot]]
+
+#table(
+  columns: (1.6fr, 3.4fr),
+  align: (left + top, left + top),
+  inset: 0.5em,
+  stroke: 0.5pt,
+  table.header([*Lớp frontend*], [*Vai trò*]),
+  [Pages/Screens], [Tổ chức các màn hình nghiệp vụ chính của ứng dụng.],
+  [Routing & Protected Route], [Quản lý điều hướng phía client và bảo vệ các route yêu cầu đăng nhập.],
+  [State Management], [Lưu trạng thái dùng chung như phiên đăng nhập, token và dữ liệu client cần thiết.],
+  [API Services / HTTP Client], [Đóng gói lời gọi REST API, cấu hình base URL, token và xử lý lỗi phổ biến.],
+  [Realtime/SSE Client], [Nhận sự kiện realtime từ backend cho notification, comment và AI streaming.],
+  [UI Components & Styling], [Cung cấp thành phần giao diện tái sử dụng và phong cách hiển thị nhất quán.],
+  [Push Notification Integration], [Khởi tạo và đồng bộ người dùng với OneSignal Web SDK khi được cấu hình.],
 )
 
 #figure(

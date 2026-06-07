@@ -186,16 +186,19 @@ Dự án TaskPilot được phát triển dựa trên một hệ sinh thái côn
 hiện đại, phục vụ cho việc xây dựng giao diện web, backend nghiệp vụ, lưu trữ dữ
 liệu, tích hợp AI, thông báo thời gian thực và triển khai hệ thống.
 
-#table(
-  columns: (auto, 1fr),
-  align: left + horizon,
-  [*Nhóm*], [*Công nghệ / công cụ*],
-  [*Frontend*], [React, TypeScript, Vite, React Router, Zustand, Tailwind CSS, Radix UI, Lucide, Axios],
-  [*Backend*], [Java 21, Spring Boot, Maven multi-module, Spring Security, Spring Data JPA, Spring Validation, Spring Mail, Spring Actuator, JWT, SpringDoc OpenAPI],
-  [*Cơ sở dữ liệu và lưu trữ*], [PostgreSQL trên Supabase, Flyway, Redis, Supabase S3-compatible Object Storage],
-  [*AI tích hợp*], [LangChain4j, Google Gemini, GitHub Models/OpenAI-compatible API, OpenAI Official SDK, Groq],
-  [*Dịch vụ ngoài*], [Brevo, OneSignal],
-  [*Giao tiếp API và realtime*], [REST API, Server-Sent Events (SSE), OpenAPI/SpringDoc],
-  [*Hạ tầng triển khai*], [Docker, Vercel, Hugging Face Space, GitHub Actions],
-  [*Công cụ phát triển và kiểm thử*], [IntelliJ IDEA, Visual Studio Code, Postman, DBeaver, Git/GitHub, Maven, npm/pnpm, Docker Desktop],
+#figure(
+  table(
+    columns: (auto, 1fr),
+    align: left + horizon,
+    [*Nhóm*], [*Công nghệ / công cụ*],
+    [*Frontend*], [React, TypeScript, Vite, React Router, Zustand, Tailwind CSS, Radix UI, Lucide, Axios],
+    [*Backend*], [Java 21, Spring Boot, Maven multi-module, Spring Security, Spring Data JPA, Spring Validation, Spring Mail, Spring Actuator, JWT, SpringDoc OpenAPI],
+    [*Cơ sở dữ liệu và lưu trữ*], [PostgreSQL trên Supabase, Flyway, Redis, Supabase S3-compatible Object Storage],
+    [*AI tích hợp*], [LangChain4j, Google Gemini, GitHub Models/OpenAI-compatible API, OpenAI Official SDK, Groq],
+    [*Dịch vụ ngoài*], [Brevo, OneSignal],
+    [*Giao tiếp API và realtime*], [REST API, Server-Sent Events (SSE), OpenAPI/SpringDoc],
+    [*Hạ tầng triển khai*], [Docker, Vercel, Hugging Face Space, GitHub Actions],
+    [*Công cụ phát triển và kiểm thử*], [IntelliJ IDEA, Visual Studio Code, Postman, DBeaver, Git/GitHub, Maven, npm/pnpm, Docker Desktop],
+  ),
+  caption: [Công nghệ và công cụ sử dụng trong TaskPilot],
 )
