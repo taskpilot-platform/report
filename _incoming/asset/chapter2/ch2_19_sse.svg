@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="600" viewBox="0 0 1160 600">
+
+<style>
+  text { font-family: Inter, Arial, sans-serif; fill: #172033; dominant-baseline: middle; }
+  .canvas { fill: none; }
+  .zone { fill: #cfd5e2; stroke: #30384d; stroke-width: 1.4; rx: 22; }
+  .group { fill: #dfe4ee; stroke: #30384d; stroke-width: 1.2; rx: 18; }
+  .box { fill: #f8fafc; stroke: #30384d; stroke-width: 1.1; rx: 16; }
+  .muted { fill: #e6eaf2; stroke: #667085; stroke-dasharray: 5 4; rx: 16; }
+  .label { font-size: 15px; font-weight: 700; }
+  .small { font-size: 12px; font-weight: 600; }
+  .tiny { font-size: 10px; font-weight: 600; }
+  .line { fill: none; stroke: #30384d; stroke-width: 1.35; marker-end: url(#arrow); }
+  .dash { fill: none; stroke: #697386; stroke-width: 1.25; stroke-dasharray: 5 4; marker-end: url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#30384d"/>
+  </marker>
+</defs>
+<rect class="canvas" x="24" y="28" width="1112" height="544" rx="24"/>
+<text class="label" x="580" y="66" text-anchor="middle">Server-Sent Events (SSE) stream</text>
+<rect class="box" x="140" y="160" width="180" height="280" rx="20"/>
+<rect class="box" x="209" y="180" width="42" height="30" rx="5"/>
+<circle cx="217" cy="188" r="2.4" fill="#ef4444"/>
+<circle cx="225" cy="188" r="2.4" fill="#f59e0b"/>
+<circle cx="233" cy="188" r="2.4" fill="#22c55e"/>
+<line x1="213" y1="194" x2="247" y2="194" stroke="#30384d" stroke-width="1"/>
+<text class="small" x="230" y="240" text-anchor="middle">Frontend Client</text>
+<image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48ZyBmaWxsPSIjNjFEQUZCIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiByPSIxMS40Ii8+PHBhdGggZD0iTTEwNy4zIDQ1LjJjLTIuMi0uOC00LjUtMS42LTYuOS0yLjMuNi0yLjQgMS4xLTQuOCAxLjUtNy4xIDIuMS0xMy4yLS4yLTIyLjUtNi42LTI2LjEtMS45LTEuMS00LTEuNi02LjQtMS42LTcgMC0xNS45IDUuMi0yNC45IDEzLjktOS04LjctMTcuOS0xMy45LTI0LjktMTMuOS0yLjQgMC00LjUuNS02LjQgMS42LTYuNCAzLjctOC43IDEzLTYuNiAyNi4xLjQgMi4zLjkgNC43IDEuNSA3LjEtMi40LjctNC43IDEuNC02LjkgMi4zQzguMiA1MCAxLjQgNTYuNiAxLjQgNjRzNi45IDE0IDE5LjMgMTguOGMyLjIuOCA0LjUgMS42IDYuOSAyLjMtLjYgMi40LTEuMSA0LjgtMS41IDcuMS0yLjEgMTMuMi4yIDIyLjUgNi42IDI2LjEgMS45IDEuMSA0IDEuNiA2LjQgMS42IDcuMSAwIDE2LTUuMiAyNC45LTEzLjkgOSA4LjcgMTcuOSAxMy45IDI0LjkgMTMuOSAyLjQgMCA0LjUtLjUgNi40LTEuNiA2LjQtMy43IDguNy0xMyA2LjYtMjYuMS0uNC0yLjMtLjktNC43LTEuNS03LjEgMi40LS43IDQuNy0xLjQgNi45LTIuMyAxMi41LTQuOCAxOS4zLTExLjQgMTkuMy0xOC44cy02LjgtMTQtMTkuMy0xOC44ek05Mi41IDE0LjdjNC4xIDIuNCA1LjUgOS44IDMuOCAyMC4zLS4zIDIuMS0uOCA0LjMtMS40IDYuNi01LjItMS4yLTEwLjctMi0xNi41LTIuNS0zLjQtNC44LTYuOS05LjEtMTAuNC0xMyA3LjQtNy4zIDE0LjktMTIuMyAyMS0xMi4zIDEuMyAwIDIuNS4zIDMuNS45ek04MS4zIDc0Yy0xLjggMy4yLTMuOSA2LjQtNi4xIDkuNi0zLjcuMy03LjQuNC0xMS4yLjQtMy45IDAtNy42LS4xLTExLjItLjQtMi4yLTMuMi00LjItNi40LTYtOS42LTEuOS0zLjMtMy43LTYuNy01LjMtMTAgMS42LTMuMyAzLjQtNi43IDUuMy0xMCAxLjgtMy4yIDMuOS02LjQgNi4xLTkuNiAzLjctLjMgNy40LS40IDExLjItLjQgMy45IDAgNy42LjEgMTEuMi40IDIuMiAzLjIgNC4yIDYuNCA2IDkuNiAxLjkgMy4zIDMuNyA2LjcgNS4zIDEwLTEuNyAzLjMtMy40IDYuNi01LjMgMTB6bTguMy0zLjNjMS41IDMuNSAyLjcgNi45IDMuOCAxMC4zLTMuNC44LTcgMS40LTEwLjggMS45IDEuMi0xLjkgMi41LTMuOSAzLjYtNiAxLjItMi4xIDIuMy00LjIgMy40LTYuMnpNNjQgOTcuOGMtMi40LTIuNi00LjctNS40LTYuOS04LjMgMi4zLjEgNC42LjIgNi45LjIgMi4zIDAgNC42LS4xIDYuOS0uMi0yLjIgMi45LTQuNSA1LjctNi45IDguM3ptLTE4LjYtMTVjLTMuOC0uNS03LjQtMS4xLTEwLjgtMS45IDEuMS0zLjMgMi4zLTYuOCAzLjgtMTAuMyAxLjEgMiAyLjIgNC4xIDMuNCA2LjEgMS4yIDIuMiAyLjQgNC4xIDMuNiA2LjF6bS03LTI1LjVjLTEuNS0zLjUtMi43LTYuOS0zLjgtMTAuMyAzLjQtLjggNy0xLjQgMTAuOC0xLjktMS4yIDEuOS0yLjUgMy45LTMuNiA2LTEuMiAyLjEtMi4zIDQuMi0zLjQgNi4yek02NCAzMC4yYzIuNCAyLjYgNC43IDUuNCA2LjkgOC4zLTIuMy0uMS00LjYtLjItNi45LS4yLTIuMyAwLTQuNi4xLTYuOS4yIDIuMi0yLjkgNC41LTUuNyA2LjktOC4zem0yMi4yIDIxbC0zLjYtNmMzLjguNSA3LjQgMS4xIDEwLjggMS45LTEuMSAzLjMtMi4zIDYuOC0zLjggMTAuMy0xLjEtMi4xLTIuMi00LjItMy40LTYuMnpNMzEuNyAzNWMtMS43LTEwLjUtLjMtMTcuOSAzLjgtMjAuMyAxLS42IDIuMi0uOSAzLjUtLjkgNiAwIDEzLjUgNC45IDIxIDEyLjMtMy41IDMuOC03IDguMi0xMC40IDEzLTUuOC41LTExLjMgMS40LTE2LjUgMi41LS42LTIuMy0xLTQuNS0xLjQtNi42ek03IDY0YzAtNC43IDUuNy05LjcgMTUuNy0xMy40IDItLjggNC4yLTEuNSA2LjQtMi4xIDEuNiA1IDMuNiAxMC4zIDYgMTUuNi0yLjQgNS4zLTQuNSAxMC41LTYgMTUuNUMxNS4zIDc1LjYgNyA2OS42IDcgNjR6bTI4LjUgNDkuM2MtNC4xLTIuNC01LjUtOS44LTMuOC0yMC4zLjMtMi4xLjgtNC4zIDEuNC02LjYgNS4yIDEuMiAxMC43IDIgMTYuNSAyLjUgMy40IDQuOCA2LjkgOS4xIDEwLjQgMTMtNy40IDcuMy0xNC45IDEyLjMtMjEgMTIuMy0xLjMgMC0yLjUtLjMtMy41LS45ek05Ni4zIDkzYzEuNyAxMC41LjMgMTcuOS0zLjggMjAuMy0xIC42LTIuMi45LTMuNS45LTYgMC0xMy41LTQuOS0yMS0xMi4zIDMuNS0zLjggNy04LjIgMTAuNC0xMyA1LjgtLjUgMTEuMy0xLjQgMTYuNS0yLjUuNiAyLjMgMSA0LjUgMS40IDYuNnptOS0xNS42Yy0yIC44LTQuMiAxLjUtNi40IDIuMS0xLjYtNS0zLjYtMTAuMy02LTE1LjYgMi40LTUuMyA0LjUtMTAuNSA2LTE1LjUgMTMuOCA0IDIyLjEgMTAgMjIuMSAxNS42IDAgNC43LTUuOCA5LjctMTUuNyAxMy40eiIvPjwvZz48L3N2Zz4=" x="212" y="260" width="36" height="36" preserveAspectRatio="xMidYMid meet"/>
+<text class="tiny" x="230" y="320" text-anchor="middle">EventSource API</text>
+
+<rect class="box" x="840" y="160" width="180" height="280" rx="20"/>
+<text class="small" x="930" y="240" text-anchor="middle">Backend Server</text>
+<image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNkRCMzNGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3ByaW5nIEJvb3Q8L3RpdGxlPjxwYXRoIGQ9Im0yMy42OTMgMTAuNzA1OC00LjczLTguMTg0NGMtLjQwOTQtLjcxMDYtMS40MTY2LTEuMjk0Mi0yLjI0MDItMS4yOTQySDcuMjcyNWMtLjgxOSAwLTEuODMwOC41ODM2LTIuMjQwMiAxLjI5NDJMLjMwNyAxMC43MDU4Yy0uNDA5NS43MTA2LS40MDk1IDEuODczIDAgMi41ODM3bDQuNzI1MiA4LjE4OWMuNDA5NC43MTA3IDEuNDE2NiAxLjI5NDMgMi4yNDAyIDEuMjk0M2g5LjQ1NWMuODE5IDAgMS44MjYtLjU4MzYgMi4yNDAyLTEuMjk0Mmw0LjcyNTItOC4xODljLjQwOTUtLjcxMDcuNDA5NS0xLjg3MzIgMC0yLjU4Mzh6TTEwLjk3NjMgNS43NTQ3YzAtLjUzNjUuNDM3Ny0uOTc0Mi45NzQyLS45NzQycy45NzQyLjQzNzcuOTc0Mi45NzQydjUuODIxN2MwIC41MzY2LS40Mzc3Ljk3NDItLjk3NDIuOTc0MnMtLjk3NDItLjQzNzYtLjk3NDItLjk3NDJ6bS45NzQyIDEyLjQyOTRjLTMuNjQyNyAwLTYuNjA3Ny0yLjk2NS02LjYwNzctNi42MDc3LjAwNDctMi4wODk2Ljk5My00LjA1MjEgMi42Njg1LTUuMzA0YS44NjU3Ljg2NTcgMCAwIDEgMS4yMTQyLjE3ODguODY1Ny44NjU3IDAgMCAxLS4xNzg4IDEuMjE0M2MtMi4xNjAyIDEuNjA0OC0yLjYxMiA0LjY1OTItMS4wMDcyIDYuODE5NCAxLjYwNDkgMi4xNjAzIDQuNjU5MyAyLjYxMiA2LjgxOTUgMS4wMDcyIDEuMjM3OC0uOTE3NyAxLjk2NzMtMi4zNzIgMS45NjczLTMuOTE1N2E0Ljg5NzIgNC44OTcyIDAgMCAwLTEuOTg2MS0zLjkyNWMtLjM4Ni0uMjgyNC0uNDY2LS44Mjg0LS4xODM2LTEuMjE0My4yODI0LS4zODYuODI4My0uNDY2IDEuMjE0My0uMTgzNSAxLjY4OTUgMS4yNDcxIDIuNjgyNiAzLjIyMzggMi42ODczIDUuMzIyOCAwIDMuNjQ3NC0yLjk2NSA2LjYwNzctNi42MDc3IDYuNjA3N3oiLz48L3N2Zz4K" x="912" y="260" width="36" height="36" preserveAspectRatio="xMidYMid meet"/>
+<text class="tiny" x="930" y="320" text-anchor="middle">SseEmitter</text>
+
+<!-- HTTP GET -->
+<path class="line" d="M320 200 L840 200"/>
+<text class="small" x="580" y="184" text-anchor="middle">1. HTTP GET (Accept: text/event-stream)</text>
+
+<!-- HTTP 200 -->
+<path class="line" d="M840 240 L320 240"/>
+<text class="small" x="580" y="224" text-anchor="middle">2. HTTP 200 OK (Content-Type: text/event-stream)</text>
+
+<!-- Data Stream -->
+<rect class="muted" x="380" y="280" width="400" height="130" rx="16"/>
+<path class="dash" d="M840 310 L320 310"/>
+<text class="tiny" x="580" y="300" text-anchor="middle">data: {"event":"AI_STREAM", "chunk":"Here is the task..."}</text>
+
+<path class="dash" d="M840 350 L320 350"/>
+<text class="tiny" x="580" y="340" text-anchor="middle">data: {"event":"KANBAN_UPDATE", "taskId":42}</text>
+
+<path class="dash" d="M840 390 L320 390"/>
+<text class="tiny" x="580" y="380" text-anchor="middle">...</text>
+<text class="small" x="580" y="440" text-anchor="middle">3. Persistent uni-directional data stream over single TCP connection</text>
+</svg>
