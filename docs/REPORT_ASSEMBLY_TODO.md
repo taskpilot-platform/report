@@ -62,7 +62,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [ ] Review bibliography/reference citations after content insertion.
 - [ ] Consolidate temporary/plain-text references into the final end-of-report bibliography; do not leave per-section reference blocks inside chapters.
 - [ ] Add italic chapter introduction summaries for Chapters 3, 4, and 5 to match the Chapter 1/2 style.
-- [ ] Reconcile List of Tables after final layout: long Chapter 3 tables are currently breakable direct tables with manual captions, so they may not appear automatically in the generated table list.
+- [x] Reconcile current Chapter 3 table captions: converted existing manual-caption tables and `caption: none` tables to real table figures so they appear in the generated table list.
 
 ## Chapter 1 notes
 
@@ -146,7 +146,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - `usecase(...)` and `usecase-figure(...)` were used without patching `src/lib/usecase.typ`.
 - `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows `Mô tả use case Đăng nhập hệ thống` as `kind: table`; no helper patch is needed for the converted use case specification table.
 - Removed the draft-only sample use case specification from the report; it was only a conversion guide.
-- The direct breakable table `Bảng 3.4: Bảng tổng hợp danh sách 59 use case của hệ thống TaskPilot` may not appear automatically in the List of Tables and should be reconciled during final cleanup.
+- Converted the current manual-caption Chapter 3 tables in sections 3.1, 3.3, and 3.4 to real table figures so they appear in the List of Tables.
 - Converted the rest of section 3.5 from `UC02 - Đăng ký tài khoản` through `3.5.8. Ghi chú về đặc tả Use Case đầy đủ`.
 - Copied and used all sequence diagrams referenced by the remaining section 3.5 placeholders under `src/assets/taskpilot/chapter3/`.
 - Kept sequence diagrams before each corresponding use case specification table.
@@ -162,6 +162,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Kept the complete 59-use-case summary table in section 3.4 and added/kept notes that full use case specifications, sequence diagrams, and activity diagrams are referenced in project documentation/appendix.
 - After refactor, `typst query main.typ "figure.where(kind: image)" --field caption --format json` and `typst query main.typ "figure.where(kind: table)" --field caption --format json` show only the representative section 3.5 sequence/table captions in the generated figure/table lists.
 - Approximate compiled page range for section 3.5 after refactor: pages 82-101; the next section starts on page 102.
+- Added captions for currently converted Chapter 3 tables that previously had `caption: none` in sections 3.6 and 3.8.
 
 ## Notes for next assembly run
 

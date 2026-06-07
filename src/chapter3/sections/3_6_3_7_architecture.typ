@@ -49,7 +49,7 @@ liệu hoặc AI provider, mà mọi thao tác quan trọng đều đi qua backe
 điều phối và kiểm soát thống nhất.
 
 #ui-table-figure(
-  caption: none,
+  caption: [Vai trò các module backend trong kiến trúc Modular Monolith],
   table(
     columns: (1fr, 2fr, 2fr),
     align: left,
@@ -317,7 +317,7 @@ AI truy vấn dự án, task, thành viên, kỹ năng và notification. Bảng 
 tắt các nhóm port tiêu biểu, không liệt kê toàn bộ method chi tiết.
 
 #ui-table-figure(
-  caption: none,
+  caption: [Các nhóm port tiêu biểu trong taskpilot-contracts],
   table(
     columns: 4,
     align: left,
@@ -386,7 +386,7 @@ project, truy vấn project/task/sprint/workload và dữ liệu comment cho AI 
 ranh giới contract.
 
 #ui-table-figure(
-  caption: none,
+  caption: [Các adapter triển khai port tiêu biểu trong backend TaskPilot],
   table(
     columns: 4,
     align: left,

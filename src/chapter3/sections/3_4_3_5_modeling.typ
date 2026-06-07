@@ -1,4 +1,5 @@
 #import "../../lib/usecase.typ": usecase, usecase-figure
+#import "../../lib/ui.typ": ui-table-figure
 
 #let uc-sequence(title, path, caption) = block(breakable: false)[
   #strong(title)
@@ -90,9 +91,9 @@ thành 11 phân hệ chức năng:
 
 Dưới đây là bảng tổng hợp danh sách 59 use case của hệ thống, được phân loại theo từng phân hệ chức năng:
 
-#align(center)[#emph[Bảng 3.4: Bảng tổng hợp danh sách 59 use case của hệ thống TaskPilot]]
-
-#table(
+#ui-table-figure(
+  caption: [Tổng hợp danh sách 59 use case của hệ thống TaskPilot],
+  table(
   columns: (0.75fr, 1.8fr, 1.8fr, 1.7fr, 1.8fr),
   align: (left + top, left + top, left + top, left + top, left + top),
   inset: 0.5em,
@@ -157,6 +158,7 @@ Dưới đây là bảng tổng hợp danh sách 59 use case của hệ thống,
   [UC57], [Xem lịch sử chat với AI], [Project Manager, Project Member], [AI Assistant], [chat_messages],
   [UC58], [Xem log hoạt động của AI], [Admin, Project Manager, Project Member], [AI Assistant], [ai_logs],
   [UC59], [Yêu cầu AI gợi ý phân công task], [Project Manager], [AI Assistant], [tasks, system_settings, user_skills, users],
+  ),
 )
 
 === Quan hệ include/extend và ghi chú nghiệp vụ
