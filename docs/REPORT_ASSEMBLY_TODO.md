@@ -15,6 +15,7 @@
 - [x] Ran compile check after converting Chapter 3 sections 3.4.1 through 3.4.3: success.
 - [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
 - [x] Ran compile check after converting the rest of Chapter 3 section 3.5: success.
+- [x] Ran compile check after refactoring Chapter 3 section 3.5 to representative use cases only: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -47,6 +48,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - [x] Convert/insert sections 3.4.1 through 3.4.3.
   - [x] Convert/insert sections 3.4.4 through the first detailed use case UC01.
   - [x] Convert/insert the rest of section 3.5 from UC02 through the final use case notes.
+  - [x] Refactor section 3.5 to render only representative use cases; repetitive CRUD/list/update flows remain covered by the 3.4 use case summary and external/full documentation note.
   - [ ] Continue converting Chapter 3 sections 3.6 through 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
@@ -154,6 +156,12 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Replaced `sequence-ai-pending-action-confirmation.svg` with a PlantUML-rendered SVG from `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.puml`.
 - Updated the PlantUML source for `sequence-ai-pending-action-confirmation.svg` to use explicit activation/deactivation bars matching the `taskpilot-platform.github.io` sequence diagram style.
 - Removed the draft note under the AI pending action confirmation figure.
+- Refactored section 3.5 so the main report renders only representative use cases:
+  - UC01, UC03/UC04, UC23, UC31, UC44, UC46, UC47, UC50, UC56, UC59, and AI pending action confirmation.
+- Removed rendering from section 3.5 for repetitive/non-representative detailed flows, including UC02, UC26, UC32, UC36, UC40, UC53, UC54, UC55, UC58, UC13, UC14-UC17, and UC18-UC21.
+- Kept the complete 59-use-case summary table in section 3.4 and added/kept notes that full use case specifications, sequence diagrams, and activity diagrams are referenced in project documentation/appendix.
+- After refactor, `typst query main.typ "figure.where(kind: image)" --field caption --format json` and `typst query main.typ "figure.where(kind: table)" --field caption --format json` show only the representative section 3.5 sequence/table captions in the generated figure/table lists.
+- Approximate compiled page range for section 3.5 after refactor: pages 82-101; the next section starts on page 102.
 
 ## Notes for next assembly run
 

@@ -140,6 +140,19 @@
 - `sequence-auth-login.svg` was checked for `foreignObject`; none was found.
 - Section 3.5 was converted through the final notes and no missing assets were identified.
 - `sequence-ai-pending-action-confirmation.svg` is now rendered from PlantUML source with explicit activation bars to match the surrounding sequence diagram style.
+- Section 3.5 has been refactored to render only representative use cases in the main report. No image/diagram files were deleted; non-representative sequence assets remain available for appendix/full documentation reuse.
+- The currently rendered representative section 3.5 sequence assets are:
+  - `sequence-auth-login.svg`
+  - `sequence-auth-forgot-password.svg`
+  - `sequence-project-management-create-new-project.svg`
+  - `sequence-project-members-add-member-to-project.svg`
+  - `sequence-task-management-create-new-task.svg`
+  - `sequence-task-management-update-task-status.svg`
+  - `sequence-task-management-assign-assignee-reporter.svg`
+  - `sequence-interaction-communication-write-comment.svg`
+  - `sequence-ai-assistant-chat-with-ai.svg`
+  - `sequence-ai-assistant-request-ai-auto-assignment.svg`
+  - `sequence-ai-pending-action-confirmation.svg`
 
 ## Later chapters
 
