@@ -1,0 +1,26 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant AIC as AIController
+participant AIS as AIService
+participant DB as AI Chat Store
+participant Router as ProviderRouter
+participant LLM as AI Provider
+
+U->>FE: Send question to AI Copilot
+FE->>AIC: POST /ai/chat/stream
+AIC->>AIS: Handle chat request
+AIS->>DB: Save user message and request log
+AIS->>Router: Select provider/model
+Router-->>AIS: Selected provider
+AIS->>LLM: Send prompt and context
+loop Stream response chunks
+  LLM-->>AIS: Partial response
+  AIS-->>FE: SSE chunk/status event
+  FE-->>U: Render streaming content
+end
+AIS->>DB: Save assistant message and AI log
+AIS-->>FE: SSE done
+FE-->>U: Show final response

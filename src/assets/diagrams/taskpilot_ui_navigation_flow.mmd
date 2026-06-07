@@ -1,0 +1,40 @@
+%%{init: {"theme": "base", "flowchart": {"htmlLabels": false, "useMaxWidth": true}, "markdownAutoWrap": false, "themeVariables": {"background": "#ffffff", "primaryColor": "#f5f3ff", "primaryBorderColor": "#9b87f5", "lineColor": "#8b86a3", "textColor": "#1f2937", "fontFamily": "Arial"}}}%%
+flowchart TD
+    A([User opens TaskPilot]) --> B{Authenticated?}
+
+    B -->|Not authenticated| AUTH[Authentication]
+    AUTH --> AUTH1[Sign in]
+    AUTH --> AUTH2[Sign up]
+    AUTH --> AUTH3[Forgot / reset password]
+    AUTH1 -->|Sign-in success| DASH[Dashboard]
+
+    B -->|Authenticated| DASH
+
+    DASH --> PROJLIST[Project list]
+    DASH --> NOTI[Notifications]
+    DASH --> PROFILE[Profile / personal skills]
+    DASH --> AI[AI Copilot]
+    DASH -.->|ADMIN account| ADMIN[System administration]
+
+    PROJLIST --> WORKSPACE[Project workspace]
+
+    WORKSPACE --> OVERVIEW[Project overview]
+    WORKSPACE --> SETTINGS[Project settings]
+    WORKSPACE --> WORK[Sprint and task management]
+
+    SETTINGS --> SET1[General information]
+    SETTINGS --> SET2[Members / labels / archive or delete project]
+
+    WORK --> BACKLOG[Backlog / Sprint]
+    WORK --> BOARD[Kanban board]
+    WORK --> TIMELINE[Timeline]
+    WORK --> TASK[Task detail]
+    TASK --> COMMENT[Comments]
+
+    AI --> AI1[Chat]
+    AI --> AI2[Task assignment recommendation]
+    AI --> AI3[AI action confirmation]
+
+    ADMIN --> ADM1[Users]
+    ADMIN --> ADM2[Skills]
+    ADMIN --> ADM3[AI / system configuration]

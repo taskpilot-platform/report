@@ -1,0 +1,25 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant AC as AuthController
+participant AS as AuthService
+participant BL as TokenBlocklist
+participant RT as RefreshToken
+participant TTL as TTL Store
+
+U->>FE: Select logout
+FE->>AC: POST /auth/logout
+AC->>AS: logout(accessToken, refreshToken)
+par Block access token
+  AS->>BL: Add access token to blocklist
+  BL->>TTL: Store token hash until expiry
+  TTL-->>BL: Stored
+and Revoke refresh token
+  AS->>RT: Delete refresh token
+  RT-->>AS: Deleted
+end
+AS-->>AC: Logout completed
+AC-->>FE: 204 No Content
+FE-->>U: Clear local authentication state

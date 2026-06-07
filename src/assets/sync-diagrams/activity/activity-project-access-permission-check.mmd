@@ -1,0 +1,38 @@
+%%{init: {"theme": "base", "themeVariables": {"background": "#ffffff", "primaryColor": "#eef6ff", "primaryBorderColor": "#4f83cc", "actorBkg": "#eef6ff", "actorBorder": "#4f83cc", "actorTextColor": "#1f2937", "noteBkgColor": "#fff7d6", "noteBorderColor": "#d6a700", "signalColor": "#27364a", "signalTextColor": "#27364a", "activationBkgColor": "#f3f4f6", "activationBorderColor": "#9ca3af"}}}%%
+sequenceDiagram
+autonumber
+actor U as User
+participant FE as Frontend
+participant Guard as Auth/Permission Guard
+participant PS as PermissionService
+participant Repo as ProjectRepository
+participant DS as DomainService
+
+U->>FE: Send request to project resource
+FE->>Guard: Request + access token
+Guard->>Guard: Read authenticated user from JWT
+alt User is invalid
+  Guard-->>FE: 401 Unauthorized
+  FE-->>U: Ask user to sign in again
+else User is valid
+  Guard->>Repo: Load target project/resource
+  alt Resource does not exist
+    Repo-->>Guard: Not found
+    Guard-->>FE: 404 Not Found
+  else Resource exists
+    Repo-->>Guard: Project/resource data
+    Guard->>PS: Check system role and membership
+    PS->>Repo: Load project membership
+    Repo-->>PS: Project role
+    alt System ADMIN or sufficient project role
+      PS-->>Guard: Allow
+      Guard->>DS: Execute domain operation
+      DS-->>Guard: Operation result
+      Guard-->>FE: 200 OK
+      FE-->>U: Return response
+    else Insufficient permission
+      PS-->>Guard: Deny
+      Guard-->>FE: 403 Forbidden
+    end
+  end
+end
