@@ -2,25 +2,17 @@
 
 ```mermaid
 flowchart LR
+  %% Actors
   AD[Admin]
   PM[Project Manager]
   MB[Project Member]
   SYS[System External Services]
 
+  %% Actor Inheritance to reduce clutter
+  PM -. inherits .-> MB
+
   subgraph TP[TaskPilot System]
     direction TB
-
-    subgraph AUTH[Authentication]
-      A1[Login / Sign In]
-      A2[Register / Sign Up]
-      A3[Forgot Password]
-      A4[Reset Password]
-    end
-
-    subgraph PROF[Profile & Skills]
-      P1[Manage Profile]
-      P2[Manage Personal Skills]
-    end
 
     subgraph SA[System Administration]
       S1[Configure System Parameters]
@@ -28,16 +20,25 @@ flowchart LR
       S3[Manage System Users]
     end
 
-    subgraph PJ[Project & Sprint]
-      J1[Manage Projects]
-      J2[Manage Project Members]
-      J3[Manage Sprints]
+    subgraph AUTH[Authentication & Profile]
+      A1[Login / Sign In]
+      A2[Register / Sign Up]
+      A3[Forgot Password]
+      A4[Reset Password]
+      P1[Manage Profile]
+      P2[Manage Personal Skills]
     end
 
     subgraph TASK[Task & Communication]
       T1[Manage Tasks / Kanban / Backlog]
       T2[Manage Comments]
       T3[Manage Notifications]
+    end
+
+    subgraph PJ[Project & Sprint]
+      J1[Manage Projects]
+      J2[Manage Project Members]
+      J3[Manage Sprints]
     end
 
     subgraph AI[AI Assistant]
@@ -50,46 +51,39 @@ flowchart LR
     end
   end
 
+  %% Admin Links
   AD --> S1
   AD --> S2
   AD --> S3
-  AD --> I4
-  AD --> T3
   AD --> P1
+  AD --> T3
+  AD --> I4
 
-  PM --> J1
+  %% Project Manager (Specifics only, inherits MB)
   PM --> J2
   PM --> J3
-  PM --> T1
-  PM --> T2
-  PM --> T3
-  PM --> P1
-  PM --> P2
-  PM --> I1
-  PM --> I2
-  PM --> I3
-  PM --> I4
   PM --> I5
-  PM --> I6
 
+  %% Project Member Links
+  MB --> P1
+  MB --> P2
   MB --> J1
   MB --> T1
   MB --> T2
   MB --> T3
-  MB --> P1
-  MB --> P2
   MB --> I1
   MB --> I2
   MB --> I3
   MB --> I4
   MB --> I6
 
+  %% System External Services
   SYS --> T3
   SYS --> I2
 
+  %% Use Case Relationships
   A4 -. extends .-> A3
   I5 -. includes .-> I2
   I6 -. extends .-> I2
   I6 -. extends .-> I5
 ```
-
