@@ -1,0 +1,24 @@
+---
+config:
+  theme: base
+  themeVariables:
+    fontFamily: Inter, Arial, sans-serif
+    primaryColor: '#f8fafc'
+    primaryTextColor: '#172033'
+    primaryBorderColor: '#65758b'
+    lineColor: '#475569'
+    secondaryColor: '#e8eef8'
+    tertiaryColor: '#ffffff'
+---
+sequenceDiagram
+    participant FE as Frontend
+    participant API as HTTP Client/home/fhu_thjen/projects/se121/report/_incoming/asset/assets/diagrams/ch3_11_ai_log_feedback.svg/home/fhu_thjen/projects/se121/report/_incoming/asset/assets/diagrams/ch3_11_ai_log_feedback.svg
+    participant BE as Backend
+    participant SSE as SSE Stream
+    FE->>API: Submit CRUD Action
+    API->>BE: REST + Bearer JWT
+    BE-->>API: JSON response
+    API-->>FE: Update State
+    FE->>SSE: Open Realtime Stream
+    SSE-->>FE: notification/comment/AI chunk
+    FE->>FE: Render Live Updates

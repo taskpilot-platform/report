@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+
+<style>
+  text { font-family: Inter, Arial, sans-serif; fill: #172033; dominant-baseline: middle; }
+  .canvas { fill: none; }
+  .zone { fill: #cfd5e2; stroke: #30384d; stroke-width: 1.4; rx: 22; }
+  .group { fill: #dfe4ee; stroke: #30384d; stroke-width: 1.2; rx: 18; }
+  .box { fill: #f8fafc; stroke: #30384d; stroke-width: 1.1; rx: 16; }
+  .muted { fill: #e6eaf2; stroke: #667085; stroke-dasharray: 5 4; rx: 16; }
+  .label { font-size: 15px; font-weight: 700; }
+  .small { font-size: 12px; font-weight: 600; }
+  .tiny { font-size: 10px; font-weight: 600; }
+  .line { fill: none; stroke: #30384d; stroke-width: 1.35; marker-end: url(#arrow); }
+  .dash { fill: none; stroke: #697386; stroke-width: 1.25; stroke-dasharray: 5 4; marker-end: url(#arrow); }
+</style>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#30384d"/>
+  </marker>
+</defs>
+<rect class="canvas" x="24" y="24" width="1152" height="572" rx="12"/>
+<text class="label" x="600" y="62" text-anchor="middle">Modular Monolith: One Deployment, Strong Internal Boundaries</text>
+<rect class="zone" x="148" y="92" width="904" height="418"/>
+<text class="small" x="600" y="122" text-anchor="middle">Single application process / single deployable artifact</text>
+<rect class="box" x="482" y="148" width="236" height="72"/>
+<image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNkRCMzNGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3ByaW5nIEJvb3Q8L3RpdGxlPjxwYXRoIGQ9Im0yMy42OTMgMTAuNzA1OC00LjczLTguMTg0NGMtLjQwOTQtLjcxMDYtMS40MTY2LTEuMjk0Mi0yLjI0MDItMS4yOTQySDcuMjcyNWMtLjgxOSAwLTEuODMwOC41ODM2LTIuMjQwMiAxLjI5NDJMLjMwNyAxMC43MDU4Yy0uNDA5NS43MTA2LS40MDk1IDEuODczIDAgMi41ODM3bDQuNzI1MiA4LjE4OWMuNDA5NC43MTA3IDEuNDE2NiAxLjI5NDMgMi4yNDAyIDEuMjk0M2g5LjQ1NWMuODE5IDAgMS44MjYtLjU4MzYgMi4yNDAyLTEuMjk0Mmw0LjcyNTItOC4xODljLjQwOTUtLjcxMDcuNDA5NS0xLjg3MzIgMC0yLjU4Mzh6TTEwLjk3NjMgNS43NTQ3YzAtLjUzNjUuNDM3Ny0uOTc0Mi45NzQyLS45NzQycy45NzQyLjQzNzcuOTc0Mi45NzQydjUuODIxN2MwIC41MzY2LS40Mzc3Ljk3NDItLjk3NDIuOTc0MnMtLjk3NDItLjQzNzYtLjk3NDItLjk3NDJ6bS45NzQyIDEyLjQyOTRjLTMuNjQyNyAwLTYuNjA3Ny0yLjk2NS02LjYwNzctNi42MDc3LjAwNDctMi4wODk2Ljk5My00LjA1MjEgMi42Njg1LTUuMzA0YS44NjU3Ljg2NTcgMCAwIDEgMS4yMTQyLjE3ODguODY1Ny44NjU3IDAgMCAxLS4xNzg4IDEuMjE0M2MtMi4xNjAyIDEuNjA0OC0yLjYxMiA0LjY1OTItMS4wMDcyIDYuODE5NCAxLjYwNDkgMi4xNjAzIDQuNjU5MyAyLjYxMiA2LjgxOTUgMS4wMDcyIDEuMjM3OC0uOTE3NyAxLjk2NzMtMi4zNzIgMS45NjczLTMuOTE1N2E0Ljg5NzIgNC44OTcyIDAgMCAwLTEuOTg2MS0zLjkyNWMtLjM4Ni0uMjgyNC0uNDY2LS44Mjg0LS4xODM2LTEuMjE0My4yODI0LS4zODYuODI4My0uNDY2IDEuMjE0My0uMTgzNSAxLjY4OTUgMS4yNDcxIDIuNjgyNiAzLjIyMzggMi42ODczIDUuMzIyOCAwIDMuNjQ3NC0yLjk2NSA2LjYwNzctNi42MDc3IDYuNjA3N3oiLz48L3N2Zz4K" x="504" y="166" width="34" height="34" preserveAspectRatio="xMidYMid meet"/>
+<text class="small" x="622" y="178" text-anchor="middle">Application Shell</text>
+<text class="tiny" x="622" y="198" text-anchor="middle">Spring Boot entrypoint</text>
+<rect class="group" x="206" y="264" width="230" height="150"/>
+<text class="small" x="321" y="292" text-anchor="middle">Users Module</text>
+<text class="tiny" x="321" y="316" text-anchor="middle">Auth, profiles, skills</text>
+<rect class="group" x="486" y="264" width="230" height="150"/>
+<text class="small" x="601" y="292" text-anchor="middle">Projects Module</text>
+<text class="tiny" x="601" y="316" text-anchor="middle">Projects, sprints, tasks</text>
+<rect class="group" x="766" y="264" width="230" height="150"/>
+<text class="small" x="881" y="292" text-anchor="middle">AI Module</text>
+<text class="tiny" x="881" y="316" text-anchor="middle">Copilot, tools, routing</text>
+<rect class="box" x="402" y="452" width="396" height="70"/>
+<text class="small" x="600" y="480" text-anchor="middle">Internal Contracts / Ports</text>
+<text class="tiny" x="600" y="500" text-anchor="middle">DTOs and interfaces keep module dependencies explicit</text>
+<path class="line" d="M600 220 C600 238 600 246 600 264"/>
+<path class="line" d="M565 220 C420 232 321 242 321 264"/>
+<path class="line" d="M635 220 C780 232 881 242 881 264"/>
+<path class="line" d="M321 414 C378 438 463 448 506 452"/>
+<path class="line" d="M600 414 L600 452"/>
+<path class="line" d="M881 414 C824 438 738 448 694 452"/>
+<path class="dash" d="M486 338 C462 338 460 338 436 338"/>
+<path class="dash" d="M716 338 C742 338 740 338 766 338"/>
+</svg>
