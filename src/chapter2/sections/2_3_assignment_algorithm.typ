@@ -9,7 +9,7 @@ Phân công công việc là bài toán ra quyết định đa tiêu chí, đòi
 Mô hình chấm điểm có trọng số (Weighted Scoring Model) là phương pháp đánh giá định lượng các lựa chọn dựa trên một tập hợp tiêu chí, với mỗi tiêu chí được gán một mức trọng số cụ thể.
 
 #figure(
-  image("../../assets/taskpilot/chapter2/ch2_06_weighted_scoring_ahp.svg", width: 100%),
+  image("../../assets/taskpilot/chapter2/ch2_06_weighted_scoring_ahp.png", width: 100%),
   caption: [Minh họa mô hình chấm điểm có trọng số và AHP],
 )
 

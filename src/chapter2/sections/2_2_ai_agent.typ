@@ -38,7 +38,7 @@ Quản lý ngữ cảnh (Context window) là giới hạn về số lượng tok
 Function Calling (hay Tool Calling) là kỹ năng cho phép LLM tương tác với các hàm lập trình cục bộ thay vì chỉ sinh văn bản. 
 
 #figure(
-  image("../../assets/taskpilot/chapter2/ch2_04_function_calling.svg", width: 100%),
+  image("../../assets/taskpilot/chapter2/ch2_04_function_calling.png", width: 100%),
   caption: [Quy trình Function Calling trong AI Agent],
 )
 
@@ -56,7 +56,7 @@ Cấu trúc của công cụ bao gồm tên hàm, mô tả, danh sách tham số
 Human-in-the-loop (HITL) là cơ chế thiết kế nhằm đảm bảo sự giám sát của con người trong các quy trình ra quyết định của AI. 
 
 #figure(
-  image("../../assets/taskpilot/chapter2/ch2_05_human_in_the_loop.svg", width: 100%),
+  image("../../assets/taskpilot/chapter2/ch2_05_human_in_the_loop.png", width: 100%),
   caption: [Cơ chế Human-in-the-loop cho thao tác ghi dữ liệu],
 )
 
