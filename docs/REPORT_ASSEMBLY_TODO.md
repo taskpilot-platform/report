@@ -13,6 +13,7 @@
 - [x] Ran compile check after switching the Chapter 4 UI navigation flow back to SVG rendered from Graphviz: success.
 - [x] Ran compile check after Chapter 2 conversion: success.
 - [x] Ran compile check after converting Chapter 3 sections 3.4.1 through 3.4.3: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -43,7 +44,8 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - [x] Prepare split structure under `src/chapter3/sections/`.
   - [x] Convert/insert sections 3.1, 3.2, and 3.3.
   - [x] Convert/insert sections 3.4.1 through 3.4.3.
-  - [ ] Convert/insert sections 3.4.4 through 3.13.
+  - [x] Convert/insert sections 3.4.4 through the first detailed use case UC01.
+  - [ ] Continue converting Chapter 3 from UC02 onward through section 3.13.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -135,7 +137,13 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - `use-case-admin.svg`
   - `use-case-pm.svg`
   - `use-case-member.svg`
-- Sections 3.4.4 through 3.5 remain pending in the same section file.
+- Converted sections 3.4.4, 3.4.5, 3.4.6, the 3.5 introduction, and the first detailed use case UC01 in `src/chapter3/sections/3_4_3_5_modeling.typ`.
+- Copied and used `sequence-auth-login.svg` under `src/assets/taskpilot/chapter3/`.
+- `usecase(...)` and `usecase-figure(...)` were used without patching `src/lib/usecase.typ`.
+- `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows `Mô tả use case Đăng nhập hệ thống` as `kind: table`; no helper patch is needed for the converted use case specification table.
+- Removed the draft-only sample use case specification from the report; it was only a conversion guide.
+- The direct breakable table `Bảng 3.4: Bảng tổng hợp danh sách 59 use case của hệ thống TaskPilot` may not appear automatically in the List of Tables and should be reconciled during final cleanup.
+- Continue converting `_incoming/CHAPTER_3_4_3_5_FINAL.md` from `UC02 - Đăng ký tài khoản`.
 
 ## Notes for next assembly run
 

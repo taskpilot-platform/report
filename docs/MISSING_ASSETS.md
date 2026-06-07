@@ -104,8 +104,10 @@
   - `use-case-admin.svg`
   - `use-case-pm.svg`
   - `use-case-member.svg`
+  - `sequence-auth-login.svg`
 - Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
 - The real UI `.jpg` files were converted to valid JPEG encoding before inclusion because the incoming `.jpg` files contained PNG bytes.
+- `sequence-auth-login.svg` was checked for `foreignObject`; none was found.
 
 ## Later chapters
 
