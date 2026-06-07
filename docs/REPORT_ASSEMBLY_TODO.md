@@ -16,7 +16,9 @@
 - [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
 - [x] Ran compile check after converting the rest of Chapter 3 section 3.5: success.
 - [x] Ran compile check after refactoring Chapter 3 section 3.5 to representative use cases only: success.
-- [x] Ran compile check after converting Chapter 3 sections 3.9 and 3.10: success with three SVG `foreignObject` warnings.
+- [x] Ran compile check after converting Chapter 3 sections 3.9 and 3.10: success.
+- [x] Ran compile check after re-rendering the Chapter 3 section 3.9/3.10 warning SVGs with Graphviz: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.11 and 3.13: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -37,14 +39,7 @@ src/chapter2/sections/2_2_ai_agent.typ:59: ch2_05_human_in_the_loop.svg
 src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_ahp.svg
 ```
 
-- [ ] Review Chapter 3 section 3.9/3.10 SVG `foreignObject` warnings if the final PDF renders those overview/push-flow diagrams incorrectly:
-
-```text
-warning: image contains foreign object
-src/chapter3/sections/3_9_3_10_realtime_notification.typ:10: ch3_09_auth_authorization_overview.svg
-src/chapter3/sections/3_9_3_10_realtime_notification.typ:116: ch3_10_realtime_notification_overview.svg
-src/chapter3/sections/3_9_3_10_realtime_notification.typ:176: ch3_10_onesignal_push_flow.svg
-```
+- [x] Resolved Chapter 3 section 3.9/3.10 SVG `foreignObject` warnings by re-rendering the three overview/push-flow SVGs from Graphviz DOT sources.
 
 ## Assembly checklist
 
@@ -60,7 +55,9 @@ src/chapter3/sections/3_9_3_10_realtime_notification.typ:176: ch3_10_onesignal_p
   - [x] Convert/insert the rest of section 3.5 from UC02 through the final use case notes.
   - [x] Refactor section 3.5 to render only representative use cases; repetitive CRUD/list/update flows remain covered by the 3.4 use case summary and external/full documentation note.
   - [x] Convert/insert sections 3.9 and 3.10 from `_incoming/CHAPTER_3_9_3_10_FINAL.md`.
-  - [ ] Continue converting Chapter 3 sections 3.6 through 3.13.
+  - [x] Convert/insert section 3.11 from `_incoming/CHAPTER_3_11_FINAL.md`.
+  - [ ] Keep section 3.12 pending for the next run.
+  - [x] Convert/insert section 3.13 from `_incoming/CHAPTER_3_13_FINAL.md`.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -177,6 +174,14 @@ src/chapter3/sections/3_9_3_10_realtime_notification.typ:176: ch3_10_onesignal_p
 - Converted sections 3.9 and 3.10 in `src/chapter3/sections/3_9_3_10_realtime_notification.typ`.
 - Used available auth, permission, realtime, notification, AI streaming, and OneSignal diagrams from `src/assets/diagrams/` and `src/assets/sync-diagrams/`.
 - No missing assets were identified for sections 3.9 and 3.10.
+- Re-rendered these section 3.9/3.10 diagrams from Graphviz DOT so they no longer contain `foreignObject`:
+  - `src/assets/diagrams/ch3_09_auth_authorization_overview.svg`
+  - `src/assets/diagrams/ch3_10_realtime_notification_overview.svg`
+  - `src/assets/diagrams/ch3_10_onesignal_push_flow.svg`
+- Converted section 3.11 in `src/chapter3/sections/3_11_ai_copilot.typ`.
+- Converted section 3.13 in `src/chapter3/sections/3_13_deployment.typ`.
+- Left section 3.12 unchanged as a TODO placeholder for the next run.
+- Generated high-resolution PNG versions for Mermaid diagrams in sections 3.11 and 3.13 that otherwise contained `foreignObject`; the original `.mmd` and `.svg` files remain in place.
 
 ## Notes for next assembly run
 

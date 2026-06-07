@@ -1,0 +1,44 @@
+digraph G {
+  graph [
+    rankdir=LR,
+    bgcolor="white",
+    pad="0.25",
+    nodesep="0.45",
+    ranksep="0.6",
+    fontname="Arial"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fontname="Arial",
+    fontsize=12,
+    color="#64748b",
+    penwidth=1.2,
+    margin="0.12,0.08",
+    fillcolor="#f8fafc",
+    fontcolor="#0f172a"
+  ];
+
+  edge [
+    color="#475569",
+    arrowsize=0.7,
+    penwidth=1.1,
+    fontname="Arial",
+    fontsize=10
+  ];
+
+  frontend [label="Frontend Initializes\nOneSignal SDK", fillcolor="#eef6ff", color="#2563eb", fontcolor="#172554"];
+  subscription [label="Browser\nSubscription", fillcolor="#eef6ff", color="#2563eb", fontcolor="#172554"];
+  link [label="Link Subscription\nto User ID", fillcolor="#eef2ff", color="#4f46e5", fontcolor="#1e1b4b"];
+  event [label="Task / Project\nEvent", fillcolor="#fff7ed", color="#f97316", fontcolor="#7c2d12"];
+  backend [label="Backend Creates\nNotification", fillcolor="#eef2ff", color="#4f46e5", fontcolor="#1e1b4b"];
+  database [label="notifications\nTable", shape=cylinder, fillcolor="#ecfdf5", color="#059669", fontcolor="#064e3b"];
+  onesignal [label="OneSignal\nREST API", fillcolor="#fdf2f8", color="#db2777", fontcolor="#831843"];
+  browser [label="Browser Push\nNotification", fillcolor="#f0fdf4", color="#16a34a", fontcolor="#14532d"];
+
+  frontend -> subscription -> link;
+  event -> backend;
+  backend -> database;
+  backend -> onesignal -> browser;
+}

@@ -165,8 +165,30 @@
   - `src/assets/diagrams/ch3_10_comment_realtime_flow.svg`
   - `src/assets/sync-diagrams/sequence/sequence-ai-streaming-response-sse.svg`
   - `src/assets/diagrams/ch3_10_onesignal_push_flow.svg`
-- Three section 3.9/3.10 overview/push-flow SVGs compile with Typst `foreignObject` warnings; they are not missing assets and can be re-rendered later if PDF rendering is visually incorrect.
+- The three section 3.9/3.10 overview/push-flow SVGs were re-rendered from Graphviz DOT sources and no longer contain `foreignObject`.
+- Sections 3.11 and 3.13 were converted and no missing assets were identified.
+- Section 3.12 remains pending for the next run.
+- The rendered section 3.11 assets are:
+  - `src/assets/diagrams/ch3_11_ai_copilot_architecture.png`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-assistant-create-new-ai-chat-session.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-assistant-chat-with-ai.svg`
+  - `src/assets/diagrams/ch3_11_context_building.png`
+  - `src/assets/diagrams/ch3_11_smart_routing.png`
+  - `src/assets/diagrams/ch3_11_auto_fallback.png`
+  - `src/assets/diagrams/ch3_11_tool_registry.png`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.svg`
+  - `src/assets/diagrams/ch3_11_safety_layers.png`
+  - `src/assets/diagrams/ch3_11_ai_log_feedback.png`
+  - `src/assets/diagrams/ch3_11_design_patterns.png`
+- The rendered section 3.13 assets are:
+  - `src/assets/diagrams/ch3_13_deployment_architecture.svg`
+  - `src/assets/diagrams/ch3_13_external_connection_flow.png`
+  - `src/assets/diagrams/ch3_13_hf_backend_container_flow.png`
+  - `src/assets/diagrams/ch3_13_brevo_reset_email_flow.svg`
+  - `src/assets/diagrams/ch3_13_onesignal_push_flow.png`
+  - `src/assets/diagrams/ch3_13_github_actions_cicd.png`
+- High-resolution PNG versions were generated from Mermaid sources for section 3.11 and 3.13 diagrams that had SVG `foreignObject` output. The source `.mmd` files remain available beside the images.
 
 ## Later chapters
 
-- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` and `docs/CHAPTER3_ASSET_AUDIT.md` before converting Chapter 3.
+- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` and `docs/CHAPTER3_ASSET_AUDIT.md` before converting the remaining Chapter 3 section 3.12.

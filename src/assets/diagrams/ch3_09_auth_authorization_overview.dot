@@ -1,0 +1,42 @@
+digraph G {
+  graph [
+    rankdir=LR,
+    bgcolor="white",
+    pad="0.25",
+    nodesep="0.45",
+    ranksep="0.55",
+    fontname="Arial"
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fontname="Arial",
+    fontsize=12,
+    color="#64748b",
+    penwidth=1.2,
+    margin="0.12,0.08",
+    fillcolor="#f8fafc",
+    fontcolor="#0f172a"
+  ];
+
+  edge [
+    color="#475569",
+    arrowsize=0.7,
+    penwidth=1.1,
+    fontname="Arial",
+    fontsize=10
+  ];
+
+  login [label="Login", fillcolor="#fff7ed", color="#f97316", fontcolor="#7c2d12"];
+  auth [label="Authenticate\nemail/password", fillcolor="#eef2ff", color="#4f46e5", fontcolor="#1e1b4b"];
+  jwt [label="Issue Access JWT\nand Refresh Token", fillcolor="#eef2ff", color="#4f46e5", fontcolor="#1e1b4b"];
+  request [label="Request with\nBearer Token", fillcolor="#eef6ff", color="#2563eb", fontcolor="#172554"];
+  filter [label="JWT Filter\nand Blocklist Check", fillcolor="#eef2ff", color="#4f46e5", fontcolor="#1e1b4b"];
+  system_role [label="System Role\nADMIN / USER", fillcolor="#f8fafc", color="#64748b"];
+  project_role [label="Project Role\nMANAGER / MEMBER", fillcolor="#f8fafc", color="#64748b"];
+  service [label="Service Checks\nMembership and Rules", fillcolor="#f8fafc", color="#64748b"];
+  resource [label="Project / Task /\nComment / AI Resource", fillcolor="#ecfdf5", color="#059669", fontcolor="#064e3b"];
+
+  login -> auth -> jwt -> request -> filter -> system_role -> project_role -> service -> resource;
+}
