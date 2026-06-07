@@ -49,7 +49,16 @@
 
 #show link: set text(fill: blue.darken(30%))
 
-#show raw: set text(size: 9pt)
+#show raw: it => {
+  if it.block {
+    set text(size: 9pt)
+    it
+  } else {
+    set text(size: 9pt)
+    show regex("[._/,\-()=]"): char => char + sym.zws
+    it
+  }
+}
 
 #show heading.where(level: 1): set align(center)
 #show heading.where(level: 1): it => {
