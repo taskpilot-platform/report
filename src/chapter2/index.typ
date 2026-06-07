@@ -1,53 +1,42 @@
-= Cơ sở lý thuyết <theory-basis>
+= CƠ SỞ LÝ THUYẾT <theory-basis>
 
-#include "go.typ"
+Chương này trình bày các cơ sở lý thuyết và tổng quan về các công nghệ, framework, công cụ được áp dụng để xây dựng hệ thống TaskPilot. Nội dung bao gồm các kiến thức nền tảng về quản lý dự án linh hoạt, nguyên lý hoạt động của AI Agent, kiến trúc phần mềm và hệ sinh thái công nghệ hỗ trợ phát triển hệ thống.
 
-#include "typescript.typ"
+#include "sections/2_1_project_management.typ"
 
-#include "frontend.typ"
+#include "sections/2_2_ai_agent.typ"
 
-#include "styling.typ"
+#include "sections/2_3_assignment_algorithm.typ"
 
-#include "nestjs.typ"
+#include "sections/2_4_architecture.typ"
 
-#include "postgres.typ"
+#include "sections/2_5_backend.typ"
 
-#include "database.typ"
+#include "sections/2_6_frontend.typ"
 
-#include "collorative-solution.typ"
+#include "sections/2_7_storage.typ"
 
-#include "yjs.typ"
+#include "sections/2_8_ai_provider.typ"
 
-#include "prosemirror.typ"
+#include "sections/2_9_realtime_notification.typ"
 
-#include "tiptap.typ"
+#include "sections/2_10_deployment.typ"
 
-#include "hocuspocus.typ"
+#include "sections/2_11_tools.typ"
 
-#include "blocknote.typ"
-
-#include "openapi.typ"
-
-#include "grpc.typ"
-
-#include "traefik.typ"
-
-#include "casbin.typ"
-
-#include "meilisearch.typ"
-
-#include "authentik.typ"
-
-#include "rustfs.typ"
-
-#include "observability.typ"
-
-#include "redpanda.typ"
-
-#include "watermill.typ"
-
-#include "nx.typ"
-
-// #include "vitepress.typ"
-
-// #include "mise.typ"
+// Temporary compatibility labels for old template Chapter 3/appendix references.
+// Remove after Chapter 3 and appendix are converted to TaskPilot content.
+#[
+  #set text(size: 0.1pt, fill: white)
+  #heading(level: 3, outlined: false)[Compatibility label: Traefik] <general-for-traefik>
+  #heading(level: 3, outlined: false)[Compatibility label: Frontend] <general-for-frontend>
+  #heading(level: 3, outlined: false)[Compatibility label: Yjs] <general-for-yjs>
+  #heading(level: 3, outlined: false)[Compatibility label: Casbin] <general-for-casbin>
+  #heading(level: 3, outlined: false)[Compatibility label: Authentik] <general-for-authentik>
+  #heading(level: 3, outlined: false)[Compatibility label: RustFS] <general-for-rustfs>
+  #heading(level: 3, outlined: false)[Compatibility label: Meilisearch] <general-for-meilisearch>
+  #heading(level: 3, outlined: false)[Compatibility label: Redpanda] <general-for-redpanda>
+  #heading(level: 3, outlined: false)[Compatibility label: Observability] <general-for-observability>
+  #heading(level: 3, outlined: false)[Compatibility label: BlockNote] <general-for-blocknote>
+  #heading(level: 3, outlined: false)[Compatibility label: sqlc] <general-for-sqlc>
+]

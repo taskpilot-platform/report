@@ -11,6 +11,29 @@
 - `_incoming/CHAPTER_5_1_5_2_FINAL.md` does not contain image placeholders.
 - `_incoming/CHAPTER_5_3_5_4_FINAL.md` does not contain image placeholders.
 
+## Chapter 2
+
+- No missing assets identified.
+- Copied and used Chapter 2 diagrams from `_incoming/asset/chapter2`:
+  - `ch2_01_agile_scrum.svg`
+  - `ch2_02_scrum_sprint.svg`
+  - `ch2_03_kanban.svg`
+  - `ch2_04_function_calling.svg`
+  - `ch2_05_human_in_the_loop.svg`
+  - `ch2_06_weighted_scoring_ahp.svg`
+  - `ch2_07_modular_monolith.svg`
+  - `ch2_19_sse.svg`
+  - `ch2_22_cicd_deployment.svg`
+- Copied and used required logos from `_incoming/asset/assets/images/logos`.
+- Added/used additional available logos for Chapter 2:
+  - `spring-data-logo.svg`
+  - `gemini-star-logo.svg`
+  - `supabase-logo.svg`
+  - `github-logo.svg`
+  - `openai-logo.svg`
+  - `groq-logo.svg`
+- Hình 2.14 uses individual copied logos (`tailwindcss-logo.svg`, `radixui-logo.svg`, `lucide-logo.svg`, `zustand-logo.svg`) instead of the combined SVG because Typst cannot load linked SVG images inside that file.
+
 ## Chapter 4
 
 - No missing assets identified.

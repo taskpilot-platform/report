@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="240" viewBox="0 0 960 240" role="img" aria-labelledby="title desc">
+  <title id="title">Tailwind CSS, Radix UI, Lucide and Zustand logos</title>
+  <desc id="desc">Logo group for frontend supporting libraries used in TaskPilot.</desc>
+  <rect width="960" height="240" fill="#ffffff"/>
+  <g transform="translate(70 36)">
+    <rect width="160" height="132" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+    <image href="tailwindcss-logo.svg" x="40" y="24" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">Tailwind CSS</text>
+  </g>
+  <g transform="translate(280 36)">
+    <rect width="160" height="132" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+    <image href="radixui-logo.svg" x="40" y="24" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">Radix UI</text>
+  </g>
+  <g transform="translate(490 36)">
+    <rect width="160" height="132" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+    <image href="lucide-logo.svg" x="40" y="24" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">Lucide</text>
+  </g>
+  <g transform="translate(700 36)">
+    <rect width="160" height="132" rx="16" fill="#f8fafc" stroke="#e2e8f0"/>
+    <image href="zustand-logo.svg" x="40" y="24" width="80" height="80" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="112" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#0f172a">Zustand</text>
+  </g>
+</svg>
