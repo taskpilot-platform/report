@@ -1,0 +1,106 @@
+digraph TaskPilotUINavigationFlow {
+  graph [
+    rankdir=TB,
+    bgcolor="white",
+    pad="0.35",
+    nodesep="0.45",
+    ranksep="0.55",
+    splines=polyline
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    color="#9b87f5",
+    fillcolor="#f5f3ff",
+    fontname="Arial",
+    fontsize=12,
+    margin="0.12,0.08"
+  ];
+
+  edge [
+    color="#8b86a3",
+    fontname="Arial",
+    fontsize=10,
+    arrowsize=0.7
+  ];
+
+  A [label="User opens TaskPilot", shape=oval, fillcolor="#ffffff"];
+  B [label="Authenticated?", shape=diamond, width=1.25, height=0.75, fillcolor="#ede9fe"];
+
+  AUTH [label="Authentication"];
+  AUTH1 [label="Sign in"];
+  AUTH2 [label="Sign up"];
+  AUTH3 [label="Forgot / reset password"];
+  DASH [label="Dashboard", fillcolor="#ede9fe"];
+
+  PROJLIST [label="Project list"];
+  NOTI [label="Notifications"];
+  PROFILE [label="Profile / personal skills"];
+  AI [label="AI Copilot"];
+  ADMIN [label="System administration"];
+
+  WORKSPACE [label="Project workspace"];
+  OVERVIEW [label="Project overview"];
+  SETTINGS [label="Project settings"];
+  WORK [label="Sprint and task management"];
+
+  SET1 [label="General information"];
+  SET2 [label="Members / labels /\narchive or delete project"];
+
+  BACKLOG [label="Backlog / Sprint"];
+  BOARD [label="Kanban board"];
+  TIMELINE [label="Timeline"];
+  TASK [label="Task detail"];
+  COMMENT [label="Comments"];
+
+  AI1 [label="Chat"];
+  AI2 [label="Task assignment\nrecommendation"];
+  AI3 [label="AI action\nconfirmation"];
+
+  ADM1 [label="Users"];
+  ADM2 [label="Skills"];
+  ADM3 [label="AI / system\nconfiguration"];
+
+  A -> B;
+  B -> AUTH [label="Not authenticated"];
+  B -> DASH [label="Authenticated"];
+
+  AUTH -> AUTH1;
+  AUTH -> AUTH2;
+  AUTH -> AUTH3;
+  AUTH1 -> DASH [label="Sign-in success"];
+
+  DASH -> PROJLIST;
+  DASH -> NOTI;
+  DASH -> PROFILE;
+  DASH -> AI;
+  DASH -> ADMIN [label="ADMIN account", style=dashed];
+
+  PROJLIST -> WORKSPACE;
+  WORKSPACE -> OVERVIEW;
+  WORKSPACE -> SETTINGS;
+  WORKSPACE -> WORK;
+
+  SETTINGS -> SET1;
+  SETTINGS -> SET2;
+
+  WORK -> BACKLOG;
+  WORK -> BOARD;
+  WORK -> TIMELINE;
+  WORK -> TASK;
+  TASK -> COMMENT;
+
+  AI -> AI1;
+  AI -> AI2;
+  AI -> AI3;
+
+  ADMIN -> ADM1;
+  ADMIN -> ADM2;
+  ADMIN -> ADM3;
+
+  { rank=same; AUTH1; AUTH2; AUTH3; }
+  { rank=same; PROJLIST; NOTI; PROFILE; AI; ADMIN; }
+  { rank=same; OVERVIEW; SETTINGS; WORK; }
+  { rank=same; BACKLOG; BOARD; TIMELINE; TASK; }
+}

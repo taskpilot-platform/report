@@ -9,6 +9,8 @@
 - [x] Ran compile check after Chapter 5 conversion: success.
 - [x] Ran compile check after Chapter 4 conversion: success.
 - [x] Ran compile check after replacing Chapter 4 navigation SVG with PNG and adding bordered UI figures: success.
+- [x] Ran compile check after re-rendering the Chapter 4 UI navigation flow with English labels: success.
+- [x] Ran compile check after switching the Chapter 4 UI navigation flow back to SVG rendered from Graphviz: success.
 - [x] Ran compile check after Chapter 2 conversion: success.
 - [ ] Resolve warning if required later:
 
@@ -20,7 +22,7 @@ warning: unknown font family: svn-times new roman 2
    │         ^^^^^^^^^^^^^^^^^^^^^^^
 ```
 
-- [x] Resolved Chapter 4 navigation diagram warning by using `taskpilot_ui_navigation_flow.png` instead of the SVG with `foreignObject`.
+- [x] Resolved Chapter 4 navigation diagram warning by replacing the Mermaid SVG with a Graphviz-rendered SVG that has `foreignObject=False`.
 - [ ] Review Chapter 2 SVG `foreignObject` warnings if the final PDF renders those diagrams incorrectly:
 
 ```text
@@ -73,7 +75,9 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - `src/lib/ui.typ` now wraps `ui-figure` images with a white background, light `0.5pt` border, `4pt` radius, and `3pt` inset.
 - Converted component description tables into local Typst table figures.
 - No Chapter 4 missing assets were identified.
-- Compile succeeded after switching the navigation diagram to PNG.
+- Compile succeeded after switching the navigation diagram to PNG, then again after switching back to a clean SVG.
+- Re-rendered `taskpilot_ui_navigation_flow.png` with English labels and updated the Chapter 4 asset copy.
+- Re-rendered `taskpilot_ui_navigation_flow.svg` from `_incoming/asset/assets/diagrams/taskpilot_ui_navigation_flow.dot`; Chapter 4 now uses this SVG because it is vector-sharp and `foreignObject=False`.
 
 ## Chapter 2 notes
 

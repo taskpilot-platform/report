@@ -38,7 +38,9 @@
 
 - No missing assets identified.
 - Copied and used `_incoming/asset/assets/diagrams/taskpilot_ui_navigation_flow.png`.
-- The SVG version is no longer referenced in Chapter 4 because Typst warned that it contains a `foreignObject`.
+- Re-rendered `taskpilot_ui_navigation_flow.png` from Mermaid with English labels and updated the Chapter 4 copy under `src/assets/taskpilot/chapter4/`.
+- Re-rendered `taskpilot_ui_navigation_flow.svg` from Graphviz/DOT with English labels and updated Chapter 4 to use the SVG for sharper PDF output.
+- The current Chapter 4 UI navigation SVG was checked for `foreignObject`; it returned `False`.
 - Copied and used cropped screenshots from `_incoming/asset/chapter4/cropped`:
   - `ch4_02_login.png`
   - `ch4_05_dashboard.png`

@@ -1,39 +1,40 @@
+%%{init: {"theme": "base", "flowchart": {"htmlLabels": false, "useMaxWidth": true}, "markdownAutoWrap": false, "themeVariables": {"background": "#ffffff", "primaryColor": "#f5f3ff", "primaryBorderColor": "#9b87f5", "lineColor": "#8b86a3", "textColor": "#1f2937", "fontFamily": "Arial"}}}%%
 flowchart TD
-    A([Người dùng truy cập TaskPilot]) --> B{Đã đăng nhập?}
+    A([User opens TaskPilot]) --> B{Authenticated?}
 
-    B -->|Chưa đăng nhập| AUTH[Nhóm xác thực]
-    AUTH --> AUTH1[Đăng nhập]
-    AUTH --> AUTH2[Đăng ký]
-    AUTH --> AUTH3[Quên / đặt lại mật khẩu]
-    AUTH1 -->|Đăng nhập thành công| DASH[Dashboard]
+    B -->|Not authenticated| AUTH[Authentication]
+    AUTH --> AUTH1[Sign in]
+    AUTH --> AUTH2[Sign up]
+    AUTH --> AUTH3[Forgot / reset password]
+    AUTH1 -->|Sign-in success| DASH[Dashboard]
 
-    B -->|Đã đăng nhập| DASH
+    B -->|Authenticated| DASH
 
-    DASH --> PROJLIST[Danh sách project]
-    DASH --> NOTI[Thông báo]
-    DASH --> PROFILE[Hồ sơ / kỹ năng cá nhân]
+    DASH --> PROJLIST[Project list]
+    DASH --> NOTI[Notifications]
+    DASH --> PROFILE[Profile / personal skills]
     DASH --> AI[AI Copilot]
-    DASH -.->|Tài khoản ADMIN| ADMIN[Quản trị hệ thống]
+    DASH -.->|ADMIN account| ADMIN[System administration]
 
-    PROJLIST --> WORKSPACE[Không gian làm việc project]
+    PROJLIST --> WORKSPACE[Project workspace]
 
-    WORKSPACE --> OVERVIEW[Tổng quan project]
-    WORKSPACE --> SETTINGS[Cấu hình project]
-    WORKSPACE --> WORK[Quản lý sprint và task]
+    WORKSPACE --> OVERVIEW[Project overview]
+    WORKSPACE --> SETTINGS[Project settings]
+    WORKSPACE --> WORK[Sprint and task management]
 
-    SETTINGS --> SET1[Thông tin chung]
-    SETTINGS --> SET2[Thành viên / nhãn / lưu trữ hoặc xóa project]
+    SETTINGS --> SET1[General information]
+    SETTINGS --> SET2[Members / labels / archive or delete project]
 
     WORK --> BACKLOG[Backlog / Sprint]
     WORK --> BOARD[Kanban board]
     WORK --> TIMELINE[Timeline]
-    WORK --> TASK[Chi tiết task]
-    TASK --> COMMENT[Bình luận]
+    WORK --> TASK[Task detail]
+    TASK --> COMMENT[Comments]
 
     AI --> AI1[Chat]
-    AI --> AI2[Gợi ý phân công task]
-    AI --> AI3[Xác nhận thao tác AI]
+    AI --> AI2[Task assignment recommendation]
+    AI --> AI3[AI action confirmation]
 
-    ADMIN --> ADM1[Người dùng]
-    ADMIN --> ADM2[Kỹ năng]
-    ADMIN --> ADM3[Cấu hình AI / hệ thống]
+    ADMIN --> ADM1[Users]
+    ADMIN --> ADM2[Skills]
+    ADMIN --> ADM3[AI / system configuration]
