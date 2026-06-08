@@ -121,7 +121,7 @@ hệ thống TaskPilot.
 #ui-table-figure(
   caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
   table(
-  columns: (1.25fr, 0.75fr, 0.75fr, 0.85fr, 1.45fr),
+  columns: (1.1fr, 1fr, 0.75fr, 1fr, 1.45fr),
   align: (left + top, left + top, left + top, left + top, left + top),
   inset: 0.5em,
   stroke: 0.5pt,
