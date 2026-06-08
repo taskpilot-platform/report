@@ -389,7 +389,7 @@ ranh giới contract.
 #ui-table-figure(
   caption: [Các adapter triển khai port tiêu biểu trong backend TaskPilot],
   table(
-    columns: (1.25fr, 1fr, 1.4fr, 1.25fr),
+    columns: (1.5fr, 1fr, 1.4fr, 1.25fr),
     align: left,
     stroke: 0.5pt,
     table.header(

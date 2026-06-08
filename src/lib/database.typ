@@ -17,7 +17,7 @@
   let columns = cols.pos()
 
   table(
-    columns: (auto, 1fr, 1.5fr, 1.2fr, 2.3fr),
+    columns: (0.4fr, 1fr, 1.5fr, 1.2fr, 2.3fr),
     align: (center, left, left, left, left),
     stroke: 0.5pt,
 
