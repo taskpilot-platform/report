@@ -152,26 +152,26 @@
       ),
   )
 
-  outline(
-    title: "Danh mục bảng chương trình",
-    target: figure
-      .where(
-        kind: raw,
-      )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+  // outline(
+  //   title: "Danh mục bảng chương trình",
+  //   target: figure
+  //     .where(
+  //       kind: raw,
+  //     )
+  //     .before(
+  //       loc.first().location(),
+  //       inclusive: false,
+  //     ),
+  // )
 
-  outline(
-    title: "Phụ lục",
-    depth: 2,
-    target: heading
-      .where(supplement: [Phụ lục], level: 2)
-      .or(heading.where(supplement: [Phụ lục], level: 3))
-      .and(target-appendix),
-  )
+  // outline(
+  //   title: "Phụ lục",
+  //   depth: 2,
+  //   target: heading
+  //     .where(supplement: [Phụ lục], level: 2)
+  //     .or(heading.where(supplement: [Phụ lục], level: 3))
+  //     .and(target-appendix),
+  // )
 }
 
 #import "@preview/codly:1.3.0": *
@@ -238,4 +238,4 @@
   style: "ieee",
 )
 
-#include "./appendix/index.typ"
+//#include "./appendix/index.typ"

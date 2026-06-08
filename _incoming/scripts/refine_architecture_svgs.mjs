@@ -4,16 +4,31 @@ import path from "node:path";
 const root = path.resolve(import.meta.dirname, "..");
 const diagramsDir = path.join(root, "asset", "assets", "diagrams");
 const chapter2Dir = path.join(root, "asset", "chapter2");
+const selectedFiles = new Set(
+  (process.env.REFINE_ONLY ?? "")
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean),
+);
 
 function write(file, svg) {
+  if (selectedFiles.size > 0 && !selectedFiles.has(path.basename(file))) return;
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${svg.trim()}\n`, "utf8");
 }
 
 function icon(rel, x, y, size = 34) {
-  const logoPath = path.join(root, "asset", "assets", "images", "logos", path.basename(rel));
+  const name = path.basename(rel);
+  const logoPath = [
+    path.join(root, "..", "src", "assets", "taskpilot", "chapter2", name),
+    path.join(root, "asset", "assets", "images", "logos", name),
+  ].find((candidate) => fs.existsSync(candidate));
+  if (!logoPath) throw new Error(`Missing logo: ${name}`);
   const data = fs.readFileSync(logoPath).toString("base64");
-  return `<image href="data:image/svg+xml;base64,${data}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet"/>`;
+  const pad = Math.max(6, Math.round(size * 0.18));
+  const box = size + pad * 2;
+  return `<rect x="${x - pad}" y="${y - pad}" width="${box}" height="${box}" rx="${Math.round(size * 0.22)}" fill="#f8fafc" stroke="#dbe3ee" stroke-width="0.9"/>
+<image href="data:image/svg+xml;base64,${data}" x="${x}" y="${y}" width="${size}" height="${size}" preserveAspectRatio="xMidYMid meet"/>`;
 }
 
 function browserGlyph(x, y, w = 42, h = 30) {

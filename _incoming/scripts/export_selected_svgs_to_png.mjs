@@ -22,6 +22,15 @@ const files = [
   "asset/assets/diagrams/ch3_13_deployment_architecture.svg",
   "asset/assets/diagrams/ch3_13_external_connection_flow.svg",
 ];
+const selectedFiles = new Set(
+  (process.env.EXPORT_ONLY ?? "")
+    .split(",")
+    .map((name) => name.trim())
+    .filter(Boolean),
+);
+const targetFiles = selectedFiles.size > 0
+  ? files.filter((file) => selectedFiles.has(path.basename(file)))
+  : files;
 
 function findChromeExecutable() {
   if (!fs.existsSync(chromeCacheDir)) return undefined;
@@ -42,7 +51,7 @@ const browser = await puppeteer.launch({
 
 try {
   const page = await browser.newPage();
-  for (const rel of files) {
+  for (const rel of targetFiles) {
     const svgPath = path.join(root, rel);
     if (!fs.existsSync(svgPath)) continue;
 
