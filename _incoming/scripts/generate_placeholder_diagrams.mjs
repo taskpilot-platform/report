@@ -101,9 +101,9 @@ ${style}`,
 
   [path.join(chapter2Dir, "ch2_06_weighted_scoring_ahp.mmd")]: `${commonInit}flowchart LR
     Criteria[Tiêu chí: Fit, Load, Performance] --> AHP[AHP xác định trọng số ban đầu]
-    AHP --> Weights["w<sub>fit</sub>, w<sub>load</sub>, w<sub>perf</sub>"]
+    AHP --> Weights[w_fit, w_load, w_perf]
     Candidate[Ứng viên + dữ liệu task] --> Normalize[Chuẩn hóa điểm F, L, P]
-    Weights --> Score["Score = w<sub>fit</sub> · F − w<sub>load</sub> · L + w<sub>perf</sub> · P"]
+    Weights --> Score[Score = w_fit*F - w_load*L + w_perf*P]
     Normalize --> Score
     Score --> Rank[Xếp hạng ứng viên]
     Rank --> Explain[Giải thích đề xuất]
@@ -494,7 +494,7 @@ ${style}`,
     Filter --> Data[Thu thập skill, workload, performance]
     Data --> Normalize[Tính và chuẩn hóa F, L, P]
     Normalize --> Mode[Chọn mode BALANCED / URGENT / TRAINING]
-    Mode --> Score["Score = w<sub>fit</sub> · F − w<sub>load</sub> · L + w<sub>perf</sub> · P"]
+    Mode --> Score[Score = w_fit*F - w_load*L + w_perf*P]
     Score --> Rank[Xếp hạng ứng viên]
     Rank --> Explain[Trả điểm thành phần và giải thích]
     Explain --> Confirm{Qua AI có ghi dữ liệu?}

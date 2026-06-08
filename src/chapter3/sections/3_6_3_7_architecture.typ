@@ -319,7 +319,7 @@ tắt các nhóm port tiêu biểu, không liệt kê toàn bộ method chi ti�
 #ui-table-figure(
   caption: [Các nhóm port tiêu biểu trong taskpilot-contracts],
   table(
-    columns: 4,
+    columns: (1.25fr, 1.25fr, 1fr, 1fr),
     align: left,
     stroke: 0.5pt,
     table.header(
@@ -388,7 +388,7 @@ ranh giới contract.
 #ui-table-figure(
   caption: [Các adapter triển khai port tiêu biểu trong backend TaskPilot],
   table(
-    columns: 4,
+    columns: (1.25fr, 1fr, 1.4fr, 1.25fr),
     align: left,
     stroke: 0.5pt,
     table.header(
