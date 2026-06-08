@@ -61,7 +61,7 @@ nội dung này được trình bày ở mục 3.8.6.
 )
 
 #ui-table-figure(
-  caption: none,
+  caption: [Phân nhóm dữ liệu chính trong cơ sở dữ liệu TaskPilot],
   table(
     columns: (1.5fr, 1.5fr, 2fr),
     align: left,
@@ -97,7 +97,7 @@ nội dung này được trình bày ở mục 3.8.6.
   ),
 )
 #ui-table-figure(
-  caption: none,
+  caption: [Các kiểu enum chính trong cơ sở dữ liệu TaskPilot],
   table(
     columns: (1fr, 1.5fr, 2fr),
     align: left,

@@ -13,6 +13,12 @@
 - [x] Ran compile check after switching the Chapter 4 UI navigation flow back to SVG rendered from Graphviz: success.
 - [x] Ran compile check after Chapter 2 conversion: success.
 - [x] Ran compile check after converting Chapter 3 sections 3.4.1 through 3.4.3: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.4.4 through the first detailed use case UC01: success.
+- [x] Ran compile check after converting the rest of Chapter 3 section 3.5: success.
+- [x] Ran compile check after refactoring Chapter 3 section 3.5 to representative use cases only: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.9 and 3.10: success.
+- [x] Ran compile check after re-rendering the Chapter 3 section 3.9/3.10 warning SVGs with Graphviz: success.
+- [x] Ran compile check after converting Chapter 3 sections 3.11 and 3.13: success.
 - [ ] Resolve warning if required later:
 
 ```text
@@ -33,6 +39,8 @@ src/chapter2/sections/2_2_ai_agent.typ:59: ch2_05_human_in_the_loop.svg
 src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_ahp.svg
 ```
 
+- [x] Resolved Chapter 3 section 3.9/3.10 SVG `foreignObject` warnings by re-rendering the three overview/push-flow SVGs from Graphviz DOT sources.
+
 ## Assembly checklist
 
 - [x] Compile existing template.
@@ -43,7 +51,13 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - [x] Prepare split structure under `src/chapter3/sections/`.
   - [x] Convert/insert sections 3.1, 3.2, and 3.3.
   - [x] Convert/insert sections 3.4.1 through 3.4.3.
-  - [ ] Convert/insert sections 3.4.4 through 3.13.
+  - [x] Convert/insert sections 3.4.4 through the first detailed use case UC01.
+  - [x] Convert/insert the rest of section 3.5 from UC02 through the final use case notes.
+  - [x] Refactor section 3.5 to render only representative use cases; repetitive CRUD/list/update flows remain covered by the 3.4 use case summary and external/full documentation note.
+  - [x] Convert/insert sections 3.9 and 3.10 from `_incoming/CHAPTER_3_9_3_10_FINAL.md`.
+  - [x] Convert/insert section 3.11 from `_incoming/CHAPTER_3_11_FINAL.md`.
+  - [ ] Keep section 3.12 pending for the next run.
+  - [x] Convert/insert section 3.13 from `_incoming/CHAPTER_3_13_FINAL.md`.
 - [x] Convert/insert Chapter 4 from `_incoming/CHAPTER_4_FINAL.md`.
 - [x] Convert/insert Chapter 5 from `_incoming/CHAPTER_5_1_5_2_FINAL.md` and `_incoming/CHAPTER_5_3_5_4_FINAL.md`.
 - [ ] Fix image paths after deciding final asset destination under `src/assets`.
@@ -56,7 +70,7 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - [ ] Review bibliography/reference citations after content insertion.
 - [ ] Consolidate temporary/plain-text references into the final end-of-report bibliography; do not leave per-section reference blocks inside chapters.
 - [ ] Add italic chapter introduction summaries for Chapters 3, 4, and 5 to match the Chapter 1/2 style.
-- [ ] Reconcile List of Tables after final layout: long Chapter 3 tables are currently breakable direct tables with manual captions, so they may not appear automatically in the generated table list.
+- [x] Reconcile current Chapter 3 table captions: converted existing manual-caption tables and `caption: none` tables to real table figures so they appear in the generated table list.
 
 ## Chapter 1 notes
 
@@ -135,7 +149,39 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
   - `use-case-admin.svg`
   - `use-case-pm.svg`
   - `use-case-member.svg`
-- Sections 3.4.4 through 3.5 remain pending in the same section file.
+- Converted sections 3.4.4, 3.4.5, 3.4.6, the 3.5 introduction, and the first detailed use case UC01 in `src/chapter3/sections/3_4_3_5_modeling.typ`.
+- Copied and used `sequence-auth-login.svg` under `src/assets/taskpilot/chapter3/`.
+- `usecase(...)` and `usecase-figure(...)` were used without patching `src/lib/usecase.typ`.
+- `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows `Mô tả use case Đăng nhập hệ thống` as `kind: table`; no helper patch is needed for the converted use case specification table.
+- Removed the draft-only sample use case specification from the report; it was only a conversion guide.
+- Converted the current manual-caption Chapter 3 tables in sections 3.1, 3.3, and 3.4 to real table figures so they appear in the List of Tables.
+- Converted the rest of section 3.5 from `UC02 - Đăng ký tài khoản` through `3.5.8. Ghi chú về đặc tả Use Case đầy đủ`.
+- Copied and used all sequence diagrams referenced by the remaining section 3.5 placeholders under `src/assets/taskpilot/chapter3/`.
+- Kept sequence diagrams before each corresponding use case specification table.
+- Added local `uc-sequence(...)` helper in `src/chapter3/sections/3_4_3_5_modeling.typ` so each use case title stays with its first sequence diagram.
+- Used `usecase(...)` and `usecase-figure(...)` for all section 3.5 specification tables without patching `src/lib/usecase.typ`.
+- `typst query main.typ "figure.where(kind: table)" --field caption --format json` shows the converted section 3.5 use case specification tables as `kind: table`; no helper patch is needed.
+- Replaced `sequence-ai-pending-action-confirmation.svg` with a PlantUML-rendered SVG from `_incoming/asset/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.puml`.
+- Updated the PlantUML source for `sequence-ai-pending-action-confirmation.svg` to use explicit activation/deactivation bars matching the `taskpilot-platform.github.io` sequence diagram style.
+- Removed the draft note under the AI pending action confirmation figure.
+- Refactored section 3.5 so the main report renders only representative use cases:
+  - UC01, UC03/UC04, UC23, UC31, UC44, UC46, UC47, UC50, UC56, UC59, and AI pending action confirmation.
+- Removed rendering from section 3.5 for repetitive/non-representative detailed flows, including UC02, UC26, UC32, UC36, UC40, UC53, UC54, UC55, UC58, UC13, UC14-UC17, and UC18-UC21.
+- Kept the complete 59-use-case summary table in section 3.4 and added/kept notes that full use case specifications, sequence diagrams, and activity diagrams are referenced in project documentation/appendix.
+- After refactor, `typst query main.typ "figure.where(kind: image)" --field caption --format json` and `typst query main.typ "figure.where(kind: table)" --field caption --format json` show only the representative section 3.5 sequence/table captions in the generated figure/table lists.
+- Approximate compiled page range for section 3.5 after refactor: pages 82-101; the next section starts on page 102.
+- Added captions for currently converted Chapter 3 tables that previously had `caption: none` in sections 3.6 and 3.8.
+- Converted sections 3.9 and 3.10 in `src/chapter3/sections/3_9_3_10_realtime_notification.typ`.
+- Used available auth, permission, realtime, notification, AI streaming, and OneSignal diagrams from `src/assets/diagrams/` and `src/assets/sync-diagrams/`.
+- No missing assets were identified for sections 3.9 and 3.10.
+- Re-rendered these section 3.9/3.10 diagrams from Graphviz DOT so they no longer contain `foreignObject`:
+  - `src/assets/diagrams/ch3_09_auth_authorization_overview.svg`
+  - `src/assets/diagrams/ch3_10_realtime_notification_overview.svg`
+  - `src/assets/diagrams/ch3_10_onesignal_push_flow.svg`
+- Converted section 3.11 in `src/chapter3/sections/3_11_ai_copilot.typ`.
+- Converted section 3.13 in `src/chapter3/sections/3_13_deployment.typ`.
+- Left section 3.12 unchanged as a TODO placeholder for the next run.
+- Generated high-resolution PNG versions for Mermaid diagrams in sections 3.11 and 3.13 that otherwise contained `foreignObject`; the original `.mmd` and `.svg` files remain in place.
 
 ## Notes for next assembly run
 

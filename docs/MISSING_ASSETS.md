@@ -104,9 +104,91 @@
   - `use-case-admin.svg`
   - `use-case-pm.svg`
   - `use-case-member.svg`
+  - `sequence-auth-login.svg`
+  - `sequence-auth-register.svg`
+  - `sequence-auth-forgot-password.svg`
+  - `sequence-auth-reset-password.svg`
+  - `sequence-project-management-create-new-project.svg`
+  - `sequence-project-management-join-project.svg`
+  - `sequence-project-members-add-member-to-project.svg`
+  - `sequence-project-members-update-member-role.svg`
+  - `sequence-sprint-management-create-new-sprint.svg`
+  - `sequence-task-management-view-kanban-board.svg`
+  - `sequence-task-management-create-new-task.svg`
+  - `sequence-task-management-update-task-status.svg`
+  - `sequence-task-management-assign-assignee-reporter.svg`
+  - `sequence-interaction-communication-write-comment.svg`
+  - `sequence-notification-management-receive-notification.svg`
+  - `sequence-notification-management-mark-notification-as-read.svg`
+  - `sequence-ai-assistant-create-new-ai-chat-session.svg`
+  - `sequence-ai-assistant-chat-with-ai.svg`
+  - `sequence-ai-assistant-view-ai-activity-logs.svg`
+  - `sequence-ai-assistant-request-ai-auto-assignment.svg`
+  - `sequence-ai-pending-action-confirmation.svg`
+  - `sequence-ai-pending-action-confirmation.puml`
+  - `sequence-admin-configure-system-parameters.svg`
+  - `sequence-admin-view-system-skill-directory.svg`
+  - `sequence-admin-add-system-skill.svg`
+  - `sequence-admin-edit-system-skill.svg`
+  - `sequence-admin-delete-system-skill.svg`
+  - `sequence-admin-view-global-user-list.svg`
+  - `sequence-admin-add-system-user.svg`
+  - `sequence-admin-edit-system-user.svg`
+  - `sequence-admin-delete-system-user.svg`
 - Re-rendered `ch3_01_jira_workflow.svg` and `ch3_01_trello_kanban.svg` from Graphviz/DOT; both now have `foreignObject=False`.
 - The real UI `.jpg` files were converted to valid JPEG encoding before inclusion because the incoming `.jpg` files contained PNG bytes.
+- `sequence-auth-login.svg` was checked for `foreignObject`; none was found.
+- Section 3.5 was converted through the final notes and no missing assets were identified.
+- `sequence-ai-pending-action-confirmation.svg` is now rendered from PlantUML source with explicit activation bars to match the surrounding sequence diagram style.
+- Section 3.5 has been refactored to render only representative use cases in the main report. No image/diagram files were deleted; non-representative sequence assets remain available for appendix/full documentation reuse.
+- The currently rendered representative section 3.5 sequence assets are:
+  - `sequence-auth-login.svg`
+  - `sequence-auth-forgot-password.svg`
+  - `sequence-project-management-create-new-project.svg`
+  - `sequence-project-members-add-member-to-project.svg`
+  - `sequence-task-management-create-new-task.svg`
+  - `sequence-task-management-update-task-status.svg`
+  - `sequence-task-management-assign-assignee-reporter.svg`
+  - `sequence-interaction-communication-write-comment.svg`
+  - `sequence-ai-assistant-chat-with-ai.svg`
+  - `sequence-ai-assistant-request-ai-auto-assignment.svg`
+  - `sequence-ai-pending-action-confirmation.svg`
+- Sections 3.9 and 3.10 were converted and no missing assets were identified.
+- The rendered sections 3.9 and 3.10 assets are:
+  - `src/assets/diagrams/ch3_09_auth_authorization_overview.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-login.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-refresh-token.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-auth-logout-token-blocklist.svg`
+  - `src/assets/sync-diagrams/activity/activity-project-access-permission-check.svg`
+  - `src/assets/diagrams/ch3_10_realtime_notification_overview.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-realtime-notification-sse.svg`
+  - `src/assets/diagrams/ch3_10_comment_realtime_flow.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-streaming-response-sse.svg`
+  - `src/assets/diagrams/ch3_10_onesignal_push_flow.svg`
+- The three section 3.9/3.10 overview/push-flow SVGs were re-rendered from Graphviz DOT sources and no longer contain `foreignObject`.
+- Sections 3.11 and 3.13 were converted and no missing assets were identified.
+- Section 3.12 remains pending for the next run.
+- The rendered section 3.11 assets are:
+  - `src/assets/diagrams/ch3_11_ai_copilot_architecture.png`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-assistant-create-new-ai-chat-session.svg`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-assistant-chat-with-ai.svg`
+  - `src/assets/diagrams/ch3_11_context_building.png`
+  - `src/assets/diagrams/ch3_11_smart_routing.png`
+  - `src/assets/diagrams/ch3_11_auto_fallback.png`
+  - `src/assets/diagrams/ch3_11_tool_registry.png`
+  - `src/assets/sync-diagrams/sequence/sequence-ai-pending-action-confirmation.svg`
+  - `src/assets/diagrams/ch3_11_safety_layers.png`
+  - `src/assets/diagrams/ch3_11_ai_log_feedback.png`
+  - `src/assets/diagrams/ch3_11_design_patterns.png`
+- The rendered section 3.13 assets are:
+  - `src/assets/diagrams/ch3_13_deployment_architecture.svg`
+  - `src/assets/diagrams/ch3_13_external_connection_flow.png`
+  - `src/assets/diagrams/ch3_13_hf_backend_container_flow.png`
+  - `src/assets/diagrams/ch3_13_brevo_reset_email_flow.svg`
+  - `src/assets/diagrams/ch3_13_onesignal_push_flow.png`
+  - `src/assets/diagrams/ch3_13_github_actions_cicd.png`
+- High-resolution PNG versions were generated from Mermaid sources for section 3.11 and 3.13 diagrams that had SVG `foreignObject` output. The source `.mmd` files remain available beside the images.
 
 ## Later chapters
 
-- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` and `docs/CHAPTER3_ASSET_AUDIT.md` before converting Chapter 3.
+- See `_incoming/PLACEHOLDER_ASSET_STATUS.md` and `docs/CHAPTER3_ASSET_AUDIT.md` before converting the remaining Chapter 3 section 3.12.

@@ -1,3 +1,5 @@
+#import "../../lib/ui.typ": ui-table-figure
+
 == Kiến trúc tổng quan hệ thống
 
 TaskPilot được thiết kế theo kiến trúc phân tách giữa frontend và backend.
@@ -50,9 +52,9 @@ và mọi hành động phát sinh từ AI đều được kiểm soát thông q
 
 === Các thành phần chính của hệ thống
 
-#align(center)[#emph[Bảng 3.2: Các thành phần chính của hệ thống TaskPilot]]
-
-#table(
+#ui-table-figure(
+  caption: [Các thành phần chính của hệ thống TaskPilot],
+  table(
   columns: (1.2fr, 2.2fr, 2.1fr),
   align: (left + top, left + top, left + top),
   inset: 0.5em,
@@ -103,6 +105,7 @@ và mọi hành động phát sinh từ AI đều được kiểm soát thông q
   [Tự động kiểm thử/triển khai và vận hành frontend/backend.],
   [Frontend triển khai trên Netlify/Vercel tùy cấu hình; backend triển khai trên
     Hugging Face Space [20][21][22][23].],
+  ),
 )
 
 Frontend và backend được tách biệt nhưng tích hợp với nhau thông qua các API
@@ -199,9 +202,9 @@ trên Netlify hoặc Vercel tùy cấu hình dự án. Backend vẫn là điểm
 các yêu cầu nghiệp vụ và là lớp kiểm soát an toàn khi frontend tương tác với dữ
 liệu hoặc AI provider.
 
-#align(center)[#emph[Bảng 3.3: Các lớp chức năng chính của frontend TaskPilot]]
-
-#table(
+#ui-table-figure(
+  caption: [Các lớp chức năng chính của frontend TaskPilot],
+  table(
   columns: (1.6fr, 3.4fr),
   align: (left + top, left + top),
   inset: 0.5em,
@@ -226,6 +229,7 @@ liệu hoặc AI provider.
 
   [Push Notification Integration],
   [Khởi tạo và đồng bộ người dùng với OneSignal Web SDK khi được cấu hình.],
+  ),
 )
 
 #figure(

@@ -1,3 +1,5 @@
+#import "../../lib/ui.typ": ui-table-figure
+
 == Khảo sát hiện trạng
 
 Trước khi tiến hành thiết kế và xây dựng hệ thống TaskPilot, việc khảo sát các
@@ -116,10 +118,9 @@ Dựa trên việc khảo sát các công cụ quản lý dự án nêu trên, b
 hợp và so sánh một số tiêu chí quan trọng nhằm làm rõ bối cảnh và định hướng của
 hệ thống TaskPilot.
 
-#align(center)[#emph[Bảng 3.1: Bảng so sánh các công cụ quản lý dự án và định
-  hướng của TaskPilot]]
-
-#table(
+#ui-table-figure(
+  caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
+  table(
   columns: (1.25fr, 0.75fr, 0.75fr, 0.85fr, 1.45fr),
   align: (left + top, left + top, left + top, left + top, left + top),
   inset: 0.5em,
@@ -171,6 +172,7 @@ hệ thống TaskPilot.
   [Thiếu cấu trúc chuyên sâu],
   [Vượt quá phạm vi cần thiết],
   [Phù hợp, thiết kế tinh gọn và tập trung],
+  ),
 )
 
 Từ quá trình khảo sát, có thể thấy Jira, Trello và Asana đều là những công cụ đã
