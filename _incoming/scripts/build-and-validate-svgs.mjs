@@ -16,7 +16,7 @@ function validateDirectory(dir) {
       const p = path.join(dir, file);
       const content = fs.readFileSync(p, "utf8");
       if (content.includes("${")) {
-        console.error(`ERROR: SVG file ${p} contains literal "\\${". It seems a template variable was not evaluated!`);
+        console.error(`ERROR: SVG file ${p} contains literal "\\\${". It seems a template variable was not evaluated!`);
         process.exit(1);
       }
     }

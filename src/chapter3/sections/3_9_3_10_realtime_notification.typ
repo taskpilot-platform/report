@@ -7,7 +7,7 @@ TaskPilot quản lý nhiều loại tài nguyên quan trọng như tài khoản 
 Về mặt khái niệm, xác thực trả lời câu hỏi người dùng là ai, còn phân quyền trả lời câu hỏi người dùng đó được phép làm gì. TaskPilot sử dụng JWT để duy trì ngữ cảnh xác thực cho các request đã đăng nhập, đồng thời kết hợp system role, project role và các rule nghiệp vụ để quyết định quyền truy cập vào từng tài nguyên.
 
 #figure(
-  image("../../assets/diagrams/ch3_09_auth_authorization_overview.svg", width: 100%),
+  image("../../assets/diagrams/ch3_09_auth_authorization_overview.png", width: 100%),
   caption: [Tổng quan cơ chế xác thực và phân quyền của TaskPilot],
 )
 

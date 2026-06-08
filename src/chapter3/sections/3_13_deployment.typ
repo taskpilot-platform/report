@@ -172,7 +172,7 @@ Frontend thực hiện khởi tạo OneSignal khi ứng dụng chạy và có th
 Backend quyết định sự kiện nào cần gửi thông báo và user nào là người nhận. Khi tạo thông báo hệ thống hoặc thông báo liên quan đến task/project, backend có thể gọi OneSignal để gửi push đến external id tương ứng với user id. OneSignal đảm nhiệm việc phân phối push đến trình duyệt hoặc thiết bị đã cấp quyền nhận thông báo.
 
 #figure(
-  image("../../assets/diagrams/ch3_13_onesignal_push_flow.png", width: 100%),
+  image("../../assets/diagrams/ch3_13_onesignal_push_flow.svg", width: 100%),
   caption: [Luồng gửi push notification qua OneSignal],
 )
 

@@ -11,24 +11,14 @@ const chromeCacheDir = path.join(process.env.HOME ?? "", ".cache", "puppeteer", 
 const padding = 16;
 
 const files = [
-  "asset/chapter2/ch2_01_agile_scrum.svg",
-  "asset/chapter2/ch2_02_scrum_sprint.svg",
-  "asset/chapter2/ch2_03_kanban.svg",
-  "asset/chapter2/ch2_06_weighted_scoring_ahp.svg",
-  "asset/chapter2/ch2_07_modular_monolith.svg",
-  "asset/assets/diagrams/ch3_01_asana_views.svg",
-  "asset/assets/diagrams/ch3_01_jira_workflow.svg",
-  "asset/assets/diagrams/ch3_01_trello_kanban.svg",
-  "asset/assets/diagrams/ch3_02_analysis_design_process.svg",
-  "asset/assets/diagrams/ch3_02_testing_deployment_process.svg",
-  "asset/assets/diagrams/ch3_03_frontend_spa_architecture.svg",
   "asset/assets/diagrams/ch3_03_interaction_overview.svg",
-  "asset/assets/diagrams/ch3_03_system_context.svg",
-  "asset/assets/diagrams/ch3_06_backend_modular_monolith.svg",
-  "asset/assets/diagrams/ch3_07_contracts_communication.svg",
-  "asset/assets/diagrams/ch3_07_port_adapter_model.svg",
-  "asset/assets/diagrams/ch3_08_flyway_change_management.svg",
+  "asset/assets/diagrams/ch3_11_ai_copilot_architecture.svg",
+  "asset/assets/diagrams/ch3_11_auto_fallback.svg",
+  "asset/assets/diagrams/ch3_11_smart_routing.svg",
+  "asset/assets/diagrams/ch3_11_tool_registry.svg",
+  "asset/assets/diagrams/ch3_12_assignment_recommendation_process.svg",
   "asset/assets/diagrams/ch3_13_deployment_architecture.svg",
+  "asset/assets/diagrams/ch3_13_external_connection_flow.svg",
 ];
 
 function findChromeExecutable() {

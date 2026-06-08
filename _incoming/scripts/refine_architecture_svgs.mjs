@@ -72,7 +72,7 @@ const css = `
 //<rect class="box" x="76" y="266" width="152" height="96" rx="22"/><text class="small" x="152" y="304" text-anchor="middle">Product vision</text><text class="tiny" x="152" y="328" text-anchor="middle">goals and needs</text>
 //<rect class="box" x="292" y="266" width="160" height="96" rx="22"/><text class="small" x="372" y="304" text-anchor="middle">Product backlog</text><text class="tiny" x="372" y="328" text-anchor="middle">prioritized work</text>
 //<rect class="box" x="516" y="140" width="172" height="96" rx="22"/><text class="small" x="602" y="178" text-anchor="middle">Sprint planning</text><text class="tiny" x="602" y="202" text-anchor="middle">select sprint goal</text>
-//<rect class="group" x="498" y="284" width="214" height="132" rx="26"/><text class="small" x="605" y="320" text-anchor="middle">Sprint execution</text><text class="tiny" x="605" y="346" text-anchor="middle">design, build, test</text><text class="tiny" x="605" y="368" text-anchor="middle">daily inspection</text>
+//<rect class="box" x="498" y="284" width="214" height="132" rx="26"/><text class="small" x="605" y="320" text-anchor="middle">Sprint execution</text><text class="tiny" x="605" y="346" text-anchor="middle">design, build, test</text><text class="tiny" x="605" y="368" text-anchor="middle">daily inspection</text>
 //<rect class="box" x="778" y="140" width="158" height="96" rx="22"/><text class="small" x="857" y="178" text-anchor="middle">Sprint review</text><text class="tiny" x="857" y="202" text-anchor="middle">inspect increment</text>
 //<rect class="box" x="778" y="424" width="158" height="96" rx="22"/><text class="small" x="857" y="462" text-anchor="middle">Retrospective</text><text class="tiny" x="857" y="486" text-anchor="middle">improve process</text>
 //<rect class="box" x="994" y="266" width="150" height="96" rx="22"/><text class="small" x="1069" y="304" text-anchor="middle">Release-ready</text><text class="tiny" x="1069" y="328" text-anchor="middle">increment</text>
@@ -89,7 +89,7 @@ const css = `
 //<rect class="box" x="74" y="278" width="160" height="96" rx="22"/><text class="small" x="154" y="316" text-anchor="middle">Product backlog</text><text class="tiny" x="154" y="340" text-anchor="middle">ordered ideas</text>
 //<rect class="box" x="302" y="128" width="170" height="96" rx="22"/><text class="small" x="387" y="166" text-anchor="middle">Sprint planning</text><text class="tiny" x="387" y="190" text-anchor="middle">goal + scope</text>
 //<rect class="box" x="302" y="430" width="170" height="96" rx="22"/><text class="small" x="387" y="468" text-anchor="middle">Sprint backlog</text><text class="tiny" x="387" y="492" text-anchor="middle">selected tasks</text>
-//<rect class="group" x="548" y="196" width="250" height="238" rx="30"/><text class="small" x="673" y="232" text-anchor="middle">Sprint</text><text class="tiny" x="673" y="256" text-anchor="middle">one to four weeks</text>
+//<rect class="box" x="548" y="196" width="250" height="238" rx="30"/><text class="small" x="673" y="232" text-anchor="middle">Sprint</text><text class="tiny" x="673" y="256" text-anchor="middle">one to four weeks</text>
 //<rect class="box" x="590" y="288" width="166" height="72" rx="20"/><text class="small" x="673" y="332" text-anchor="middle">Daily scrum</text>
 //<rect class="box" x="866" y="128" width="170" height="96" rx="22"/><text class="small" x="951" y="166" text-anchor="middle">Increment</text><text class="tiny" x="951" y="190" text-anchor="middle">potentially shippable</text>
 //<rect class="box" x="866" y="430" width="170" height="96" rx="22"/><text class="small" x="951" y="468" text-anchor="middle">Review + retro</text><text class="tiny" x="951" y="492" text-anchor="middle">feedback loop</text>
@@ -126,11 +126,11 @@ ${css}
 ${icon("../images/logos/asana-logo.svg", 542, 128, 36)}
 <text class="small" x="560" y="184" text-anchor="middle">Asana project</text>
 <text class="tiny" x="560" y="208" text-anchor="middle">one workspace, multiple planning views</text>
-<rect class="group" x="76" y="312" width="154" height="86" rx="22"/><text class="small" x="153" y="348" text-anchor="middle">List view</text><text class="tiny" x="153" y="370" text-anchor="middle">task fields</text>
-<rect class="group" x="278" y="312" width="154" height="86" rx="22"/><text class="small" x="355" y="348" text-anchor="middle">Board view</text><text class="tiny" x="355" y="370" text-anchor="middle">status tracking</text>
-<rect class="group" x="480" y="312" width="154" height="86" rx="22"/><text class="small" x="557" y="348" text-anchor="middle">Timeline</text><text class="tiny" x="557" y="370" text-anchor="middle">dependencies</text>
-<rect class="group" x="682" y="312" width="154" height="86" rx="22"/><text class="small" x="759" y="348" text-anchor="middle">Calendar</text><text class="tiny" x="759" y="370" text-anchor="middle">due dates</text>
-<rect class="group" x="884" y="312" width="154" height="86" rx="22"/><text class="small" x="961" y="348" text-anchor="middle">Workload</text><text class="tiny" x="961" y="370" text-anchor="middle">capacity</text>
+<rect class="box" x="76" y="312" width="154" height="86" rx="22"/><text class="small" x="153" y="348" text-anchor="middle">List view</text><text class="tiny" x="153" y="370" text-anchor="middle">task fields</text>
+<rect class="box" x="278" y="312" width="154" height="86" rx="22"/><text class="small" x="355" y="348" text-anchor="middle">Board view</text><text class="tiny" x="355" y="370" text-anchor="middle">status tracking</text>
+<rect class="box" x="480" y="312" width="154" height="86" rx="22"/><text class="small" x="557" y="348" text-anchor="middle">Timeline</text><text class="tiny" x="557" y="370" text-anchor="middle">dependencies</text>
+<rect class="box" x="682" y="312" width="154" height="86" rx="22"/><text class="small" x="759" y="348" text-anchor="middle">Calendar</text><text class="tiny" x="759" y="370" text-anchor="middle">due dates</text>
+<rect class="box" x="884" y="312" width="154" height="86" rx="22"/><text class="small" x="961" y="348" text-anchor="middle">Workload</text><text class="tiny" x="961" y="370" text-anchor="middle">capacity</text>
 <rect class="box" x="76" y="464" width="154" height="70" rx="20"/><text class="small" x="153" y="506" text-anchor="middle">Assignee</text>
 <rect class="box" x="278" y="464" width="154" height="70" rx="20"/><text class="small" x="355" y="506" text-anchor="middle">Track status</text>
 <rect class="box" x="480" y="464" width="154" height="70" rx="20"/><text class="small" x="557" y="506" text-anchor="middle">Plan work</text>
@@ -149,13 +149,13 @@ ${icon("../images/logos/asana-logo.svg", 542, 128, 36)}
 //${icon("../assets/images/logos/springboot-logo.svg", 504, 166, 34)}
 //<text class="small" x="622" y="178" text-anchor="middle">Application Shell</text>
 //<text class="tiny" x="622" y="198" text-anchor="middle">Spring Boot entrypoint</text>
-//<rect class="group" x="206" y="264" width="230" height="150"/>
+//<rect class="box" x="206" y="264" width="230" height="150"/>
 //<text class="small" x="321" y="292" text-anchor="middle">Users Module</text>
 //<text class="tiny" x="321" y="316" text-anchor="middle">Auth, profiles, skills</text>
-//<rect class="group" x="486" y="264" width="230" height="150"/>
+//<rect class="box" x="486" y="264" width="230" height="150"/>
 //<text class="small" x="601" y="292" text-anchor="middle">Projects Module</text>
 //<text class="tiny" x="601" y="316" text-anchor="middle">Projects, sprints, tasks</text>
-//<rect class="group" x="766" y="264" width="230" height="150"/>
+//<rect class="box" x="766" y="264" width="230" height="150"/>
 //<text class="small" x="881" y="292" text-anchor="middle">AI Module</text>
 //<text class="tiny" x="881" y="316" text-anchor="middle">Copilot, tools, routing</text>
 //<rect class="box" x="402" y="452" width="396" height="70"/>
@@ -178,11 +178,11 @@ ${css}
 <rect class="box" x="60" y="278" width="108" height="84"/><text class="small" x="114" y="306" text-anchor="middle">User</text>${browserGlyph(93, 320, 42, 30)}
 <rect class="box" x="214" y="246" width="86" height="148"/><text class="tiny" x="257" y="274" text-anchor="middle">Browser</text>
 <rect class="zone" x="358" y="76" width="820" height="490"/><text class="small" x="768" y="104" text-anchor="middle">TaskPilot System Boundary</text>
-<rect class="group" x="408" y="142" width="176" height="116"/><text class="small" x="496" y="170" text-anchor="middle">React SPA</text>${icon("../images/logos/react-logo.svg", 479, 190, 38)}
-<rect class="group" x="668" y="142" width="226" height="116"/><text class="small" x="781" y="170" text-anchor="middle">Spring Boot Backend</text>${icon("../images/logos/springboot-logo.svg", 764, 190, 38)}
-<rect class="group" x="428" y="326" width="178" height="116"/><text class="small" x="517" y="354" text-anchor="middle">PostgreSQL</text>${icon("../images/logos/postgresql-logo.svg", 500, 374, 38)}
-<rect class="group" x="654" y="326" width="178" height="116"/><text class="small" x="743" y="354" text-anchor="middle">Object Storage</text><text class="label" x="743" y="400" text-anchor="middle" fill="#0ea5e9">S3</text>
-<rect class="group" x="882" y="326" width="218" height="116"/><text class="small" x="991" y="354" text-anchor="middle">External Services</text>${icon("../images/logos/onesignal-logo.svg", 940, 374, 34)}${icon("../images/logos/brevo-logo.svg", 1000, 374, 34)}${icon("../images/logos/gemini-logo.svg", 1048, 374, 34)}
+<rect class="box" x="408" y="142" width="176" height="116"/><text class="small" x="496" y="170" text-anchor="middle">React SPA</text>${icon("../images/logos/react-logo.svg", 479, 190, 38)}
+<rect class="box" x="668" y="142" width="226" height="116"/><text class="small" x="781" y="170" text-anchor="middle">Spring Boot Backend</text>${icon("../images/logos/springboot-logo.svg", 764, 190, 38)}
+<rect class="box" x="428" y="326" width="178" height="116"/><text class="small" x="517" y="354" text-anchor="middle">PostgreSQL</text>${icon("../images/logos/postgresql-logo.svg", 500, 374, 38)}
+<rect class="box" x="654" y="326" width="178" height="116"/><text class="small" x="743" y="354" text-anchor="middle">Object Storage</text><text class="label" x="743" y="400" text-anchor="middle" fill="#0ea5e9">S3</text>
+<rect class="box" x="882" y="326" width="218" height="116"/><text class="small" x="991" y="354" text-anchor="middle">External Services</text>${icon("../images/logos/onesignal-logo.svg", 940, 374, 34)}${icon("../images/logos/brevo-logo.svg", 1000, 374, 34)}${icon("../images/logos/gemini-star-logo.svg", 1048, 374, 34)}
 <path class="line" d="M168 320 C185 320 196 320 214 320"/>
 <path class="line" d="M300 320 C350 250 360 205 408 200"/>
 <path class="line" d="M584 200 C618 200 632 200 668 200"/>
@@ -198,14 +198,14 @@ ${css}
 <rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
 <text class="label" x="640" y="62" text-anchor="middle">TaskPilot Deployment Architecture</text>
 <rect class="box" x="58" y="260" width="110" height="88"/><text class="small" x="113" y="290" text-anchor="middle">User</text>${browserGlyph(92, 306, 42, 30)}
-<rect class="group" x="236" y="122" width="176" height="126"/><text class="small" x="324" y="150" text-anchor="middle">Frontend Hosting</text>${icon("../images/logos/netlify-logo.svg", 280, 172, 34)}${icon("../images/logos/vercel-logo.svg", 338, 172, 34)}
-<rect class="group" x="236" y="356" width="176" height="126"/><text class="small" x="324" y="384" text-anchor="middle">CI/CD</text>${icon("../images/logos/github-actions-logo.svg", 307, 408, 40)}
+<rect class="box" x="236" y="122" width="176" height="126"/><text class="small" x="324" y="150" text-anchor="middle">Frontend Hosting</text>${icon("../images/logos/netlify-logo.svg", 280, 172, 34)}${icon("../images/logos/vercel-logo.svg", 338, 172, 34)}
+<rect class="box" x="236" y="356" width="176" height="126"/><text class="small" x="324" y="384" text-anchor="middle">CI/CD</text>${icon("../images/logos/github-actions-logo.svg", 307, 408, 40)}
 <rect class="zone" x="500" y="92" width="680" height="440"/><text class="small" x="840" y="120" text-anchor="middle">Managed Runtime and Services</text>
-<rect class="group" x="542" y="176" width="206" height="126"/><text class="small" x="645" y="204" text-anchor="middle">Backend Container</text>${icon("../images/logos/docker-logo.svg", 586, 226, 34)}${icon("../images/logos/huggingface-logo.svg", 644, 226, 34)}${icon("../images/logos/springboot-logo.svg", 702, 226, 34)}
-<rect class="group" x="814" y="160" width="146" height="100"/><text class="small" x="887" y="188" text-anchor="middle">PostgreSQL</text>${icon("../images/logos/postgresql-logo.svg", 870, 208, 34)}
-<rect class="group" x="994" y="160" width="146" height="100"/><text class="small" x="1067" y="188" text-anchor="middle">Storage</text><text class="label" x="1067" y="228" text-anchor="middle" fill="#0ea5e9">S3</text>
-<rect class="group" x="814" y="334" width="146" height="100"/><text class="small" x="887" y="362" text-anchor="middle">Email</text>${icon("../images/logos/brevo-logo.svg", 870, 382, 34)}
-<rect class="group" x="994" y="334" width="146" height="100"/><text class="small" x="1067" y="362" text-anchor="middle">Push / AI</text>${icon("../images/logos/onesignal-logo.svg", 1030, 382, 32)}${icon("../images/logos/gemini-logo.svg", 1078, 382, 32)}
+<rect class="box" x="542" y="176" width="206" height="126"/><text class="small" x="645" y="204" text-anchor="middle">Backend Container</text>${icon("../images/logos/docker-logo.svg", 586, 226, 34)}${icon("../images/logos/huggingface-logo.svg", 644, 226, 34)}${icon("../images/logos/springboot-logo.svg", 702, 226, 34)}
+<rect class="box" x="814" y="160" width="146" height="100"/><text class="small" x="887" y="188" text-anchor="middle">PostgreSQL</text>${icon("../images/logos/postgresql-logo.svg", 870, 208, 34)}
+<rect class="box" x="994" y="160" width="146" height="100"/><text class="small" x="1067" y="188" text-anchor="middle">Storage</text>${icon("../images/logos/supabase-logo.svg", 1050, 208, 34)}
+<rect class="box" x="814" y="334" width="146" height="100"/><text class="small" x="887" y="362" text-anchor="middle">Email</text>${icon("../images/logos/brevo-logo.svg", 870, 382, 34)}
+<rect class="box" x="994" y="334" width="146" height="100"/><text class="small" x="1067" y="362" text-anchor="middle">Push / AI</text>${icon("../images/logos/onesignal-logo.svg", 1030, 382, 32)}${icon("../images/logos/gemini-star-logo.svg", 1078, 382, 32)}
 <path class="line" d="M168 304 C198 240 216 190 236 184"/>
 <path class="line" d="M412 184 C455 194 500 216 542 234"/>
 <path class="line" d="M412 418 C452 372 498 292 542 254"/>
@@ -222,13 +222,13 @@ ${css}
 <rect class="box" x="58" y="278" width="140" height="84"/><text class="small" x="128" y="308" text-anchor="middle">Frontend</text>${icon("../images/logos/react-logo.svg", 111, 326, 34)}
 <rect class="zone" x="270" y="78" width="760" height="464"/><text class="small" x="650" y="106" text-anchor="middle">Spring Boot Modular Monolith</text>
 <rect class="box" x="514" y="136" width="272" height="76"/><text class="small" x="650" y="164" text-anchor="middle">taskpilot-app</text><text class="tiny" x="650" y="186" text-anchor="middle">Composition root and runtime entrypoint</text>
-<rect class="group" x="320" y="260" width="180" height="112"/><text class="small" x="410" y="290" text-anchor="middle">Users</text><text class="tiny" x="410" y="314" text-anchor="middle">auth, profile, skill</text>
-<rect class="group" x="535" y="260" width="180" height="112"/><text class="small" x="625" y="290" text-anchor="middle">Projects</text><text class="tiny" x="625" y="314" text-anchor="middle">project, task, sprint</text>
-<rect class="group" x="750" y="260" width="180" height="112"/><text class="small" x="840" y="290" text-anchor="middle">AI Copilot</text><text class="tiny" x="840" y="314" text-anchor="middle">chat, tools, routing</text>
+<rect class="box" x="320" y="260" width="180" height="112"/><text class="small" x="410" y="290" text-anchor="middle">Users</text><text class="tiny" x="410" y="314" text-anchor="middle">auth, profile, skill</text>
+<rect class="box" x="535" y="260" width="180" height="112"/><text class="small" x="625" y="290" text-anchor="middle">Projects</text><text class="tiny" x="625" y="314" text-anchor="middle">project, task, sprint</text>
+<rect class="box" x="750" y="260" width="180" height="112"/><text class="small" x="840" y="290" text-anchor="middle">AI Copilot</text><text class="tiny" x="840" y="314" text-anchor="middle">chat, tools, routing</text>
 <rect class="box" x="420" y="426" width="240" height="78"/><text class="small" x="540" y="456" text-anchor="middle">taskpilot-contracts</text><text class="tiny" x="540" y="478" text-anchor="middle">ports and DTOs</text>
 <rect class="box" x="704" y="426" width="240" height="78"/><text class="small" x="824" y="456" text-anchor="middle">Infrastructure</text><text class="tiny" x="824" y="478" text-anchor="middle">security, storage, notification</text>
 <rect class="box" x="1082" y="238" width="120" height="116"/><text class="small" x="1142" y="266" text-anchor="middle">Data</text>${icon("../images/logos/postgresql-logo.svg", 1105, 286, 28)}${icon("../images/logos/redis-logo.svg", 1148, 286, 28)}
-<rect class="box" x="1082" y="394" width="120" height="116"/><text class="small" x="1142" y="422" text-anchor="middle">Providers</text>${icon("../images/logos/gemini-logo.svg", 1105, 442, 28)}${icon("../images/logos/groq-logo.svg", 1148, 442, 28)}
+<rect class="box" x="1082" y="394" width="120" height="116"/><text class="small" x="1142" y="422" text-anchor="middle">Providers</text>${icon("../images/logos/gemini-star-logo.svg", 1105, 442, 28)}${icon("../images/logos/groq-logo.svg", 1148, 442, 28)}
 <path class="line" d="M198 320 C232 302 246 292 270 290"/>
 <path class="line" d="M650 212 L650 260"/>
 <path class="line" d="M600 212 C512 230 430 242 410 260"/>
@@ -303,7 +303,7 @@ ${css}
 <rect class="box" x="802" y="174" width="142" height="106" rx="20"/><text class="small" x="873" y="202" text-anchor="middle">Storage</text>${icon("../images/logos/supabase-logo.svg", 856, 222, 36)}
 <rect class="box" x="994" y="174" width="112" height="106" rx="20"/><text class="small" x="1050" y="202" text-anchor="middle">Email</text>${icon("../images/logos/brevo-logo.svg", 1032, 222, 36)}
 <rect class="box" x="610" y="356" width="142" height="106" rx="20"/><text class="small" x="681" y="384" text-anchor="middle">Push</text>${icon("../images/logos/onesignal-logo.svg", 664, 404, 36)}
-<rect class="box" x="802" y="356" width="304" height="106" rx="20"/><text class="small" x="954" y="384" text-anchor="middle">AI providers</text>${icon("../images/logos/gemini-logo.svg", 872, 404, 34)}${icon("../images/logos/openai-logo.svg", 936, 404, 34)}${icon("../images/logos/groq-logo.svg", 1000, 404, 34)}
+<rect class="box" x="802" y="356" width="304" height="106" rx="20"/><text class="small" x="954" y="384" text-anchor="middle">AI providers</text>${icon("../images/logos/gemini-star-logo.svg", 872, 404, 34)}${icon("../images/logos/openai-logo.svg", 936, 404, 34)}${icon("../images/logos/groq-logo.svg", 1000, 404, 34)}
 <path class="line" d="${roundPath([[220, 314], [260, 314], [260, 300], [300, 300]])}"/>
 <path class="dash" d="${roundPath([[300, 346], [260, 346], [260, 352], [220, 352]])}"/>
 <path class="line" d="${roundPath([[480, 288], [592, 288], [592, 227], [610, 227]])}"/>
@@ -321,11 +321,11 @@ ${css}
 <rect class="box" x="58" y="292" width="118" height="96" rx="20"/><text class="small" x="117" y="324" text-anchor="middle">User</text>${browserGlyph(96, 340, 42, 30)}
 <rect class="box" x="232" y="266" width="112" height="148" rx="20"/><text class="small" x="288" y="302" text-anchor="middle">Browser</text>${browserGlyph(267, 326, 42, 30)}
 <rect class="zone" x="416" y="100" width="774" height="470" rx="24"/><text class="small" x="803" y="130" text-anchor="middle">TaskPilot boundary</text>
-<rect class="group" x="470" y="178" width="172" height="116" rx="20"/><text class="small" x="556" y="210" text-anchor="middle">React SPA</text>${icon("../images/logos/react-logo.svg", 538, 230, 38)}
-<rect class="group" x="712" y="178" width="210" height="116" rx="20"/><text class="small" x="817" y="210" text-anchor="middle">Spring Boot backend</text>${icon("../images/logos/springboot-logo.svg", 798, 230, 38)}
-<rect class="group" x="474" y="370" width="142" height="104" rx="20"/><text class="small" x="545" y="398" text-anchor="middle">Database</text>${icon("../images/logos/postgresql-logo.svg", 528, 418, 34)}
-<rect class="group" x="664" y="370" width="142" height="104" rx="20"/><text class="small" x="735" y="398" text-anchor="middle">Storage</text>${icon("../images/logos/supabase-logo.svg", 718, 418, 34)}
-<rect class="group" x="854" y="370" width="250" height="104" rx="20"/><text class="small" x="979" y="398" text-anchor="middle">External services</text>${icon("../images/logos/brevo-logo.svg", 904, 420, 30)}${icon("../images/logos/onesignal-logo.svg", 950, 420, 30)}${icon("../images/logos/gemini-logo.svg", 996, 420, 30)}${icon("../images/logos/openai-logo.svg", 1042, 420, 30)}
+<rect class="box" x="470" y="178" width="172" height="116" rx="20"/><text class="small" x="556" y="210" text-anchor="middle">React SPA</text>${icon("../images/logos/react-logo.svg", 538, 230, 38)}
+<rect class="box" x="712" y="178" width="210" height="116" rx="20"/><text class="small" x="817" y="210" text-anchor="middle">Spring Boot backend</text>${icon("../images/logos/springboot-logo.svg", 798, 230, 38)}
+<rect class="box" x="474" y="370" width="142" height="104" rx="20"/><text class="small" x="545" y="398" text-anchor="middle">Database</text>${icon("../images/logos/postgresql-logo.svg", 528, 418, 34)}
+<rect class="box" x="664" y="370" width="142" height="104" rx="20"/><text class="small" x="735" y="398" text-anchor="middle">Storage</text>${icon("../images/logos/supabase-logo.svg", 718, 418, 34)}
+<rect class="box" x="854" y="370" width="250" height="104" rx="20"/><text class="small" x="979" y="398" text-anchor="middle">External services</text>${icon("../images/logos/brevo-logo.svg", 904, 420, 30)}${icon("../images/logos/onesignal-logo.svg", 950, 420, 30)}${icon("../images/logos/gemini-star-logo.svg", 996, 420, 30)}${icon("../images/logos/openai-logo.svg", 1042, 420, 30)}
 <rect class="box" x="976" y="178" width="132" height="116" rx="20"/><text class="small" x="1042" y="210" text-anchor="middle">CI/CD</text>${icon("../images/logos/github-actions-logo.svg", 1022, 232, 38)}
 <path class="line" d="M176 340 C198 340 214 340 232 340"/><path class="line" d="M344 340 C386 270 420 238 470 236"/>
 <path class="line" d="M642 236 L712 236"/><path class="line" d="M817 294 C742 332 642 352 545 370"/><path class="line" d="M842 294 C806 334 770 352 735 370"/><path class="line" d="M872 294 C914 330 946 350 979 370"/>
@@ -340,13 +340,13 @@ ${css}
 <rect class="box" x="58" y="278" width="140" height="84" rx="20"/><text class="small" x="128" y="310" text-anchor="middle">Frontend</text>${icon("../images/logos/react-logo.svg", 111, 328, 34)}
 <rect class="zone" x="270" y="100" width="760" height="430" rx="24"/><text class="small" x="650" y="130" text-anchor="middle">Spring Boot runtime</text>
 <rect class="box" x="514" y="164" width="272" height="76" rx="20"/><text class="small" x="650" y="194" text-anchor="middle">taskpilot-app</text><text class="tiny" x="650" y="216" text-anchor="middle">composition root</text>
-<rect class="group" x="320" y="288" width="180" height="92" rx="20"/><text class="small" x="410" y="330" text-anchor="middle">Users module</text><text class="tiny" x="410" y="352" text-anchor="middle">auth, profile, skill</text>
-<rect class="group" x="535" y="288" width="180" height="92" rx="20"/><text class="small" x="625" y="330" text-anchor="middle">Projects module</text><text class="tiny" x="625" y="352" text-anchor="middle">project, task, sprint</text>
-<rect class="group" x="750" y="288" width="180" height="92" rx="20"/><text class="small" x="840" y="330" text-anchor="middle">AI module</text><text class="tiny" x="840" y="352" text-anchor="middle">chat, tools, routing</text>
+<rect class="box" x="320" y="288" width="180" height="92" rx="20"/><text class="small" x="410" y="330" text-anchor="middle">Users module</text><text class="tiny" x="410" y="352" text-anchor="middle">auth, profile, skill</text>
+<rect class="box" x="535" y="288" width="180" height="92" rx="20"/><text class="small" x="625" y="330" text-anchor="middle">Projects module</text><text class="tiny" x="625" y="352" text-anchor="middle">project, task, sprint</text>
+<rect class="box" x="750" y="288" width="180" height="92" rx="20"/><text class="small" x="840" y="330" text-anchor="middle">AI module</text><text class="tiny" x="840" y="352" text-anchor="middle">chat, tools, routing</text>
 <rect class="box" x="420" y="438" width="240" height="70" rx="20"/><text class="small" x="540" y="470" text-anchor="middle">taskpilot-contracts</text><text class="tiny" x="540" y="492" text-anchor="middle">ports and DTOs</text>
 <rect class="box" x="704" y="438" width="240" height="70" rx="20"/><text class="small" x="824" y="470" text-anchor="middle">Infrastructure</text><text class="tiny" x="824" y="492" text-anchor="middle">security, storage, notification</text>
 <rect class="box" x="1082" y="238" width="120" height="116" rx="20"/><text class="small" x="1142" y="266" text-anchor="middle">Data</text>${icon("../images/logos/postgresql-logo.svg", 1105, 286, 28)}${icon("../images/logos/redis-logo.svg", 1148, 286, 28)}
-<rect class="box" x="1082" y="394" width="120" height="116" rx="20"/><text class="small" x="1142" y="422" text-anchor="middle">Providers</text>${icon("../images/logos/gemini-logo.svg", 1105, 442, 28)}${icon("../images/logos/groq-logo.svg", 1148, 442, 28)}
+<rect class="box" x="1082" y="394" width="120" height="116" rx="20"/><text class="small" x="1142" y="422" text-anchor="middle">Providers</text>${icon("../images/logos/gemini-star-logo.svg", 1105, 442, 28)}${icon("../images/logos/groq-logo.svg", 1148, 442, 28)}
 <path class="line" d="M198 320 C232 302 246 292 270 290"/><path class="line" d="M650 240 L650 288"/><path class="line" d="M600 240 C512 252 430 264 410 288"/><path class="line" d="M700 240 C778 252 830 264 840 288"/>
 <path class="line" d="M410 380 C442 410 480 430 540 438"/><path class="line" d="M625 380 C606 405 580 425 540 438"/><path class="line" d="M840 380 C790 410 738 428 660 470"/>
 <path class="line" d="M824 508 C910 470 1010 340 1082 300"/><path class="line" d="M840 380 C910 400 1000 426 1082 448"/>
@@ -453,6 +453,167 @@ ${icon("../images/logos/docker-logo.svg", 990, 400, 36)}
 <text class="tiny" x="810" y="230" text-anchor="middle">Deploy SPA</text>
 <text class="tiny" x="810" y="400" text-anchor="middle">Deploy Image</text>
 
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_11_ai_copilot_architecture.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">AI Copilot controlled architecture</text>
+<rect class="box" x="58" y="200" width="180" height="150" rx="20"/><text class="small" x="148" y="230" text-anchor="middle">Frontend</text><text class="tiny" x="148" y="255" text-anchor="middle">React SPA UI</text>
+${icon("../images/logos/react-logo.svg", 75, 280, 34)}${icon("../images/logos/typescript-logo.svg", 125, 280, 34)}${icon("../images/logos/tailwindcss-logo.svg", 175, 280, 34)}
+<rect class="box" x="350" y="160" width="220" height="200" rx="20"/><text class="small" x="460" y="190" text-anchor="middle">Backend AI module</text><text class="tiny" x="460" y="215" text-anchor="middle">Spring Boot + LangChain4j</text>
+${icon("../images/logos/springboot-logo.svg", 410, 250, 38)}${icon("../images/logos/langchain4j-logo.svg", 480, 250, 38)}
+<rect class="box" x="350" y="420" width="220" height="130" rx="20"/><text class="small" x="460" y="450" text-anchor="middle">Memory &amp; State</text>
+${icon("../images/logos/postgresql-logo.svg", 410, 485, 34)}${icon("../images/logos/redis-logo.svg", 470, 485, 34)}
+<rect class="box" x="720" y="160" width="300" height="140" rx="20"/><text class="small" x="870" y="190" text-anchor="middle">AI Providers</text>
+${icon("../images/logos/gemini-star-logo.svg", 750, 230, 34)}${icon("../images/logos/openai-logo.svg", 810, 230, 34)}${icon("../images/logos/groq-logo.svg", 870, 230, 34)}${icon("../images/logos/github-logo.svg", 930, 230, 34)}
+<rect class="box" x="720" y="380" width="300" height="140" rx="20"/><text class="small" x="870" y="410" text-anchor="middle">Domain Tools</text>
+${icon("../images/logos/springboot-logo.svg", 810, 450, 34)}${icon("../images/logos/postgresql-logo.svg", 870, 450, 34)}
+<path class="line" d="M238 275 L350 275"/>
+<path class="line" d="M570 230 L720 230"/>
+<path class="line" d="M460 360 L460 420"/>
+<path class="line" d="${roundPath([[570, 310], [630, 310], [650, 420], [720, 420]])}"/>
+<path class="line" d="${roundPath([[720, 480], [650, 480], [620, 340], [570, 340]])}"/>
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_11_smart_routing.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">Smart routing and provider selection</text>
+<rect class="box" x="58" y="240" width="180" height="140" rx="20"/><text class="small" x="148" y="270" text-anchor="middle">User Request</text>
+${icon("../images/logos/react-logo.svg", 131, 310, 34)}
+<rect class="box" x="320" y="140" width="180" height="140" rx="20"/><text class="small" x="410" y="170" text-anchor="middle">Gatekeeper</text><text class="tiny" x="410" y="195" text-anchor="middle">Groq (Intent Classify)</text>
+${icon("../images/logos/groq-logo.svg", 393, 220, 34)}
+<rect class="box" x="320" y="360" width="180" height="140" rx="20"/><text class="small" x="410" y="390" text-anchor="middle">Routing Rules</text><text class="tiny" x="410" y="415" text-anchor="middle">Spring Boot Rules</text>
+${icon("../images/logos/springboot-logo.svg", 393, 440, 34)}
+<rect class="box" x="600" y="100" width="180" height="120" rx="20"/><text class="small" x="690" y="130" text-anchor="middle">Light route</text>
+${icon("../images/logos/gemini-star-logo.svg", 673, 160, 34)}
+<rect class="box" x="600" y="260" width="180" height="120" rx="20"/><text class="small" x="690" y="290" text-anchor="middle">Tool-aware route</text>
+${icon("../images/logos/langchain4j-logo.svg", 673, 320, 34)}
+<rect class="box" x="600" y="420" width="180" height="120" rx="20"/><text class="small" x="690" y="450" text-anchor="middle">Reasoning route</text>
+${icon("../images/logos/openai-logo.svg", 650, 480, 30)}${icon("../images/logos/github-logo.svg", 700, 480, 30)}
+<rect class="box" x="900" y="240" width="180" height="140" rx="20"/><text class="small" x="990" y="270" text-anchor="middle">Response Stream</text>
+${icon("../images/logos/postgresql-logo.svg", 940, 310, 34)}${icon("../images/logos/redis-logo.svg", 1000, 310, 34)}
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 210], [320, 210]])}"/>
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 430], [320, 430]])}"/>
+<path class="line" d="${roundPath([[500, 210], [540, 210], [560, 160], [600, 160]])}"/>
+<path class="line" d="${roundPath([[500, 430], [560, 430], [560, 320], [600, 320]])}"/>
+<path class="line" d="${roundPath([[500, 430], [540, 430], [560, 480], [600, 480]])}"/>
+<path class="line" d="${roundPath([[780, 160], [830, 160], [860, 310], [900, 310]])}"/>
+<path class="line" d="M780 320 L900 320"/>
+<path class="line" d="${roundPath([[780, 480], [830, 480], [860, 330], [900, 330]])}"/>
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_11_auto_fallback.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">Auto fallback across AI providers</text>
+<rect class="box" x="58" y="240" width="180" height="140" rx="20"/><text class="small" x="148" y="270" text-anchor="middle">Initial Call</text><text class="tiny" x="148" y="295" text-anchor="middle">Gemini Primary</text>
+${icon("../images/logos/gemini-star-logo.svg", 131, 320, 34)}
+<rect class="box" x="320" y="140" width="180" height="140" rx="20"/><text class="small" x="410" y="170" text-anchor="middle">Retry Path</text><text class="tiny" x="410" y="195" text-anchor="middle">Gemini Alternate</text>
+${icon("../images/logos/gemini-star-logo.svg", 393, 220, 34)}
+<rect class="box" x="320" y="360" width="180" height="140" rx="20"/><text class="small" x="410" y="390" text-anchor="middle">External Fallback</text><text class="tiny" x="410" y="415" text-anchor="middle">OpenAI / GitHub</text>
+${icon("../images/logos/openai-logo.svg", 370, 440, 30)}${icon("../images/logos/github-logo.svg", 420, 440, 30)}
+<rect class="box" x="600" y="140" width="180" height="140" rx="20"/><text class="small" x="690" y="170" text-anchor="middle">Fast Fallback</text><text class="tiny" x="690" y="195" text-anchor="middle">Groq (Llama)</text>
+${icon("../images/logos/groq-logo.svg", 673, 220, 34)}
+<rect class="box" x="600" y="360" width="180" height="140" rx="20"/><text class="small" x="690" y="390" text-anchor="middle">Request State</text><text class="tiny" x="690" y="415" text-anchor="middle">PostgreSQL log</text>
+${icon("../images/logos/postgresql-logo.svg", 673, 440, 34)}
+<rect class="box" x="880" y="240" width="180" height="140" rx="20"/><text class="small" x="970" y="270" text-anchor="middle">Frontend Stream</text>
+${icon("../images/logos/react-logo.svg", 920, 310, 34)}${icon("../images/logos/redis-logo.svg", 980, 310, 34)}
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 210], [320, 210]])}"/>
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 430], [320, 430]])}"/>
+<path class="line" d="M500 210 L600 210"/>
+<path class="line" d="M500 430 L600 430"/>
+<path class="line" d="${roundPath([[780, 210], [820, 210], [850, 310], [880, 310]])}"/>
+<path class="line" d="${roundPath([[780, 430], [820, 430], [850, 310], [880, 310]])}"/>
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_11_tool_registry.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">Tool Calling Registry boundary</text>
+<rect class="box" x="58" y="250" width="180" height="150" rx="20"/><text class="small" x="148" y="280" text-anchor="middle">AI Request</text><text class="tiny" x="148" y="305" text-anchor="middle">Gemini / LangChain4j</text>
+${icon("../images/logos/gemini-star-logo.svg", 100, 335, 30)}${icon("../images/logos/langchain4j-logo.svg", 160, 335, 30)}
+<rect class="box" x="320" y="230" width="220" height="190" rx="20"/><text class="small" x="430" y="260" text-anchor="middle">Tool Registry</text><text class="tiny" x="430" y="285" text-anchor="middle">Spring Boot + LC4j</text>
+${icon("../images/logos/springboot-logo.svg", 380, 320, 38)}${icon("../images/logos/langchain4j-logo.svg", 440, 320, 38)}
+<rect class="box" x="650" y="80" width="180" height="100" rx="20"/><text class="small" x="740" y="108" text-anchor="middle">Project tools</text>
+${icon("../images/logos/postgresql-logo.svg", 723, 128, 34)}
+<rect class="box" x="650" y="190" width="180" height="100" rx="20"/><text class="small" x="740" y="218" text-anchor="middle">Task tools</text>
+${icon("../images/logos/springboot-logo.svg", 723, 238, 34)}
+<rect class="box" x="650" y="300" width="180" height="100" rx="20"/><text class="small" x="740" y="328" text-anchor="middle">Read tools</text>
+${icon("../images/logos/redis-logo.svg", 723, 348, 34)}
+<rect class="box" x="650" y="410" width="180" height="100" rx="20"/><text class="small" x="740" y="438" text-anchor="middle">Write tools</text>
+${icon("../images/logos/springboot-logo.svg", 723, 458, 34)}
+<rect class="box" x="650" y="520" width="180" height="100" rx="20"/><text class="small" x="740" y="548" text-anchor="middle">Audit tools</text>
+${icon("../images/logos/postgresql-logo.svg", 723, 568, 34)}
+<path class="line" d="M238 325 L320 325"/>
+<path class="line" d="${roundPath([[540, 325], [600, 325], [610, 125], [650, 125]])}"/>
+<path class="line" d="${roundPath([[540, 325], [600, 325], [610, 235], [650, 235]])}"/>
+<path class="line" d="M540 325 L650 325"/>
+<path class="line" d="${roundPath([[540, 325], [600, 325], [610, 455], [650, 455]])}"/>
+<path class="line" d="${roundPath([[540, 325], [600, 325], [610, 565], [650, 565]])}"/>
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_12_assignment_recommendation_process.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">Assignment recommendation pipeline</text>
+<rect class="box" x="58" y="240" width="180" height="140" rx="20"/><text class="small" x="148" y="270" text-anchor="middle">Task Input</text>
+${icon("../images/logos/react-logo.svg", 131, 310, 34)}
+<rect class="box" x="320" y="140" width="180" height="140" rx="20"/><text class="small" x="410" y="170" text-anchor="middle">Project context</text><text class="tiny" x="410" y="195" text-anchor="middle">Members &amp; Skills</text>
+${icon("../images/logos/postgresql-logo.svg", 370, 220, 30)}${icon("../images/logos/springboot-logo.svg", 420, 220, 30)}
+<rect class="box" x="320" y="360" width="180" height="140" rx="20"/><text class="small" x="410" y="390" text-anchor="middle">AI Copilot</text><text class="tiny" x="410" y="415" text-anchor="middle">Gemini Analysis</text>
+${icon("../images/logos/gemini-star-logo.svg", 370, 440, 30)}${icon("../images/logos/langchain4j-logo.svg", 420, 440, 30)}
+<rect class="box" x="600" y="240" width="180" height="140" rx="20"/><text class="small" x="690" y="270" text-anchor="middle">Heuristic scoring</text><text class="tiny" x="690" y="295" text-anchor="middle">Spring Boot</text>
+${icon("../images/logos/springboot-logo.svg", 673, 320, 34)}
+<rect class="box" x="880" y="140" width="180" height="140" rx="20"/><text class="small" x="970" y="170" text-anchor="middle">Candidate ranking</text>
+${icon("../images/logos/postgresql-logo.svg", 953, 210, 34)}
+<rect class="box" x="880" y="360" width="180" height="140" rx="20"/><text class="small" x="970" y="390" text-anchor="middle">User Decision</text><text class="tiny" x="970" y="415" text-anchor="middle">PM confirmation</text>
+${icon("../images/logos/react-logo.svg", 953, 440, 34)}
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 210], [320, 210]])}"/>
+<path class="line" d="${roundPath([[238, 310], [270, 310], [290, 430], [320, 430]])}"/>
+<path class="line" d="${roundPath([[500, 210], [540, 210], [560, 300], [600, 300]])}"/>
+<path class="line" d="${roundPath([[500, 430], [540, 430], [560, 320], [600, 320]])}"/>
+<path class="line" d="${roundPath([[780, 310], [820, 310], [840, 210], [880, 210]])}"/>
+<path class="line" d="M970 280 L970 360"/>
+</svg>`);
+
+write(path.join(diagramsDir, "ch3_13_external_connection_flow.svg"), `
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="650" viewBox="0 0 1280 650">
+${css}
+<rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
+<text class="label" x="640" y="62" text-anchor="middle">External connection and service integration flow</text>
+<rect class="box" x="58" y="200" width="180" height="150" rx="20"/><text class="small" x="148" y="230" text-anchor="middle">Frontend SPA</text>
+${icon("../images/logos/react-logo.svg", 75, 275, 34)}${icon("../images/logos/typescript-logo.svg", 125, 275, 34)}${icon("../images/logos/tailwindcss-logo.svg", 175, 275, 34)}
+<rect class="box" x="350" y="240" width="180" height="150" rx="20"/><text class="small" x="440" y="270" text-anchor="middle">Backend runtime</text><text class="tiny" x="440" y="295" text-anchor="middle">Spring Boot API</text>
+${icon("../images/logos/springboot-logo.svg", 423, 320, 34)}
+<rect class="box" x="58" y="430" width="180" height="130" rx="20"/><text class="small" x="148" y="460" text-anchor="middle">Browser push</text><text class="tiny" x="148" y="485" text-anchor="middle">OS notifications</text>
+${browserGlyph(127, 510, 42, 30)}
+<rect class="box" x="650" y="70" width="180" height="100" rx="20"/><text class="small" x="740" y="98" text-anchor="middle">PostgreSQL Database</text>
+${icon("../images/logos/postgresql-logo.svg", 723, 118, 34)}
+<rect class="box" x="650" y="180" width="180" height="100" rx="20"/><text class="small" x="740" y="208" text-anchor="middle">Supabase Storage</text>
+${icon("../images/logos/supabase-logo.svg", 723, 228, 34)}
+<rect class="box" x="650" y="290" width="180" height="100" rx="20"/><text class="small" x="740" y="318" text-anchor="middle">Brevo SMTP</text>
+${icon("../images/logos/brevo-logo.svg", 723, 338, 34)}
+<rect class="box" x="650" y="400" width="180" height="100" rx="20"/><text class="small" x="740" y="428" text-anchor="middle">OneSignal API</text>
+${icon("../images/logos/onesignal-logo.svg", 723, 448, 34)}
+<rect class="box" x="650" y="510" width="180" height="100" rx="20"/><text class="small" x="740" y="538" text-anchor="middle">AI Providers</text>
+${icon("../images/logos/gemini-star-logo.svg", 679, 558, 34)}${icon("../images/logos/openai-logo.svg", 723, 558, 34)}${icon("../images/logos/groq-logo.svg", 767, 558, 34)}
+<path class="line" d="M238 250 L350 250"/>
+<path class="line" d="M350 320 L238 320"/>
+<path class="line" d="${roundPath([[530, 315], [580, 315], [610, 115], [650, 115]])}"/>
+<path class="line" d="${roundPath([[530, 315], [580, 315], [610, 225], [650, 225]])}"/>
+<path class="line" d="M530 315 L650 325"/>
+<path class="line" d="${roundPath([[530, 315], [580, 315], [610, 445], [650, 445]])}"/>
+<path class="line" d="${roundPath([[530, 315], [580, 315], [610, 555], [650, 555]])}"/>
+<path class="line" d="${roundPath([[650, 445], [500, 445], [350, 480], [238, 480]])}"/>
+<text class="tiny" x="294" y="235" text-anchor="middle">REST</text>
+<text class="tiny" x="294" y="305" text-anchor="middle">SSE</text>
 </svg>`);
 
 console.log("Refined architecture SVGs with local icons.");

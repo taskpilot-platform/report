@@ -17,6 +17,12 @@ const customSvgs = new Set([
   path.join(root, "asset", "assets", "diagrams", "ch3_06_backend_modular_monolith.svg"),
   path.join(root, "asset", "assets", "diagrams", "ch3_08_flyway_change_management.svg"),
   path.join(root, "asset", "assets", "diagrams", "ch3_13_deployment_architecture.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_11_ai_copilot_architecture.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_11_auto_fallback.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_11_smart_routing.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_11_tool_registry.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_12_assignment_recommendation_process.svg"),
+  path.join(root, "asset", "assets", "diagrams", "ch3_13_external_connection_flow.svg"),
 ]);
 
 function listSvgFiles(dir) {

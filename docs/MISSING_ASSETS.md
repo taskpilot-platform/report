@@ -188,6 +188,13 @@
   - `src/assets/diagrams/ch3_13_onesignal_push_flow.png`
   - `src/assets/diagrams/ch3_13_github_actions_cicd.png`
 - High-resolution PNG versions were generated from Mermaid sources for section 3.11 and 3.13 diagrams that had SVG `foreignObject` output. The source `.mmd` files remain available beside the images.
+- Re-rendered these technology-style PNG diagrams with embedded logo assets via `scripts/render_tech_diagrams.py`:
+  - `src/assets/diagrams/ch3_11_ai_copilot_architecture.png`
+  - `src/assets/diagrams/ch3_11_smart_routing.png`
+  - `src/assets/diagrams/ch3_11_auto_fallback.png`
+  - `src/assets/diagrams/ch3_11_tool_registry.png`
+  - `src/assets/diagrams/ch3_12_assignment_recommendation_process.png`
+- The Chapter 3.12 technology-style PNG is prepared as an asset only; section 3.12 remains unconverted and is not yet rendered in the report.
 
 ## Later chapters
 

@@ -182,6 +182,9 @@ src/chapter2/sections/2_3_assignment_algorithm.typ:12: ch2_06_weighted_scoring_a
 - Converted section 3.13 in `src/chapter3/sections/3_13_deployment.typ`.
 - Left section 3.12 unchanged as a TODO placeholder for the next run.
 - Generated high-resolution PNG versions for Mermaid diagrams in sections 3.11 and 3.13 that otherwise contained `foreignObject`; the original `.mmd` and `.svg` files remain in place.
+- Added `scripts/render_tech_diagrams.py` and re-rendered selected technology-heavy diagrams with embedded logos:
+  - Chapter 3.11: AI Copilot architecture, smart routing, auto fallback, and tool registry.
+  - Chapter 3.12: assignment recommendation process asset prepared only, not inserted yet.
 
 ## Notes for next assembly run
 
