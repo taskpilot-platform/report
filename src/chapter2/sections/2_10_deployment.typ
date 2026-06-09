@@ -90,7 +90,7 @@ file tĩnh cho người dùng cuối.
 === Hugging Face Space
 
 Hugging Face Spaces là dịch vụ máy chủ đám mây cung cấp các môi trường chạy ứng
-dụng chứa trong Docker (container) [22].
+dụng chứa trong Docker (container) [23].
 
 #figure(
   image("../../assets/taskpilot/chapter2/huggingface-logo.svg", height: 3cm),

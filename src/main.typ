@@ -232,10 +232,6 @@
   [#metadata(none)<end-content>]
 }
 
-#bibliography(
-  "./ref.bib",
-  title: "Tài liệu tham khảo",
-  style: "ieee",
-)
+#include "./references.typ"
 
 //#include "./appendix/index.typ"
