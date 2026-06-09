@@ -1,5 +1,8 @@
 = Kết luận <conclusion>
 
+#emph[
+  Chương này tổng kết lại toàn bộ kết quả đã đạt được của đồ án TaskPilot, đối chiếu với các mục tiêu ban đầu. Đồng thời, chương cũng đưa ra những nhận xét khách quan về ưu điểm, hạn chế của hệ thống trong quá trình triển khai, từ đó đề xuất các hướng phát triển mở rộng trong tương lai.
+]
 == Kết quả đạt được
 
 Hệ thống đã xây dựng được TaskPilot, một ứng dụng web quản lý dự án tích hợp các
