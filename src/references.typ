@@ -1,4 +1,4 @@
-#heading(level: 1, numbering: none)[Tài liệu tham khảo]
+#heading(level: 1, numbering: none)[TÀI LIỆU THAM KHẢO]
 
 #set enum(numbering: "[1]")
 

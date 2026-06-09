@@ -15,7 +15,7 @@
   body
 }
 
-#heading(numbering: none, outlined: false)[
+#heading(numbering: none, outlined: true)[
   TÓM TẮT ĐỀ TÀI
 ]
 

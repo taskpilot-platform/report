@@ -69,6 +69,7 @@
     numbering("1.1", counter(heading).get().first(), num.pos().first())
   },
 )
+#set figure.caption(separator: [: ])
 #show figure.caption: emph
 #show figure.caption: set text(gray.darken(50%), size: 11pt)
 #show figure.where(kind: table): set figure.caption(position: top)
@@ -126,29 +127,61 @@
       target: target,
     )
   }
-  outline(
-    title: "Danh mục hình ảnh",
-    target: figure
-      .where(
-        kind: image,
-      )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+  {
+    show outline.entry: it => {
+      let elem = it.element
+      let new-prefix = if it.prefix() != none {
+        [#it.prefix():]
+      } else {
+        none
+      }
 
-  outline(
-    title: "Danh mục bảng biểu",
-    target: figure
-      .where(
-        kind: table,
+      show link: set text(fill: luma(0%))
+      link(
+        elem.location(),
+        it.indented(new-prefix, it.inner()),
       )
-      .before(
-        loc.first().location(),
-        inclusive: false,
-      ),
-  )
+    }
+    outline(
+      title: "Danh mục hình ảnh",
+      target: figure
+        .where(
+          kind: image,
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
+  }
+
+  {
+    show outline.entry: it => {
+      let elem = it.element
+      let new-prefix = if it.prefix() != none {
+        [#it.prefix():]
+      } else {
+        none
+      }
+
+      show link: set text(fill: luma(0%))
+      link(
+        elem.location(),
+        it.indented(new-prefix, it.inner()),
+      )
+    }
+    outline(
+      title: "Danh mục bảng biểu",
+      target: figure
+        .where(
+          kind: table,
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
+  }
 
   // outline(
   //   title: "Danh mục bảng chương trình",
@@ -180,8 +213,6 @@
 
 #include "./glossaries.typ"
 
-#include "summary.typ"
-
 #set page(
   numbering: "1",
   footer: context {
@@ -194,6 +225,8 @@
 )
 
 #counter(page).update(1)
+
+#include "summary.typ"
 
 #{
   set heading(numbering: "1.")
@@ -226,10 +259,10 @@
   include "./chapter4/index.typ"
 
   include "./chapter5/index.typ"
-
-  [#metadata(none)<end-content>]
 }
 
 #include "./references.typ"
+
+#metadata(none) <end-content>
 
 //#include "./appendix/index.typ"
