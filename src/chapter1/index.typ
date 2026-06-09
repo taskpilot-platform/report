@@ -1,4 +1,4 @@
-= Giới thiệu đề tài <introduction>
+= GIỚI THIỆU ĐỀ TÀI <introduction>
 
 #emph[
   Chương này trình bày bối cảnh thực tiễn và lý do lựa chọn đề tài, từ đó làm rõ

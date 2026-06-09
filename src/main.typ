@@ -27,8 +27,6 @@
   fill: (x, y) => {
     if y == 0 {
       black
-    } else if calc.odd(y) {
-      gray.lighten(90%)
     } else {
       white
     }
