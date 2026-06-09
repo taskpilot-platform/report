@@ -2,75 +2,39 @@
 
 == Thiết kế xác thực và phân quyền
 
-TaskPilot quản lý nhiều loại tài nguyên quan trọng như tài khoản người dùng, dữ liệu project, task, bình luận, thông báo và các thao tác có AI hỗ trợ. Vì vậy, cơ chế bảo vệ tài nguyên không chỉ dừng ở bước xác thực người dùng mà còn phải kiểm soát quyền truy cập theo phạm vi hệ thống và theo từng project cụ thể. Trong kiến trúc hiện tại, backend tập trung phần lớn trách nhiệm này thông qua Spring Security kết hợp với các kiểm tra quyền ở tầng nghiệp vụ.
-
-Về mặt khái niệm, xác thực trả lời câu hỏi người dùng là ai, còn phân quyền trả lời câu hỏi người dùng đó được phép làm gì. TaskPilot sử dụng JWT để duy trì ngữ cảnh xác thực cho các request đã đăng nhập, đồng thời kết hợp system role, project role và các rule nghiệp vụ để quyết định quyền truy cập vào từng tài nguyên.
+TaskPilot sử dụng JWT (JSON Web Token) để xác thực người dùng, kết hợp vai trò hệ thống (system role), vai trò dự án (project role) và các quy tắc nghiệp vụ để phân quyền. Cơ chế này được triển khai thông qua Spring Security ở backend.
 
 #figure(
   image("../../assets/diagrams/ch3_09_auth_authorization_overview.png", width: 100%),
   caption: [Tổng quan cơ chế xác thực và phân quyền của TaskPilot],
 )
 
-=== Luồng đăng nhập và cấp JWT
+=== Luồng xác thực và quản lý phiên
 
-Trong luồng đăng nhập, người dùng gửi email và mật khẩu từ frontend đến backend thông qua API xác thực. Backend truy vấn tài khoản theo email trong bảng `users`, sau đó đối chiếu mật khẩu người dùng nhập vào với giá trị `password_hash` đã được băm và lưu trong cơ sở dữ liệu. Nếu thông tin hợp lệ, hệ thống tạo access token dạng JWT và đồng thời tạo refresh token cho phiên đăng nhập.
+Khi đăng nhập hợp lệ, hệ thống cấp một Access Token (JWT) có thời hạn ngắn để truy cập các API được bảo vệ, và một Refresh Token để duy trì phiên làm việc. Frontend gửi kèm Access Token trong header `Authorization: Bearer` của mỗi request. Khi Access Token hết hạn, client dùng Refresh Token để xin cấp lại.
 
-Bảng `users` là nền tảng của cơ chế xác thực vì lưu các thuộc tính như `email`, `password_hash`, `role` và `status`. Trong đó, `email` và `password_hash` là hai trường được dùng trực tiếp cho việc đăng nhập, còn `role` và `status` cung cấp bối cảnh cho kiểm soát truy cập và quản lý tài khoản ở các bước sau. Ở mức thiết kế, điều này giúp backend tách rõ dữ liệu nhận dạng, dữ liệu xác thực và dữ liệu phân quyền trên cùng một thực thể người dùng.
-
-Sau khi đăng nhập thành công, client đính kèm access token vào các request cần bảo vệ, thông thường thông qua header `Authorization: Bearer ...`. Ở phía backend, Spring Security vận hành theo mô hình stateless; mỗi request được kiểm tra độc lập thay vì dựa vào session phía server. Điều này phù hợp với kiến trúc REST API và giúp backend dễ mở rộng hơn khi triển khai.
-
-Một thành phần quan trọng trong luồng này là JWT authentication filter. Filter có nhiệm vụ đọc Bearer token từ request, kiểm tra tính hợp lệ của token, trích xuất thông tin người dùng và vai trò, sau đó thiết lập authentication context cho request hiện tại. Nhờ đó, các lớp controller và service có thể tiếp tục sử dụng ngữ cảnh xác thực đã được thiết lập để xử lý các bước phân quyền tiếp theo.
-
-Cách tổ chức trên cho phép frontend và backend phối hợp theo một cơ chế xác thực gọn và nhất quán: frontend chỉ cần gửi thông tin đăng nhập ở lần đầu và sử dụng access token cho các request được bảo vệ, còn backend chịu trách nhiệm xác minh token và tái lập ngữ cảnh bảo mật ở mỗi lần truy cập.
+Khi đăng xuất, Refresh Token bị xóa khỏi bảng `refresh_tokens`, đồng thời Access Token hiện tại được đưa vào blocklist (lưu trong bộ nhớ hoặc Redis) cho đến khi hết hạn để ngăn chặn việc tái sử dụng. Cơ chế này bổ sung mức độ bảo mật cần thiết cho mô hình JWT stateless.
 
 #figure(
   image("../../assets/sync-diagrams/sequence/sequence-auth-login.svg", width: 100%),
   caption: [Sequence diagram luồng đăng nhập và cấp JWT],
 )
 
-=== Refresh token
-
-Access token thường có thời gian sống ngắn để giảm rủi ro khi bị lộ. Vì vậy, TaskPilot sử dụng thêm refresh token để giúp người dùng duy trì trạng thái đăng nhập mà không phải nhập lại mật khẩu quá thường xuyên. Cơ chế này cân bằng giữa trải nghiệm sử dụng và yêu cầu an toàn của hệ thống.
-
-Refresh token được lưu trong bảng `refresh_tokens` với các thông tin chính gồm `token`, `expiry_date`, `user_id`, `created_at` và `updated_at`. Ở mức thiết kế, bảng này cho phép backend kiểm tra được refresh token có còn tồn tại hay không, token đó thuộc về người dùng nào và thời điểm nào token hết hạn.
-
-Khi access token không còn hợp lệ, client gửi refresh token đến backend để yêu cầu cấp lại access token mới. Backend kiểm tra refresh token trong bảng `refresh_tokens`, xác minh token chưa hết hạn, xác định người dùng tương ứng và sau đó sinh access token mới cho người dùng đó. Trong thiết kế hiện tại, luồng refresh tiếp tục sử dụng refresh token đang còn hiệu lực; hệ thống không áp dụng cơ chế rotation bắt buộc ở mỗi lần refresh.
-
-Ngoài việc cấp lại access token, refresh token còn đóng vai trò là điểm kiểm soát phiên đăng nhập ở phía server. Khi refresh token bị xóa hoặc hết hạn, người dùng phải đăng nhập lại từ đầu. Điều này giúp backend vẫn giữ được một mức kiểm soát trạng thái phiên, dù access token được thiết kế theo hướng stateless.
-
 #figure(
   image("../../assets/sync-diagrams/sequence/sequence-auth-refresh-token.svg", width: 100%),
   caption: [Luồng làm mới access token bằng refresh token],
 )
-
-=== Token blocklist khi logout
-
-JWT có ưu điểm là không cần lưu session phía server cho mỗi request, nhưng đặc điểm này cũng tạo ra một vấn đề: nếu access token vẫn còn hạn, token đó có thể tiếp tục được dùng cho đến khi hết hạn tự nhiên. Vì vậy, nếu chỉ xóa refresh token khi logout thì chưa đủ để vô hiệu hóa ngay access token đang còn hiệu lực.
-
-Trong thiết kế hiện tại, khi người dùng logout, backend thực hiện hai việc song song. Thứ nhất, access token hiện tại được đưa vào blocklist cho đến thời điểm hết hạn của chính token đó. Thứ hai, refresh token tương ứng bị xóa khỏi bảng `refresh_tokens` để ngăn việc xin cấp access token mới từ cùng phiên đăng nhập.
-
-Cơ chế blocklist được tách thành một dịch vụ riêng và hỗ trợ hai cách lưu trữ ngắn hạn. Mặc định, token bị thu hồi có thể được lưu trong bộ nhớ tiến trình; ngoài ra, hệ thống cũng hỗ trợ sử dụng Redis khi cấu hình provider tương ứng. Với phương án Redis, khóa lưu blocklist được gắn TTL theo thời gian hết hạn còn lại của token, phù hợp với đặc tính dữ liệu tạm thời của danh sách thu hồi.
-
-Nhờ cách xử lý này, logout trong TaskPilot không chỉ kết thúc khả năng refresh phiên mà còn giảm khoảng thời gian access token cũ còn sử dụng được. Đây là một bổ sung cần thiết cho mô hình JWT stateless, đặc biệt khi hệ thống có các API thao tác trên dữ liệu nghiệp vụ quan trọng.
 
 #figure(
   image("../../assets/sync-diagrams/sequence/sequence-auth-logout-token-blocklist.svg", width: 100%),
   caption: [Luồng logout và kiểm tra token blocklist],
 )
 
-=== Role-based authorization
+=== Phân quyền theo vai trò và ngữ cảnh
 
-Sau khi người dùng đã được xác thực, hệ thống tiếp tục áp dụng cơ chế phân quyền theo vai trò. Trong TaskPilot, cần phân biệt rõ hai lớp vai trò khác nhau. Lớp thứ nhất là system role, được lưu tại `users.role`, dùng để kiểm soát các chức năng ở phạm vi toàn hệ thống. Lớp thứ hai là project role, được lưu tại `project_members.role`, dùng để điều khiển quyền của người dùng trong từng project cụ thể.
-
-System role hiện gồm hai giá trị `ADMIN` và `USER`. `ADMIN` được dùng cho các chức năng quản trị như quản lý người dùng toàn cục, kỹ năng hệ thống, tham số hệ thống hoặc các endpoint quản trị. Trong khi đó, `USER` là vai trò thông thường của người dùng đã đăng nhập, cho phép truy cập các chức năng cá nhân, project và AI theo phạm vi được cấp quyền.
-
-Project role cũng gồm hai giá trị `MANAGER` và `MEMBER`, nhưng phạm vi áp dụng chỉ nằm trong từng project. `MANAGER` đại diện cho người có quyền quản lý project, thành viên, sprint và một số thao tác nghiệp vụ quan trọng. `MEMBER` đại diện cho thành viên tham gia xử lý công việc, tương tác với task, comment, notification và các chức năng liên quan trong phạm vi project mà họ tham gia.
-
-Ở mức triển khai bảo mật, Spring Security chịu trách nhiệm bảo vệ các nhóm endpoint theo vai trò hệ thống hoặc trạng thái đã đăng nhập. Ví dụ, các API quản trị được giới hạn cho `ADMIN`, còn các API AI yêu cầu người dùng phải được xác thực. Tuy nhiên, project role không thể được giải quyết đầy đủ chỉ bằng rule ở lớp endpoint, vì quyền của cùng một người dùng có thể khác nhau giữa các project khác nhau.
-
-Vì lý do đó, role-based authorization trong TaskPilot cần được hiểu theo hai tầng: tầng bảo mật chung của Spring Security và tầng kiểm tra vai trò theo ngữ cảnh project ở lớp nghiệp vụ. Cách tách này giúp hệ thống vừa bảo vệ được phạm vi toàn cục, vừa xử lý đúng các tình huống phụ thuộc vào membership và vai trò bên trong từng project.
-
-Cần phân biệt giữa actor trong mô hình Use Case và role được lưu trong cơ sở dữ liệu. Trong mô hình Use Case, Project Manager và Project Member được xem là hai nhóm tác nhân khác nhau vì có quyền thao tác khác nhau trong phạm vi một project. Ở mức dữ liệu, cả hai đều là người dùng đã xác thực của hệ thống, nhưng được phân biệt bằng vai trò trong bảng `project_members`: `MANAGER` hoặc `MEMBER`. Do đó, `users.role` chỉ phản ánh vai trò toàn hệ thống, còn `project_members.role` phản ánh vai trò của người dùng trong từng project cụ thể.
+Hệ thống áp dụng hai lớp vai trò:
+- *System role* (`ADMIN`, `USER`): Lưu ở bảng `users`, quyết định quyền truy cập các chức năng toàn cục do Spring Security kiểm soát ở lớp endpoint.
+- *Project role* (`MANAGER`, `MEMBER`): Lưu ở bảng `project_members`, quyết định quyền thao tác trong phạm vi từng dự án.
 
 #ui-table-figure(
   caption: [Phân loại vai trò trong cơ chế phân quyền của TaskPilot],
@@ -87,24 +51,13 @@ Cần phân biệt giữa actor trong mô hình Use Case và role được lưu 
   ),
 )
 
-=== Kiểm tra quyền ở tầng nghiệp vụ
-
-Kiểm tra quyền ở mức endpoint là cần thiết nhưng chưa đủ. Một người dùng có thể đã đăng nhập hợp lệ và vẫn không có quyền truy cập vào một project cụ thể nếu họ không phải là thành viên của project đó. Tương tự, một người dùng có thể là `USER` ở phạm vi hệ thống nhưng chỉ có quyền `MEMBER` trong project này và `MANAGER` trong project khác.
-
-Vì vậy, TaskPilot bổ sung các kiểm tra quyền trực tiếp trong service nghiệp vụ. Các thao tác trên project thường kiểm tra người dùng có phải thành viên hay project manager hay không; các thao tác trên sprint tiếp tục ràng buộc theo membership, manager role và trạng thái project; các thao tác trên task và comment cũng phải kiểm tra phạm vi project trước khi xử lý dữ liệu. Một số hành động còn có thêm điều kiện riêng, chẳng hạn chỉ người tạo task hoặc project manager mới được xóa task, hoặc chỉ tác giả bình luận hay project manager mới được xóa comment.
-
-Các kiểm tra này còn giúp ngăn truy cập chéo tài nguyên giữa các project. Thành viên của project A không thể dùng định danh task, sprint hoặc comment để thao tác lên dữ liệu thuộc project B. Đây là điểm mà kiểm tra JWT hợp lệ đơn thuần không thể tự giải quyết, vì token chỉ xác nhận danh tính và vai trò hệ thống, chứ không tự mang toàn bộ ngữ cảnh quyền của từng project.
-
-Trong bối cảnh AI Copilot, yêu cầu này càng quan trọng hơn. Dù AI có thể đề xuất tạo task, cập nhật trạng thái hoặc gán người thực hiện, các thao tác ghi dữ liệu vẫn phải đi qua backend và chịu cùng bộ kiểm tra quyền như các request thông thường. Việc người dùng xác nhận hành động AI không thay thế cho kiểm tra phân quyền; hai cơ chế này bổ sung cho nhau để giữ an toàn cho hệ thống. Chi tiết hơn về pending confirmation và luồng AI Copilot được trình bày ở mục 3.11.
-
-Như vậy, tầng nghiệp vụ là nơi hoàn thiện mô hình phân quyền của TaskPilot. Spring Security bảo vệ lớp truy cập chung, còn các service domain quyết định người dùng đó có thực sự được phép thao tác trên tài nguyên cụ thể hay không.
+Quyền truy cập vào từng tài nguyên chi tiết (task, sprint, comment) được kiểm tra trực tiếp tại tầng nghiệp vụ (Service layer) dựa trên ngữ cảnh dự án. Điều này đảm bảo người dùng chỉ can thiệp được vào dữ liệu thuộc dự án mà họ là thành viên. Các hành động ghi dữ liệu do AI Copilot đề xuất cũng phải vượt qua bộ kiểm tra quyền này và được sự xác nhận của người dùng trước khi hệ thống thực thi.
 
 #figure(
   image("../../assets/sync-diagrams/activity/activity-project-access-permission-check.svg", width: 100%),
   caption: [Activity diagram kiểm tra quyền truy cập tài nguyên project],
 )
 
-Sau khi trình bày cơ chế xác thực và phân quyền, phần tiếp theo mô tả thiết kế realtime và thông báo của hệ thống.
 
 == Thiết kế realtime và thông báo
 
