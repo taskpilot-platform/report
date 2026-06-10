@@ -2,9 +2,10 @@
 
 #emph[
   Chương này trình bày các cơ sở lý thuyết và tổng quan về các công nghệ,
-  framework, công cụ được áp dụng để xây dựng hệ thống TaskPilot. Nội dung bao gồm
-  các kiến thức nền tảng về quản lý dự án linh hoạt, nguyên lý hoạt động của AI
-  Agent, kiến trúc phần mềm và hệ sinh thái công nghệ hỗ trợ phát triển hệ thống.
+  framework, công cụ được áp dụng để xây dựng hệ thống TaskPilot. Nội dung bao
+  gồm các kiến thức nền tảng về quản lý dự án linh hoạt, nguyên lý hoạt động của
+  AI Agent, kiến trúc phần mềm và hệ sinh thái công nghệ hỗ trợ phát triển hệ
+  thống.
 ]
 
 #include "sections/2_1_project_management.typ"

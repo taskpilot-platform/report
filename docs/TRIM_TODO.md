@@ -8,11 +8,11 @@
 ### Tiến độ Chương 3
 Dưới đây là danh sách các phần trong Báo cáo đã được rà soát và cắt tỉa nội dung cho súc tích, ngắn gọn hơn:
 
-- [ ] Phần 3.1: Use case tổng quát
-- [ ] Phần 3.2: Use case quản lý tài khoản người dùng
-- [ ] Phần 3.3: Use case quản lý dự án và công việc
-- [ ] Phần 3.4: Use case AI Copilot
-- [ ] Phần 3.5: Use case Realtime và thông báo
+- [x] Phần 3.1: Use case tổng quát
+- [x] Phần 3.2: Use case quản lý tài khoản người dùng
+- [x] Phần 3.3: Use case quản lý dự án và công việc
+- [x] Phần 3.4: Use case AI Copilot
+- [x] Phần 3.5: Use case Realtime và thông báo
 - [x] Phần 3.6: Kiến trúc Backend Modular Monolith
 - [x] Phần 3.7: Thiết kế giao tiếp liên module bằng Port & Adapter
 - [ ] Phần 3.8: Thiết kế cơ sở dữ liệu

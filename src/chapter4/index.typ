@@ -27,7 +27,11 @@
 = XÂY DỰNG ỨNG DỤNG <implementation>
 
 #emph[
-  Chương này trình bày kết quả thực tế của quá trình xây dựng ứng dụng TaskPilot. Nội dung tập trung mô tả chi tiết giao diện người dùng, cấu trúc các màn hình chức năng và luồng điều hướng của hệ thống, từ màn hình xác thực, tổng quan dự án đến bảng theo dõi Kanban và các giao diện tương tác với AI Copilot.
+  Chương này trình bày kết quả thực tế của quá trình xây dựng ứng dụng
+  TaskPilot. Nội dung tập trung mô tả chi tiết giao diện người dùng, cấu trúc
+  các màn hình chức năng và luồng điều hướng của hệ thống, từ màn hình xác thực,
+  tổng quan dự án đến bảng theo dõi Kanban và các giao diện tương tác với AI
+  Copilot.
 ]
 
 == Tổng quan giao diện và luồng điều hướng

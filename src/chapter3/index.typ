@@ -1,7 +1,12 @@
 = PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG <architecture>
 
 #emph[
-  Chương này trình bày chi tiết quá trình phân tích và thiết kế hệ thống TaskPilot. Nội dung đi từ việc khảo sát các phần mềm quản lý dự án hiện có, xác định yêu cầu nghiệp vụ, đến thiết kế kiến trúc phần mềm, cơ sở dữ liệu và các luồng xử lý cốt lõi. Đặc biệt, chương cũng làm rõ phương pháp thiết kế các chức năng nâng cao như giao tiếp thời gian thực, trợ lý AI Copilot và thuật toán gợi ý phân công công việc.
+  Chương này trình bày chi tiết quá trình phân tích và thiết kế hệ thống
+  TaskPilot. Nội dung đi từ việc khảo sát các phần mềm quản lý dự án hiện có,
+  xác định yêu cầu nghiệp vụ, đến thiết kế kiến trúc phần mềm, cơ sở dữ liệu và
+  các luồng xử lý cốt lõi. Đặc biệt, chương cũng làm rõ phương pháp thiết kế các
+  chức năng nâng cao như giao tiếp thời gian thực, trợ lý AI Copilot và thuật
+  toán gợi ý phân công công việc.
 ]
 #include "sections/3_1_overview.typ"
 

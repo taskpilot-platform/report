@@ -109,6 +109,6 @@ trong quản lý dự án.
 
 - *Mở rộng trải nghiệm cộng tác:* TaskPilot có thể được bổ sung các chức năng hỗ
   trợ cộng tác nâng cao như điều khiển bằng giọng nói, gọi âm thanh/video hoặc
-  các hình thức trao đổi trực tiếp trong ngữ cảnh project/task. Các tính năng này
-  không thay thế các luồng quản lý hiện có, mà đóng vai trò mở rộng trải nghiệm
-  làm việc nhóm khi nhu cầu thực tế phát sinh.
+  các hình thức trao đổi trực tiếp trong ngữ cảnh project/task. Các tính năng
+  này không thay thế các luồng quản lý hiện có, mà đóng vai trò mở rộng trải
+  nghiệm làm việc nhóm khi nhu cầu thực tế phát sinh.

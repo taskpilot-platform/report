@@ -25,14 +25,10 @@
 #set table(
   inset: 0.5em,
   fill: (x, y) => {
-    if y == 0 {
-      black
-    } else {
-      white
-    }
+    white
   },
 )
-#show table.cell.where(y: 0): set text(white)
+#show table.cell.where(y: 0): set text(black)
 #show table: set par(justify: false)
 
 #set par(
