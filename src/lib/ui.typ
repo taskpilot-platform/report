@@ -74,7 +74,7 @@
 
 #let ui-table-figure(
   table-data,
-  breakable: false,
+  breakable: true,
   caption: none,
 ) = {
   show figure: set block(breakable: breakable)
