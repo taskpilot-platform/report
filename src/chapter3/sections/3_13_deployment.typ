@@ -9,14 +9,17 @@ của nền tảng triển khai.
 
 #figure(
   image(
-    "../../assets/diagrams/ch3_13_deployment_architecture.svg",
+    "../../assets/diagrams/ch3_13_deployment_architecture.png",
     width: 100%,
   ),
   caption: [Sơ đồ Deployment Architecture tổng quan của TaskPilot],
+  placement: none,
 )
 
 #ui-table-figure(
   caption: [Các thành phần triển khai chính của TaskPilot],
+  breakable: false,
+  placement: none,
   table(
     columns: (1.2fr, 2fr, 2.4fr),
     align: (left + top, left + top, left + top),
@@ -70,6 +73,7 @@ của nền tảng triển khai.
     width: 100%,
   ),
   caption: [Luồng kết nối giữa Frontend, Backend và dịch vụ ngoài],
+  placement: none,
 )
 
 #figure(
@@ -107,4 +111,5 @@ Actions:
 #figure(
   image("../../assets/diagrams/ch3_13_github_actions_cicd.png", width: 100%),
   caption: [Quy trình CI/CD với GitHub Actions],
+  placement: none,
 )

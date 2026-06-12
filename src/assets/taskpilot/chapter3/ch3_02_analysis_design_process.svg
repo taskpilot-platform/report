@@ -4,8 +4,8 @@
   .canvas { fill: none; }
   .box { fill: #f8fafc; stroke: #30384d; stroke-width: 1.35; rx: 15; }
   .label { font-size: 22px; font-weight: 700; }
-  .small { font-size: 17px; font-weight: 700; }
-  .tiny { font-size: 13px; font-weight: 600; }
+  .small { font-size: 20px; font-weight: 700; }
+  .tiny { font-size: 16px; font-weight: 600; }
   .line { fill: none; stroke: #30384d; stroke-width: 1.55; marker-end: url(#arrow); }
 </style>
 <defs>

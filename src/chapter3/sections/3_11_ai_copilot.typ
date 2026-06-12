@@ -96,10 +96,12 @@ backend. Nhờ đó, AI provider chỉ đề xuất lời gọi có cấu trúc,
 #figure(
   image("../../assets/diagrams/ch3_11_tool_registry.png", width: 100%),
   caption: [Mô hình Tool Calling Registry của AI Copilot],
+  placement: none,
 )
 
 #ui-table-figure(
   caption: [Các nhóm tool tiêu biểu trong AI Copilot],
+  placement: none,
   table(
     columns: (1.3fr, 2fr, 1.2fr, 2fr),
     align: (left + top, left + top, left + top, left + top),

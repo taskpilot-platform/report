@@ -17,10 +17,11 @@ trả về kết quả kèm phần giải thích ngắn.
 
 #figure(
   image(
-    "../../assets/diagrams/ch3_12_assignment_recommendation_process.png",
+    "../../assets/diagrams/ch3_12_assignment_recommendation_process.svg",
     width: 100%,
   ),
   caption: [Quy trình gợi ý phân công task trong TaskPilot],
+  placement: none,
 )
 
 === Quy trình và tiêu chí đánh giá ứng viên
@@ -72,6 +73,7 @@ hợp lệ được lấy. Báo cáo không mô tả cơ chế này như lịch 
 
 #ui-table-figure(
   caption: [Tiêu chí và nguồn dữ liệu của thuật toán gợi ý phân công],
+  placement: none,
   table(
     columns: (1.2fr, 0.7fr, 2.1fr, 1.8fr),
     align: (left + top, center + top, left + top, left + top),
@@ -144,6 +146,7 @@ workload cost và đặt dấu trừ trước thành phần workload.
 #ui-table-figure(
   caption: [Chuẩn hóa các biến scoring],
   breakable: false,
+  placement: none,
   table(
     columns: (0.7fr, 1.2fr, 2.5fr, 1.7fr),
     align: (center + top, left + top, left + top, left + top),
@@ -196,6 +199,8 @@ Ma trận dưới đây là ví dụ đại diện cho mode `BALANCED`, với th
 
 #ui-table-figure(
   caption: [Ma trận so sánh cặp AHP đại diện cho mode BALANCED],
+  breakable: false,
+  placement: none,
   table(
     columns: (1.2fr, 1fr, 1fr, 1fr),
     align: (left + top, center + top, center + top, center + top),
@@ -214,6 +219,8 @@ như `BALANCED` khoảng 0.4%, `URGENT` khoảng 0.0% và `TRAINING` khoảng 6.
 
 #ui-table-figure(
   caption: [Bộ trọng số và mục tiêu của từng heuristic mode],
+  breakable: false,
+  placement: none,
   table(
     columns: (1.1fr, 0.8fr, 0.8fr, 0.8fr, 2.6fr),
     align: (left + top, center + top, center + top, center + top, left + top),
@@ -258,6 +265,8 @@ $ "Score"_"BALANCED" = 0.230 F - 0.648 L + 0.122 P $
 
 #ui-table-figure(
   caption: [Ví dụ tính điểm gợi ý phân công theo mode BALANCED],
+  breakable: false,
+  placement: none,
   table(
     columns: (1.4fr, 0.7fr, 0.7fr, 0.7fr, 0.8fr, 0.7fr),
     align: (left + top, center + top, center + top, center + top, center + top, center + top),

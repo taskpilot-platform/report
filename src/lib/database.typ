@@ -13,36 +13,45 @@
 /// - columns: variadic column definitions (created with column() function)
 #let db-table(
   ..cols,
+  col-widths: (0.3fr, 1fr, 1.1fr, 1.7fr, 2.3fr),
+  inset: 0.24em,
 ) = {
-  let columns = cols.pos()
+  let data-columns = cols.pos()
 
-  table(
-    columns: (0.4fr, 1fr, 1.5fr, 1.2fr, 2.3fr),
-    align: (center, left, left, left, left),
-    stroke: 0.5pt,
+  {
+    set text(size: 8pt)
+    table(
+      columns: col-widths,
+      align: (center + top, left + top, left + top, left + top, left + top),
+      inset: inset,
+      stroke: 0.5pt,
 
-    table.header(
-      [*STT*], [*Thuộc tính*], [*Kiểu dữ liệu*], [*Ràng buộc*], [*Diễn giải*]
-    ),
+      table.header(
+        [*STT*], [*Thuộc tính*], [*Kiểu dữ liệu*], [*Ràng buộc*], [*Diễn giải*]
+      ),
 
-    ..columns
-      .enumerate()
-      .map(((i, col)) => (
-        [#(i + 1)],
-        [#col.name],
-        [#col.type],
-        [#col.constraint],
-        [#col.description],
-      ))
-      .flatten(),
-  )
+      ..data-columns
+        .enumerate()
+        .map(((i, col)) => (
+          [#(i + 1)],
+          [#col.name],
+          [#col.type],
+          [#col.constraint],
+          [#col.description],
+        ))
+        .flatten(),
+    )
+  }
 }
 
 #let db-table-figure(
   caption: none,
+  breakable: true,
+  placement: none,
   ..cols,
 ) = ui-table-figure(
   db-table(..cols),
-  breakable: true,
+  breakable: breakable,
   caption: caption,
+  placement: placement,
 )

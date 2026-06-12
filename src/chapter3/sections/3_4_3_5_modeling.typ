@@ -46,7 +46,7 @@ Assistant.
     table(
       columns: (0.42fr, 1.72fr, 1.28fr, 1.28fr, 1.2fr),
       align: (left + top, left + top, left + top, left + top, left + top),
-      inset: 0.1em,
+      inset: 0.4em,
       stroke: 0.5pt,
       table.header(
         [*UC*], [*Tên Use Case*], [*Actor*], [*Phân hệ*], [*Bảng liên quan*]
@@ -471,13 +471,15 @@ chiếu tại tài liệu hệ thống trên GitHub Pages hoặc trong phần ph
   caption: [Mô tả use case Tạo dự án mới],
 )
 
+#pagebreak()
+
 === Nhóm task, cộng tác và phân công
 
 #compact-sequence(
   [UC44 - Tạo task / sub-task mới],
   "../../assets/taskpilot/chapter3/sequence-task-management-create-new-task.svg",
   [Sequence diagram mô tả use case tạo task/sub-task mới],
-  width: 68%,
+  width: 96%,
 )
 
 #usecase-figure(
