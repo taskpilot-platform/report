@@ -115,10 +115,7 @@ Page Application (SPA) cho frontend. Đề tài tập trung vào việc áp dụ
 Calling kết hợp với LLM để xây dựng Agent, sử dụng Server-Sent Events (SSE) để
 xử lý thông báo thời gian thực và stream dữ liệu từ AI. Quá trình phân công sử
 dụng thuật toán chấm điểm dựa trên quy tắc (heuristic scoring) với các trọng số
-ban đầu được thiết lập hỗ trợ. Một số tính năng AI nâng cao như
-Retrieval-Augmented Generation (RAG) hoặc hệ thống tự động học sở thích
-(Adaptive Preference Learning) nằm ngoài phạm vi thực hiện hiện tại và được xem
-xét như các định hướng phát triển tương lai.
+ban đầu được thiết lập hỗ trợ.
 
 == Phương pháp nghiên cứu
 

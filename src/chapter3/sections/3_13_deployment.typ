@@ -76,15 +76,9 @@ tảng triển khai.
   placement: none,
 )
 
-#figure(
-  image("../../assets/diagrams/ch3_13_brevo_reset_email_flow.svg", width: 100%),
-  caption: [Luồng gửi email đặt lại mật khẩu qua Brevo],
-)
-
-#figure(
-  image("../../assets/diagrams/ch3_10_onesignal_push_flow.svg", width: 100%),
-  caption: [Luồng gửi push notification qua OneSignal],
-)
+Brevo và OneSignal được tích hợp như các dịch vụ ngoài do backend điều phối.
+Thiết kế luồng thông báo trong ứng dụng, email và push notification đã được
+trình bày tại mục 3.10.
 
 === Docker và CI/CD với GitHub Actions
 

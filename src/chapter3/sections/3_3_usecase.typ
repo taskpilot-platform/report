@@ -91,15 +91,6 @@ chỉ thực thi sau khi người dùng xác nhận. Với gợi ý phân công,
 ứng viên theo kỹ năng, workload và hiệu suất; chi tiết công thức được trình bày
 ở phần thiết kế thuật toán.
 
-#figure(
-  image(
-    "../../assets/taskpilot/chapter3/ch3_03_interaction_overview.svg",
-    width: 92%,
-  ),
-  caption: [Luồng tương tác tổng quan giữa Frontend, Backend, Database, External
-    Services và AI Provider],
-)
-
 === Kiến trúc Frontend React SPA
 
 Frontend là React SPA dùng TypeScript và Vite [7][8][9]. Ứng dụng gồm các lớp:
@@ -136,14 +127,6 @@ trên Netlify.
       [Push Notification Integration],
       [Khởi tạo và đồng bộ người dùng với OneSignal Web SDK khi có cấu hình.],
   ),
-)
-
-#figure(
-  image(
-    "../../assets/taskpilot/chapter3/ch3_03_frontend_spa_architecture.svg",
-    width: 86%,
-  ),
-  caption: [Sơ đồ kiến trúc Frontend React SPA],
 )
 
 Sau kiến trúc tổng quan, báo cáo tiếp tục mô tả mô hình use case, đặc tả các use

@@ -90,14 +90,6 @@ chế Port & Adapter. Cụ thể, module `taskpilot-contracts` chứa các inter
 tượng (Port), còn các module nghiệp vụ (Users, Projects) sẽ cung cấp phần thực
 thi (Adapter).
 
-#figure(
-  image(
-    "../../assets/diagrams/ch3_07_contracts_communication.png",
-    width: 100%,
-  ),
-  caption: [Sơ đồ giao tiếp liên module thông qua taskpilot-contracts],
-)
-
 === Giải quyết vấn đề phụ thuộc giữa các module
 
 Thay vì để module AI truy xuất trực tiếp cơ sở dữ liệu của module Projects hay
@@ -115,80 +107,49 @@ Port định nghĩa đầu vào/đầu ra, còn Adapter là lớp hiện thực 
 trong module sở hữu dữ liệu. Khi chạy, Spring Boot sẽ tự động inject Adapter
 tương ứng vào Port.
 
-#figure(
+#ui-table-figure(
+  caption: [Các port và adapter tiêu biểu trong backend TaskPilot],
+  breakable: true,
   table(
-    columns: (1.25fr, 1.25fr, 1fr, 1fr),
-    align: left,
+    columns: (1.25fr, 1.35fr, 1.05fr, 1.1fr, 1.65fr),
+    align: (left + top, left + top, left + top, left + top, left + top),
     stroke: 0.5pt,
-    inset: 0.5em,
     table.header(
-      [*Nhóm port*], [*Mục đích*], [*Module cung cấp*], [*Module sử dụng*]
+      [*Port/nhóm nghiệp vụ*],
+      [*Adapter triển khai*],
+      [*Module sở hữu*],
+      [*Module sử dụng*],
+      [*Mục đích*],
     ),
     [User/Profile/Skill ports],
-    [Truy vấn thông tin người dùng, kỹ năng cá nhân.],
-    [`taskpilot-users`],
-    [`taskpilot-projects`, `taskpilot-ai`],
-
-    [Project/Assignment ports],
-    [Truy vấn thành viên, hiệu suất, cấu hình project.],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
-
-    [AI query/project ports],
-    [Cung cấp ngữ cảnh project, tiến độ, workload cho AI.],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
-
-    [Task/Sprint/Comment ports],
-    [Truy vấn hoặc thao tác liên quan đến task, sprint, comment.],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
-
-    [Notification ports],
-    [Tạo/gửi thông báo khi có sự kiện nghiệp vụ.],
-    [`taskpilot-users`],
-    [`taskpilot-projects`, `taskpilot-ai`],
-  ),
-  caption: [Các nhóm port tiêu biểu trong taskpilot-contracts],
-)
-
-Các Adapter tiêu biểu bao gồm `UserModuleAdapter` (xử lý user/skill),
-`ProjectModuleAdapter` (thành viên/assignment), `AiQueryModuleAdapter` (ngữ cảnh
-task/workload cho AI) và `TaskCommentService`. Nhờ đó, thao tác ghi dữ liệu từ
-AI Copilot luôn phải qua Adapter của domain sở hữu và chịu sự kiểm duyệt chặt
-chẽ.
-
-#ui-table-figure(
-  caption: [Các adapter triển khai port tiêu biểu trong backend TaskPilot],
-  table(
-    columns: (1.5fr, 1fr, 1.4fr, 1.25fr),
-    align: left,
-    stroke: 0.5pt,
-    table.header(
-      [Adapter triển khai],
-      [Module đặt adapter],
-      [Port tiêu biểu],
-      [Vai trò thiết kế],
-    ),
     [`UserModuleAdapter`],
     [`taskpilot-users`],
-    [`UserPort`, `SkillPort`, `NotificationPort`],
-    [Cung cấp dữ liệu user/skill/notification.],
+    [`taskpilot-projects`, `taskpilot-ai`],
+    [Truy vấn thông tin người dùng, hồ sơ và kỹ năng cá nhân.],
 
+    [Project/Assignment ports],
     [`ProjectModuleAdapter`],
     [`taskpilot-projects`],
-    [`ProjectMemberPort`, `ProjectPort`],
-    [Cung cấp dữ liệu thành viên, cấu hình project.],
+    [`taskpilot-ai`],
+    [Truy vấn thành viên, hiệu suất và cấu hình project.],
 
+    [AI query/project ports],
     [`AiQueryModuleAdapter`],
     [`taskpilot-projects`],
-    [`TaskCommandPort`, `ProjectInsightsPort`],
-    [Cung cấp ngữ cảnh project/task và điều phối tool AI.],
+    [`taskpilot-ai`],
+    [Cung cấp ngữ cảnh project, tiến độ, workload và dữ liệu task cho AI.],
 
+    [Task/Sprint/Comment ports],
     [`TaskCommentService`],
     [`taskpilot-projects`],
-    [`TaskCommentQueryPort`],
-    [Cung cấp dữ liệu comment cho các module khác.],
+    [`taskpilot-ai`],
+    [Truy vấn hoặc thao tác liên quan đến task, sprint và comment.],
+
+    [Notification ports],
+    [`UserModuleAdapter`],
+    [`taskpilot-users`],
+    [`taskpilot-projects`, `taskpilot-ai`],
+    [Tạo/gửi thông báo khi có sự kiện nghiệp vụ.],
   ),
 )
 
@@ -199,24 +160,13 @@ chẽ.
 
 === Luồng AI module truy vấn Project/User qua contract
 
-Khi AI nhận yêu cầu ngôn ngữ tự nhiên từ người dùng, quá trình truy vấn ngữ cảnh
-nội bộ diễn ra như sau:
-1. AI module xác định cần lấy ngữ cảnh project/task.
-2. AI gọi qua các Port tương ứng trong `taskpilot-contracts`.
-3. Adapter tại module Projects tiếp nhận, xử lý và trả về dữ liệu DTO an toàn.
-4. AI module dùng ngữ cảnh này để tạo phản hồi hoặc đề xuất thao tác (tool
-  calling).
-5. Bất kỳ thay đổi dữ liệu nào đều phải được người dùng xác nhận và đi qua lớp
-  kiểm tra quyền của module đích.
-
-#figure(
-  image(
-    "../../assets/sync-diagrams/sequence/sequence-ai-module-query-project-user-contract.svg",
-    width: 100%,
-  ),
-  caption: [Sequence diagram AI module truy vấn Project/User thông qua
-    contract],
-)
+Khi AI module cần ngữ cảnh project, task hoặc người dùng, module này không truy
+cập trực tiếp cơ sở dữ liệu của domain khác. Luồng xử lý đi theo chuỗi: AI module
+gọi contract/port trong `taskpilot-contracts`, domain adapter tương ứng tiếp
+nhận yêu cầu, thực hiện kiểm tra quyền và xử lý nghiệp vụ tại module sở hữu dữ
+liệu, sau đó trả về DTO đã được kiểm soát để AI module tạo phản hồi hoặc đề xuất
+thao tác. Bất kỳ thay đổi dữ liệu nào vẫn phải được người dùng xác nhận và đi
+qua lớp kiểm tra quyền của module đích.
 
 Sau khi làm rõ ranh giới module backend và cơ chế giao tiếp, phần tiếp theo sẽ
 trình bày thiết kế cơ sở dữ liệu của hệ thống.

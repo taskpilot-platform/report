@@ -14,7 +14,7 @@
 /// - columns: variadic column definitions (created with column() function)
 #let db-table(
   ..cols,
-  col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
+  col-widths: (auto, 1.2fr, 1fr, 1.2fr, 2.6fr),
   inset: 0.34em,
   text-size: table_body_size,
   raw-size: table_raw_size,
@@ -56,7 +56,7 @@
   caption: none,
   breakable: true,
   placement: none,
-  col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
+  col-widths: (auto, 1.2fr, 1fr, 1.2fr, 2.6fr),
   inset: 0.34em,
   text-size: table_body_size,
   raw-size: table_raw_size,

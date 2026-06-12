@@ -22,6 +22,7 @@
   component-table(rows),
   caption: caption,
   placement: none,
+  breakable: true,
 )
 
 = XÂY DỰNG ỨNG DỤNG <implementation>
