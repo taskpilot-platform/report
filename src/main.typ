@@ -1,4 +1,5 @@
 #import "./lib/metadata.typ": project-metadata
+#import "./lib/report-style.typ": body_size
 
 #set document(
   title: project-metadata.title,
@@ -18,7 +19,7 @@
 
 #set text(
   font: "SVN-Times New Roman 2",
-  size: 13pt,
+  size: body_size,
   lang: "vi",
 )
 
@@ -35,10 +36,7 @@
   justify: true,
   leading: 1em,
   spacing: 1em,
-  first-line-indent: (
-    amount: 1em,
-    all: false,
-  ),
+  first-line-indent: 0pt,
 )
 
 #show link: set text(fill: blue.darken(30%))
@@ -231,6 +229,10 @@
 
   show heading.where(level: 1): it => context {
     pagebreak()
+    counter(figure).update(0)
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(figure.where(kind: raw)).update(0)
     align(center, [
       #if it.numbering != none [
         #it.supplement #counter(heading).display(it.numbering)

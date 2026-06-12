@@ -27,13 +27,11 @@ qua backend.
 
 === Các thành phần chính
 
-#{
-  set text(size: 8.6pt)
-  ui-table-figure(
-    breakable: true,
-    caption: [Các thành phần chính của hệ thống TaskPilot],
-    placement: none,
-    table(
+#ui-table-figure(
+  breakable: true,
+  caption: [Các thành phần chính của hệ thống TaskPilot],
+  placement: none,
+  table(
       columns: (1.25fr, 2.35fr, 2.05fr),
       align: (left + top, left + top, left + top),
       inset: 0.22em,
@@ -73,10 +71,9 @@ qua backend.
 
       [CI/CD và triển khai],
       [Tự động build/triển khai frontend/backend.],
-      [GitHub Actions, Netlify/Vercel, Hugging Face Space [20][21][22][23].],
-    ),
-  )
-}
+      [GitHub Actions, Netlify, Hugging Face Space [20][21][22].],
+  ),
+)
 
 === Luồng tương tác tổng quan
 
@@ -110,13 +107,11 @@ pages/screens, routing & protected route, state management, API services,
 Realtime/SSE client, UI components/styling và push notification integration.
 Frontend giao tiếp với backend bằng REST API cho nghiệp vụ và SSE cho dữ liệu
 realtime/streaming; khi triển khai, ứng dụng được build thành tài nguyên tĩnh
-trên Netlify hoặc Vercel.
+trên Netlify.
 
-#{
-  set text(size: 11pt)
-  ui-table-figure(
-    caption: [Các lớp chức năng chính của frontend TaskPilot],
-    table(
+#ui-table-figure(
+  caption: [Các lớp chức năng chính của frontend TaskPilot],
+  table(
       columns: (1.45fr, 3.55fr),
       align: (left + top, left + top),
       inset: 0.38em,
@@ -140,9 +135,8 @@ trên Netlify hoặc Vercel.
 
       [Push Notification Integration],
       [Khởi tạo và đồng bộ người dùng với OneSignal Web SDK khi có cấu hình.],
-    ),
-  )
-}
+  ),
+)
 
 #figure(
   image(
@@ -152,6 +146,6 @@ trên Netlify hoặc Vercel.
   caption: [Sơ đồ kiến trúc Frontend React SPA],
 )
 
-Sau kiến trúc tổng quan, báo cáo tiếp tục mô tả mô hình Use Case, đặc tả các use
+Sau kiến trúc tổng quan, báo cáo tiếp tục mô tả mô hình use case, đặc tả các use
 case tiêu biểu và các thiết kế backend, cơ sở dữ liệu, realtime, AI Copilot,
 thuật toán phân công và triển khai.

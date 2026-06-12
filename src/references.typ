@@ -64,9 +64,6 @@
 + GitHub, "GitHub Actions Documentation." \[Trực tuyến\]. Available:
   https://docs.github.com/en/actions. \[Truy cập: 06-06-2026\].
 
-+ Vercel, "Vercel Documentation." \[Trực tuyến\]. Available:
-  https://vercel.com/docs. \[Truy cập: 06-06-2026\].
-
 + Netlify, "Netlify Documentation". \[Trực tuyến\]. Available:
   https://docs.netlify.com/. \[Truy cập: 06-06-2026\].
 

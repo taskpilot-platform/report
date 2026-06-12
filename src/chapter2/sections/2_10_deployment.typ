@@ -31,21 +31,10 @@ triển khai khi mã nguồn thay đổi.
   caption: [GitHub Actions],
 )
 
-=== Vercel
-
-Vercel là nền tảng triển khai frontend/web application từ repository [21].
-TaskPilot có thể dùng Vercel như một môi trường hosting frontend cho bản build
-React/Vite.
-
-#figure(
-  image("../../assets/taskpilot/chapter2/vercel-logo.svg", height: 3cm),
-  caption: [Vercel],
-)
-
 === Netlify
 
 Netlify là nền tảng triển khai web tĩnh và frontend application, hỗ trợ build
-tự động, HTTPS, CDN và redirect rule [22]. TaskPilot dùng Netlify cho frontend
+tự động, HTTPS, CDN và redirect rule [21]. TaskPilot dùng Netlify cho frontend
 React/Vite để phục vụ giao diện người dùng.
 
 #figure(
@@ -56,7 +45,7 @@ React/Vite để phục vụ giao diện người dùng.
 === Hugging Face Space
 
 Hugging Face Spaces cung cấp môi trường chạy ứng dụng container trên nền tảng
-đám mây [23]. TaskPilot dùng Hugging Face Space để triển khai backend Spring
+đám mây [22]. TaskPilot dùng Hugging Face Space để triển khai backend Spring
 Boot dạng Docker container cho bản demo hệ thống.
 
 #figure(

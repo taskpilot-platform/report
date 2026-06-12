@@ -1,3 +1,5 @@
+#import "report-style.typ": table_body_size, table_compact_size
+
 #let bordered-image(
   image-src,
   width: 100%,
@@ -76,12 +78,25 @@
   table-data,
   breakable: false,
   caption: none,
-  placement: auto,
+  placement: none,
+  compact: false,
+  text-size: none,
 ) = {
+  let applied-size = if text-size != none {
+    text-size
+  } else if compact {
+    table_compact_size
+  } else {
+    table_body_size
+  }
+
   show figure: set block(breakable: breakable)
 
   figure(
-    table-data,
+    {
+      set text(size: applied-size)
+      table-data
+    },
     caption: caption,
     placement: placement,
   )

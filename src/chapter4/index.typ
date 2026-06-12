@@ -1,7 +1,6 @@
 #import "../lib/ui.typ": ui-figure, ui-table-figure
 
 #let component-table(rows) = {
-  set text(size: 10pt)
   table(
     columns: (auto, 1.25fr, 0.9fr, 2.9fr),
     align: (center, left, left, left),

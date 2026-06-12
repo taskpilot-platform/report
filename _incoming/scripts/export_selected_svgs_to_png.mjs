@@ -11,6 +11,7 @@ const chromeCacheDir = path.join(process.env.HOME ?? "", ".cache", "puppeteer", 
 
 const files = [
   "asset/assets/diagrams/ch3_03_interaction_overview.svg",
+  "asset/assets/diagrams/ch3_02_testing_deployment_process.svg",
   "asset/assets/diagrams/ch3_09_auth_authorization_overview.svg",
   "asset/assets/diagrams/ch3_10_realtime_notification_overview.svg",
   "asset/assets/diagrams/ch3_10_onesignal_push_flow.svg",

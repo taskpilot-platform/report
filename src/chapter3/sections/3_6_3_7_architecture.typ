@@ -77,10 +77,10 @@ Nhờ sự phân tách này:
 - *`taskpilot-infrastructure`* gom toàn bộ logic tích hợp bên ngoài (Database,
   Storage, Mail, JWT).
 
-Sự phân tách rõ ràng đảm bảo backend có thể mở rộng tính năng mới dễ dàng mà
-không làm ảnh hưởng đến các domain khác. Để giải quyết bài toán giao tiếp nội bộ
-giữa các module (đặc biệt là AI cần lấy ngữ cảnh từ Projects), hệ thống sử dụng
-cơ chế Port & Adapter qua `taskpilot-contracts`.
+Sự phân tách này giúp giảm phụ thuộc khi bổ sung module hoặc adapter mới. Để
+giải quyết bài toán giao tiếp nội bộ giữa các module (đặc biệt là AI cần lấy
+ngữ cảnh từ Projects), hệ thống sử dụng cơ chế Port & Adapter qua
+`taskpilot-contracts`.
 
 == Thiết kế giao tiếp liên module bằng Port & Adapter
 

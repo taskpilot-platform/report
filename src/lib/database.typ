@@ -1,4 +1,5 @@
 #import "ui.typ": ui-table-figure
+#import "report-style.typ": table_body_size, table_raw_size
 
 /// Creates a type-safe column definition with runtime validation
 ///
@@ -14,9 +15,9 @@
 #let db-table(
   ..cols,
   col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
-  inset: 0.24em,
-  text-size: 8pt,
-  raw-size: 7pt,
+  inset: 0.34em,
+  text-size: table_body_size,
+  raw-size: table_raw_size,
 ) = {
   let data-columns = cols.pos()
 
@@ -56,9 +57,9 @@
   breakable: true,
   placement: none,
   col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
-  inset: 0.24em,
-  text-size: 8pt,
-  raw-size: 7pt,
+  inset: 0.34em,
+  text-size: table_body_size,
+  raw-size: table_raw_size,
   ..cols,
 ) = ui-table-figure(
   db-table(

@@ -35,21 +35,20 @@ Assistant.
 
 #pagebreak()
 
-=== Bảng tổng hợp 59 Use Case
+=== Bảng tổng hợp 59 use case
 
-#{
-  set text(size: 8pt)
-  ui-table-figure(
-    breakable: true,
-    caption: [Tổng hợp danh sách 59 use case của hệ thống TaskPilot],
-    placement: none,
-    table(
+#ui-table-figure(
+  compact: true,
+  breakable: true,
+  caption: [Tổng hợp danh sách 59 use case của hệ thống TaskPilot],
+  placement: none,
+  table(
       columns: (0.42fr, 1.72fr, 1.28fr, 1.28fr, 1.2fr),
       align: (left + top, left + top, left + top, left + top, left + top),
       inset: (x: 0.22em, y: 0.34em),
       stroke: 0.5pt,
       table.header(
-        [*UC*], [*Tên Use Case*], [*Actor*], [*Phân hệ*], [*Bảng liên quan*]
+        [*UC*], [*Tên use case*], [*Actor*], [*Phân hệ*], [*Bảng liên quan*]
       ),
       [UC01],
       [Đăng nhập hệ thống],
@@ -364,9 +363,8 @@ Assistant.
       [Project Manager],
       [AI Assistant],
       [tasks, system_settings, user_skills, users],
-    ),
-  )
-}
+  ),
+)
 
 === Quan hệ include/extend và ghi chú nghiệp vụ
 
@@ -377,7 +375,7 @@ Assistant.
   auto-assignment và phải qua pending confirmation.
 - Gợi ý phân công task dựa trên kỹ năng, workload và hiệu suất lịch sử.
 
-== Đặc tả Use Case tiêu biểu
+== Đặc tả use case tiêu biểu
 
 Báo cáo trình bày đặc tả chi tiết 6 use case tiêu biểu nhất, đại diện cho các
 luồng xác thực, quản lý dự án, quản lý task và AI Copilot. Toàn bộ đặc tả đầy
@@ -397,7 +395,7 @@ chiếu tại tài liệu hệ thống trên GitHub Pages hoặc trong phần ph
   usecase(
     id: [UC01],
     name: [Đăng nhập hệ thống],
-    description: [Use case mô tả quá trình người dùng xác thực danh tính để truy
+    description: [use case mô tả quá trình người dùng xác thực danh tính để truy
       cập vào hệ thống.],
     actors: [Guest / Người dùng chưa xác thực],
     priority: [Cao],

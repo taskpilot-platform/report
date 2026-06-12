@@ -1,6 +1,8 @@
 // Use case specification library
 // Define use cases as data, render as tables
 
+#import "report-style.typ": table_body_size, table_compact_size
+
 /// Renders a use case specification table with flexible field parameters
 ///
 /// Supported fields:
@@ -45,6 +47,7 @@
   business-rules: none,
   nf-requirements: none,
   column-widths: (9em, 1fr),
+  compact: false,
 ) = {
   let fields = (
     "ID": id,
@@ -70,13 +73,16 @@
 
   show table: set par(justify: false)
 
-  table(
-    columns: column-widths,
-    align: left,
-    stroke: 0.5pt,
-    table.header([*Trường*], [*Nội dung*]),
-    ..cells
-  )
+  {
+    set text(size: if compact { table_compact_size } else { table_body_size })
+    table(
+      columns: column-widths,
+      align: left,
+      stroke: 0.5pt,
+      table.header([*Trường*], [*Nội dung*]),
+      ..cells
+    )
+  }
 }
 
 #let usecase-figure(

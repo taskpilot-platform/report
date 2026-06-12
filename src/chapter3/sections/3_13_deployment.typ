@@ -3,9 +3,9 @@
 == Thiết kế triển khai
 
 TaskPilot được triển khai theo hướng phân tách frontend, backend và các dịch vụ
-hạ tầng nhằm tối ưu hóa việc quản lý và vận hành. Các thông tin cấu hình nhạy
-cảm đều được quản lý qua biến môi trường (Environment Variables) hoặc secrets
-của nền tảng triển khai.
+hạ tầng để mô tả rõ trách nhiệm triển khai. Các thông tin cấu hình nhạy cảm đều
+được quản lý qua biến môi trường (Environment Variables) hoặc secrets của nền
+tảng triển khai.
 
 #figure(
   image(
@@ -27,7 +27,7 @@ của nền tảng triển khai.
     stroke: 0.5pt,
     table.header([*Thành phần*], [*Nền tảng triển khai/dịch vụ*], [*Vai trò*]),
     [Frontend],
-    [Netlify, Vercel],
+    [Netlify],
     [Phục vụ React SPA cho trình duyệt người dùng.],
 
     [Backend],
@@ -54,7 +54,7 @@ của nền tảng triển khai.
 === Kiến trúc triển khai tổng quan
 
 - *Frontend:* Ứng dụng React được build tĩnh bằng Vite và phục vụ trên nền tảng
-  hosting Netlify/Vercel. Frontend giao tiếp với backend thông qua các REST API
+  hosting Netlify. Frontend giao tiếp với backend thông qua các REST API
   hoặc luồng Server-Sent Events (SSE).
 - *Backend:* Triển khai trên Hugging Face Space dưới dạng một Docker container
   duy nhất chứa toàn bộ các module Spring Boot (Modular Monolith), lắng nghe

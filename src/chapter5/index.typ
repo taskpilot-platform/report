@@ -31,10 +31,10 @@ Về mặt kiến trúc, frontend và backend được tách biệt rõ ràng. F
 dựng bằng React, TypeScript và Vite, tập trung vào giao diện, điều hướng và trải
 nghiệm tương tác. Backend được triển khai bằng Spring Boot theo hướng Modular
 Monolith, giúp chia trách nhiệm theo module nhưng vẫn giữ mô hình build, chạy và
-triển khai ở mức phù hợp với phạm vi đồ án.
+triển khai theo phạm vi đã xác định.
 
 Ngoài ra, hệ thống đã được cấu hình với các nền tảng và dịch vụ thực tế như
-Netlify/Vercel cho frontend, Hugging Face Space cho backend, Supabase cho cơ sở
+Netlify cho frontend, Hugging Face Space cho backend, Supabase cho cơ sở
 dữ liệu và lưu trữ đối tượng, Brevo cho email giao dịch và OneSignal cho push
 notification. Điều này giúp đồ án không chỉ dừng ở mức thiết kế mà còn có khả
 năng vận hành thử nghiệm trong môi trường triển khai thực tế.
@@ -49,7 +49,7 @@ realtime và frontend. Điều này có thể làm tăng rủi ro hồi quy khi 
 thay đổi chức năng.
 
 Việc triển khai trên các nền tảng thực dụng hoặc free-tier giúp giảm chi phí và
-phù hợp với phạm vi đồ án, nhưng cũng tạo ra một số giới hạn trong quá trình vận
+giúp giảm chi phí triển khai thử nghiệm, nhưng cũng tạo ra một số giới hạn trong quá trình vận
 hành thử nghiệm. Backend có thể gặp độ trễ khởi động hoặc giới hạn tài nguyên;
 các AI provider có thể chịu giới hạn tốc độ gọi hoặc phụ thuộc vào trạng thái
 dịch vụ bên ngoài. Một số chức năng như push notification, email và realtime
@@ -70,7 +70,7 @@ như đặc tả yêu cầu, biên bản họp hoặc tài liệu thiết kế. 
 khả năng hỗ trợ của AI trong các tình huống cần tham chiếu tri thức nội bộ ngoài
 dữ liệu nghiệp vụ đã lưu trong hệ thống.
 
-Một số cơ chế hiện tại vẫn phù hợp với phạm vi đồ án hơn là vận hành quy mô lớn.
+Một số cơ chế hiện tại phục vụ triển khai thử nghiệm hơn là vận hành quy mô lớn.
 Ví dụ, trạng thái chờ xác nhận của các hành động AI, quản lý secrets, độ bền của
 một số luồng realtime/push/email và mức độ giám sát vận hành vẫn còn dư địa cải
 thiện. Các hạn chế này phản ánh ranh giới phạm vi hiện tại của đồ án và là cơ sở

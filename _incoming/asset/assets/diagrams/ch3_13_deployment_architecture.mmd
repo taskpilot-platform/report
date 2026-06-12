@@ -11,7 +11,7 @@ config:
     tertiaryColor: '#ffffff'
 ---
 flowchart LR
-    User(User browser):::person --> FEHost(Netlify / Vercel frontend hosting):::app
+    User(User browser):::person --> FEHost(Netlify frontend hosting):::app
     FEHost --> SPA(React/Vite static SPA):::app
     SPA -->|REST API / SSE| HF(Hugging Face Space Docker backend):::backend
     subgraph Managed[Managed services]

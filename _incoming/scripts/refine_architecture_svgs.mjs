@@ -213,7 +213,7 @@ ${css}
 <rect class="canvas" x="24" y="28" width="1232" height="594" rx="12"/>
 <text class="label" x="640" y="62" text-anchor="middle">TaskPilot Deployment Architecture</text>
 <rect class="box" x="58" y="260" width="110" height="88"/><text class="small" x="113" y="290" text-anchor="middle">User</text>${browserGlyph(92, 306, 42, 30)}
-<rect class="box" x="236" y="122" width="176" height="126"/><text class="small" x="324" y="150" text-anchor="middle">Frontend Hosting</text>${icon("../images/logos/netlify-logo.svg", 280, 172, 34)}${icon("../images/logos/vercel-logo.svg", 338, 172, 34)}
+<rect class="box" x="236" y="122" width="176" height="126"/><text class="small" x="324" y="150" text-anchor="middle">Frontend Hosting</text>${icon("../images/logos/netlify-logo.svg", 307, 172, 34)}
 <rect class="box" x="236" y="356" width="176" height="126"/><text class="small" x="324" y="384" text-anchor="middle">CI/CD</text>${icon("../images/logos/github-actions-logo.svg", 307, 408, 40)}
 <rect class="zone" x="500" y="92" width="680" height="440"/><text class="small" x="840" y="120" text-anchor="middle">Managed Runtime and Services</text>
 <rect class="box" x="542" y="176" width="206" height="126"/><text class="small" x="645" y="204" text-anchor="middle">Backend Container</text>${icon("../images/logos/docker-logo.svg", 586, 226, 34)}${icon("../images/logos/huggingface-logo.svg", 644, 226, 34)}${icon("../images/logos/springboot-logo.svg", 702, 226, 34)}
@@ -279,7 +279,7 @@ ${css}
 <rect class="box" x="310" y="94" width="164" height="120" rx="20"/><text class="small" x="392" y="126" text-anchor="middle">API testing</text>${icon("../images/logos/postman-logo.svg", 375, 146, 36)}
 <rect class="box" x="310" y="250" width="164" height="120" rx="20"/><text class="small" x="392" y="282" text-anchor="middle">Data validation</text>${icon("../images/logos/supabase-logo.svg", 352, 302, 34)}${icon("../images/logos/postgresql-logo.svg", 404, 302, 34)}
 <rect class="box" x="542" y="172" width="164" height="120" rx="20"/><text class="small" x="624" y="204" text-anchor="middle">CI workflow</text>${icon("../images/logos/github-actions-logo.svg", 604, 224, 40)}
-<rect class="box" x="774" y="94" width="164" height="120" rx="20"/><text class="small" x="856" y="126" text-anchor="middle">Frontend deploy</text>${icon("../images/logos/netlify-logo.svg", 814, 146, 34)}${icon("../images/logos/vercel-logo.svg", 866, 146, 34)}
+<rect class="box" x="774" y="94" width="164" height="120" rx="20"/><text class="small" x="856" y="126" text-anchor="middle">Frontend deploy</text>${icon("../images/logos/netlify-logo.svg", 839, 146, 34)}
 <rect class="box" x="774" y="250" width="164" height="120" rx="20"/><text class="small" x="856" y="282" text-anchor="middle">Backend deploy</text>${icon("../images/logos/huggingface-logo.svg", 816, 302, 34)}${icon("../images/logos/docker-logo.svg", 866, 302, 34)}
 <rect class="box" x="990" y="172" width="120" height="120" rx="20"/><text class="small" x="1050" y="204" text-anchor="middle">Runtime</text>${icon("../images/logos/springboot-logo.svg", 1032, 226, 36)}
 <path class="line" d="M242 204 C270 166 284 154 310 154"/><path class="line" d="M242 236 C270 280 284 310 310 310"/>
@@ -450,8 +450,7 @@ ${icon("../images/logos/github-actions-logo.svg", 600, 210, 40)}
 <!-- Frontend Deploy -->
 <rect class="box" x="860" y="180" width="240" height="120" rx="20"/>
 <text class="small" x="980" y="220" text-anchor="middle">Frontend Hosting</text>
-${icon("../images/logos/vercel-logo.svg", 940, 240, 36)}
-${icon("../images/logos/netlify-logo.svg", 990, 240, 36)}
+${icon("../images/logos/netlify-logo.svg", 962, 240, 36)}
 
 <!-- Backend Deploy -->
 <rect class="box" x="860" y="340" width="240" height="140" rx="20"/>

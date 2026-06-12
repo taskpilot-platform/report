@@ -9,7 +9,7 @@ cơ hội tích hợp AI vào quy trình điều phối công việc.
 === Jira
 
 Jira là công cụ quản lý dự án và theo dõi lỗi phổ biến trong phát triển phần mềm
-[24]. Nền tảng này mạnh ở quản lý issue/task, sprint, backlog, board, báo cáo và
+[23]. Nền tảng này mạnh ở quản lý issue/task, sprint, backlog, board, báo cáo và
 tùy biến workflow, phù hợp với đội ngũ có quy trình Agile/Scrum chặt chẽ. Tuy
 nhiên, với phạm vi đồ án hoặc nhóm nhỏ, Jira có chi phí thiết lập cao, nhiều cấu
 hình phức tạp và phần lớn thao tác điều phối vẫn cần người dùng thực hiện thủ
@@ -23,7 +23,7 @@ công.
 === Trello
 
 Trello tiếp cận quản lý công việc bằng Kanban trực quan, xoay quanh board, list
-và card [25]. Ưu điểm chính là dễ dùng, thao tác kéo thả nhanh, phù hợp với
+và card [24]. Ưu điểm chính là dễ dùng, thao tác kéo thả nhanh, phù hợp với
 những luồng công việc nhẹ. Điểm hạn chế là Trello thiếu cấu trúc chuyên sâu cho
 sprint, backlog, quan hệ phụ thuộc, báo cáo nâng cao và gợi ý phân công thông
 minh.
@@ -36,7 +36,7 @@ minh.
 === Asana
 
 Asana hỗ trợ tổ chức công việc qua nhiều chế độ xem như list, board, timeline,
-calendar và workload [26]. Công cụ này phù hợp với phối hợp nhóm và lập kế hoạch
+calendar và workload [25]. Công cụ này phù hợp với phối hợp nhóm và lập kế hoạch
 tổng thể, nhưng một số tính năng nâng cao vượt quá phạm vi cần thiết của đồ án.
 AI trong Asana cũng không phải trọng tâm so sánh trực tiếp với hướng TaskPilot:
 AI Copilot có kiểm soát và gợi ý phân công minh bạch.
@@ -49,10 +49,9 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
 
 === So sánh và nhận xét
 
-#{
-  set text(size: 11pt)
-  ui-table-figure(
-    breakable: false,
+#ui-table-figure(
+    compact: true,
+    breakable: true,
     caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
     placement: none,
     table(
@@ -71,7 +70,7 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
       [Rất chi tiết],
       [Cơ bản],
       [Chi tiết],
-      [Vừa đủ cho đồ án],
+      [Phạm vi tập trung vào chức năng cốt lõi],
 
       [Kanban board], [Có], [Có, trực quan], [Có], [Có],
       [Sprint/backlog],
@@ -105,14 +104,13 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
       [Không chuyên sâu],
       [Trọng tâm, dùng heuristic],
 
-      [Phù hợp đồ án],
+      [Triển khai trong phạm vi hệ thống TaskPilot],
       [Quá phức tạp],
       [Thiếu cấu trúc],
       [Vượt phạm vi],
-      [Tinh gọn, tập trung],
+      [Tập trung vào project, sprint, task, collaboration và AI Copilot],
     ),
-  )
-}
+)
 
 Nhìn chung, Jira, Trello và Asana đều trưởng thành, nhưng hoặc quá phức tạp,
 hoặc thiếu cấu trúc chuyên sâu, hoặc chưa tập trung vào phân công thông minh
