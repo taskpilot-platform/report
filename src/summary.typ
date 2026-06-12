@@ -4,10 +4,10 @@
   show ref: it => {
     let el = it.element
     if el != none and el.func() == heading and el.level == 1 {
-      strong(link(el.location(), [#el.supplement #numbering(
+      link(el.location(), text(fill: black, strong([#el.supplement #numbering(
           el.numbering,
           ..counter(heading).at(el.location()),
-        ) #el.body]))
+        ) #el.body])))
     } else {
       it
     }
@@ -19,25 +19,24 @@
   TÓM TẮT ĐỀ TÀI
 ]
 
-Đề tài tập trung nghiên cứu và xây dựng "#project-metadata.title", với mục đích
-giúp người dùng quản lý tri thức cá nhân trên một nền tảng web trực quan, cộng
-tác theo thời gian thực. Đề tài không hướng đến việc giải quyết các nhược điểm
-của các nền tảng sẵn có trên thị trường, mà thay vào đó tập trung nghiên cứu
-kiến trúc, phương pháp phát triển phần mềm, triển khai hệ thống, khai thác và sử
-dụng các công nghệ hiện đại.
+Đề tài nghiên cứu và xây dựng TaskPilot, một hệ thống quản lý dự án và công việc có tích hợp AI Agent, nhằm hỗ trợ các nhóm phát triển phần mềm tổ chức, theo dõi và phối hợp công việc hiệu quả hơn. Hệ thống cho phép quản lý dự án, thành viên, sprint, backlog và task; theo dõi tiến độ thông qua bảng Kanban; đồng thời hỗ trợ bình luận, thông báo và trao đổi trong quá trình làm việc.
+
+Bên cạnh các chức năng quản lý dự án, TaskPilot tích hợp trợ lý AI nhằm hỗ trợ người dùng tra cứu thông tin, theo dõi tình trạng công việc và đưa ra gợi ý phân công task dựa trên dữ liệu của dự án. Các thao tác làm thay đổi dữ liệu chỉ được thực hiện sau khi người dùng xác nhận.
+
+Đề tài không hướng đến việc thay thế các nền tảng quản lý dự án đang có trên thị trường, mà tập trung nghiên cứu quá trình phân tích, thiết kế, xây dựng và triển khai một hệ thống quản lý dự án có tích hợp chức năng hỗ trợ bằng trí tuệ nhân tạo.
 
 Báo cáo trình bày các nghiên cứu, quy trình thiết kế, cài đặt và triển khai hệ
 thống thông qua các chương sau:
 #theory_reference[
-  + @introduction - Giới thiệu về đề tài, mục tiêu nghiên cứu, phạm vi của báo
+  - @introduction - Giới thiệu về đề tài, mục tiêu nghiên cứu, phạm vi của báo
     cáo, các tính năng, công nghệ được sử dụng trong đề tài.
-  + @theory-basis - Cơ sở lý thuyết liên quan, các công nghệ và phương pháp phát
+  - @theory-basis - Cơ sở lý thuyết liên quan, các công nghệ và phương pháp phát
     triển phần mềm được sử dụng trong đề tài.
-  + @architecture - Mô tả kiến trúc hệ thống, các đặc tả use case, API, các
-    thành phần chính của hệ thống, cơ sở dữ liệu, một số mô hình và logic của hệ
-    thống.
-  + @implementation - Trình bày kết quả thực hiện giao diện, chức năng của Web
+  - @architecture - Mô tả kiến trúc hệ thống, các use case tiêu biểu, cơ sở dữ
+    liệu, xác thực và phân quyền, realtime và thông báo, AI Copilot, thuật toán
+    gợi ý phân công task và triển khai.
+  - @implementation - Trình bày kết quả thực hiện giao diện, chức năng của Web
     App.
-  + @conclusion - Kết luận về kết quả đạt được, những thuận lợi, khó khăn, ưu
-    điểm và hướng phát triển trong tương lai của đề tài.
+  - @conclusion - Tổng kết ưu điểm, nhược điểm và hướng phát triển trong tương
+    lai của đề tài.
 ]

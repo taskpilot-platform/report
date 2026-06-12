@@ -96,18 +96,12 @@ tra quyền này và được sự xác nhận của người dùng trước khi
 
 == Thiết kế realtime và thông báo
 
-TaskPilot là hệ thống hỗ trợ cộng tác theo thời gian thực, vì vậy việc cập nhật
-dữ liệu kịp thời có ảnh hưởng trực tiếp đến trải nghiệm sử dụng. Những thay đổi
-như phát sinh thông báo, thêm bình luận hoặc phản hồi từ AI Copilot nếu chỉ được
-lấy lại theo chu kỳ sẽ làm giảm tính liên tục của quá trình làm việc. Do đó, hệ
-thống kết hợp nhiều cơ chế truyền thông để phục vụ các loại dữ liệu khác nhau.
-
-Trong thiết kế hiện tại, REST API vẫn là cơ chế chính cho các thao tác CRUD
-thông thường. Bên cạnh đó, SSE được dùng cho các luồng cập nhật một chiều từ
-server về client như notification, comment event và AI streaming response. Riêng
-OneSignal được dùng như một kênh push notification độc lập, phục vụ các trường
-hợp người dùng không tương tác trực tiếp trên giao diện web tại thời điểm sự
-kiện xảy ra.
+TaskPilot sử dụng kết hợp REST API, SSE và OneSignal để đáp ứng hai nhu cầu
+khác nhau: xử lý nghiệp vụ thông thường và cập nhật kịp thời cho người dùng.
+Trong đó, REST API vẫn là cơ chế chính cho các thao tác CRUD như tạo project,
+cập nhật task, ghi bình luận hoặc đánh dấu thông báo đã đọc. Các kênh realtime
+chỉ được dùng cho những dữ liệu cần đẩy từ server về client sau khi nghiệp vụ đã
+được backend kiểm tra quyền, xử lý và lưu trữ.
 
 #figure(
   image(
@@ -117,137 +111,53 @@ kiện xảy ra.
   caption: [Tổng quan thiết kế realtime và thông báo của TaskPilot],
 )
 
-=== Realtime notification bằng SSE
+=== Các kênh realtime trong TaskPilot
 
-Đối với notification trong ứng dụng, TaskPilot sử dụng Server-Sent Events để đẩy
-sự kiện từ backend xuống frontend theo thời gian thực. SSE phù hợp với bài toán
-này vì luồng dữ liệu chủ yếu đi theo một chiều: server phát sinh sự kiện và
-client nhận để cập nhật giao diện. Hệ thống không cần cơ chế trao đổi hai chiều
-phức tạp như WebSocket cho trường hợp này.
+Các luồng realtime của TaskPilot tập trung vào ba nhóm dữ liệu: thông báo trong
+ứng dụng, sự kiện bình luận và phản hồi AI. Khi người dùng mở giao diện chính,
+frontend duy trì kết nối SSE cho luồng notification cá nhân để nhận thông báo mới
+và cập nhật badge chưa đọc. Đối với task detail, sau khi comment được xử lý qua
+REST API, backend phát sự kiện để các client đang theo dõi task cập nhật danh
+sách bình luận. Với AI Copilot, backend stream từng phần phản hồi và trạng thái
+xử lý để giao diện chat hiển thị tiến trình thay vì đợi toàn bộ kết quả hoàn tất.
 
-Khi người dùng đã đăng nhập và mở giao diện chính, frontend thiết lập một kết
-nối SSE đến backend cho luồng notification cá nhân. Backend duy trì emitter theo
-từng người dùng và có thể gửi các sự kiện như thông báo mới hoặc số lượng thông
-báo chưa đọc. Trong phạm vi thiết kế hiện tại, kết nối SSE còn được giữ ổn định
-bằng cơ chế heartbeat định kỳ.
-
-Khi một sự kiện nghiệp vụ phát sinh notification, backend trước hết lưu bản ghi
-vào bảng `notifications` để bảo đảm dữ liệu thông báo vẫn tồn tại và có thể tra
-cứu lại về sau. Sau đó, nếu người dùng đang trực tuyến, backend phát sự kiện SSE
-tương ứng đến client đang kết nối. Frontend nhận sự kiện này và cập nhật giao
-diện notification hoặc bộ đếm unread mà không cần tải lại toàn bộ trang.
-
-Cách tổ chức này giúp tách biệt rõ hai nhu cầu: lưu vết notification ở cơ sở dữ
-liệu và phát notification theo thời gian thực cho người dùng đang online. Nhờ
-đó, notification không chỉ là dữ liệu hiển thị tức thời mà còn là một phần của
-lịch sử tương tác trong hệ thống.
-
-#figure(
-  image(
-    "../../assets/sync-diagrams/sequence/sequence-realtime-notification-sse.svg",
-    width: 100%,
+#ui-table-figure(
+  caption: [Các kênh realtime và nơi hiển thị trong TaskPilot],
+  table(
+    columns: (1.4fr, 1.2fr, 1.6fr),
+    align: (left + top, left + top, left + top),
+    inset: 0.5em,
+    stroke: 0.5pt,
+    table.header([*Loại dữ liệu*], [*Cơ chế*], [*Nơi hiển thị*]),
+    [In-app notification], [SSE], [Notification panel/badge],
+    [Comment update], [SSE/event], [Task detail],
+    [AI response], [SSE streaming], [AI Copilot],
+    [Browser push], [OneSignal], [Browser/device],
   ),
-  caption: [Sequence diagram realtime notification bằng SSE],
 )
 
-=== Realtime comment
+Thiết kế này giữ ranh giới rõ giữa ghi dữ liệu và phát sự kiện. Các thực thể như
+`notifications`, `comments`, `comment_mentions`, `chat_sessions`, `chat_messages`
+và `ai_logs` vẫn được lưu ở cơ sở dữ liệu theo luồng nghiệp vụ tương ứng. Sau khi
+xử lý thành công, backend mới phát sự kiện realtime để frontend cập nhật vùng
+giao diện cần thiết. Nhờ vậy, dữ liệu không phụ thuộc vào trạng thái kết nối tạm
+thời của người dùng, đồng thời trải nghiệm cộng tác vẫn được cải thiện.
 
-Đối với bình luận trên task, thao tác tạo, cập nhật và xóa vẫn được thực hiện
-thông qua REST API. Đây là lựa chọn phù hợp vì comment là dữ liệu nghiệp vụ cần
-đi qua kiểm tra quyền thành viên, kiểm tra trạng thái project, kiểm tra author
-hoặc manager trong một số trường hợp, rồi mới được ghi nhận vào cơ sở dữ liệu.
+=== Thông báo trong ứng dụng và push notification
 
-Sau khi backend xử lý thành công thao tác comment, hệ thống phát sự kiện SSE cho
-các client đang theo dõi luồng bình luận của task tương ứng. Thiết kế này không
-nhằm mô phỏng chỉnh sửa đồng thời theo kiểu collaborative editor, mà tập trung
-vào việc đồng bộ các thay đổi comment giữa nhiều người dùng đang cùng theo dõi
-một task.
+Đối với thông báo trong ứng dụng, backend lưu bản ghi notification trước, sau đó
+đẩy sự kiện SSE đến người nhận nếu họ đang online. Frontend dùng sự kiện này để
+cập nhật danh sách thông báo và số lượng chưa đọc mà không phải tải lại toàn bộ
+trang. Khi người dùng mở notification panel hoặc đánh dấu thông báo đã đọc, các
+thao tác đọc và cập nhật trạng thái vẫn đi qua REST API.
 
-Về mặt dữ liệu, nội dung bình luận được lưu ở bảng `comments`, còn các quan hệ
-mention được lưu ở bảng `comment_mentions`. Nếu comment có nhắc tên người dùng
-khác, backend còn phát sinh notification phù hợp để người được mention hoặc
-người liên quan nhận được cập nhật. Vì vậy, luồng comment realtime và luồng
-notification có liên hệ chặt chẽ với nhau nhưng vẫn là hai kênh xử lý riêng.
-
-Trong phạm vi triển khai hiện tại, có thể xem realtime comment là cơ chế phát sự
-kiện cập nhật sau khi comment đã được xử lý thành công ở backend. Cách tiếp cận
-này gọn hơn, phù hợp với nhu cầu cộng tác của hệ thống và tránh việc mô tả quá
-mức như một môi trường chỉnh sửa văn bản đồng thời.
-
-#figure(
-  image("../../assets/diagrams/ch3_10_comment_realtime_flow.svg", width: 100%),
-  caption: [Luồng cập nhật comment và phát sự kiện realtime],
-)
-
-=== AI streaming response
-
-Phản hồi từ AI Copilot thường mất nhiều thời gian hơn các request nghiệp vụ
-thông thường vì backend còn phải định tuyến model, chuẩn bị ngữ cảnh hội thoại
-và chờ provider sinh nội dung. Nếu người dùng phải đợi đến khi toàn bộ phản hồi
-hoàn tất mới thấy kết quả, trải nghiệm sẽ bị ngắt quãng. Vì vậy, TaskPilot thiết
-kế luồng AI theo hướng streaming response.
-
-Khi người dùng gửi yêu cầu từ giao diện chat, backend trước hết cập nhật trạng
-thái xử lý của request AI và ghi nhận tin nhắn người dùng vào các bảng liên quan
-đến hội thoại. Sau đó, backend gọi AI provider đã được chọn theo cấu hình và
-chiến lược định tuyến hiện tại. Trong quá trình xử lý, backend phát các sự kiện
-SSE theo từng pha xử lý và từng phần phản hồi để frontend có thể hiển thị dần
-nội dung cho người dùng.
-
-Luồng này liên quan trực tiếp đến các bảng `chat_sessions`, `chat_messages`,
-`ai_chat_requests` và `ai_logs`. `chat_sessions` và `chat_messages` lưu cấu trúc
-hội thoại; `ai_chat_requests` theo dõi trạng thái xử lý của từng yêu cầu như xếp
-hàng, định tuyến, sinh phản hồi hoặc thất bại; còn `ai_logs` lưu log hoạt động
-AI để phục vụ tra cứu và giám sát. Việc lưu lại các thực thể này giúp hệ thống
-không chỉ stream theo thời gian thực mà còn giữ được dấu vết xử lý sau phiên làm
-việc.
-
-Ở phía frontend, phản hồi được hiển thị theo từng phần ngay khi backend gửi
-xuống, nhờ đó người dùng thấy tiến trình phản hồi thay vì một khoảng chờ hoàn
-toàn im lặng. Tuy nhiên, luồng này vẫn chỉ là kênh truyền một chiều từ server về
-client; các thao tác gửi yêu cầu mới, xác nhận hành động hoặc tải lịch sử chat
-vẫn đi qua API thông thường. Chi tiết hơn về routing model, tool calling và AI
-Copilot được trình bày ở mục 3.11.
-
-#figure(
-  image(
-    "../../assets/sync-diagrams/sequence/sequence-ai-streaming-response-sse.svg",
-    width: 100%,
-  ),
-  caption: [Luồng AI streaming response từ Backend đến Frontend],
-)
-
-=== Push notification qua OneSignal
-
-Bên cạnh realtime trong phiên làm việc, TaskPilot còn tích hợp OneSignal để gửi
-push notification. Đây là kênh khác với SSE. Nếu SSE phù hợp khi người dùng đang
-mở ứng dụng và còn duy trì kết nối đến backend, thì push notification phù hợp
-hơn cho việc chủ động nhắc người dùng thông qua hạ tầng thông báo bên ngoài, tùy
-thuộc vào quyền cấp phép và môi trường trình duyệt hoặc thiết bị.
-
-Ở mức tổng quan, khi một sự kiện nghiệp vụ cần gửi thông báo, backend có thể ghi
-nhận thông báo trong bảng `notifications` trước. Sau đó, nếu cấu hình OneSignal
-khả dụng, backend gửi yêu cầu push đến dịch vụ này kèm thông tin người nhận và
-nội dung thông báo. OneSignal tiếp tục đảm nhiệm phần phân phối thông báo đến
-thiết bị hoặc trình duyệt đã đăng ký của người dùng.
-
-Thiết kế này cho phép kết hợp notification trong ứng dụng và push notification
-mà không đồng nhất hai cơ chế thành một. Người dùng đang online có thể nhận cập
-nhật qua SSE ngay trong giao diện, trong khi người dùng không mở ứng dụng vẫn có
-khả năng được nhắc qua OneSignal. Tuy nhiên, push notification không nên được
-hiểu là kênh bảo đảm chắc chắn sẽ đến nơi trong mọi trường hợp, vì việc phân
-phối còn phụ thuộc vào cấu hình dịch vụ, quyền của người dùng và trạng thái
-thiết bị.
-
-Việc đặt OneSignal ở vai trò dịch vụ push độc lập giúp backend giữ được trách
-nhiệm chính: xác định khi nào cần gửi thông báo và thông báo đó thuộc về ai.
-Phần phân phối ngoài trình duyệt được tách cho dịch vụ chuyên biệt, phù hợp với
-cách tổ chức hạ tầng tổng thể của hệ thống.
-
-#figure(
-  image("../../assets/diagrams/ch3_10_onesignal_push_flow.svg", width: 100%),
-  caption: [Luồng gửi push notification qua OneSignal],
-)
+OneSignal được dùng cho browser push notification, tách biệt với luồng SSE trong
+phiên làm việc. Khi một sự kiện nghiệp vụ cần nhắc người dùng ngoài giao diện web
+đang mở, backend có thể gửi yêu cầu đến OneSignal kèm thông tin người nhận và nội
+dung thông báo. Việc phân phối đến trình duyệt hoặc thiết bị phụ thuộc vào cấu
+hình dịch vụ, quyền nhận thông báo của người dùng và trạng thái thiết bị. Vì vậy,
+SSE được xem là kênh realtime chính trong ứng dụng, còn OneSignal là kênh bổ
+sung cho thông báo ở mức trình duyệt hoặc thiết bị.
 
 Sau khi trình bày thiết kế realtime và thông báo, phần tiếp theo sẽ mô tả kiến
 trúc AI Copilot của hệ thống chi tiết hơn.

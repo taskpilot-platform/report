@@ -1,7 +1,7 @@
 #heading(
   numbering: none,
   outlined: false,
-  [Bảng chú giải thuật ngữ],
+  [Danh mục từ viết tắt],
 )
 
 #table(
