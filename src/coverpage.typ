@@ -40,22 +40,23 @@
 
       #v(5em)
       #grid(
-        columns: (auto, 1fr),
+        columns: (auto, auto),
         row-gutter: 1em,
         gutter: 1em,
         align: left,
-        [#project_info.supervisor:], [#project_info.supervisor-name],
+        text(weight: "bold", [#project_info.supervisor:]),
+        text(weight: "bold", [#project_info.supervisor-name]),
 
-        [SINH VIÊN THỰC HIỆN:],
+        text(weight: "bold", "SINH VIÊN THỰC HIỆN:"),
         [
           #for student in project_info.students [
-            #student.name -- #student.id \
+            #text(weight: "bold")[#student.name - #student.id] \
           ]
         ],
       )
 
       #v(1fr)
-      #text(project_info.report)
+      #text(weight: "bold", project_info.report)
     ],
   )
 }

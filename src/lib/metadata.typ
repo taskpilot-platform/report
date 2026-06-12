@@ -9,10 +9,10 @@
   school: "TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN",
   faculty: "KHOA CÔNG NGHỆ PHẦN MỀM",
   supervisor: "GIẢNG VIÊN HƯỚNG DẪN",
-  supervisor-name: "ThS. Trần Thị Hồng Yến",
+  supervisor-name: "THS. TRẦN THỊ HỒNG YẾN",
   students: (
-    (id: "23520952", name: "Phan Lê Minh"),
-    (id: "23521476", name: "Đặng Phú Thiện"),
+    (id: "23520952", name: "PHAN LÊ MINH"),
+    (id: "23521476", name: "ĐẶNG PHÚ THIỆN"),
   ),
-  location: "TP. Hồ Chí Minh, tháng 06, năm 2026",
+  location: "TP. HỒ CHÍ MINH, 2026",
 )
