@@ -59,7 +59,11 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
       inset: 0.38em,
       stroke: 0.5pt,
       table.header(
-        [*Tiêu chí*], [*Jira*], [*Trello*], [*Asana*], [*TaskPilot*]
+        [*Tiêu chí*],
+        [#box(image("../../assets/images/logos/jira-logo.svg", height: 1.2em), baseline: 20%) *Jira*],
+        [#box(image("../../assets/images/logos/trello-logo.svg", height: 1.2em), baseline: 20%) *Trello*],
+        [#box(image("../../assets/images/logos/asana-logo.svg", height: 1.2em), baseline: 20%) *Asana*],
+        [#box(image("../../assets/images/logos/taskpilot-logo.png", height: 1.2em), baseline: 20%) *TaskPilot*]
       ),
       [Quản lý dự án/task],
       [Rất chi tiết],
