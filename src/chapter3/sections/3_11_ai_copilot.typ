@@ -99,6 +99,8 @@ backend. Nhờ đó, AI provider chỉ đề xuất lời gọi có cấu trúc,
   placement: none,
 )
 
+#v(0.65em)
+
 #ui-table-figure(
   caption: [Các nhóm tool tiêu biểu trong AI Copilot],
   placement: none,

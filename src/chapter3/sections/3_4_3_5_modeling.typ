@@ -38,7 +38,7 @@ Assistant.
 === Bảng tổng hợp 59 Use Case
 
 #{
-  set text(size: 8.4pt)
+  set text(size: 8pt)
   ui-table-figure(
     breakable: true,
     caption: [Tổng hợp danh sách 59 use case của hệ thống TaskPilot],
@@ -46,7 +46,7 @@ Assistant.
     table(
       columns: (0.42fr, 1.72fr, 1.28fr, 1.28fr, 1.2fr),
       align: (left + top, left + top, left + top, left + top, left + top),
-      inset: 0.4em,
+      inset: (x: 0.22em, y: 0.34em),
       stroke: 0.5pt,
       table.header(
         [*UC*], [*Tên Use Case*], [*Actor*], [*Phân hệ*], [*Bảng liên quan*]

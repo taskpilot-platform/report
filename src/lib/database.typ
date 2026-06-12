@@ -13,13 +13,20 @@
 /// - columns: variadic column definitions (created with column() function)
 #let db-table(
   ..cols,
-  col-widths: (0.3fr, 1fr, 1.1fr, 1.7fr, 2.3fr),
+  col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
   inset: 0.24em,
+  text-size: 8pt,
+  raw-size: 7pt,
 ) = {
   let data-columns = cols.pos()
 
   {
-    set text(size: 8pt)
+    set text(size: text-size)
+    show raw: it => {
+      set text(size: raw-size)
+      show regex("[._/,\-()':=]"): char => char + sym.zws
+      it
+    }
     table(
       columns: col-widths,
       align: (center + top, left + top, left + top, left + top, left + top),
@@ -48,9 +55,19 @@
   caption: none,
   breakable: true,
   placement: none,
+  col-widths: (0.3fr, 1fr, 1.1fr, 2.15fr, 2.05fr),
+  inset: 0.24em,
+  text-size: 8pt,
+  raw-size: 7pt,
   ..cols,
 ) = ui-table-figure(
-  db-table(..cols),
+  db-table(
+    ..cols,
+    col-widths: col-widths,
+    inset: inset,
+    text-size: text-size,
+    raw-size: raw-size,
+  ),
   breakable: breakable,
   caption: caption,
   placement: placement,
