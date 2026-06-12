@@ -1,17 +1,18 @@
 == Tổng quan về thuật toán gợi ý phân công công việc
 
-=== Giới thiệu bài toán phân công công việc
+=== Bài toán ra quyết định đa tiêu chí
 
-Phân công công việc là bài toán ra quyết định đa tiêu chí, đòi hỏi người quản lý
-cân nhắc nhiều yếu tố như sự phù hợp kỹ năng, khối lượng công việc hiện tại,
-hiệu suất làm việc và mức độ ưu tiên của tác vụ để chọn ra thành viên phù hợp
-nhất.
+Phân công công việc có thể xem là bài toán ra quyết định đa tiêu chí: mỗi ứng
+viên được đánh giá theo nhiều yếu tố như mức phù hợp kỹ năng, khối lượng công
+việc hiện tại và điểm hiệu suất. TaskPilot sử dụng hướng chấm điểm định lượng để
+Project Manager có danh sách gợi ý minh bạch, nhưng quyết định cuối cùng vẫn
+thuộc về người dùng.
 
 === Weighted Scoring Model
 
-Mô hình chấm điểm có trọng số (Weighted Scoring Model) là phương pháp đánh giá
-định lượng các lựa chọn dựa trên một tập hợp tiêu chí, với mỗi tiêu chí được gán
-một mức trọng số cụ thể.
+Weighted Scoring Model tính điểm tổng hợp bằng cách nhân điểm từng tiêu chí với
+trọng số tương ứng rồi cộng lại. Mô hình này phù hợp với hệ thống gợi ý vì có
+chi phí tính toán thấp và dễ giải thích lý do xếp hạng.
 
 #figure(
   image(
@@ -21,64 +22,36 @@ một mức trọng số cụ thể.
   caption: [Minh họa mô hình chấm điểm có trọng số và AHP],
 )
 
-Công thức tổng quát của mô hình:
+Công thức tổng quát:
 
 $ "Score" = w_1 dot c_1 + w_2 dot c_2 + dots + w_n dot c_n $
 
-Trong đó, $w$ là trọng số và $c$ là điểm của tiêu chí tương ứng.
-
-*Ưu điểm:*
-- Tính toán nhanh, cho phép hệ thống dễ dàng xuất ra bảng điểm để giải thích lý
-  do đề xuất cho người dùng.
-- Hỗ trợ kết hợp linh hoạt nhiều tiêu chí.
-
-*Nhược điểm:*
-- Việc gán các trọng số ban đầu thường mang tính chủ quan của người thiết kế.
+Trong đó, $w$ là trọng số và $c$ là điểm của tiêu chí tương ứng. Hạn chế chính
+của mô hình là chất lượng kết quả phụ thuộc vào cách chọn trọng số ban đầu.
 
 === Min-Max Normalization
 
-Chuẩn hóa Min-Max (Min-Max Normalization) là kỹ thuật đưa dữ liệu từ các thang
-đo khác nhau về cùng một khoảng giá trị (thường là từ 0 đến 1), giúp các tiêu
-chí có thể cộng dồn được với nhau trong công thức chấm điểm tổng hợp.
-
-Công thức chuẩn hóa:
+Min-Max Normalization đưa các tiêu chí có thang đo khác nhau về cùng miền giá
+trị, thường là từ 0 đến 1. Kỹ thuật này giúp điểm kỹ năng, workload và
+performance có thể được so sánh trong cùng một công thức.
 
 $ x' = (x - "min"(x)) / ("max"(x) - "min"(x)) $
 
-*Ưu điểm:*
-- Giữ nguyên sự phân bố tương đối của dữ liệu gốc.
-- Tính toán đơn giản, phù hợp cho xử lý theo thời gian thực.
-
-*Nhược điểm:*
-- Khoảng chuẩn hóa dễ bị sai lệch nếu tập dữ liệu xuất hiện các giá trị ngoại
-  lai (outliers) quá lớn.
+Trong TaskPilot, chuẩn hóa chỉ đóng vai trò biến đổi dữ liệu đầu vào; cách áp
+dụng chi tiết cho từng tiêu chí được mô tả trong phần thiết kế thuật toán ở
+Chương 3.
 
 === Analytic Hierarchy Process
 
-Quy trình phân tích thứ bậc (Analytic Hierarchy Process - AHP) là phương pháp ra
-quyết định cấu trúc tổ chức bài toán thành phân cấp và sử dụng ma trận so sánh
-cặp để đánh giá tầm quan trọng tương đối giữa các tiêu chí [4]. AHP sử dụng
-thang điểm Saaty để đánh giá mức độ ưu tiên và kiểm tra tỷ số nhất quán nhằm đảm
-bảo các đánh giá không bị mâu thuẫn.
+Analytic Hierarchy Process (AHP) là phương pháp ra quyết định sử dụng ma trận
+so sánh cặp để xác định mức quan trọng tương đối giữa các tiêu chí [4]. AHP hỗ
+trợ kiểm tra tỷ số nhất quán, nhờ đó việc thiết lập trọng số có cơ sở hơn so
+với gán thủ công hoàn toàn.
 
-*Ưu điểm:*
-- Cung cấp cơ sở toán học vững chắc để giảm thiểu tính chủ quan trong việc gán
-  trọng số.
-- Phù hợp với các bài toán có nhiều tiêu chí định tính và định lượng.
+=== Vai trò trong TaskPilot
 
-*Nhược điểm:*
-- Việc xây dựng ma trận so sánh phức tạp và tốn nhiều tài nguyên khi cần tính
-  toán liên tục tại thời điểm chạy.
-
-=== Lý do lựa chọn hướng chấm điểm có trọng số cho đề tài
-
-Hướng chấm điểm có trọng số phù hợp với TaskPilot vì cân bằng giữa tính dễ hiểu,
-khả năng giải thích và chi phí tính toán. Người dùng có thể quan sát bảng điểm
-ứng viên, các thành phần điểm và đề xuất cuối cùng. Đồng thời, hệ thống có thể
-thay đổi trọng số theo chế độ phân công mà không cần thay đổi toàn bộ thuật
-toán. Trong TaskPilot, AHP được áp dụng ở giai đoạn thiết kế để thiết lập bộ
-trọng số ban đầu một cách khoa học. Tuy nhiên, tại thời gian chạy thực tế
-(runtime), hệ thống sử dụng Weighted Scoring Model kết hợp Min-Max
-Normalization. Cấu trúc này đảm bảo tốc độ phản hồi gợi ý nhanh chóng, trực quan
-và giúp người quản lý dễ dàng đối chiếu lý do vì sao một thành viên lại được đề
-xuất.
+TaskPilot kết hợp AHP, Min-Max Normalization và Weighted Scoring Model theo hai
+lớp: AHP hỗ trợ xây dựng trọng số cho các mode phân công, còn runtime dùng công
+thức chấm điểm có trọng số để xếp hạng ứng viên nhanh. Cách kết hợp này cân
+bằng giữa tính giải thích, chi phí tính toán và khả năng điều chỉnh theo mục
+tiêu quản lý.

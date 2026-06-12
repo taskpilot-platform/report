@@ -1,58 +1,34 @@
 == Tổng quan về AI Agent và Function Calling
 
-=== Giới thiệu về Large Language Model
+=== Large Language Model
 
-Large Language Model (LLM) là các mô hình trí tuệ nhân tạo được huấn luyện trên
-lượng dữ liệu văn bản lớn, sử dụng kiến trúc học sâu để xử lý ngôn ngữ tự nhiên.
-LLM có khả năng hiểu, tổng hợp, dịch thuật và sinh văn bản dựa trên xác suất
-chuỗi từ ngữ tiếp theo trong ngữ cảnh được cung cấp.
-
-*Cơ chế:*
-- Mô hình nhận đầu vào dưới dạng prompt và sinh phản hồi dạng văn bản hoặc cấu
-  trúc.
-- Context window giới hạn lượng nội dung mô hình có thể xử lý trong một lần gọi.
-- Chat history và session memory giúp duy trì ngữ cảnh hội thoại trong phạm vi
-  phiên làm việc.
-- Streaming cho phép trả kết quả từng phần thay vì chờ phản hồi hoàn chỉnh.
-
-*Ưu điểm:*
-- Khả năng xử lý linh hoạt nhiều loại tác vụ ngôn ngữ tự nhiên.
-- Hỗ trợ phân tích ngữ cảnh từ dữ liệu không có cấu trúc.
-
-*Nhược điểm:*
-- Ảo giác (Hallucination): Mô hình có thể sinh ra thông tin sai lệch hoặc không
-  có thật.
-- Bị giới hạn về lượng từ ngữ (Context limit) xử lý trong một lần gọi và chi phí
-  vận hành tăng cao đối với các truy vấn phức tạp.
+Large Language Model (LLM) là mô hình học sâu được huấn luyện trên khối lượng
+lớn dữ liệu văn bản để tiếp nhận prompt và sinh phản hồi ngôn ngữ tự nhiên.
+Trong TaskPilot, LLM không thay thế cơ sở dữ liệu nghiệp vụ; mô hình được dùng
+để hiểu yêu cầu của người dùng, tổng hợp ngữ cảnh dự án và sinh phản hồi cho AI
+Copilot.
 
 === AI Agent
 
-AI Agent là một hệ thống trí tuệ nhân tạo có khả năng tự chủ quan sát môi
-trường, suy luận và gọi công cụ để đưa ra hành động nhằm đạt được một mục tiêu
-cụ thể. Khác với chatbot thông thường, AI Agent hoạt động theo vòng lặp: Quan
-sát (Observe) - Suy luận (Think) - Hành động (Act) - Phản hồi (Feedback).
+AI Agent là hệ thống sử dụng LLM kết hợp ngữ cảnh, công cụ và cơ chế kiểm soát
+để hỗ trợ hoàn thành mục tiêu cụ thể. Khác với chatbot chỉ trả lời văn bản,
+Agent có thể phân tích ý định, chọn công cụ phù hợp, nhận kết quả từ backend và
+tổng hợp lại thành phản hồi có liên quan đến dữ liệu thật của hệ thống.
 
-*Ưu điểm:*
-- Tự động giải quyết bài toán phức tạp đòi hỏi nhiều bước xử lý.
-- Tương tác trực tiếp được với các hệ thống phần mềm khác thông qua công cụ.
+=== Prompt và quản lý ngữ cảnh
 
-*Nhược điểm:*
-- Tiềm ẩn rủi ro thao tác sai dữ liệu nếu vòng lặp suy luận bị lệch hướng, đòi
-  hỏi phải có cơ chế kiểm soát chặt chẽ.
+Prompt Engineering là cách thiết kế chỉ dẫn cho LLM, bao gồm vai trò hệ thống,
+yêu cầu người dùng và mô tả công cụ. Quản lý ngữ cảnh giúp lựa chọn thông tin
+cần đưa vào mỗi lần gọi mô hình, tránh đưa toàn bộ dữ liệu dự án vào prompt.
+Trong TaskPilot, phần này giúp AI Copilot hiểu vai trò người dùng, project hiện
+tại và dữ liệu liên quan mà không vượt quá giới hạn context.
 
-=== Prompt Engineering và quản lý ngữ cảnh
-
-Prompt Engineering là kỹ thuật thiết kế câu lệnh đầu vào để hướng dẫn LLM tạo ra
-kết quả mong muốn, bao gồm System prompt (định hình vai trò), User prompt (yêu
-cầu cụ thể) và Tool description (mô tả công cụ). Quản lý ngữ cảnh (Context
-window) là giới hạn về số lượng token (từ/câu) mà LLM có thể lưu giữ để xử lý.
-Việc quản lý lịch sử trò chuyện (Chat history) và bộ nhớ phiên (Session memory)
-là cần thiết để duy trì tính liên tục của cuộc hội thoại mà không làm tràn giới
-hạn ngữ cảnh
 === Function Calling / Tool Calling
 
-Function Calling (hay Tool Calling) là kỹ năng cho phép LLM tương tác với các
-hàm lập trình cục bộ thay vì chỉ sinh văn bản.
+Function Calling, hay Tool Calling, cho phép LLM yêu cầu backend gọi một hàm đã
+được khai báo trước thay vì tự suy đoán dữ liệu. Công cụ thường có tên, mô tả,
+schema tham số và kiểu kết quả; backend chịu trách nhiệm xác thực quyền, thực
+thi và trả dữ liệu về cho mô hình.
 
 #figure(
   image(
@@ -62,24 +38,17 @@ hàm lập trình cục bộ thay vì chỉ sinh văn bản.
   caption: [Quy trình Function Calling trong AI Agent],
 )
 
-Cấu trúc của công cụ bao gồm tên hàm, mô tả, danh sách tham số và kiểu trả về.
-Khi nhận yêu cầu, mô hình phân tích và quyết định gọi công cụ kèm tham số. Hệ
-thống backend sau đó xác thực, thực thi hàm và trả kết quả lại để mô hình tổng
-hợp thông tin.
-
-*Ưu điểm:*
-- Khắc phục giới hạn kiến thức tĩnh của LLM bằng cách cho phép AI truy xuất dữ
-  liệu hệ thống theo thời gian thực.
-- Hỗ trợ AI thực thi hành động trực tiếp.
-
-*Nhược điểm:*
-- LLM có thể sinh ra tham số không tồn tại (hallucinated arguments) hoặc chọn
-  nhầm công cụ nếu mô tả không đủ rõ ràng.
+Trong TaskPilot, Tool Calling là cơ chế để AI Copilot tra cứu project, task,
+sprint, notification hoặc danh sách ứng viên phân công từ hệ thống thật. Cách
+thiết kế này giảm rủi ro ảo giác vì dữ liệu quan trọng được lấy qua API nội bộ
+thay vì chỉ dựa vào kiến thức có sẵn của mô hình.
 
 === Human-in-the-loop
 
-Human-in-the-loop (HITL) là cơ chế thiết kế nhằm đảm bảo sự giám sát của con
-người trong các quy trình ra quyết định của AI.
+Human-in-the-loop (HITL) là nguyên tắc giữ con người trong các quyết định có
+ảnh hưởng đến dữ liệu. Với các thao tác ghi như tạo task, cập nhật trạng thái
+hoặc phân công thành viên, TaskPilot yêu cầu người dùng xác nhận trước khi hành
+động được thực thi.
 
 #figure(
   image(
@@ -89,20 +58,9 @@ người trong các quy trình ra quyết định của AI.
   caption: [Cơ chế Human-in-the-loop cho thao tác ghi dữ liệu],
 )
 
-Thay vì cho phép AI tự ý thay đổi dữ liệu, hệ thống tạo ra một "hành động chờ
-xác nhận" (Pending action). Người dùng sẽ xem xét đề xuất này và quyết định cho
-phép thực thi hoặc hủy bỏ.
+=== Vai trò trong TaskPilot
 
-*Ưu điểm:*
-- Đảm bảo an toàn, tính chính xác và duy trì quyền kiểm soát cuối cùng của người
-  dùng đối với dữ liệu hệ thống.
-
-*Nhược điểm:*
-- Tăng thêm bước thao tác thủ công trong luồng trải nghiệm người dùng.
-
-=== Lý do tích hợp AI Agent vào TaskPilot
-
-Trong phạm vi hệ thống TaskPilot, AI Agent đóng vai trò như một trợ lý quản lý.
-Việc kết hợp Function Calling và Human-in-the-loop giúp AI có thể tự động hóa
-việc tra cứu, phân tích dữ liệu dự án và gợi ý giao việc an toàn, từ đó tối ưu
-hóa quy trình phân bổ nguồn lực của nhóm phát triển.
+AI Agent, Tool Calling và HITL tạo thành nền tảng cho AI Copilot: mô hình hiểu
+ngôn ngữ tự nhiên, backend cung cấp công cụ có kiểm soát, còn người dùng giữ
+quyền quyết định cuối cùng với thao tác thay đổi dữ liệu. Phần thiết kế chi
+tiết của cơ chế này được trình bày ở Chương 3.

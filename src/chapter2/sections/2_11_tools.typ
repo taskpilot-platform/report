@@ -1,17 +1,13 @@
 == Công cụ hỗ trợ phát triển và kiểm thử
 
-=== IntelliJ IDEA và Visual Studio Code
-IntelliJ IDEA là môi trường phát triển chính chuyên dụng cho mã nguồn backend
-Java/Spring Boot. Visual Studio Code được sử dụng như một trình soạn thảo linh
-hoạt để xây dựng mã nguồn TypeScript phía frontend.
+=== IDE và kiểm thử API
 
-=== Postman và DBeaver
-Postman hỗ trợ đắc lực trong việc giả lập yêu cầu và kiểm thử các API RESTful
-độc lập. DBeaver được dùng làm công cụ quản trị trực quan, giúp các thành viên
-trong nhóm truy vấn SQL và xác minh trực tiếp cấu trúc bảng dữ liệu bên trong hệ
-thống PostgreSQL.
+IntelliJ IDEA được dùng cho backend Java/Spring Boot, còn Visual Studio Code hỗ
+trợ phát triển frontend TypeScript. Postman giúp kiểm thử API REST độc lập với
+giao diện, trong khi DBeaver hỗ trợ quan sát và kiểm tra dữ liệu PostgreSQL.
 
-=== Git/GitHub, Maven, npm/pnpm
-Git và GitHub được sử dụng xuyên suốt để quản lý phiên bản và lưu trữ mã nguồn
-tập trung. Maven (dành cho Java) và npm/pnpm (dành cho Node.js) là các trình
-quản lý thư viện phụ thuộc, đảm nhận việc tải gói hỗ trợ và biên dịch dự án.
+=== Quản lý mã nguồn và phụ thuộc
+
+Git và GitHub được sử dụng để quản lý phiên bản và cộng tác mã nguồn. Maven
+quản lý dependency và build backend Java, còn npm/pnpm phục vụ cài đặt thư viện
+và build frontend React/Vite.
