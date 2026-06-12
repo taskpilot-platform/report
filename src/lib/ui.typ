@@ -74,13 +74,15 @@
 
 #let ui-table-figure(
   table-data,
-  breakable: true,
+  breakable: false,
   caption: none,
+  placement: auto,
 ) = {
   show figure: set block(breakable: breakable)
 
   figure(
     table-data,
     caption: caption,
+    placement: placement,
   )
 }

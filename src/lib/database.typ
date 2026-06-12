@@ -43,5 +43,6 @@
   ..cols,
 ) = ui-table-figure(
   db-table(..cols),
+  breakable: true,
   caption: caption,
 )

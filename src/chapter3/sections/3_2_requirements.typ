@@ -26,7 +26,7 @@ minh trọng số thiết kế và heuristic scoring khi vận hành.
 #figure(
   image(
     "../../assets/taskpilot/chapter3/ch3_02_analysis_design_process.svg",
-    width: 88%,
+    width: 100%,
   ),
   caption: [Quy trình phân tích và thiết kế hệ thống TaskPilot],
 )
@@ -53,7 +53,7 @@ Brevo, OneSignal và GitHub Actions CI/CD.
 #figure(
   image(
     "../../assets/taskpilot/chapter3/ch3_02_testing_deployment_process.svg",
-    width: 88%,
+    width: 96%,
   ),
   caption: [Quy trình kiểm thử và triển khai hệ thống TaskPilot],
 )

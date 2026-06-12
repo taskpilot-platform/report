@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="500" viewBox="0 0 1180 500">
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="330" viewBox="0 40 1180 330">
 
 <style>
   text { font-family: Inter, Arial, sans-serif; fill: #172033; dominant-baseline: middle; }
@@ -8,7 +8,7 @@
   .box { fill: #f8fafc; stroke: #30384d; stroke-width: 1.1; rx: 16; }
   .muted { fill: #e6eaf2; stroke: #667085; stroke-dasharray: 5 4; rx: 16; }
   .label { font-size: 15px; font-weight: 700; }
-  .small { font-size: 12px; font-weight: 600; }
+  .small { font-size: 14px; font-weight: 600; }
   .tiny { font-size: 10px; font-weight: 600; }
   .line { fill: none; stroke: #30384d; stroke-width: 1.35; marker-end: url(#arrow); }
   .dash { fill: none; stroke: #697386; stroke-width: 1.25; stroke-dasharray: 5 4; marker-end: url(#arrow); }
