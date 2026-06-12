@@ -76,11 +76,13 @@
   table-data,
   breakable: false,
   caption: none,
+  placement: auto,
 ) = {
   show figure: set block(breakable: breakable)
 
   figure(
     table-data,
     caption: caption,
+    placement: placement,
   )
 }

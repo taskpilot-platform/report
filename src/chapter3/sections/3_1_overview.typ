@@ -44,6 +44,7 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
 #figure(
   image("../../assets/taskpilot/chapter3/ch3_01_asana_views.jpg", width: 92%),
   caption: [Minh họa giao diện thực tế của Asana],
+  placement: none,
 )
 
 === So sánh và nhận xét
@@ -51,8 +52,9 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
 #{
   set text(size: 11pt)
   ui-table-figure(
-    breakable: true,
+    breakable: false,
     caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
+    placement: none,
     table(
       columns: (1.1fr, 1fr, 0.8fr, 1fr, 1.45fr),
       align: (left + top, left + top, left + top, left + top, left + top),

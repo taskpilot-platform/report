@@ -20,7 +20,7 @@ qua backend.
 #figure(
   image(
     "../../assets/taskpilot/chapter3/ch3_03_system_context.svg",
-    width: 90%,
+    width: 76%,
   ),
   caption: [Sơ đồ System Context của hệ thống TaskPilot],
 )
@@ -28,13 +28,15 @@ qua backend.
 === Các thành phần chính
 
 #{
-  set text(size: 11pt)
+  set text(size: 8.6pt)
   ui-table-figure(
+    breakable: true,
     caption: [Các thành phần chính của hệ thống TaskPilot],
+    placement: none,
     table(
       columns: (1.25fr, 2.35fr, 2.05fr),
       align: (left + top, left + top, left + top),
-      inset: 0.38em,
+      inset: 0.22em,
       stroke: 0.5pt,
       table.header([*Thành phần*], [*Vai trò chính*], [*Ghi chú*]),
       [Người dùng / trình duyệt],

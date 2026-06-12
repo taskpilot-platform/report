@@ -617,6 +617,8 @@ khi người dùng gửi yêu cầu đến khi hệ thống xử lý và sinh ph
 hành động AI có khả năng thay đổi dữ liệu, cơ chế xác nhận của người dùng được
 xử lý ở tầng nghiệp vụ và được trình bày ở mục 3.11.
 
+#pagebreak()
+
 ==== Bảng chat_sessions
 
 Bảng `chat_sessions` được sử dụng để lưu phiên hội thoại AI của người dùng.
