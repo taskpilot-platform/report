@@ -68,8 +68,5 @@ database, AI provider hay dịch vụ gửi thông báo.
 
 === Vai trò trong TaskPilot
 
-TaskPilot chọn Modular Monolith vì phạm vi hệ thống phù hợp với một ứng dụng
-triển khai tập trung, nhưng vẫn cần ranh giới rõ giữa users, projects, AI,
-notification và các adapter hạ tầng. Kết hợp Port & Adapter giúp code dễ kiểm
-thử, giảm phụ thuộc trực tiếp vào công nghệ ngoài và vẫn giữ chi phí triển khai
-ở mức phù hợp cho đồ án.
+TaskPilot sử dụng kiến trúc Modular Monolith để duy trì mô hình triển khai tập trung, đồng thời phân tách rõ trách nhiệm giữa các module users, projects, AI, notification và các adapter hạ tầng. Việc kết hợp Port & Adapter giúp giảm phụ thuộc trực tiếp vào công nghệ bên ngoài, hỗ trợ kiểm thử và giữ ranh giới giao tiếp giữa các module rõ ràng hơn.
+
