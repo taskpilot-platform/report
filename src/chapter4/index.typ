@@ -32,7 +32,8 @@
   tiêu biểu được đặc tả ở Chương 3. Các màn hình khác của hệ thống được lược bỏ
   khỏi phần trình bày để báo cáo tập trung vào luồng đăng nhập, tạo dự án, tạo
   và cập nhật task, gán người thực hiện/người báo cáo và gợi ý phân công bằng
-  AI.
+  AI. Chi tiết đầy đủ về use case, giao diện và API của hệ thống
+  được trình bày tại Phụ lục A – Tài liệu đặc tả mở rộng.
 ]
 
 == UC01 - Đăng nhập hệ thống

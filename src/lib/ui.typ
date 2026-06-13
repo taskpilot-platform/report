@@ -92,6 +92,8 @@
 
   show figure: set block(breakable: breakable)
 
+  show figure.caption: it => block(width: 100%, sticky: true, it)
+
   figure(
     {
       set text(size: applied-size)

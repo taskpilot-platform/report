@@ -1,9 +1,10 @@
-#set figure(numbering: "1.1")
-#show figure.where(kind: "equation"): set figure.caption(position: bottom)
+#set page(height: 10cm)
+
+#show figure.caption: set block(sticky: true) // test if this works
+
+#v(8.5cm)
+
 #figure(
-  $ E = m c^2 $,
-  caption: [Công thức năng lượng],
-  kind: "equation",
-  supplement: [Công thức]
+  caption: [This is a caption],
+  block(breakable: true, table(columns: 1, [A], [B], [C]))
 )
-#outline(target: figure.where(kind: "equation"))

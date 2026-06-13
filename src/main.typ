@@ -207,7 +207,6 @@
 
 #include "./glossaries.typ"
 
-#pagebreak()
 #heading(
   numbering: none,
   outlined: false,

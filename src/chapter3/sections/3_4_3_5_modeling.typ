@@ -80,8 +80,7 @@ Assistant.
   ),
 )
 
-Tổng số use case theo 11 phân hệ là 59. Danh mục đầy đủ UC01-UC59 được lưu trong
-tài liệu dự án trên GitHub Pages.
+Tổng số use case theo 11 phân hệ là 59.
 
 === Quan hệ include/extend và ghi chú nghiệp vụ
 
@@ -95,9 +94,9 @@ tài liệu dự án trên GitHub Pages.
 == Đặc tả use case tiêu biểu
 
 Báo cáo trình bày đặc tả chi tiết 6 use case tiêu biểu nhất, đại diện cho các
-luồng xác thực, quản lý dự án, quản lý task và AI Copilot. Toàn bộ đặc tả đầy
-đủ, sequence diagram và activity diagram của các use case còn lại được tham
-chiếu tại tài liệu hệ thống trên GitHub Pages hoặc trong phần phụ lục của dự án.
+luồng xác thực, quản lý dự án, quản lý task và AI Copilot. Chi tiết đầy đủ về
+use case, giao diện và API của hệ thống được trình bày tại Phụ
+lục A – Tài liệu đặc tả mở rộng.
 
 === Nhóm xác thực
 
