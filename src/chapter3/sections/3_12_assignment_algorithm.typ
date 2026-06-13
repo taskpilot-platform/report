@@ -39,17 +39,16 @@ không có kỹ năng yêu cầu, giá trị phù hợp kỹ năng được xem 
 để không loại ứng viên chỉ vì thiếu dữ liệu. Khi có kỹ năng yêu cầu, công thức
 đang được triển khai là:
 
-$
-  "match_ratio" =
-  ("số kỹ năng yêu cầu được khớp") / ("tổng số kỹ năng yêu cầu")
-$
-
-$
-  "avg_level_normalized" =
-  ("level trung bình của kỹ năng đã khớp") / 5
-$
-
-$ F_"raw" = 0.6 dot "match_ratio" + 0.4 dot "avg_level_normalized" $
+#figure(
+  $
+    "match_ratio" &= ("số kỹ năng yêu cầu được khớp") / ("tổng số kỹ năng yêu cầu") \
+    "avg_level_normalized" &= ("level trung bình của kỹ năng đã khớp") / 5 \
+    F_"raw" &= 0.6 dot "match_ratio" + 0.4 dot "avg_level_normalized"
+  $,
+  caption: [Công thức tính độ phù hợp kỹ năng (Skill fit)],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Ví dụ, nếu task yêu cầu ba kỹ năng, ứng viên khớp hai kỹ năng và level trung bình
 của hai kỹ năng khớp là 4/5, khi đó `F_raw = 0.6 x 2/3 + 0.4 x 0.8 = 0.72`.
@@ -117,12 +116,22 @@ và `HeuristicStrategy` chuẩn hóa theo cấu hình `heuristic.normalization`.
 Thuật toán dùng hai hướng chuẩn hóa min-max. Chuẩn hóa thuận được dùng khi giá
 trị càng cao càng có lợi cho ứng viên:
 
-$ X_"benefit" = (X - X_"min") / (X_"max" - X_"min") $
+#figure(
+  $ X_"benefit" = (X - X_"min") / (X_"max" - X_"min") $,
+  caption: [Công thức chuẩn hóa thuận (Benefit criterion)],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Chuẩn hóa nghịch được dùng khi giá trị cao lại là bất lợi trong ngữ cảnh đang
 xét:
 
-$ X_"cost" = (X_"max" - X) / (X_"max" - X_"min") $
+#figure(
+  $ X_"cost" = (X_"max" - X) / (X_"max" - X_"min") $,
+  caption: [Công thức chuẩn hóa nghịch (Cost criterion)],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Trong thiết kế phân công, `P` luôn là tiêu chí thuận. `F` thường là tiêu chí
 thuận, nhưng có thể chuyển sang chuẩn hóa nghịch trong mode TRAINING để ưu tiên
@@ -130,7 +139,12 @@ người còn ít kinh nghiệm hơn cho task mang tính học việc. Riêng wo
 dùng công thức nghịch ở trên, vì công thức tổng hợp đã trừ thành phần
 `w_load L(u)`. Do đó `L(u)` luôn được giữ theo chiều chi phí tăng dần:
 
-$ L(u) = (X - X_"min") / (X_"max" - X_"min") $
+#figure(
+  $ L(u) = (X - X_"min") / (X_"max" - X_"min") $,
+  caption: [Công thức chuẩn hóa tiêu chí Workload],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Trong code runtime, workload raw còn được tính trực tiếp từ
 `current_workload / 100` sau khi chặn `current_workload` trong khoảng 0-100.
@@ -172,7 +186,12 @@ workload cost và đặt dấu trừ trước thành phần workload.
 
 Sau khi chuẩn hóa, điểm tổng hợp được tính theo công thức:
 
-$ "Score"(u,t) = w_"fit" F(u,t) - w_"load" L(u) + w_"perf" P(u) $
+#figure(
+  $ "Score"(u,t) = w_"fit" F(u,t) - w_"load" L(u) + w_"perf" P(u) $,
+  caption: [Công thức tính điểm tổng hợp gợi ý phân công],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Trong đó `w_fit`, `w_load` và `w_perf` là trọng số đã được chuẩn hóa tổng bằng 1.
 Dấu trừ trước `w_load L(u)` thể hiện workload là chi phí: ứng viên có workload
@@ -261,7 +280,12 @@ các kỹ năng `Java`, `Spring Boot`, `React`; hệ thống xét ba ứng viên
 project. Các giá trị `F`, `L` và `P` trong bảng đã được chuẩn hóa để tập trung vào
 cách áp dụng công thức:
 
-$ "Score"_"BALANCED" = 0.230 F - 0.648 L + 0.122 P $
+#figure(
+  $ "Score"_"BALANCED" = 0.230 F - 0.648 L + 0.122 P $,
+  caption: [Công thức điểm tổng hợp cho mode BALANCED],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 #ui-table-figure(
   caption: [Ví dụ tính điểm gợi ý phân công theo mode BALANCED],

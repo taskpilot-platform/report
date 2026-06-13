@@ -34,7 +34,7 @@ qua backend.
   table(
       columns: (1.25fr, 2.35fr, 2.05fr),
       align: (left + top, left + top, left + top),
-      inset: 0.22em,
+      inset: 0.6em,
       stroke: 0.5pt,
       table.header([*Thành phần*], [*Vai trò chính*], [*Ghi chú*]),
       [Người dùng / trình duyệt],
@@ -105,7 +105,7 @@ trên Netlify.
   table(
       columns: (1.45fr, 3.55fr),
       align: (left + top, left + top),
-      inset: 0.38em,
+      inset: 0.6em,
       stroke: 0.5pt,
       table.header([*Lớp frontend*], [*Vai trò*]),
       [Pages/Screens], [Tổ chức các màn hình nghiệp vụ chính.],

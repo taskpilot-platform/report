@@ -57,7 +57,7 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
     table(
       columns: (1.1fr, 1fr, 0.8fr, 1fr, 1.45fr),
       align: (left + top, left + top, left + top, left + top, left + top),
-      inset: 0.38em,
+      inset: 0.6em,
       stroke: 0.5pt,
       table.header(
         [*Tiêu chí*],

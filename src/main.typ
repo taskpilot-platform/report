@@ -207,6 +207,33 @@
 
 #include "./glossaries.typ"
 
+#pagebreak()
+#heading(
+  numbering: none,
+  outlined: false,
+  [Danh mục công thức],
+)
+#context {
+  show outline.entry: it => {
+    let elem = it.element
+    let new-prefix = if it.prefix() != none {
+      [#it.prefix():]
+    } else {
+      none
+    }
+    show link: set text(fill: luma(0%))
+    link(
+      elem.location(),
+      it.indented(new-prefix, it.inner()),
+    )
+  }
+  outline(
+    title: none,
+    target: figure.where(kind: "equation"),
+  )
+}
+
+
 #set page(
   numbering: "1",
   footer: context {
@@ -233,6 +260,7 @@
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(figure.where(kind: raw)).update(0)
+    counter(figure.where(kind: "equation")).update(0)
     align(center, [
       #if it.numbering != none [
         #it.supplement #counter(heading).display(it.numbering)
@@ -263,4 +291,4 @@
 
 #metadata(none) <end-content>
 
-//#include "./appendix/index.typ"
+#include "./appendix/index.typ"

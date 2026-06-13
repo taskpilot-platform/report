@@ -26,7 +26,11 @@
     if idx > 1 { pagebreak() }
 
     let letter = numbering("A", idx)
-    [Phụ lục #letter. #upper(it.body)]
+    block(
+      width: 100%,
+      below: 1.5em,
+      text(weight: "bold", size: 14pt)[Phụ lục #letter. #upper(it.body)]
+    )
   }
 
   let numbering-eq = (..n) => {

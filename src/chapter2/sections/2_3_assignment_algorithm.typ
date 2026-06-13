@@ -24,7 +24,12 @@ chi phí tính toán thấp và dễ giải thích lý do xếp hạng.
 
 Công thức tổng quát:
 
-$ "Score" = w_1 dot c_1 + w_2 dot c_2 + dots + w_n dot c_n $
+#figure(
+  $ "Score" = w_1 dot c_1 + w_2 dot c_2 + dots + w_n dot c_n $,
+  caption: [Công thức tính điểm tổng hợp cơ bản],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 Trong đó, $w$ là trọng số và $c$ là điểm của tiêu chí tương ứng. Hạn chế chính
 của mô hình là chất lượng kết quả phụ thuộc vào cách chọn trọng số ban đầu.
@@ -35,7 +40,12 @@ Min-Max Normalization đưa các tiêu chí có thang đo khác nhau về cùng 
 trị, thường là từ 0 đến 1. Kỹ thuật này giúp điểm kỹ năng, workload và
 performance có thể được so sánh trong cùng một công thức.
 
-$ x' = (x - "min"(x)) / ("max"(x) - "min"(x)) $
+#figure(
+  $ x' = (x - "min"(x)) / ("max"(x) - "min"(x)) $,
+  caption: [Công thức chuẩn hóa Min-Max (Min-Max Normalization)],
+  kind: "equation",
+  supplement: [Công thức]
+)
 
 
 === Analytic Hierarchy Process

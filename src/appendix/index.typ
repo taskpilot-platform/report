@@ -4,10 +4,4 @@
 
 = Phụ lục
 
-#include "./blocknote.typ"
-
-#include "./casbin.typ"
-
-#include "./healthcheck.typ"
-
-#include "./sqlc.typ"
+#include "./online_docs.typ"
