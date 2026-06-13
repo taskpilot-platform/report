@@ -26,6 +26,7 @@ frontend gọi trực tiếp tới cơ sở dữ liệu hay các AI provider.
 Dự án được cấu trúc thành các module chính:
 
 #ui-table-figure(
+  breakable: true,
   caption: [Vai trò các module backend trong kiến trúc Modular Monolith],
   table(
     columns: (1fr, 2fr, 2fr),

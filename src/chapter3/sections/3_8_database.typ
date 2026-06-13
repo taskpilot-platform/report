@@ -98,6 +98,7 @@ nội dung này được trình bày ở mục 3.8.6.
   ),
 )
 #ui-table-figure(
+  breakable: true,
   caption: [Các kiểu enum chính trong cơ sở dữ liệu TaskPilot],
   table(
     columns: (1fr, 1.5fr, 2fr),
@@ -437,7 +438,7 @@ một bảng.
 
 #db-table-figure(
   caption: [Mô tả chi tiết bảng `labels`],
-  breakable: false,
+  breakable: true,
   placement: none,
   column([`id`], [`bigint`], [PK, NOT NULL], [Định danh label.]),
   column([`project_id`], [`bigint`], [FK, NOT NULL], [Project sở hữu label; tham

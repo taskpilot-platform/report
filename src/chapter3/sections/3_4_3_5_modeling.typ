@@ -104,7 +104,7 @@ lục A – Tài liệu đặc tả mở rộng.
   [UC01 - Đăng nhập hệ thống],
   "../../assets/taskpilot/chapter3/sequence-auth-login.svg",
   [Sequence diagram mô tả use case đăng nhập hệ thống],
-  width: 96%,
+  width: 100%,
 )
 
 #usecase-figure(
@@ -151,7 +151,7 @@ lục A – Tài liệu đặc tả mở rộng.
   [UC23 - Tạo dự án mới],
   "../../assets/taskpilot/chapter3/sequence-project-management-create-new-project.svg",
   [Sequence diagram mô tả use case tạo dự án mới],
-  width: 96%,
+  width: 100%,
 )
 
 #usecase-figure(
@@ -193,7 +193,7 @@ lục A – Tài liệu đặc tả mở rộng.
   [UC44 - Tạo task / sub-task mới],
   "../../assets/taskpilot/chapter3/sequence-task-management-create-new-task.svg",
   [Sequence diagram mô tả use case tạo task/sub-task mới],
-  width: 96%,
+  width: 100%,
 )
 
 #usecase-figure(
@@ -229,7 +229,7 @@ lục A – Tài liệu đặc tả mở rộng.
   [UC46 - Cập nhật trạng thái task / kéo thả Kanban],
   "../../assets/taskpilot/chapter3/sequence-task-management-update-task-status.svg",
   [Sequence diagram mô tả use case cập nhật trạng thái task],
-  width: 96%,
+  width: 100%,
 )
 
 #usecase-figure(

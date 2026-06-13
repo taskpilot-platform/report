@@ -18,7 +18,7 @@ tảng triển khai.
 
 #ui-table-figure(
   caption: [Các thành phần triển khai chính của TaskPilot],
-  breakable: false,
+  breakable: true,
   placement: none,
   table(
     columns: (1.2fr, 2fr, 2.4fr),
