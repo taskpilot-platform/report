@@ -29,7 +29,17 @@
     white
   },
 )
-#show table.cell.where(y: 0): set text(black)
+#show table.cell.where(y: 0): it => {
+  if it.align == center + horizon {
+    it
+  } else {
+    let fields = it.fields()
+    let body = fields.remove("body")
+    fields.insert("align", center + horizon)
+    table.cell(..fields, body)
+  }
+}
+#show table.cell.where(y: 0): set text(black, weight: "bold")
 #show table: set par(justify: false)
 
 #set par(
@@ -56,6 +66,7 @@
 #show heading.where(level: 1): it => {
   pagebreak()
   upper(it)
+  v(0.4em)
 }
 
 #set figure(
@@ -177,6 +188,34 @@
     )
   }
 
+  {
+    show outline.entry: it => {
+      let elem = it.element
+      let new-prefix = if it.prefix() != none {
+        [#it.prefix():]
+      } else {
+        none
+      }
+
+      show link: set text(fill: luma(0%))
+      link(
+        elem.location(),
+        it.indented(new-prefix, it.inner()),
+      )
+    }
+    outline(
+      title: "Danh mục công thức",
+      target: figure
+        .where(
+          kind: "equation",
+        )
+        .before(
+          loc.first().location(),
+          inclusive: false,
+        ),
+    )
+  }
+
   // outline(
   //   title: "Danh mục bảng chương trình",
   //   target: figure
@@ -207,31 +246,6 @@
 
 #include "./glossaries.typ"
 
-#heading(
-  numbering: none,
-  outlined: false,
-  [Danh mục công thức],
-)
-#context {
-  show outline.entry: it => {
-    let elem = it.element
-    let new-prefix = if it.prefix() != none {
-      [#it.prefix():]
-    } else {
-      none
-    }
-    show link: set text(fill: luma(0%))
-    link(
-      elem.location(),
-      it.indented(new-prefix, it.inner()),
-    )
-  }
-  outline(
-    title: none,
-    target: figure.where(kind: "equation"),
-  )
-}
-
 
 #set page(
   numbering: "1",
@@ -252,6 +266,11 @@
   set heading(numbering: "1.")
 
   set heading(supplement: [Chương])
+
+  show heading.where(level: 2): set text(size: 14pt)
+  show heading.where(level: 2): set block(below: 1.1em)
+  show heading.where(level: 3): set text(size: 13pt)
+  show heading.where(level: 3): set block(below: 1.1em)
 
   show heading.where(level: 1): it => context {
     pagebreak()

@@ -8,7 +8,7 @@ cần cập nhật tức thời từ server đến client như notification tron
 comment event và streaming phản hồi AI.
 
 #figure(
-  image("../../assets/taskpilot/chapter2/ch2_19_sse.svg", width: 100%),
+  pad(bottom: -1.5em, image("../../assets/taskpilot/chapter2/ch2_19_sse.svg", width: 100%)),
   caption: [Server-Sent Events],
 )
 

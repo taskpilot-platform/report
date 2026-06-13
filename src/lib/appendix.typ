@@ -28,7 +28,8 @@
     let letter = numbering("A", idx)
     block(
       width: 100%,
-      below: 1.5em,
+      above: 0.4em,
+      below: 1em,
       text(weight: "bold", size: 14pt)[Phụ lục #letter. #upper(it.body)]
     )
   }
