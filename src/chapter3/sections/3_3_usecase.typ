@@ -18,10 +18,10 @@ cập trực tiếp cơ sở dữ liệu; mọi ngữ cảnh và hành động p
 qua backend.
 
 #figure(
-  image(
-    "../../assets/taskpilot/chapter3/ch3_03_system_context.svg",
-    width: 76%,
-  ),
+  pad(bottom: -2.5em, image(
+    "../../assets/diagrams/ch3_03_system_context.svg",
+    width: 80%,
+  )),
   caption: [Sơ đồ System Context của hệ thống TaskPilot],
 )
 

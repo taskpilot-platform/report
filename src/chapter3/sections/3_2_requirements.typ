@@ -51,10 +51,10 @@ chạy container trên Hugging Face Space, PostgreSQL đặt trên Supabase, k�
 Brevo, OneSignal và GitHub Actions CI/CD.
 
 #figure(
-  image(
+  pad(bottom: -7.5em, image(
     "../../assets/taskpilot/chapter3/ch3_02_testing_deployment_process.svg",
     width: 96%,
-  ),
+  )),
   caption: [Quy trình kiểm thử và triển khai hệ thống TaskPilot],
 )
 

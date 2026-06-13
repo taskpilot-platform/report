@@ -21,7 +21,7 @@ theo mục tiêu đã thống nhất. Các khái niệm này tương ứng trự
 dự án, sprint và task trong TaskPilot.
 
 #figure(
-  image("../../assets/taskpilot/chapter2/ch2_02_scrum_sprint.svg", width: 100%),
+  pad(bottom: -2em, image("../../assets/taskpilot/chapter2/ch2_02_scrum_sprint.svg", width: 100%)),
   caption: [Minh họa quy trình Scrum và Sprint],
 )
 

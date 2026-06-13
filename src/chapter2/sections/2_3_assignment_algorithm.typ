@@ -37,9 +37,6 @@ performance có thể được so sánh trong cùng một công thức.
 
 $ x' = (x - "min"(x)) / ("max"(x) - "min"(x)) $
 
-Trong TaskPilot, chuẩn hóa chỉ đóng vai trò biến đổi dữ liệu đầu vào; cách áp
-dụng chi tiết cho từng tiêu chí được mô tả trong phần thiết kế thuật toán ở
-Chương 3.
 
 === Analytic Hierarchy Process
 

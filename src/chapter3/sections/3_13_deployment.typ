@@ -8,10 +8,10 @@ hạ tầng để mô tả rõ trách nhiệm triển khai. Các thông tin cấ
 tảng triển khai.
 
 #figure(
-  image(
+  pad(bottom: -3em, image(
     "../../assets/diagrams/ch3_13_deployment_architecture.png",
     width: 100%,
-  ),
+  )),
   caption: [Sơ đồ Deployment Architecture tổng quan của TaskPilot],
   placement: none,
 )

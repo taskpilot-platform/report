@@ -1,10 +1,10 @@
 == Tổng quan về Docker, CI/CD và nền tảng triển khai
 
 #figure(
-  image(
+  pad(bottom: -5em, image(
     "../../assets/taskpilot/chapter2/ch2_22_cicd_deployment.svg",
     width: 100%,
-  ),
+  )),
   caption: [Quy trình CI/CD và triển khai TaskPilot],
 )
 

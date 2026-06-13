@@ -56,11 +56,12 @@ heuristic. Các thay đổi của database schema được quản lý bằng Fly
 nội dung này được trình bày ở mục 3.8.6.
 
 #figure(
-  image("../../assets/sync-diagrams/database/taskpilot_erd.svg", width: 100%),
+  pad(bottom: -1em, image("../../assets/sync-diagrams/database/taskpilot_erd.svg", width: 100%)),
   caption: [Sơ đồ ERD tổng quát của cơ sở dữ liệu TaskPilot],
 )
 
 #ui-table-figure(
+  breakable: true,
   caption: [Phân nhóm dữ liệu chính trong cơ sở dữ liệu TaskPilot],
   table(
     columns: (1.5fr, 1.5fr, 2fr),
@@ -780,10 +781,11 @@ thực thi migration.
 )
 
 #figure(
+  pad(bottom: -4.5em, 
   image(
     "../../assets/diagrams/ch3_08_flyway_change_management.svg",
     width: 100%,
-  ),
+  )),
   caption: [Quy trình quản lý thay đổi cơ sở dữ liệu bằng Flyway],
   placement: none,
 )

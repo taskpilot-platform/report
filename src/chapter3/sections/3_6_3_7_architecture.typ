@@ -10,10 +10,10 @@ theo ranh giới nghiệp vụ (Domain-Driven Design). Cách tiếp cận này m
 không phát sinh chi phí vận hành hạ tầng phức tạp.
 
 #figure(
-  image(
+  pad(bottom: -0.5em, image(
     "../../assets/diagrams/ch3_06_backend_modular_monolith.png",
     width: 100%,
-  ),
+  )),
   caption: [Sơ đồ kiến trúc backend Modular Monolith của TaskPilot],
 )
 
@@ -111,44 +111,32 @@ tương ứng vào Port.
   caption: [Các port và adapter tiêu biểu trong backend TaskPilot],
   breakable: true,
   table(
-    columns: (1.25fr, 1.35fr, 1.05fr, 1.1fr, 1.65fr),
-    align: (left + top, left + top, left + top, left + top, left + top),
+    columns: (1.1fr, 1.5fr, 1.6fr),
+    align: (left + top, left + top, left + top),
     stroke: 0.5pt,
     table.header(
       [*Port/nhóm nghiệp vụ*],
-      [*Adapter triển khai*],
-      [*Module sở hữu*],
-      [*Module sử dụng*],
+      [*Adapter & Giao tiếp*],
       [*Mục đích*],
     ),
     [User/Profile/Skill ports],
-    [`UserModuleAdapter`],
-    [`taskpilot-users`],
-    [`taskpilot-projects`, `taskpilot-ai`],
+    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:* `taskpilot-projects`, `taskpilot-ai`],
     [Truy vấn thông tin người dùng, hồ sơ và kỹ năng cá nhân.],
 
     [Project/Assignment ports],
-    [`ProjectModuleAdapter`],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
+    [`ProjectModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
     [Truy vấn thành viên, hiệu suất và cấu hình project.],
 
     [AI query/project ports],
-    [`AiQueryModuleAdapter`],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
+    [`AiQueryModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
     [Cung cấp ngữ cảnh project, tiến độ, workload và dữ liệu task cho AI.],
 
     [Task/Sprint/Comment ports],
-    [`TaskCommentService`],
-    [`taskpilot-projects`],
-    [`taskpilot-ai`],
+    [`TaskCommentService` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
     [Truy vấn hoặc thao tác liên quan đến task, sprint và comment.],
 
     [Notification ports],
-    [`UserModuleAdapter`],
-    [`taskpilot-users`],
-    [`taskpilot-projects`, `taskpilot-ai`],
+    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:* `taskpilot-projects`, `taskpilot-ai`],
     [Tạo/gửi thông báo khi có sự kiện nghiệp vụ.],
   ),
 )
