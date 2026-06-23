@@ -43,40 +43,84 @@ Assistant.
   caption: [Tổng hợp 59 use case theo phân hệ của hệ thống TaskPilot],
   placement: none,
   table(
-      columns: (1.45fr, 0.9fr, 0.55fr, 1.25fr, 2.15fr),
-      align: (left + top, left + top, center + top, left + top, left + top),
-      inset: (x: 0.32em, y: 0.36em),
-      stroke: 0.5pt,
-      table.header(
-        [*Phân hệ*],
-        [*Phạm vi UC*],
-        [*Số lượng*],
-        [*Actor chính*],
-        [*Chức năng tiêu biểu*],
-      ),
-      [Authentication], [UC01-UC04], [4], [Guest, Admin, PM, Member],
-      [Đăng nhập, đăng ký, quên mật khẩu và đặt lại mật khẩu.],
-      [User Profile], [UC05-UC07], [3], [Admin, PM, Member],
-      [Cập nhật thông tin cá nhân, xem hồ sơ và xóa tài khoản cá nhân.],
-      [User Skills], [UC08-UC12], [5], [PM, Member],
-      [Xem, thêm, cập nhật và xóa kỹ năng cá nhân.],
-      [System Administration], [UC13-UC21], [9], [Admin],
-      [Cấu hình tham số hệ thống, quản lý kỹ năng hệ thống và người dùng.],
-      [Project Management], [UC22-UC28], [7], [Project Manager, PM, Member],
-      [Truy vấn, tạo, xem, cập nhật, tham gia, rời và lưu trữ project.],
-      [Project Members], [UC29-UC33], [5], [Project Manager, PM, Member],
-      [Truy vấn, xem, thêm, cập nhật vai trò và xóa thành viên project.],
-      [Sprint Management], [UC34-UC39], [6], [PM, Member],
-      [Truy vấn, xem, tạo, cập nhật, khởi động/kết thúc và xóa sprint.],
-      [Task Management], [UC40-UC48], [9], [PM, Member],
-      [Kanban, backlog, workload, chi tiết task, tạo/cập nhật task, kéo thả,
-        gán người thực hiện và xóa task.],
-      [Interaction & Communication], [UC49-UC52], [4], [PM, Member],
-      [Xem, viết, sửa và xóa bình luận.],
-      [Notification Management], [UC53-UC54], [2], [Admin, PM, Member],
-      [Tiếp nhận thông báo và đánh dấu thông báo đã đọc.],
-      [AI Assistant], [UC55-UC59], [5], [Admin, PM, Member, Project Manager],
-      [Tạo phiên chat, hỏi đáp AI, xem lịch sử/log và yêu cầu AI gợi ý phân công.],
+    columns: (1.45fr, 0.9fr, 0.55fr, 1.25fr, 2.15fr),
+    align: (left + top, left + top, center + top, left + top, left + top),
+    inset: (x: 0.32em, y: 0.36em),
+    stroke: 0.5pt,
+    table.header(
+      [*Phân hệ*],
+      [*Phạm vi UC*],
+      [*Số lượng*],
+      [*Actor chính*],
+      [*Chức năng tiêu biểu*],
+    ),
+    [Authentication],
+    [UC01-UC04],
+    [4],
+    [Guest, Admin, PM, Member],
+    [Đăng nhập, đăng ký, quên mật khẩu và đặt lại mật khẩu.],
+
+    [User Profile],
+    [UC05-UC07],
+    [3],
+    [Admin, PM, Member],
+    [Cập nhật thông tin cá nhân, xem hồ sơ và xóa tài khoản cá nhân.],
+
+    [User Skills],
+    [UC08-UC12],
+    [5],
+    [PM, Member],
+    [Xem, thêm, cập nhật và xóa kỹ năng cá nhân.],
+
+    [System Administration],
+    [UC13-UC21],
+    [9],
+    [Admin],
+    [Cấu hình tham số hệ thống, quản lý kỹ năng hệ thống và người dùng.],
+
+    [Project Management],
+    [UC22-UC28],
+    [7],
+    [Project Manager, PM, Member],
+    [Truy vấn, tạo, xem, cập nhật, tham gia, rời và lưu trữ project.],
+
+    [Project Members],
+    [UC29-UC33],
+    [5],
+    [Project Manager, PM, Member],
+    [Truy vấn, xem, thêm, cập nhật vai trò và xóa thành viên project.],
+
+    [Sprint Management],
+    [UC34-UC39],
+    [6],
+    [PM, Member],
+    [Truy vấn, xem, tạo, cập nhật, khởi động/kết thúc và xóa sprint.],
+
+    [Task Management],
+    [UC40-UC48],
+    [9],
+    [PM, Member],
+    [Kanban, backlog, workload, chi tiết task, tạo/cập nhật task, kéo thả, gán
+      người thực hiện và xóa task.],
+
+    [Interaction & Communication],
+    [UC49-UC52],
+    [4],
+    [PM, Member],
+    [Xem, viết, sửa và xóa bình luận.],
+
+    [Notification Management],
+    [UC53-UC54],
+    [2],
+    [Admin, PM, Member],
+    [Tiếp nhận thông báo và đánh dấu thông báo đã đọc.],
+
+    [AI Assistant],
+    [UC55-UC59],
+    [5],
+    [Admin, PM, Member, Project Manager],
+    [Tạo phiên chat, hỏi đáp AI, xem lịch sử/log và yêu cầu AI gợi ý phân
+      công.],
   ),
 )
 
@@ -95,8 +139,8 @@ Tổng số use case theo 11 phân hệ là 59.
 
 Báo cáo trình bày đặc tả chi tiết 6 use case tiêu biểu nhất, đại diện cho các
 luồng xác thực, quản lý dự án, quản lý task và AI Copilot. Chi tiết đầy đủ về
-use case, giao diện và API của hệ thống được trình bày tại Phụ
-lục A – Tài liệu đặc tả mở rộng.
+use case, giao diện và API của hệ thống được trình bày tại Phụ lục A – Tài liệu
+đặc tả mở rộng.
 
 === Nhóm xác thực
 

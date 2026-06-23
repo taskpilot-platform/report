@@ -30,7 +30,7 @@
       width: 100%,
       above: 0.4em,
       below: 1em,
-      text(weight: "bold", size: 14pt)[Phụ lục #letter. #upper(it.body)]
+      text(weight: "bold", size: 14pt)[Phụ lục #letter. #upper(it.body)],
     )
   }
 

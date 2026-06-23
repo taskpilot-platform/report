@@ -28,7 +28,7 @@ Công thức tổng quát:
   $ "Score" = w_1 dot c_1 + w_2 dot c_2 + dots + w_n dot c_n $,
   caption: [Công thức tính điểm tổng hợp cơ bản],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 Trong đó, $w$ là trọng số và $c$ là điểm của tiêu chí tương ứng. Hạn chế chính
@@ -44,21 +44,21 @@ performance có thể được so sánh trong cùng một công thức.
   $ x' = (x - "min"(x)) / ("max"(x) - "min"(x)) $,
   caption: [Công thức chuẩn hóa Min-Max (Min-Max Normalization)],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 
 === Analytic Hierarchy Process
 
-Analytic Hierarchy Process (AHP) là phương pháp ra quyết định sử dụng ma trận
-so sánh cặp để xác định mức quan trọng tương đối giữa các tiêu chí [4]. AHP hỗ
-trợ kiểm tra tỷ số nhất quán, nhờ đó việc thiết lập trọng số có cơ sở hơn so
-với gán thủ công hoàn toàn.
+Analytic Hierarchy Process (AHP) là phương pháp ra quyết định sử dụng ma trận so
+sánh cặp để xác định mức quan trọng tương đối giữa các tiêu chí [4]. AHP hỗ trợ
+kiểm tra tỷ số nhất quán, nhờ đó việc thiết lập trọng số có cơ sở hơn so với gán
+thủ công hoàn toàn.
 
 === Vai trò trong TaskPilot
 
 TaskPilot kết hợp AHP, Min-Max Normalization và Weighted Scoring Model theo hai
 lớp: AHP hỗ trợ xây dựng trọng số cho các mode phân công, còn runtime dùng công
-thức chấm điểm có trọng số để xếp hạng ứng viên nhanh. Cách kết hợp này cân
-bằng giữa tính giải thích, chi phí tính toán và khả năng điều chỉnh theo mục
-tiêu quản lý.
+thức chấm điểm có trọng số để xếp hạng ứng viên nhanh. Cách kết hợp này cân bằng
+giữa tính giải thích, chi phí tính toán và khả năng điều chỉnh theo mục tiêu
+quản lý.

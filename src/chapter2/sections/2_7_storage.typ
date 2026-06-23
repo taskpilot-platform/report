@@ -12,8 +12,8 @@ member, sprint, task, comment, notification và cấu hình hệ thống.
 )
 
 PostgreSQL phù hợp với TaskPilot vì các thực thể nghiệp vụ có nhiều quan hệ và
-cần ràng buộc toàn vẹn dữ liệu. Công nghệ này cũng tích hợp trực tiếp với
-Spring Data JPA và Flyway ở backend.
+cần ràng buộc toàn vẹn dữ liệu. Công nghệ này cũng tích hợp trực tiếp với Spring
+Data JPA và Flyway ở backend.
 
 === Redis
 

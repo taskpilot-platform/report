@@ -50,66 +50,78 @@ AI Copilot có kiểm soát và gợi ý phân công minh bạch.
 === So sánh và nhận xét
 
 #ui-table-figure(
-    compact: true,
-    breakable: true,
-    caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
-    placement: none,
-    table(
-      columns: (1.1fr, 1fr, 0.8fr, 1fr, 1.45fr),
-      align: (left + top, left + top, left + top, left + top, left + top),
-      inset: 0.6em,
-      stroke: 0.5pt,
-      table.header(
-        [*Tiêu chí*],
-        [#box(image("../../assets/images/logos/jira-logo.svg", height: 1.2em), baseline: 20%) *Jira*],
-        [#box(image("../../assets/images/logos/trello-logo.svg", height: 1.2em), baseline: 20%) *Trello*],
-        [#box(image("../../assets/images/logos/asana-logo.svg", height: 1.2em), baseline: 20%) *Asana*],
-        [#box(image("../../assets/images/logos/taskpilot-logo.png", height: 1.2em), baseline: 20%) *TaskPilot*]
-      ),
-      [Quản lý dự án/task],
-      [Rất chi tiết],
-      [Cơ bản],
-      [Chi tiết],
-      [Phạm vi tập trung vào chức năng cốt lõi],
-
-      [Kanban board], [Có], [Có, trực quan], [Có], [Có],
-      [Sprint/backlog],
-      [Mạnh],
-      [Không sẵn có],
-      [Qua tùy chỉnh],
-      [Có ở mức cơ bản],
-
-      [Cộng tác/thông báo],
-      [Tốt],
-      [Tốt],
-      [Rất tốt],
-      [Bình luận, mention, thông báo],
-
-      [Theo dõi workload],
-      [Qua addon/báo cáo],
-      [Hạn chế],
-      [Có],
-      [Phục vụ gợi ý phân công],
-
-      [Tùy biến workflow], [Rất cao], [Thấp], [Trung bình], [Có kiểm soát],
-      [AI Copilot],
-      [Jira Intelligence],
-      [Hạn chế],
-      [Asana Intelligence],
-      [Function Calling có xác nhận],
-
-      [Gợi ý phân công],
-      [Hạn chế],
-      [Không],
-      [Không chuyên sâu],
-      [Trọng tâm, dùng heuristic],
-
-      [Triển khai trong phạm vi hệ thống TaskPilot],
-      [Quá phức tạp],
-      [Thiếu cấu trúc],
-      [Vượt phạm vi],
-      [Tập trung vào project, sprint, task, collaboration và AI Copilot],
+  compact: true,
+  breakable: true,
+  caption: [So sánh các công cụ quản lý dự án và định hướng của TaskPilot],
+  placement: none,
+  table(
+    columns: (1.1fr, 1fr, 0.8fr, 1fr, 1.45fr),
+    align: (left + top, left + top, left + top, left + top, left + top),
+    inset: 0.6em,
+    stroke: 0.5pt,
+    table.header(
+      [*Tiêu chí*],
+      [#box(
+          image("../../assets/images/logos/jira-logo.svg", height: 1.2em),
+          baseline: 20%,
+        ) *Jira*],
+      [#box(
+          image("../../assets/images/logos/trello-logo.svg", height: 1.2em),
+          baseline: 20%,
+        ) *Trello*],
+      [#box(
+          image("../../assets/images/logos/asana-logo.svg", height: 1.2em),
+          baseline: 20%,
+        ) *Asana*],
+      [#box(
+          image("../../assets/images/logos/taskpilot-logo.png", height: 1.2em),
+          baseline: 20%,
+        ) *TaskPilot*],
     ),
+    [Quản lý dự án/task],
+    [Rất chi tiết],
+    [Cơ bản],
+    [Chi tiết],
+    [Phạm vi tập trung vào chức năng cốt lõi],
+
+    [Kanban board], [Có], [Có, trực quan], [Có], [Có],
+    [Sprint/backlog],
+    [Mạnh],
+    [Không sẵn có],
+    [Qua tùy chỉnh],
+    [Có ở mức cơ bản],
+
+    [Cộng tác/thông báo],
+    [Tốt],
+    [Tốt],
+    [Rất tốt],
+    [Bình luận, mention, thông báo],
+
+    [Theo dõi workload],
+    [Qua addon/báo cáo],
+    [Hạn chế],
+    [Có],
+    [Phục vụ gợi ý phân công],
+
+    [Tùy biến workflow], [Rất cao], [Thấp], [Trung bình], [Có kiểm soát],
+    [AI Copilot],
+    [Jira Intelligence],
+    [Hạn chế],
+    [Asana Intelligence],
+    [Function Calling có xác nhận],
+
+    [Gợi ý phân công],
+    [Hạn chế],
+    [Không],
+    [Không chuyên sâu],
+    [Trọng tâm, dùng heuristic],
+
+    [Triển khai trong phạm vi hệ thống TaskPilot],
+    [Quá phức tạp],
+    [Thiếu cấu trúc],
+    [Vượt phạm vi],
+    [Tập trung vào project, sprint, task, collaboration và AI Copilot],
+  ),
 )
 
 Nhìn chung, Jira, Trello và Asana đều trưởng thành, nhưng hoặc quá phức tạp,

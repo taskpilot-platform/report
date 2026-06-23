@@ -26,9 +26,7 @@ tảng triển khai.
     inset: 0.5em,
     stroke: 0.5pt,
     table.header([*Thành phần*], [*Nền tảng triển khai/dịch vụ*], [*Vai trò*]),
-    [Frontend],
-    [Netlify],
-    [Phục vụ React SPA cho trình duyệt người dùng.],
+    [Frontend], [Netlify], [Phục vụ React SPA cho trình duyệt người dùng.],
 
     [Backend],
     [Hugging Face Space],
@@ -54,8 +52,8 @@ tảng triển khai.
 === Kiến trúc triển khai tổng quan
 
 - *Frontend:* Ứng dụng React được build tĩnh bằng Vite và phục vụ trên nền tảng
-  hosting Netlify. Frontend giao tiếp với backend thông qua các REST API
-  hoặc luồng Server-Sent Events (SSE).
+  hosting Netlify. Frontend giao tiếp với backend thông qua các REST API hoặc
+  luồng Server-Sent Events (SSE).
 - *Backend:* Triển khai trên Hugging Face Space dưới dạng một Docker container
   duy nhất chứa toàn bộ các module Spring Boot (Modular Monolith), lắng nghe
   request trên cổng `7860`.

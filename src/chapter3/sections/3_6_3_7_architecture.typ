@@ -79,8 +79,8 @@ Nhờ sự phân tách này:
   Storage, Mail, JWT).
 
 Sự phân tách này giúp giảm phụ thuộc khi bổ sung module hoặc adapter mới. Để
-giải quyết bài toán giao tiếp nội bộ giữa các module (đặc biệt là AI cần lấy
-ngữ cảnh từ Projects), hệ thống sử dụng cơ chế Port & Adapter qua
+giải quyết bài toán giao tiếp nội bộ giữa các module (đặc biệt là AI cần lấy ngữ
+cảnh từ Projects), hệ thống sử dụng cơ chế Port & Adapter qua
 `taskpilot-contracts`.
 
 == Thiết kế giao tiếp liên module bằng Port & Adapter
@@ -116,28 +116,31 @@ tương ứng vào Port.
     align: (left + top, left + top, left + top),
     stroke: 0.5pt,
     table.header(
-      [*Port/nhóm nghiệp vụ*],
-      [*Adapter & Giao tiếp*],
-      [*Mục đích*],
+      [*Port/nhóm nghiệp vụ*], [*Adapter & Giao tiếp*], [*Mục đích*]
     ),
     [User/Profile/Skill ports],
-    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:* `taskpilot-projects`, `taskpilot-ai`],
+    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:*
+      `taskpilot-projects`, `taskpilot-ai`],
     [Truy vấn thông tin người dùng, hồ sơ và kỹ năng cá nhân.],
 
     [Project/Assignment ports],
-    [`ProjectModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
+    [`ProjectModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:*
+      `taskpilot-ai`],
     [Truy vấn thành viên, hiệu suất và cấu hình project.],
 
     [AI query/project ports],
-    [`AiQueryModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
+    [`AiQueryModuleAdapter` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:*
+      `taskpilot-ai`],
     [Cung cấp ngữ cảnh project, tiến độ, workload và dữ liệu task cho AI.],
 
     [Task/Sprint/Comment ports],
-    [`TaskCommentService` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:* `taskpilot-ai`],
+    [`TaskCommentService` \ *Sở hữu:* `taskpilot-projects` \ *Sử dụng:*
+      `taskpilot-ai`],
     [Truy vấn hoặc thao tác liên quan đến task, sprint và comment.],
 
     [Notification ports],
-    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:* `taskpilot-projects`, `taskpilot-ai`],
+    [`UserModuleAdapter` \ *Sở hữu:* `taskpilot-users` \ *Sử dụng:*
+      `taskpilot-projects`, `taskpilot-ai`],
     [Tạo/gửi thông báo khi có sự kiện nghiệp vụ.],
   ),
 )
@@ -150,12 +153,12 @@ tương ứng vào Port.
 === Luồng AI module truy vấn Project/User qua contract
 
 Khi AI module cần ngữ cảnh project, task hoặc người dùng, module này không truy
-cập trực tiếp cơ sở dữ liệu của domain khác. Luồng xử lý đi theo chuỗi: AI module
-gọi contract/port trong `taskpilot-contracts`, domain adapter tương ứng tiếp
-nhận yêu cầu, thực hiện kiểm tra quyền và xử lý nghiệp vụ tại module sở hữu dữ
-liệu, sau đó trả về DTO đã được kiểm soát để AI module tạo phản hồi hoặc đề xuất
-thao tác. Bất kỳ thay đổi dữ liệu nào vẫn phải được người dùng xác nhận và đi
-qua lớp kiểm tra quyền của module đích.
+cập trực tiếp cơ sở dữ liệu của domain khác. Luồng xử lý đi theo chuỗi: AI
+module gọi contract/port trong `taskpilot-contracts`, domain adapter tương ứng
+tiếp nhận yêu cầu, thực hiện kiểm tra quyền và xử lý nghiệp vụ tại module sở hữu
+dữ liệu, sau đó trả về DTO đã được kiểm soát để AI module tạo phản hồi hoặc đề
+xuất thao tác. Bất kỳ thay đổi dữ liệu nào vẫn phải được người dùng xác nhận và
+đi qua lớp kiểm tra quyền của module đích.
 
 Sau khi làm rõ ranh giới module backend và cơ chế giao tiếp, phần tiếp theo sẽ
 trình bày thiết kế cơ sở dữ liệu của hệ thống.

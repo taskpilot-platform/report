@@ -62,11 +62,15 @@ tình trạng mã nguồn monolith bị phụ thuộc chéo thiếu kiểm soát
 
 === Port & Adapter Pattern
 
-Port & Adapter Pattern, hay Hexagonal Architecture, tách lõi nghiệp vụ khỏi
-công nghệ bên ngoài bằng các interface gọi là Port và các lớp triển khai gọi là
+Port & Adapter Pattern, hay Hexagonal Architecture, tách lõi nghiệp vụ khỏi công
+nghệ bên ngoài bằng các interface gọi là Port và các lớp triển khai gọi là
 Adapter. Với cách này, domain logic không phụ thuộc trực tiếp vào HTTP,
 database, AI provider hay dịch vụ gửi thông báo.
 
 === Vai trò trong TaskPilot
 
-TaskPilot sử dụng kiến trúc Modular Monolith để duy trì mô hình triển khai tập trung, đồng thời phân tách rõ trách nhiệm giữa các module users, projects, AI, notification và các adapter hạ tầng. Việc kết hợp Port & Adapter giúp giảm phụ thuộc trực tiếp vào công nghệ bên ngoài, hỗ trợ kiểm thử và giữ ranh giới giao tiếp giữa các module rõ ràng hơn.
+TaskPilot sử dụng kiến trúc Modular Monolith để duy trì mô hình triển khai tập
+trung, đồng thời phân tách rõ trách nhiệm giữa các module users, projects, AI,
+notification và các adapter hạ tầng. Việc kết hợp Port & Adapter giúp giảm phụ
+thuộc trực tiếp vào công nghệ bên ngoài, hỗ trợ kiểm thử và giữ ranh giới giao
+tiếp giữa các module rõ ràng hơn.

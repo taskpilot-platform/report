@@ -6,5 +6,10 @@
 
 #figure(
   caption: [This is a caption],
-  block(breakable: true, table(columns: 1, [A], [B], [C]))
+  block(breakable: true, table(
+    columns: 1,
+    [A],
+    [B],
+    [C],
+  )),
 )

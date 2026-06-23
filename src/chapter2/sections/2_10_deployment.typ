@@ -33,8 +33,8 @@ triển khai khi mã nguồn thay đổi.
 
 === Netlify
 
-Netlify là nền tảng triển khai web tĩnh và frontend application, hỗ trợ build
-tự động, HTTPS, CDN và redirect rule [21]. TaskPilot dùng Netlify cho frontend
+Netlify là nền tảng triển khai web tĩnh và frontend application, hỗ trợ build tự
+động, HTTPS, CDN và redirect rule [21]. TaskPilot dùng Netlify cho frontend
 React/Vite để phục vụ giao diện người dùng.
 
 #figure(

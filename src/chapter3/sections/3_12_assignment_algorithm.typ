@@ -35,9 +35,9 @@ yêu cầu cụ thể của người dùng.
 
 Tiêu chí `F(u,t)` biểu diễn mức phù hợp kỹ năng giữa ứng viên `u` và task `t`.
 Backend so sánh danh sách kỹ năng yêu cầu của task với `user_skills`; nếu task
-không có kỹ năng yêu cầu, giá trị phù hợp kỹ năng được xem là trung lập thuận lợi
-để không loại ứng viên chỉ vì thiếu dữ liệu. Khi có kỹ năng yêu cầu, công thức
-đang được triển khai là:
+không có kỹ năng yêu cầu, giá trị phù hợp kỹ năng được xem là trung lập thuận
+lợi để không loại ứng viên chỉ vì thiếu dữ liệu. Khi có kỹ năng yêu cầu, công
+thức đang được triển khai là:
 
 #figure(
   $
@@ -47,11 +47,11 @@ không có kỹ năng yêu cầu, giá trị phù hợp kỹ năng được xem 
   $,
   caption: [Công thức tính độ phù hợp kỹ năng (Skill fit)],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
-Ví dụ, nếu task yêu cầu ba kỹ năng, ứng viên khớp hai kỹ năng và level trung bình
-của hai kỹ năng khớp là 4/5, khi đó `F_raw = 0.6 x 2/3 + 0.4 x 0.8 = 0.72`.
+Ví dụ, nếu task yêu cầu ba kỹ năng, ứng viên khớp hai kỹ năng và level trung
+bình của hai kỹ năng khớp là 4/5, khi đó `F_raw = 0.6 x 2/3 + 0.4 x 0.8 = 0.72`.
 
 Tiêu chí `L(u)` biểu diễn workload cost của ứng viên. Runtime lấy dữ liệu từ
 `users.current_workload`, chặn trong khoảng 0-100 rồi quy đổi về thang 0-1 bằng
@@ -84,20 +84,14 @@ hợp lệ được lấy. Báo cáo không mô tả cơ chế này như lịch 
     [`task_required_skills`, `user_skills`],
     [Benefit criterion],
 
-    [Workload cost],
-    [`L`],
-    [`users.current_workload`],
-    [Cost criterion],
+    [Workload cost], [`L`], [`users.current_workload`], [Cost criterion],
 
     [Performance],
     [`P`],
     [`project_members.performance_score`],
     [Benefit criterion],
 
-    [User status],
-    [-],
-    [`users.status`],
-    [Candidate filter],
+    [User status], [-], [`users.status`], [Candidate filter],
 
     [Heuristic mode],
     [-],
@@ -109,9 +103,10 @@ hợp lệ được lấy. Báo cáo không mô tả cơ chế này như lịch 
 === Chuẩn hóa và tính điểm tổng hợp
 
 Các biến đầu vào có ý nghĩa khác nhau nên cần được đưa về cùng miền so sánh
-trước khi tính điểm. Trong backend, `F`, `L` và `P` trước hết được tính ở dạng raw
-score; sau đó `ScoreRanges` lấy min/max của từng biến trong tập ứng viên hiện tại
-và `HeuristicStrategy` chuẩn hóa theo cấu hình `heuristic.normalization`.
+trước khi tính điểm. Trong backend, `F`, `L` và `P` trước hết được tính ở dạng
+raw score; sau đó `ScoreRanges` lấy min/max của từng biến trong tập ứng viên
+hiện tại và `HeuristicStrategy` chuẩn hóa theo cấu hình
+`heuristic.normalization`.
 
 Thuật toán dùng hai hướng chuẩn hóa min-max. Chuẩn hóa thuận được dùng khi giá
 trị càng cao càng có lợi cho ứng viên:
@@ -120,7 +115,7 @@ trị càng cao càng có lợi cho ứng viên:
   $ X_"benefit" = (X - X_"min") / (X_"max" - X_"min") $,
   caption: [Công thức chuẩn hóa thuận (Benefit criterion)],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 Chuẩn hóa nghịch được dùng khi giá trị cao lại là bất lợi trong ngữ cảnh đang
@@ -130,7 +125,7 @@ xét:
   $ X_"cost" = (X_"max" - X) / (X_"max" - X_"min") $,
   caption: [Công thức chuẩn hóa nghịch (Cost criterion)],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 Trong thiết kế phân công, `P` luôn là tiêu chí thuận. `F` thường là tiêu chí
@@ -143,7 +138,7 @@ dùng công thức nghịch ở trên, vì công thức tổng hợp đã trừ 
   $ L(u) = (X - X_"min") / (X_"max" - X_"min") $,
   caption: [Công thức chuẩn hóa tiêu chí Workload],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 Trong code runtime, workload raw còn được tính trực tiếp từ
@@ -172,10 +167,7 @@ workload cost và đặt dấu trừ trước thành phần workload.
     [Skill coverage kết hợp level kỹ năng],
     [Thông thường cao hơn là phù hợp hơn; TRAINING có thể đảo chiều `F`],
 
-    [`L`],
-    [Cost],
-    [`current_workload / 100`],
-    [Cao hơn là bận hơn],
+    [`L`], [Cost], [`current_workload / 100`], [Cao hơn là bận hơn],
 
     [`P`],
     [Benefit],
@@ -190,28 +182,29 @@ Sau khi chuẩn hóa, điểm tổng hợp được tính theo công thức:
   $ "Score"(u,t) = w_"fit" F(u,t) - w_"load" L(u) + w_"perf" P(u) $,
   caption: [Công thức tính điểm tổng hợp gợi ý phân công],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
-Trong đó `w_fit`, `w_load` và `w_perf` là trọng số đã được chuẩn hóa tổng bằng 1.
-Dấu trừ trước `w_load L(u)` thể hiện workload là chi phí: ứng viên có workload
-cao sẽ bị giảm điểm khi xét thêm task mới. Kết quả `Score` được dùng để xếp hạng
-tương đối trong cùng một lần gợi ý; nó không phải xác suất hoàn thành task.
+Trong đó `w_fit`, `w_load` và `w_perf` là trọng số đã được chuẩn hóa tổng
+bằng 1. Dấu trừ trước `w_load L(u)` thể hiện workload là chi phí: ứng viên có
+workload cao sẽ bị giảm điểm khi xét thêm task mới. Kết quả `Score` được dùng để
+xếp hạng tương đối trong cùng một lần gợi ý; nó không phải xác suất hoàn thành
+task.
 
 === Xác định trọng số và các chiến lược phân công
 
 AHP được dùng ở giai đoạn thiết kế/cấu hình để xây dựng bộ trọng số ban đầu cho
-ba tiêu chí `F`, `L` và `P`. Cách tiếp cận này dựa trên so sánh cặp giữa các tiêu
-chí, tính vector trọng số và kiểm tra chỉ số nhất quán CR. AHP cung cấp một quy
-trình có cấu trúc để xây dựng trọng số, nhưng không loại bỏ hoàn toàn yếu tố chủ
-quan trong lựa chọn ưu tiên quản lý.
+ba tiêu chí `F`, `L` và `P`. Cách tiếp cận này dựa trên so sánh cặp giữa các
+tiêu chí, tính vector trọng số và kiểm tra chỉ số nhất quán CR. AHP cung cấp một
+quy trình có cấu trúc để xây dựng trọng số, nhưng không loại bỏ hoàn toàn yếu tố
+chủ quan trong lựa chọn ưu tiên quản lý.
 
 Trong runtime, backend không chạy lại AHP cho từng request. `HeuristicConfig`
 được đọc từ `system_settings` với key `heuristic.weights` và
-`heuristic.normalization`; `HeuristicConfigProvider` chuẩn hóa trọng số trước khi
-`HeuristicStrategyFactory` chọn strategy tương ứng với mode. Mode runtime được
-lấy từ `projects.heuristic_mode`; nếu project không có cấu hình hợp lệ, hệ thống
-không tự suy đoán kết quả phân công.
+`heuristic.normalization`; `HeuristicConfigProvider` chuẩn hóa trọng số trước
+khi `HeuristicStrategyFactory` chọn strategy tương ứng với mode. Mode runtime
+được lấy từ `projects.heuristic_mode`; nếu project không có cấu hình hợp lệ, hệ
+thống không tự suy đoán kết quả phân công.
 
 Ma trận dưới đây là ví dụ đại diện cho mode `BALANCED`, với thứ tự tiêu chí là
 `load`, `fit`, `performance`:
@@ -233,8 +226,8 @@ Ma trận dưới đây là ví dụ đại diện cho mode `BALANCED`, với th
 )
 
 Cùng quy trình so sánh cặp và kiểm tra nhất quán được áp dụng cho `URGENT` và
-`TRAINING`. Các giá trị CR trong bản thiết kế đều ở mức chấp nhận được, tiêu biểu
-như `BALANCED` khoảng 0.4%, `URGENT` khoảng 0.0% và `TRAINING` khoảng 6.8%.
+`TRAINING`. Các giá trị CR trong bản thiết kế đều ở mức chấp nhận được, tiêu
+biểu như `BALANCED` khoảng 0.4%, `URGENT` khoảng 0.0% và `TRAINING` khoảng 6.8%.
 
 #ui-table-figure(
   caption: [Bộ trọng số và mục tiêu của từng heuristic mode],
@@ -245,7 +238,9 @@ như `BALANCED` khoảng 0.4%, `URGENT` khoảng 0.0% và `TRAINING` khoảng 6.
     align: (left + top, center + top, center + top, center + top, left + top),
     inset: 0.5em,
     stroke: 0.5pt,
-    table.header([*Mode*], [*`w_fit`*], [*`w_load`*], [*`w_perf`*], [*Mục tiêu*]),
+    table.header(
+      [*Mode*], [*`w_fit`*], [*`w_load`*], [*`w_perf`*], [*Mục tiêu*]
+    ),
     [`BALANCED`],
     [0.230],
     [0.648],
@@ -256,7 +251,8 @@ như `BALANCED` khoảng 0.4%, `URGENT` khoảng 0.0% và `TRAINING` khoảng 6.
     [0.474],
     [0.053],
     [0.474],
-    [Ưu tiên skill fit và performance cho task cần xử lý nhanh hoặc quan trọng.],
+    [Ưu tiên skill fit và performance cho task cần xử lý nhanh hoặc quan
+      trọng.],
 
     [`TRAINING`],
     [0.188],
@@ -276,15 +272,15 @@ viên còn nhiều capacity.
 === Ví dụ minh họa
 
 Ví dụ sau minh họa một lần chấm điểm theo mode `BALANCED`. Giả sử task yêu cầu
-các kỹ năng `Java`, `Spring Boot`, `React`; hệ thống xét ba ứng viên hợp lệ trong
-project. Các giá trị `F`, `L` và `P` trong bảng đã được chuẩn hóa để tập trung vào
-cách áp dụng công thức:
+các kỹ năng `Java`, `Spring Boot`, `React`; hệ thống xét ba ứng viên hợp lệ
+trong project. Các giá trị `F`, `L` và `P` trong bảng đã được chuẩn hóa để tập
+trung vào cách áp dụng công thức:
 
 #figure(
   $ "Score"_"BALANCED" = 0.230 F - 0.648 L + 0.122 P $,
   caption: [Công thức điểm tổng hợp cho mode BALANCED],
   kind: "equation",
-  supplement: [Công thức]
+  supplement: [Công thức],
 )
 
 #ui-table-figure(
@@ -293,7 +289,14 @@ cách áp dụng công thức:
   placement: none,
   table(
     columns: (1.4fr, 0.7fr, 0.7fr, 0.7fr, 0.8fr, 0.7fr),
-    align: (left + top, center + top, center + top, center + top, center + top, center + top),
+    align: (
+      left + top,
+      center + top,
+      center + top,
+      center + top,
+      center + top,
+      center + top,
+    ),
     inset: 0.5em,
     stroke: 0.5pt,
     table.header([*Ứng viên*], [*`F`*], [*`L`*], [*`P`*], [*Điểm*], [*Hạng*]),
@@ -305,9 +308,9 @@ cách áp dụng công thức:
 
 Trong kết quả trên, Thành viên A có skill fit tốt nhất nhưng workload cost cao
 hơn Thành viên B. Vì `BALANCED` đặt trọng số lớn cho workload, Thành viên B đạt
-điểm tổng hợp cao nhất nhờ vẫn có mức phù hợp đủ tốt trong khi workload thấp hơn.
-Thành viên C có workload thấp nhất nhưng skill fit và performance chưa đủ để vượt
-hai ứng viên còn lại.
+điểm tổng hợp cao nhất nhờ vẫn có mức phù hợp đủ tốt trong khi workload thấp
+hơn. Thành viên C có workload thấp nhất nhưng skill fit và performance chưa đủ
+để vượt hai ứng viên còn lại.
 
 Nếu cùng dữ liệu được tính theo `URGENT`, ứng viên có `F` và `P` cao như Thành
 viên A có thể tăng hạng vì mode này ưu tiên năng lực xử lý nhanh. Nếu tính theo
@@ -315,7 +318,7 @@ viên A có thể tăng hạng vì mode này ưu tiên năng lực xử lý nhan
 sẽ được ưu tiên hơn miễn là vẫn đáp ứng mức kỹ năng và hiệu suất tối thiểu.
 
 Tóm lại, thuật toán gợi ý phân công task của TaskPilot là mô hình heuristic
-weighted scoring có kiểm soát. AHP hỗ trợ xây dựng trọng số ban đầu; runtime dùng
-trọng số cấu hình, dữ liệu project/member/user/skill và công thức `F`, `L`, `P`
-để xếp hạng ứng viên cho Project Manager. Phần tiếp theo trình bày thiết kế triển
-khai của hệ thống.
+weighted scoring có kiểm soát. AHP hỗ trợ xây dựng trọng số ban đầu; runtime
+dùng trọng số cấu hình, dữ liệu project/member/user/skill và công thức `F`, `L`,
+`P` để xếp hạng ứng viên cho Project Manager. Phần tiếp theo trình bày thiết kế
+triển khai của hệ thống.

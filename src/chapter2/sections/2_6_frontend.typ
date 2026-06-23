@@ -15,8 +15,8 @@ Kanban, chi tiết task, notification panel và AI Copilot.
 
 TypeScript mở rộng JavaScript bằng hệ thống kiểu tĩnh [8]. TaskPilot dùng
 TypeScript để định nghĩa kiểu dữ liệu cho user, project, sprint, task,
-notification và response từ backend, giúp giảm lỗi khi nhiều màn hình dùng
-chung một mô hình dữ liệu.
+notification và response từ backend, giúp giảm lỗi khi nhiều màn hình dùng chung
+một mô hình dữ liệu.
 
 #figure(
   image("../../assets/taskpilot/chapter2/typescript-logo.svg", height: 3cm),
@@ -39,8 +39,8 @@ tĩnh để triển khai lên nền tảng hosting frontend.
 TaskPilot dùng một nhóm thư viện frontend để hoàn thiện giao diện và luồng dữ
 liệu phía client: Zustand quản lý trạng thái dùng chung, Tailwind CSS hỗ trợ
 style theo utility class, Radix UI cung cấp nền tảng component có chú ý đến
-accessibility, và Lucide cung cấp bộ biểu tượng thống nhất cho các thao tác
-trên giao diện.
+accessibility, và Lucide cung cấp bộ biểu tượng thống nhất cho các thao tác trên
+giao diện.
 
 #figure(
   grid(

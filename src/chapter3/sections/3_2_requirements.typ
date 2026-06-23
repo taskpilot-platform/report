@@ -46,9 +46,9 @@ email, push notification và cấu hình biến môi trường.
 Nhóm kiểm thử các luồng API đại diện, xác thực, vòng đời dự án, sprint, task,
 bình luận, thông báo, AI Copilot và gợi ý phân công. Công cụ sử dụng gồm Postman
 cho API, DBeaver/Supabase để kiểm tra dữ liệu và kiểm thử thủ công trên trình
-duyệt cho UI flow. Về triển khai, frontend được đưa lên Netlify, backend
-chạy container trên Hugging Face Space, PostgreSQL đặt trên Supabase, kết hợp
-Brevo, OneSignal và GitHub Actions CI/CD.
+duyệt cho UI flow. Về triển khai, frontend được đưa lên Netlify, backend chạy
+container trên Hugging Face Space, PostgreSQL đặt trên Supabase, kết hợp Brevo,
+OneSignal và GitHub Actions CI/CD.
 
 #figure(
   pad(bottom: -7.5em, image(

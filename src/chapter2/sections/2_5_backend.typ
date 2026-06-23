@@ -34,9 +34,9 @@ API, kiểm tra vai trò người dùng và hỗ trợ cơ chế access token/re
 === Spring Data JPA và Flyway
 
 Spring Data JPA cung cấp lớp repository để thao tác với cơ sở dữ liệu quan hệ,
-còn Flyway quản lý thay đổi schema bằng migration script [6]. TaskPilot dùng
-JPA để ánh xạ entity như user, project, sprint và task; Flyway giúp database
-giữ cùng phiên bản cấu trúc giữa môi trường phát triển và triển khai.
+còn Flyway quản lý thay đổi schema bằng migration script [6]. TaskPilot dùng JPA
+để ánh xạ entity như user, project, sprint và task; Flyway giúp database giữ
+cùng phiên bản cấu trúc giữa môi trường phát triển và triển khai.
 
 #figure(
   grid(

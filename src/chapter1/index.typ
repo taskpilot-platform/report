@@ -33,8 +33,8 @@ công công việc dựa trên dữ liệu kỹ năng, workload và trọng số
 Nhận thấy được những thách thức trong thực tiễn quản lý và cơ hội ứng dụng công
 nghệ AI tiên tiến, nhóm quyết định thực hiện đề tài xây dựng "TaskPilot – Hệ
 thống quản lý dự án thông minh tích hợp AI Agent". Đề tài hướng tới việc tạo ra
-một không gian làm việc số tích hợp, nơi các quy trình Agile được hỗ trợ bởi
-một trợ lý ảo thông minh.
+một không gian làm việc số tích hợp, nơi các quy trình Agile được hỗ trợ bởi một
+trợ lý ảo thông minh.
 
 == Mục đích và mục tiêu nghiên cứu
 
@@ -175,8 +175,8 @@ trải qua bước chờ xác nhận từ người dùng để đảm bảo tín
 *Gợi ý phân công công việc* \
 Dựa trên yêu cầu chuyên môn của tác vụ, trợ lý AI sẽ tự động thu thập dữ liệu về
 kỹ năng, khối lượng công việc và hiệu suất của các thành viên. Thông qua một hệ
-thống chấm điểm tổng hợp, hệ thống đưa ra danh sách các ứng viên được xếp hạng cao
-kèm theo giải thích chi tiết để người quản lý dễ dàng ra quyết định.
+thống chấm điểm tổng hợp, hệ thống đưa ra danh sách các ứng viên được xếp hạng
+cao kèm theo giải thích chi tiết để người quản lý dễ dàng ra quyết định.
 
 == Công nghệ sử dụng
 

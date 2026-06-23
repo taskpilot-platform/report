@@ -92,12 +92,12 @@ tra quyền này và được sự xác nhận của người dùng trước khi
 
 == Thiết kế realtime và thông báo
 
-TaskPilot sử dụng kết hợp REST API, SSE và OneSignal để đáp ứng hai nhu cầu
-khác nhau: xử lý nghiệp vụ thông thường và cập nhật kịp thời cho người dùng.
-Trong đó, REST API vẫn là cơ chế chính cho các thao tác CRUD như tạo project,
-cập nhật task, ghi bình luận hoặc đánh dấu thông báo đã đọc. Các kênh realtime
-chỉ được dùng cho những dữ liệu cần đẩy từ server về client sau khi nghiệp vụ đã
-được backend kiểm tra quyền, xử lý và lưu trữ.
+TaskPilot sử dụng kết hợp REST API, SSE và OneSignal để đáp ứng hai nhu cầu khác
+nhau: xử lý nghiệp vụ thông thường và cập nhật kịp thời cho người dùng. Trong
+đó, REST API vẫn là cơ chế chính cho các thao tác CRUD như tạo project, cập nhật
+task, ghi bình luận hoặc đánh dấu thông báo đã đọc. Các kênh realtime chỉ được
+dùng cho những dữ liệu cần đẩy từ server về client sau khi nghiệp vụ đã được
+backend kiểm tra quyền, xử lý và lưu trữ.
 
 #figure(
   image(
@@ -111,11 +111,12 @@ chỉ được dùng cho những dữ liệu cần đẩy từ server về clien
 
 Các luồng realtime của TaskPilot tập trung vào ba nhóm dữ liệu: thông báo trong
 ứng dụng, sự kiện bình luận và phản hồi AI. Khi người dùng mở giao diện chính,
-frontend duy trì kết nối SSE cho luồng notification cá nhân để nhận thông báo mới
-và cập nhật badge chưa đọc. Đối với task detail, sau khi comment được xử lý qua
-REST API, backend phát sự kiện để các client đang theo dõi task cập nhật danh
-sách bình luận. Với AI Copilot, backend stream từng phần phản hồi và trạng thái
-xử lý để giao diện chat hiển thị tiến trình thay vì đợi toàn bộ kết quả hoàn tất.
+frontend duy trì kết nối SSE cho luồng notification cá nhân để nhận thông báo
+mới và cập nhật badge chưa đọc. Đối với task detail, sau khi comment được xử lý
+qua REST API, backend phát sự kiện để các client đang theo dõi task cập nhật
+danh sách bình luận. Với AI Copilot, backend stream từng phần phản hồi và trạng
+thái xử lý để giao diện chat hiển thị tiến trình thay vì đợi toàn bộ kết quả
+hoàn tất.
 
 #ui-table-figure(
   caption: [Các kênh realtime và nơi hiển thị trong TaskPilot],
@@ -133,11 +134,12 @@ xử lý để giao diện chat hiển thị tiến trình thay vì đợi toàn
 )
 
 Thiết kế này giữ ranh giới rõ giữa ghi dữ liệu và phát sự kiện. Các thực thể như
-`notifications`, `comments`, `comment_mentions`, `chat_sessions`, `chat_messages`
-và `ai_logs` vẫn được lưu ở cơ sở dữ liệu theo luồng nghiệp vụ tương ứng. Sau khi
-xử lý thành công, backend mới phát sự kiện realtime để frontend cập nhật vùng
-giao diện cần thiết. Nhờ vậy, dữ liệu không phụ thuộc vào trạng thái kết nối tạm
-thời của người dùng, đồng thời trải nghiệm cộng tác vẫn được cải thiện.
+`notifications`, `comments`, `comment_mentions`, `chat_sessions`,
+`chat_messages` và `ai_logs` vẫn được lưu ở cơ sở dữ liệu theo luồng nghiệp vụ
+tương ứng. Sau khi xử lý thành công, backend mới phát sự kiện realtime để
+frontend cập nhật vùng giao diện cần thiết. Nhờ vậy, dữ liệu không phụ thuộc vào
+trạng thái kết nối tạm thời của người dùng, đồng thời trải nghiệm cộng tác vẫn
+được cải thiện.
 
 === Thông báo trong ứng dụng và push notification
 
@@ -148,12 +150,12 @@ trang. Khi người dùng mở notification panel hoặc đánh dấu thông bá
 thao tác đọc và cập nhật trạng thái vẫn đi qua REST API.
 
 OneSignal được dùng cho browser push notification, tách biệt với luồng SSE trong
-phiên làm việc. Khi một sự kiện nghiệp vụ cần nhắc người dùng ngoài giao diện web
-đang mở, backend có thể gửi yêu cầu đến OneSignal kèm thông tin người nhận và nội
-dung thông báo. Việc phân phối đến trình duyệt hoặc thiết bị phụ thuộc vào cấu
-hình dịch vụ, quyền nhận thông báo của người dùng và trạng thái thiết bị. Vì vậy,
-SSE được xem là kênh realtime chính trong ứng dụng, còn OneSignal là kênh bổ
-sung cho thông báo ở mức trình duyệt hoặc thiết bị.
+phiên làm việc. Khi một sự kiện nghiệp vụ cần nhắc người dùng ngoài giao diện
+web đang mở, backend có thể gửi yêu cầu đến OneSignal kèm thông tin người nhận
+và nội dung thông báo. Việc phân phối đến trình duyệt hoặc thiết bị phụ thuộc
+vào cấu hình dịch vụ, quyền nhận thông báo của người dùng và trạng thái thiết
+bị. Vì vậy, SSE được xem là kênh realtime chính trong ứng dụng, còn OneSignal là
+kênh bổ sung cho thông báo ở mức trình duyệt hoặc thiết bị.
 
 Sau khi trình bày thiết kế realtime và thông báo, phần tiếp theo sẽ mô tả kiến
 trúc AI Copilot của hệ thống chi tiết hơn.

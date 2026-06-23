@@ -35,7 +35,11 @@
       stroke: 0.5pt,
 
       table.header(
-        [*STT*], [*Thuộc tính*], [*Kiểu dữ liệu*], [*Ràng buộc*], [*Diễn giải*]
+        [*STT*],
+        [*Thuộc tính*],
+        [*Kiểu dữ liệu*],
+        [*Ràng buộc*],
+        [*Diễn giải*],
       ),
 
       ..data-columns

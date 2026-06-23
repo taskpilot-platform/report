@@ -34,8 +34,8 @@ Monolith, giúp chia trách nhiệm theo module nhưng vẫn giữ mô hình bui
 triển khai theo phạm vi đã xác định.
 
 Ngoài ra, hệ thống đã được cấu hình với các nền tảng và dịch vụ thực tế như
-Netlify cho frontend, Hugging Face Space cho backend, Supabase cho cơ sở
-dữ liệu và lưu trữ đối tượng, Brevo cho email giao dịch và OneSignal cho push
+Netlify cho frontend, Hugging Face Space cho backend, Supabase cho cơ sở dữ liệu
+và lưu trữ đối tượng, Brevo cho email giao dịch và OneSignal cho push
 notification. Điều này giúp đồ án không chỉ dừng ở mức thiết kế mà còn có khả
 năng vận hành thử nghiệm trong môi trường triển khai thực tế.
 
@@ -49,12 +49,12 @@ realtime và frontend. Điều này có thể làm tăng rủi ro hồi quy khi 
 thay đổi chức năng.
 
 Việc triển khai trên các nền tảng thực dụng hoặc free-tier giúp giảm chi phí và
-giúp giảm chi phí triển khai thử nghiệm, nhưng cũng tạo ra một số giới hạn trong quá trình vận
-hành thử nghiệm. Backend có thể gặp độ trễ khởi động hoặc giới hạn tài nguyên;
-các AI provider có thể chịu giới hạn tốc độ gọi hoặc phụ thuộc vào trạng thái
-dịch vụ bên ngoài. Một số chức năng như push notification, email và realtime
-cũng phụ thuộc vào cấu hình môi trường, quyền trình duyệt và khả năng hoạt động
-của các dịch vụ tích hợp.
+giúp giảm chi phí triển khai thử nghiệm, nhưng cũng tạo ra một số giới hạn trong
+quá trình vận hành thử nghiệm. Backend có thể gặp độ trễ khởi động hoặc giới hạn
+tài nguyên; các AI provider có thể chịu giới hạn tốc độ gọi hoặc phụ thuộc vào
+trạng thái dịch vụ bên ngoài. Một số chức năng như push notification, email và
+realtime cũng phụ thuộc vào cấu hình môi trường, quyền trình duyệt và khả năng
+hoạt động của các dịch vụ tích hợp.
 
 Thuật toán gợi ý phân công hiện vẫn mang tính heuristic và chưa được kiểm chứng
 trên tập dữ liệu thực tế lớn. Các tiêu chí như skill fit, workload và

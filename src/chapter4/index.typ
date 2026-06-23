@@ -32,15 +32,15 @@
   tiêu biểu được đặc tả ở Chương 3. Các màn hình khác của hệ thống được lược bỏ
   khỏi phần trình bày để báo cáo tập trung vào luồng đăng nhập, tạo dự án, tạo
   và cập nhật task, gán người thực hiện/người báo cáo và gợi ý phân công bằng
-  AI. Chi tiết đầy đủ về use case, giao diện và API của hệ thống
-  được trình bày tại Phụ lục A – Tài liệu đặc tả mở rộng.
+  AI. Chi tiết đầy đủ về use case, giao diện và API của hệ thống được trình bày
+  tại Phụ lục A – Tài liệu đặc tả mở rộng.
 ]
 
 == UC01 - Đăng nhập hệ thống
 
 Màn hình đăng nhập là điểm vào chính cho người dùng đã có tài khoản. Giao diện
-gồm khối giới thiệu TaskPilot và form đăng nhập để nhập email, mật khẩu, gửi
-yêu cầu xác thực và chuyển sang các luồng phụ nếu cần.
+gồm khối giới thiệu TaskPilot và form đăng nhập để nhập email, mật khẩu, gửi yêu
+cầu xác thực và chuyển sang các luồng phụ nếu cần.
 
 #ui-figure("../assets/taskpilot/chapter4/ch4_02_login.png", [Màn hình đăng nhập
   người dùng])
@@ -49,8 +49,7 @@ yêu cầu xác thực và chuyển sang các luồng phụ nếu cần.
   (
     [Khối giới thiệu TaskPilot],
     [Card],
-    [Giới thiệu mục tiêu quản lý deadline,
-      cộng tác và tiến độ project.],
+    [Giới thiệu mục tiêu quản lý deadline, cộng tác và tiến độ project.],
   ),
   ([Khung đăng nhập], [Form], [Chứa các trường và thao tác xác thực.]),
   ([Trường Email], [Input], [Nhập địa chỉ email dùng để đăng nhập.]),
@@ -64,8 +63,7 @@ yêu cầu xác thực và chuyển sang các luồng phụ nếu cần.
   (
     [Liên kết phụ],
     [Button],
-    [Điều hướng sang quên mật khẩu hoặc đăng ký nếu
-      người dùng cần.],
+    [Điều hướng sang quên mật khẩu hoặc đăng ký nếu người dùng cần.],
   ),
 ))
 
@@ -84,8 +82,7 @@ kiến.
     (
       [Danh sách project],
       [Table],
-      [Hiển thị các project người dùng đang tham
-        gia, vai trò và trạng thái.],
+      [Hiển thị các project người dùng đang tham gia, vai trò và trạng thái.],
     ),
     ([Ô tìm kiếm project], [Search box], [Lọc danh sách project theo từ khóa.]),
     ([Nút Reload Data], [Button], [Tải lại dữ liệu project từ hệ thống.]),
@@ -96,8 +93,7 @@ kiến.
     (
       [Start Date và End Date],
       [Date picker],
-      [Chọn thời gian bắt đầu và kết
-        thúc.],
+      [Chọn thời gian bắt đầu và kết thúc.],
     ),
     ([Nút Create Project], [Button], [Gửi yêu cầu tạo project mới.]),
   ),
@@ -106,8 +102,8 @@ kiến.
 == UC44/UC46 - Tạo task và cập nhật trạng thái
 
 Kanban board là màn hình thao tác chính với task. Người dùng có thể tạo task mới
-từ nút Create Task, quan sát các cột trạng thái và kéo thả task để cập nhật trạng
-thái xử lý.
+từ nút Create Task, quan sát các cột trạng thái và kéo thả task để cập nhật
+trạng thái xử lý.
 
 #ui-figure("../assets/taskpilot/chapter4/ch4_10_kanban_board.png", [Kanban
   board])
@@ -116,33 +112,28 @@ thái xử lý.
   (
     [Thanh tab project],
     [Tab navigation],
-    [Chuyển đến góc nhìn Board trong
-      workspace project.],
+    [Chuyển đến góc nhìn Board trong workspace project.],
   ),
   ([Ô tìm kiếm task], [Search box], [Tìm kiếm task trên board.]),
   (
     [Các cột trạng thái],
     [Board column],
-    [Nhóm task theo To Do, In Progress,
-      Review và Done.],
+    [Nhóm task theo To Do, In Progress, Review và Done.],
   ),
   (
     [Thẻ task],
     [Card],
-    [Hiển thị tên, mô tả ngắn, mã task, assignee và độ ưu
-      tiên.],
+    [Hiển thị tên, mô tả ngắn, mã task, assignee và độ ưu tiên.],
   ),
   (
     [Nút Create Task],
     [Button],
-    [Mở form tạo task mới hoặc task trong cột đang
-      chọn.],
+    [Mở form tạo task mới hoặc task trong cột đang chọn.],
   ),
   (
     [Vùng thả task],
     [Board column],
-    [Nhận thao tác kéo thả để cập nhật trạng
-      thái task.],
+    [Nhận thao tác kéo thả để cập nhật trạng thái task.],
   ),
   ([Nút tải lại], [Button], [Làm mới dữ liệu board sau khi thao tác.]),
 ))
@@ -157,14 +148,12 @@ sub-task và gán assignee/reporter.
   task, sub-task và phân công])
 
 #component-table-figure(
-  [Bảng mô tả thành phần màn hình chi tiết task và phân
-    công],
+  [Bảng mô tả thành phần màn hình chi tiết task và phân công],
   (
     (
       [Khung chi tiết task],
       [Modal/Dialog],
-      [Hiển thị thông tin task trong
-        workspace hiện tại.],
+      [Hiển thị thông tin task trong workspace hiện tại.],
     ),
     (
       [Tiêu đề và mô tả task],
@@ -181,20 +170,17 @@ sub-task và gán assignee/reporter.
     (
       [Bộ chọn Reporter],
       [Dropdown],
-      [Chọn hoặc hiển thị người báo cáo/theo dõi
-        task.],
+      [Chọn hoặc hiển thị người báo cáo/theo dõi task.],
     ),
     (
       [Bộ chọn Status],
       [Dropdown],
-      [Cập nhật trạng thái task khi không thao tác
-        bằng kéo thả.],
+      [Cập nhật trạng thái task khi không thao tác bằng kéo thả.],
     ),
     (
       [Nút lưu/cập nhật],
       [Button],
-      [Gửi thay đổi assignee, reporter hoặc thuộc
-        tính task.],
+      [Gửi thay đổi assignee, reporter hoặc thuộc tính task.],
     ),
   ),
 )
@@ -214,35 +200,30 @@ thể. AI Copilot trình bày bảng xếp hạng ứng viên, điểm thành ph
   (
     [Trạng thái xử lý],
     [Result card],
-    [Cho biết AI đang phân tích hoặc đã hoàn
-      tất gợi ý.],
+    [Cho biết AI đang phân tích hoặc đã hoàn tất gợi ý.],
   ),
   ([Ngữ cảnh task], [Card], [Cho biết task đang được phân tích để phân công.]),
   (
     [Bảng xếp hạng ứng viên],
     [Table],
-    [So sánh các thành viên có thể nhận
-      task.],
+    [So sánh các thành viên có thể nhận task.],
   ),
   (
     [Fit/Skill/Workload Score],
     [Table column],
-    [Hiển thị các thành phần điểm
-      chính của thuật toán gợi ý.],
+    [Hiển thị các thành phần điểm chính của thuật toán gợi ý.],
   ),
   ([Total Score], [Table column], [Điểm tổng hợp dùng để xếp hạng ứng viên.]),
   ([Khối phân tích], [Result card], [Giải thích vì sao ứng viên được đề xuất.]),
   (
     [Khuyến nghị cuối cùng],
     [Result card],
-    [Nêu assignee được đề xuất và phương
-      án ưu tiên.],
+    [Nêu assignee được đề xuất và phương án ưu tiên.],
   ),
   (
     [Ô nhập yêu cầu tiếp theo],
     [Text area],
-    [Cho phép Project Manager tiếp tục
-      hỏi AI hoặc yêu cầu phân tích lại.],
+    [Cho phép Project Manager tiếp tục hỏi AI hoặc yêu cầu phân tích lại.],
   ),
 ))
 
@@ -432,6 +413,53 @@ và khắc phục:
     vai trò là phương án dự phòng cuối cùng (Fallback) trong chuỗi thác nước
     (waterfall), tự động khôi phục lại mô hình chính khi các khóa API hoạt động
     bình thường.
+
+4. *Nhận diện sai ý định ghi đối với kỹ năng và tác vụ con (Subtask)*: Mô hình
+  thường xuyên phân loại nhầm các yêu cầu truy vấn thông tin chứa các từ khóa
+  tiếng Việt tự nhiên liên quan đến việc điều chỉnh kỹ năng (như "tăng level",
+  "giảm", "nâng", "hạ") hoặc tạo các tác vụ con (như "tạo thêm", "tạo con",
+  "thêm subtask") thành ý định đọc thông tin đơn thuần hoặc ngược lại, gây ra
+  lỗi định tuyến công cụ sai.
+  - *Giải pháp*: Mở rộng danh sách và chuẩn hóa các từ khóa hành động chi tiết
+    trong `SmartRoutingService.java`. Việc chuyển đổi các từ khóa đơn lẻ thành
+    các cụm từ hành động ghép có ý nghĩa cụ thể hơn giúp nâng cao độ chính xác
+    của bộ phân loại ý định, ngăn chặn hoàn toàn việc nhận diện sai.
+
+5. *Thiếu tham số bắt buộc trong các công cụ ghi bình luận*: Khi người dùng thực
+  hiện tạo, sửa hoặc xóa bình luận mà không chỉ ra ID của tác vụ chứa bình luận
+  đó, mô hình AI không thể thực hiện lệnh gọi công cụ do thiếu tham số bắt buộc
+  `taskId` (được định nghĩa là trường bắt buộc trước đây).
+  - *Giải pháp*: Tái cấu trúc chữ ký phương thức của các công cụ
+    `patchTaskComment` và `deleteTaskComment` trong `TaskPilotAiTools.java` bằng
+    cách đánh dấu tham số `taskId` là `@Nullable` (tùy chọn). Ở mức xử lý
+    backend, bổ sung logic truy vấn ngược thông tin `taskId` từ database dựa vào
+    `commentId` nếu tham số này bị thiếu trong lời gọi của AI.
+
+6. *Sự tranh chấp giữa công cụ phân tích AHP và truy vấn chung*: Khi tham số
+  giới hạn thuật toán đề xuất phân công (`limitToAHP`) được thiết lập bằng
+  `true`, hệ thống vẫn hiển thị công cụ `smartQuery` chung làm giảm sự tập trung
+  của mô hình, dẫn đến việc mô hình ưu tiên chọn `smartQuery` thay vì công cụ
+  chuyên trách `recommendTaskAssignmentCandidates`.
+  - *Giải pháp*: Bổ sung logic lọc động trong `ToolCallingRegistryService.java`
+    và `CheckScore.java`. Khi `limitToAHP` ở trạng thái kích hoạt, công cụ
+    `smartQuery` sẽ tự động bị loại bỏ khỏi danh sách đăng ký tạm thời, bắt buộc
+    mô hình phải chọn đúng công cụ phân tích và xếp hạng ứng viên của thuật toán
+    AHP.
+
+7. *Thời gian phản hồi vượt quá giới hạn benchmark khi gặp sự cố mạng*: Trong
+  trường hợp khóa API chính bị nghẽn mạng hoặc quá giới hạn yêu cầu (rate limit)
+  tại Google AI Studio, hệ thống phải thực hiện nhiều lượt thử lại (retry) với
+  các khóa dự phòng. Thời gian chờ yêu cầu kết nối quá lâu cho mỗi lần thử dẫn
+  đến tổng thời gian xử lý tích lũy của một bước vượt quá 60 giây.
+  - *Giải pháp*: Tái cấu trúc cấu hình HTTP client trong
+    `AiStreamingService.java` bằng cách ép buộc sử dụng giao thức HTTP/1.1 thay
+    vì HTTP/2 để tránh việc kết nối bị treo ngầm (connection hanging) do cơ chế
+    giữ kết nối của HTTP/2. Đồng thời, hạ giới hạn thời gian thiết lập kết nối
+    (`connect timeout`) xuống còn 5 giây và thời gian chờ phản hồi
+    (`request timeout`) xuống còn 15 giây cho mỗi lượt gọi trực tiếp. Thay đổi
+    này giúp hệ thống nhanh chóng phát hiện lỗi nghẽn mạng hoặc rate limit để
+    thực hiện chuyển mạch nóng sang các khóa API dự phòng khác trong danh sách,
+    giữ cho tổng thời gian phản hồi của bước chạy luôn dưới 60 giây.
 
 Kết quả thực nghiệm sau khi tối ưu hóa cho thấy hệ thống đạt tỷ lệ vượt qua kịch
 bản kiểm thử là 100% (PASS 20/20 Scenarios) trên mô hình `gemma-4-26b-a4b-it`

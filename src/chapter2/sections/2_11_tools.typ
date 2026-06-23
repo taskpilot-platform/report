@@ -8,6 +8,6 @@ giao diện, trong khi DBeaver hỗ trợ quan sát và kiểm tra dữ liệu P
 
 === Quản lý mã nguồn và phụ thuộc
 
-Git và GitHub được sử dụng để quản lý phiên bản và cộng tác mã nguồn. Maven
-quản lý dependency và build backend Java, còn npm/pnpm phục vụ cài đặt thư viện
-và build frontend React/Vite.
+Git và GitHub được sử dụng để quản lý phiên bản và cộng tác mã nguồn. Maven quản
+lý dependency và build backend Java, còn npm/pnpm phục vụ cài đặt thư viện và
+build frontend React/Vite.

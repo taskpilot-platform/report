@@ -54,7 +54,12 @@
   columns: (auto, auto, 1fr),
   align: (center, left, left),
   [*STT*], [*Ký hiệu*], [*Ý nghĩa*],
-  ..abbreviations.enumerate().map(((i, item)) => (
-    str(i + 1), item.at(0), item.at(1)
-  )).flatten()
+  ..abbreviations
+    .enumerate()
+    .map(((i, item)) => (
+      str(i + 1),
+      item.at(0),
+      item.at(1),
+    ))
+    .flatten(),
 )

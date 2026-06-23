@@ -45,10 +45,10 @@ thay vì chỉ dựa vào kiến thức có sẵn của mô hình.
 
 === Human-in-the-loop
 
-Human-in-the-loop (HITL) là nguyên tắc giữ con người trong các quyết định có
-ảnh hưởng đến dữ liệu. Với các thao tác ghi như tạo task, cập nhật trạng thái
-hoặc phân công thành viên, TaskPilot yêu cầu người dùng xác nhận trước khi hành
-động được thực thi.
+Human-in-the-loop (HITL) là nguyên tắc giữ con người trong các quyết định có ảnh
+hưởng đến dữ liệu. Với các thao tác ghi như tạo task, cập nhật trạng thái hoặc
+phân công thành viên, TaskPilot yêu cầu người dùng xác nhận trước khi hành động
+được thực thi.
 
 #figure(
   image(
@@ -62,5 +62,5 @@ hoặc phân công thành viên, TaskPilot yêu cầu người dùng xác nhận
 
 AI Agent, Tool Calling và HITL tạo thành nền tảng cho AI Copilot: mô hình hiểu
 ngôn ngữ tự nhiên, backend cung cấp công cụ có kiểm soát, còn người dùng giữ
-quyền quyết định cuối cùng với thao tác thay đổi dữ liệu. Phần thiết kế chi
-tiết của cơ chế này được trình bày ở Chương 3.
+quyền quyết định cuối cùng với thao tác thay đổi dữ liệu. Phần thiết kế chi tiết
+của cơ chế này được trình bày ở Chương 3.
