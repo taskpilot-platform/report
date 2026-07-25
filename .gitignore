@@ -2,3 +2,13 @@ build/
 *.pdf
 *.html
 **/spell/*.spl
+do_an_1/
+do_an_2/
+kltn/
+_incoming/
+analysis_results.json
+analysis_summary.md
+discovered_metadata.json
+*.docx
+*.doc
+scratch/
