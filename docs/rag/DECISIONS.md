@@ -149,3 +149,29 @@
   - `ProjectDocumentController` endpoints for upload, retry, and delete enforce manager authorization via `projectSecurityService.requireProjectManager(projectId, userId)`.
   - Read and search endpoints enforce member authorization via `projectSecurityService.requireProjectMember(projectId, userId)`.
 - **Rationale**: Protects knowledge base integrity from accidental modifications or spamming while empowering all members to leverage RAG search; provides defense-in-depth with frontend UI gating and strict backend security checks.
+
+---
+
+## ADR-13: Retrieval Diversification via Two-Pass Soft-Cap Context Selection
+
+- **Context**: In multi-document project knowledge bases, dense academic papers or repetitive technical specifications (e.g. Doc 3 - Decision-Support DSS) can dominate all top-5 cosine similarity slots (`LIMIT 5`). This crowds out highly relevant chunks from other project documents (e.g. Doc 9 Chunk 517 on Data Security & Privacy, with similarity 0.6603 at project rank #6), depriving LLM agents of unique domain knowledge.
+- **Decision**:
+  - Broaden the initial PostgreSQL candidate pool to `candidateLimit = 20` with a baseline similarity threshold `minScore = 0.40`.
+  - Implement a two-pass context selector `DocumentDiversityContextSelector`:
+    - **Pass 1 (Diversity Priority)**: Select candidates in similarity-ranked order, capping chunks from any single document at `maxPerDocument = 2` until `maxContext = 6` is reached. Surplus candidates are placed in an `overflow` list.
+    - **Pass 2 (Starvation Prevention Backfill)**: If fewer than `maxContext` chunks are selected after Pass 1 (e.g., projects with only 1 or 2 documents), fill remaining slots from the `overflow` list in original similarity order.
+- **Rationale**: Completely prevents single-document crowding while ensuring full prompt context utilization without requiring complex MMR hyperparameters, second-stage re-ranking models, or additional latency.
+
+---
+
+## ADR-14: Production AI Copilot Wiring and UI Search Architectural Separation
+
+- **Context**: An architectural audit revealed that while `DocumentDiversityContextSelector` was implemented for prompt formatting, the actual production LangChain4j AI Copilot tool (`KnowledgeAiTools.searchProjectKnowledge`) was still calling the naive similarity search path (`candidateLimit = 5`). Additionally, human users performing direct searches in the UI expect pure, predictable cosine similarity ranking without artificial diversity caps.
+- **Decision**:
+  - Expose `getContextChunks(projectId, userId, query, maxChunks)` on `ProjectKnowledgeService`, returning structured `List<ScoredChunk>` rather than preformatted prompt strings.
+  - Wire `KnowledgeAiTools.searchProjectKnowledge` and `TaskPilotAiTools` to `getContextChunks`:
+    - **Project-wide RAG (`documentId == null`)**: Queries candidate pool of 20 and applies `DocumentDiversityContextSelector` (cap 2/doc, max 6 context).
+    - **Document-focused RAG (`documentId != null`)**: Queries top 6 candidates scoped to that document via `findByDocumentAndNearest` directly, bypassing diversity selection.
+  - **Preserve Pure UI Search**: The REST endpoint `GET /api/v1/projects/{projectId}/documents/search` remains wired to `searchKnowledge`, executing pure similarity search ordered by `c.embedding <=> query_vector ASC` without diversity caps.
+  - **Structured Pipeline Tracing**: Add non-intrusive structured logging at each pipeline stage (`[RAG SEARCH]`, `[RAG RAW RETRIEVAL]`, `[OOAD TRACE]`, `[RAG FILTER]`, `[RAG DTO MAPPING]`) to ensure complete observability of vector distances and UI score mappings.
+- **Rationale**: Enforces a clean architectural separation of concerns: AI Copilot agents synthesize multi-perspective project knowledge and require high document diversity, whereas human users using the UI search bar expect transparent, direct vector similarity ranking.
